@@ -1,0 +1,19 @@
+{
+  "model": "inclusionai/ling-3.0-flash",
+  "task": "G",
+  "run": 3,
+  "iters": 1,
+  "tool_calls": 0,
+  "max_tokens": 8000,
+  "use_tools": false,
+  "prompt_tokens": 152112,
+  "completion_tokens": 2080,
+  "reasoning_tokens": 976,
+  "cost": 0.0007707168,
+  "http_errors": [],
+  "retries_429": 0,
+  "hit_length_cap": false,
+  "elapsed": 13.4,
+  "final": "## 微软 FY26 Q4 摊薄每股收益（Diluted EPS）分析\n\n### 1. GAAP 与非 GAAP 口径及同比增速\n\n**出处**：`press_release.txt` 财报标题段与数据表。\n\n| 口径 | FY26 Q4 EPS | 同比增速 |\n|---|---|---|\n| GAAP | **$4.81** | **+32%** |\n| Non-GAAP | **$4.74** | **+23%** |\n\n非 GAAP 口径排除的是 OpenAI 投资的影响（`press_release.txt` Non-GAAP Definition 段：\"Non-GAAP results exclude the impact from investments in OpenAI\"）。\n\n---\n\n### 2. 去年同期（FY25 Q4）EPS\n\n**出处**：`press_release.txt` 中\"Three Months Ended June 30\"对比数据表。\n\n| 口径 | FY25 Q4 EPS |\n|---|---|\n| GAAP | **$3.65** |\n| Non-GAAP | **$3.86** |\n\nFY25 Q4 OpenAI 对 GAAP 造成净损失 $1,575M（对应 $0.21 的 EPS 拖累），因此 GAAP ($3.65) 低于非 GAAP ($3.86)。\n\n---\n\n### 3. 两个口径增速差距的来源\n\n差距为 32% − 23% = **9 个百分点**。\n\n**具体来源**：OpenAI 投资结果的同比翻转。\n\n- **FY26 Q4**：OpenAI 产生 **净收益 $480M**（GAAP EPS 增加 $0.07）；\n- **FY25 Q4**：OpenAI 产生 **净损失 $1,575M**（GAAP EPS 减少 $0.21）。\n\n这形成约 **$2,055M**（$480M − (−$1,575M)）的同比净改善，全部体现在 GAAP 口径中，但被非 GAAP 口径剔除。因此 GAAP 同比增速（32%）显著高于非 GAAP（23%）。\n\n**是否反映核心经营业务改善？** 不完全反映。GAAP 32% 的增速被人为抬高，OpenAI 的投资收益属于非经常性项目。非 GAAP 23% 的增速才是剔除投资影响后、更能代表核心经营业务（含 Azure、Microsoft Cloud 等）真实改善的指标。从经营基本面看，营收同比 +18%、营业利润同比 +18%，与非 GAAP EPS +23% 的增速较为匹配，说明核心业务确实实现了稳健增长。\n\n---\n\n### 4. \"离散项\" vs GAAP/非 GAAP 差异 —— 是否一回事？\n\n**不是一回事。**\n\n**出处**：`press_release.txt` 第一段：\"Several discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share. These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program which were partially offset by severance expense and impairment charges in XBOX.\"\n\n- **离散项**（Anthropic 收益 $3.2B、VRP 费用低于预期、XBOX 减值等）是**相对于公司此前指引**的超预期/低于预期项目。它们属于经营性或投资性的实际结果，**同时计入 GAAP 和非 GAAP**，因为非 GAAP 仅剔除 OpenAI 投资影响，不剔除这些项目。\n- **GAAP/非 GAAP 的差异**则**完全来自 OpenAI 投资**（本季度剔除的 $480M 收益）。\n\n简言之：离散项是\"vs 指引\"的偏差，GAAP/非 GAAP 差异是\"vs 会计准则\"的调整，两者**调整的对象和方向完全不同**。",
+  "trace": []
+}

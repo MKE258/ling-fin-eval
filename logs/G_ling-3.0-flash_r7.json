@@ -1,0 +1,19 @@
+{
+  "model": "inclusionai/ling-3.0-flash",
+  "task": "G",
+  "run": 7,
+  "iters": 1,
+  "tool_calls": 0,
+  "max_tokens": 8000,
+  "use_tools": false,
+  "prompt_tokens": 152112,
+  "completion_tokens": 2065,
+  "reasoning_tokens": 1149,
+  "cost": 0.0007697718,
+  "http_errors": [],
+  "retries_429": 0,
+  "hit_length_cap": false,
+  "elapsed": 13.4,
+  "final": "## 微软 FY26 Q4 摊薄每股收益（Diluted EPS）分析\n\n### 1. GAAP 与非 GAAP 口径及同比增长\n\n| 口径 | FY26 Q4 摊薄 EPS | 同比增长 |\n|---|---|---|\n| GAAP | **$4.81**（+32%） | 32% |\n| 非 GAAP | **$4.74**（+23%） | 23% |\n\n**出处**：press_release.txt 开头声明——\"Diluted earnings per share was $4.81 and increased 32% on a GAAP basis, and was $4.74 and increased 23% on a non-GAAP basis。\"\n\n### 2. 去年同期（FY25 Q4）摊薄 EPS\n\n| 口径 | FY25 Q4 摊薄 EPS |\n|---|---|\n| GAAP | **$3.65** |\n| 非 GAAP | **$3.86** |\n\n**出处**：表格中 Three Months Ended June 30, 2025 列——GAAP D EPS 为 $3.65；Non-GAAP D EPS 为 $3.86。\n\n### 3. 两个口径同比增速差距的解释\n\nGAAP 同比增速（32%）比非 GAAP（23%）高出 **9 个百分点**。这一差距**并非来自核心经营业务的改善**，而是源于 **OpenAI 投资会计影响在两年间的反转**：\n\n- **FY26 Q4**：OpenAI 投资产生净收益 $480 万美元，使 GAAP EPS 比非 GAAP EPS 高出 **$0.07**。\n- **FY25 Q4**：OpenAI 投资产生净亏损 $1,575 万美元，使 GAAP EPS 比非 GAAP EPS 低 **$0.21**。\n\n**出处**：Non-GAAP Definition 部分——\"In fiscal year 2026… increase in… diluted earnings per share of… $0.07, respectively, in the fourth quarter\" 以及 \"In fiscal year 2025… decrease in… diluted earnings per share of… $0.21, respectively, in the fourth quarter\"。\n\n由于 FY25 是亏损拖累（GAAP 被人为拉低），FY26 是收益增益（GAAP 被人为拉高），OpenAI 影响在两年间反转了 $0.28（从 -$0.21 变为 +$0.07），这直接放大了 GAAP EPS 的同比增速，造成两个口径增速的明显差距。这**不反映**核心业务的改善。\n\n### 4. 离散项与口径差异的关系\n\n**不是同一回事**。\n\n财报提到的\"相对于此前指引的离散项\"包括：\n- **$32 亿 Anthropic 投资收益**\n- **自愿退休计划（Voluntary Retirement Program）低于预期的费用**\n- 部分被 XBOX 的遣散费和减值费用抵消\n\n这些项目带来的净收益为 EPS 贡献了 **$0.27**。\n\n**出处**：press_release.txt 中 \"Several discrete items impacted our financial results… resulting in a benefit of $0.27 on diluted earnings per share. These include a $3.2 billion gain from our investment in Anthropic…\"\n\n**两者的区别**：\n- **口径差异**（第 3 问）：是 GAAP 与非 GAAP 在**会计处理方法**上的系统性差异，源于 OpenAI 投资在 FY25（亏损）和 FY26（收益）跨年的反转，影响的是 YoY 增速比较。\n- **离散项**：是实际经营结果与 April 29, 2026 指引之间的**偏差**，属于经营层面的意外收益/损失，在 GAAP 和非 GAAP 两个口径中**都保留**（因为非 GAAP 只剔除 OpenAI 影响，不剔除 Anthropic 等其他项目）。\n\n简言之，离散项是\"实际 vs 指引\"的经营偏差，口径差异是\"GAAP vs Non-GAAP\"的会计差异，两者因果不同、性质不同。",
+  "trace": []
+}

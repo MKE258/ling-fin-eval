@@ -1,0 +1,19 @@
+{
+  "model": "inclusionai/ling-3.0-flash-fin:free",
+  "task": "G",
+  "run": 6,
+  "iters": 1,
+  "tool_calls": 0,
+  "max_tokens": 8000,
+  "use_tools": false,
+  "prompt_tokens": 152112,
+  "completion_tokens": 2648,
+  "reasoning_tokens": 1294,
+  "cost": 0.0,
+  "http_errors": [],
+  "retries_429": 0,
+  "hit_length_cap": false,
+  "elapsed": 27.9,
+  "final": "## 1. FY26 Q4 摊薄每股收益（Diluted EPS）\n\n| 口径 | FY26 Q4 EPS | 同比增长 |\n|------|------------|---------|\n| GAAP | $4.81 | +32% |\n| Non-GAAP | $4.74 | +23% |\n\n**出处：** press_release.txt 开头段落及 Non-GAAP Reconciliation 表格。GAAP 与 Non-GAAP 的差异仅来自 OpenAI 投资影响（FY26 Q4 为 +$0.07 的净收益）。\n\n---\n\n## 2. FY25 Q4（去年同期）摊薄每股收益\n\n| 口径 | FY25 Q4 EPS |\n|------|------------|\n| GAAP | $3.65 |\n| Non-GAAP | $3.86 |\n\n**出处：** press_release.txt 中 Non-GAAP Reconciliation 表格的 FY25 Q4 列。\n\n---\n\n## 3. 两个口径同比增速差距的来源\n\nGAAP 同比 +32%，Non-GAAP 同比 +23%，差距约 9 个百分点。**这个差距完全来自 OpenAI 投资损益的年度摆动，而非核心经营业务的改善。**\n\n具体机制如下：\n\n- **FY25 Q4**：OpenAI 投资产生净损失，对 GAAP EPS 造成 **−$0.21** 的拖累（即 GAAP 比 Non-GAAP 低 $0.21）。\n- **FY26 Q4**：OpenAI 投资产生净收益，对 GAAP EPS 贡献 **+$0.07**（即 GAAP 比 Non-GAAP 高 $0.07）。\n\n从 −$0.21 到 +$0.07，OpenAI 对 GAAP EPS 的影响摆动达 **$0.28/股**。这使得 GAAP 的基数（FY25 Q4 $3.65）被人为压低，而 FY26 Q4（$4.81）被人为抬高，从而大幅拉高了 GAAP 同比增速。Non-GAAP 口径剔除了这一投资损益波动，只反映核心经营趋势。\n\n**结论：** 增速差距并不反映核心经营业务的改善。核心经营（剔除 OpenAI 后）的真实改善幅度约为 23%，与 Non-GAAP 口径一致。\n\n**出处：** press_release.txt \"Non-GAAP Definition\" 段落，明确列示了 FY26 Q4 OpenAI 净收益 +$480M（+$0.07）和 FY25 Q4 OpenAI 净损失 −$1,575M（−$0.21）。\n\n---\n\n## 4. \"离散项\"（Discrete Items）与口径差异是否同一回事？\n\n**不是同一回事。** 两者是完全不同的概念：\n\n### （a）口径差异 = OpenAI 投资影响（GAAP vs Non-GAAP）\n- 仅涉及 OpenAI 一项投资。\n- FY26 Q4：+$0.07/股；FY25 Q4：−$0.21/股。\n- 这是**会计准则层面的调整**——Non-GAAP 排除 OpenAI 是为了让投资者看清经营趋势。\n\n### （b）离散项 = 实际业绩 vs 公司此前指引的偏差\n- 来自 press_release.txt：\"Several discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share.\"\n- 内容包括：\n  - **Anthropic 投资**产生 $32 亿收益（+$0.27 中的主要部分）\n  - 自愿退休计划（VRP）费用低于预期\n  - 部分被 XBOX 的遣散费和减值支出抵消\n- 这些是**与管理层自身指引的比较**，且 Anthropic 的收益**并未**从 Non-GAAP 中剔除（Non-GAAP 只排除 OpenAI），因此 Anthropic 收益同时包含在 GAAP 和 Non-GAAP 中。\n\n### 关键区别\n| | 口径差异（GAAP vs Non-GAAP） | 离散项（vs 指引） |\n|---|---|---|\n| 涉及的投资 | 仅 OpenAI | Anthropic + VRP + XBOX |\n| 金额 | +$0.07/股（FY26 Q4） | +$0.27/股（合计） |\n| 性质 | 会计政策调整 | 实际与预期的偏差 |\n| 是否影响 Non-GAAP | 是（被剔除） | 否（Anthropic 仍在 Non-GAAP 中） |\n\n**出处：** press_release.txt 开头段落（离散项说明）及 \"Non-GAAP Definition\" 段落（OpenAI 调整说明）。",
+  "trace": []
+}

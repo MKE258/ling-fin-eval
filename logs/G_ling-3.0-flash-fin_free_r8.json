@@ -1,0 +1,19 @@
+{
+  "model": "inclusionai/ling-3.0-flash-fin:free",
+  "task": "G",
+  "run": 8,
+  "iters": 1,
+  "tool_calls": 0,
+  "max_tokens": 8000,
+  "use_tools": false,
+  "prompt_tokens": 152112,
+  "completion_tokens": 2529,
+  "reasoning_tokens": 1324,
+  "cost": 0.0,
+  "http_errors": [],
+  "retries_429": 0,
+  "hit_length_cap": false,
+  "elapsed": 31.6,
+  "final": "## 微软 FY26 Q4 摊薄每股收益（Diluted EPS）详解\n\n### 1. GAAP 口径与非 GAAP 口径及各自同比增速\n\n| 口径 | FY26 Q4 EPS | 同比增长 |\n|------|------------|---------|\n| GAAP | **$4.81** | **+32%** |\n| Non-GAAP | **$4.74** | **+23%** |\n\n**出处：** press_release.txt 开头段落及 GAAP/non-GAAP 对齐表（Three Months Ended June 30, 2026 行）。\n\n---\n\n### 2. 去年同期（FY25 Q4）的 GAAP 和非 GAAP 摊薄每股收益\n\n| 口径 | FY25 Q4 EPS |\n|------|------------|\n| GAAP | **$3.65** |\n| Non-GAAP | **$3.86** |\n\n**出处：** 同上表格中 Three Months Ended June 30, 2025 行。\n\n验证同比增速：\n- GAAP：($4.81 − $3.65) / $3.65 ≈ 32% ✓\n- Non-GAAP：($4.74 − $3.86) / $3.86 ≈ 23% ✓\n\n---\n\n### 3. 两个口径同比增速差距的来源及是否反映核心经营改善\n\n**差距：9 个百分点（32% vs 23%）。**\n\n**具体来源：OpenAI 投资的净损益在不同期间的方向相反。**\n\n- **FY26 Q4：** OpenAI 投资贡献了**净收益**，使 GAAP EPS 增加 **$0.07**（press_release.txt Non-GAAP Definition 段落）。\n- **FY25 Q4：** OpenAI 投资造成了**净亏损**，使 GAAP EPS 减少 **$0.21**（同上段落）。\n\n这导致 GAAP 口径的同比基数（FY25 Q4 $3.65）被 OpenAI 亏损压低，而比较期（FY26 Q4 $4.81）又被 OpenAI 收益推高。GAAP 同比多\"赚了\"一个从 −$0.21 到 +$0.07 的 **$0.28 摆幅**，从而增速高达 32%。而非 GAAP 口径剔除了这一投资波动，更能反映真实经营趋势，增速为 23%。\n\n**是否反映核心经营业务改善？——否。** 这 9 个百分点的差距完全来自 OpenAI 股权投资的公允价值变动（非经营性损益），并非核心业务经营改善。Non-GAAP 口径（剔除 OpenAI 影响后）的 23% 增速才是核心经营业绩的真实反映。\n\n---\n\n### 4. \"相对于此前指引的离散项\"与 GAAP/non-GAAP 口径差异是否同一回事\n\n**不是同一回事。** 两者是完全不同的概念：\n\n| 对比维度 | GAAP vs Non-GAAP 差异 | 离散项（vs 指引） |\n|---------|----------------------|------------------|\n| **调整对象** | 仅调整 OpenAI 投资净损益 | 调整多项一次性项目 |\n| **参照基准** | 去年同期（同比口径） | 公司自身于 2026 年 4 月 29 日发布的前瞻指引 |\n| **具体内容** | OpenAI 投资的公允价值变动 | $3.2B Anthropic 投资收益、VRP 费用低于预期、XBOX 遣散费及减值 |\n| **金额** | $0.07（单季 EPS 影响） | 合计 $0.27（单季 EPS 影响） |\n| **目的** | 便于同比可比性 | 说明实际结果与自身指引的偏离 |\n\n**出处：** press_release.txt 中明确将两者分开表述——Non-GAAP Definition 段落仅说明 OpenAI 的影响；而 \"Several discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share\" 单独列出 Anthropic 收益、VRP 和 XBOX 项目。\n\n简言之：**GAAP/non-GAAP 的 $0.07 差异 = OpenAI 投资影响；离散项的 $0.27 偏离 = Anthropic + VRP + XBOX 等一次性项目对自身指引的偏离。两者互不重叠、互不包含。**",
+  "trace": []
+}

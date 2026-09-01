@@ -1,0 +1,19 @@
+{
+  "model": "inclusionai/ling-3.0-flash",
+  "task": "G",
+  "run": 10,
+  "iters": 1,
+  "tool_calls": 0,
+  "max_tokens": 8000,
+  "use_tools": false,
+  "prompt_tokens": 152112,
+  "completion_tokens": 2599,
+  "reasoning_tokens": 1478,
+  "cost": 0.0008034138,
+  "http_errors": [],
+  "retries_429": 0,
+  "hit_length_cap": false,
+  "elapsed": 15.5,
+  "final": "**1. FY26 Q4 摊薄 EPS 及同比增长**\n\n- **GAAP 口径**：$4.81，同比增长 32%\n  - 出处：press_release.txt 头部摘要 \"Diluted earnings per share was $4.81 and increased 32% on a GAAP basis\"；financial_statements.txt Quarterly Income Statements 中 Q4 FY26 GAAP Diluted EPS = $4.81，Q4 FY25 GAAP Diluted EPS = $3.65，($4.81−$3.65)/$3.65 ≈ 32%。\n\n- **非 GAAP 口径**：$4.74，同比增长 23%\n  - 出处：press_release.txt \"was $4.74 and increased 23% on a non-GAAP basis\"；financial_statements.txt 中 Q4 FY26 non-GAAP Diluted EPS = $4.74，Q4 FY25 non-GAAP Diluted EPS = $3.86，($4.74−$3.86)/$3.86 ≈ 23%。\n\n**2. 去年同期（FY25 Q4）摊薄 EPS**\n\n- **GAAP**：$3.65（出处：financial_statements.txt Quarterly Income Statements，FY25 Q4 GAAP Diluted EPS 列）\n- **非 GAAP**：$3.86（出处：同上，FY25 Q4 non-GAAP Diluted EPS 列）\n\n**3. 两个口径同比增速差距的来源**\n\nGAAP 增速 32% 与非 GAAP 增速 23% 之间约 9 个百分点的差距，**完全来自 OpenAI 投资的会计影响**，而非核心经营业务本身。\n\n具体机制如下（出处：press_release.txt Non-GAAP Definition 段落，以及 quarterly reconciliation 表中的 \"Impact from OpenAI\" 列）：\n\n| | FY26 Q4 | FY25 Q4 |\n|---|---|---|\n| OpenAI 对净利润的影响 | 净收益 +$480M | 净亏损 −$1,575M |\n| OpenAI 对 EPS 的影响 | +$0.07 | −$0.21 |\n\n- **FY26 Q4**：OpenAI 投资录得净收益 $480M，使 GAAP EPS 比 non-GAAP EPS **高** $0.07。\n- **FY25 Q4**：OpenAI 投资录得净亏损 $1,575M，使 GAAP EPS 比 non-GAAP EPS **低** $0.21。\n\n因此，在同比比较中，GAAP 增速被\"双向放大\"：今年有 OpenAI 正贡献（+$0.07），去年有 OpenAI 负贡献被移除（同比基数低 $0.21），导致 GAAP 同比增速（32%）显著高于 non-GAAP 同比增速（23%）。\n\n**这不反映核心经营业务的改善**——non-GAAP 口径才是剔除 OpenAI 投资影响后反映核心经营业绩的指标，其 23% 的增速才是经营层面真实表现的反映。\n\n**4. 离散项与口径差异是否同一回事**\n\n**不是同一回事。**\n\n- **口径差异**（GAAP vs non-GAAP 增速差）来自 OpenAI 投资的影响，如上述分析。\n- **离散项**（$0.27 EPS 增量）包括 $3.2B Anthropic 投资收益、Voluntary Retirement Program 节省，部分被 XBOX 减值和遣散费抵消（出处：press_release.txt \"Several discrete items impacted our financial results… resulting in a benefit of $0.27 on diluted earnings per share\"）。这些离散项**在 GAAP 和 non-GAAP 口径下都予以计入**（因为它们与 OpenAI 投资无关），因此它们同时作用于两个口径，**不会造成口径之间的增速差异**。\n\n简言之：离散项是\"同一方向地\"影响两个口径的额外正向因素；而口径增速差异则是由 OpenAI 投资的非经营性会计影响在两个年份的不对称分布造成的。",
+  "trace": []
+}

@@ -1,0 +1,19 @@
+{
+  "model": "inclusionai/ling-3.0-flash",
+  "task": "G",
+  "run": 4,
+  "iters": 1,
+  "tool_calls": 0,
+  "max_tokens": 8000,
+  "use_tools": false,
+  "prompt_tokens": 152112,
+  "completion_tokens": 1888,
+  "reasoning_tokens": 1013,
+  "cost": 0.0007586208,
+  "http_errors": [],
+  "retries_429": 0,
+  "hit_length_cap": false,
+  "elapsed": 32.4,
+  "final": "**1. FY26 Q4 摊薄 EPS（diluted EPS）**\n\n- **GAAP 口径**：$4.81，同比增长 32%（出处：press_release.txt 首段及 GAAP/non-GAAP 对比表）。\n- **Non-GAAP 口径**：$4.74，同比增长 23%（出处：press_release.txt 首段及 GAAP/non-GAAP 对比表）。\n\n**2. 去年同期（FY25 Q4）摊薄 EPS**\n\n- **GAAP**：$3.65（出处：GAAP/non-GAAP 对比表中 \"As Reported (GAAP)\" 列，FY25 Q4）。\n- **Non-GAAP**：$3.86（出处：GAAP/non-GAAP 对比表中 \"As Adjusted (non-GAAP)\" 列，FY25 Q4）。\n\n验证：($4.81 − $3.65) / $3.65 ≈ 31.8% ≈ 32%；($4.74 − $3.86) / $3.86 ≈ 22.8% ≈ 23%。\n\n**3. 两个口径增速差距的来源**\n\n差距为 9 个百分点（32% − 23%），具体来源于 **OpenAI 投资在两年间的 mark-to-market 摆动**：\n\n- FY26 Q4：OpenAI 净收益对 EPS 贡献 **+$0.07**（净收益 $480M）。\n- FY25 Q4：OpenAI 净损失对 EPS 拖累 **−$0.21**（净损失 $1,575M）。\n\n这一 swing（从 −$0.21 到 +$0.07，共计 $0.28/人）使得 GAAP 口径下的同比增速被人为放大。Non-GAAP 口径在两年中都扣除了 OpenAI 影响，因此 23% 的增速更接近核心业务的真实改善。**这个口径差异并不反映核心经营业务的改善**，它反映的是 OpenAI 股权重估在不同期间方向相反所制造的会计波动。\n\n**4. 离散项与口径差异是否为同一回事？**\n\n**不是同一回事**。财报中提到的\"离散项\"（$0.27 EPS 收益，包括 Anthropic 投资 $3.2B 收益、Voluntary Retirement Program 费用低于预期，部分被 XBOX 的遣散费和减值抵消）是 **一次性经营/交易事项**，它们在 GAAP 和 Non-GAAP 两个口径中 **都会被包含**（Non-GAAP 仅剔除 OpenAI 影响，不剔除这些离散项）。\n\n而 GAAP 与 Non-GAAP 的口径差异 **仅来源于 OpenAI 投资的剔除**。因此，离散项解释了 $0.27 的 EPS 超预期部分，但无法解释 GAAP（32%）与 Non-GAAP（23%）之间 9 个百分点的增速差——后者完全由 OpenAI 在两年间方向相反的影响所驱动。",
+  "trace": []
+}

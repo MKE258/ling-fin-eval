@@ -1,0 +1,154 @@
+{
+  "model": "inclusionai/ling-3.0-flash",
+  "task": "F",
+  "run": 28,
+  "iters": 9,
+  "tool_calls": 15,
+  "max_tokens": 32768,
+  "use_tools": true,
+  "prompt_tokens": 189660,
+  "completion_tokens": 7582,
+  "reasoning_tokens": 907,
+  "cost": 0.0018166092,
+  "http_errors": [],
+  "retries_429": 0,
+  "hit_length_cap": false,
+  "elapsed": 54.2,
+  "final": "# 微软 FY26 Q4（截至 2026 年 6 月 30 日）三大业务分部完整分析报告\n\n## 一、公司整体业绩概览\n\n**FY26 Q4 全公司合计**（GAAP 口径，所有增长均为同比）：\n\n| 指标 | FY26 Q4 | FY25 Q4 | YoY |\n|---|---|---|---|\n| 营业收入 | $90,007M | $76,441M | +18%（恒定汇率 +17%）|\n| 营业成本 | $29,525M | $24,014M | +22.9% |\n| 经营费用 | $19,879M | $18,104M | +9.8% |\n| 经营利润 | $40,603M | $34,323M | +18% |\n| 经营利润率 | 45.1% | 44.9% | +0.2 pp |\n| 净利润（GAAP） | $35,766M | $27,233M | +31% |\n| 净利润（非 GAAP） | $35,286M | $28,808M | +22% |\n| 摊薄 EPS（GAAP） | $4.81 | $3.65 | +32% |\n| 摊薄 EPS（非 GAAP） | $4.74 | $3.86 | +23% |\n\n**口径提示**：本季度存在若干一次性项目，对 EPS 形成 $0.27 的正向冲击——包括 Anthropic 投资收益 $32 亿、以及自愿退休计划（Voluntary Retirement Program）费用低于预期，部分被 XBOX 的遣散费和减值抵消（`press_release.txt` 第 0 段；`transcript.txt` 第 19645 行）。下文分部层面如未特别说明均为 GAAP 口径同比。\n\n**分部加总数与合计勾稽**：经逐一加总验证，三个分部的收入（$37,847 + $39,306 + $12,854 = $90,007M）、营业成本（$6,989 + $16,876 + $5,660 = $29,525M）、经营费用（$8,958 + $6,475 + $4,446 = $19,879M）、经营利润（$21,900 + $15,955 + $2,748 = $40,603M）均与全公司合计完全一致（`financial_statements.txt` Segment Results 工作表）。\n\n---\n\n## 二、分部一：Productivity and Business Processes（生产力与商业流程）\n\n### 1. Q4 关键财务数字\n\n| 指标 | FY26 Q4 | FY25 Q4 | YoY 变化 |\n|---|---|---|---|\n| 营业收入 | $37,847M | $33,112M | **+14%**（恒定汇率 +14%）|\n| 营业成本 | $6,989M | $6,042M | +15.7% |\n| 经营费用 | $8,958M | $8,077M | +10.9% |\n| 经营利润 | $21,900M | $18,993M | **+15.3%** |\n| 经营利润率 | 57.9% | 57.4% | +0.5 pp |\n\n数据来源：`press_release.txt` 第 4 段；`financial_statements.txt` Segment Results 工作表（Productivity and Business Processes 行，Q4'26 与 Q4'25 列）。\n\n### 2. 增长驱动因素（原文出处）\n\n**（1）Microsoft 365 Commercial 云**：按调整后口径（剔除上年同期因 2 个百分点在期确认带来的高基数）同比增长 16%，按报告口径同比增长 14%（`press_release.txt` 第 4 段；`transcript.txt` 第 22960 行）。\n\n**（2）M365 Commercial 产品收入**：同比增长 19%，\"超出预期，受益于大量长期 M365 合同带来的 Windows Commercial 在产品收入的高在期确认\"（`transcript.txt` 第 22960 行）。\n\n**（3）M365 Consumer 云**：同比增长 24%（恒定汇率 22%），由 ARPU 增长驱动，订阅数同比增长 7%（`transcript.txt` 第 22960 行）。\n\n**（4）LinkedIn**：收入同比增长 12%（恒定汇率 10%），主要由 Marketing Solutions 驱动（`press_release.txt` 第 4 段；`transcript.txt` 第 22960 行）。\n\n**（5）Dynamics 365**：同比增长 13%（恒定汇率 12%），ERP 预订保持健康，CRM 因销售周期变长而有所放缓（`press_release.txt` 第 4 段；`transcript.txt` 第 22960 行）。\n\n**（6）分部毛利**：毛利美元同比增长 14%（恒定汇率 13%），但毛利率因 M365 Copilot 使用量增加带来的产品品质投入而小幅下降（`transcript.txt` 第 22960 行）。\n\n**（7）经营费用**：同比增长 11%，主因前述共享 R&D 投资投入（`transcript.txt` 第 22960 行）。\n\n**（8）经营利润率**：同比提升 0.5 pp 至 57.9%（`transcript.txt` 第 22960 行明确称 \"operating margins increased year-over-year to 58%\"）。\n\n---\n\n## 三、分部二：Intelligent Cloud（智能云）\n\n### 1. Q4 关键财务数字\n\n| 指标 | FY26 Q4 | FY25 Q4 | YoY 变化 |\n|---|---|---|---|\n| 营业收入 | $39,306M | $29,878M | **+32%**（恒定汇率 +31%）|\n| 营业成本 | $16,876M | $11,845M | +42.5% |\n| 经营费用 | $6,475M | $5,893M | +9.9% |\n| 经营利润 | $15,955M | $12,140M | **+31.4%** |\n| 经营利润率 | 40.6% | 40.6% | 持平 |\n\n数据来源：`press_release.txt` 第 5 段；`financial_statements.txt` Segment Results 工作表（Intelligent Cloud 行）。\n\n### 2. 增长驱动因素（原文出处）\n\n**（1）Azure 及其他云服务**：收入同比增长 43%，\"面对的客户需求持续超过可用产能……收入增长超预期，得益于 CPU 和 GPU 集群的效率提升以及实现新产能更早交付的流程改进……这部分额外在季度产能被迅速货币化\"（`press_release.txt` 第 5 段；`transcript.txt` 第 24808 行）。\n\n**（2）本地服务器（On-premises Server）**：\"收入基本与去年持平，恒定汇率下下降 1%，主要受益于合同组合带来的更高在期确认\"（`transcript.txt` 第 24808 行）。\n\n**（3）分部毛利**：毛利美元同比增长 24%，但毛利率因 Azure 销售结构转移及 AI 基础设施持续规模化投资而同比下降，部分被 Azure 持续效率改善抵消；GitHub Copilot 使用量增长也对毛利率造成压力，但 6 月转向用量定价后毛利率在季度内有所改善（`transcript.txt` 第 24808 行）。\n\n**（4）经营费用**：同比增长 10%，由前述共享 R&D 投资驱动（`transcript.txt` 第 24808 行）。\n\n**（5）经营利润与利润率**：经营利润同比增长 31%；\"经营利润率……同比基本持平于 41%\"（`transcript.txt` 第 24808 行。注意：分部层面口径 41% 与合计表 40.6% 略有差异，系 Amy Hood 在电话会上采用了四舍五入表述）。\n\n**（6）Microsoft Cloud 整体**：分部收入 $59.3B，同比增长 27%；商业 RPO 增长 84% 至 $678B（`press_release.txt` 第 0 段）。\n\n---\n\n## 四、分部三：More Personal Computing（更多个人计算）\n\n### 1. Q4 关键财务数字\n\n| 指标 | FY26 Q4 | FY25 Q4 | YoY 变化 |\n|---|---|---|---|\n| 营业收入 | $12,854M | $13,451M | **−4%**（恒定汇率 −5%）|\n| 营业成本 | $5,660M | $6,127M | −7.6% |\n| 经营费用 | $4,446M | $4,134M | +7.5% |\n| 经营利润 | $2,748M | $3,190M | **−13.9%** |\n| 经营利润率 | 21.4% | 23.7% | −2.3 pp |\n\n数据来源：`press_release.txt` 第 6 段；`financial_statements.txt` Segment Results 工作表（More Personal Computing 行）。\n\n### 2. 下滑驱动因素（原文出处）\n\n**（1）Windows OEM 与设备**：收入同比下降 7%，其中 Windows OEM 下降 5%，原因为 PC 市场需求疲弱及上年同期 Windows 10 结束支持带来高基数。\"结果好于预期，因为 OEM 和渠道合作伙伴考虑到组件价格上涨继续建立库存\"（`press_release.txt` 第 6 段；`transcript.txt` 第 26435 行）。\n\n**（2）XBOX 内容与服务**：收入同比下降 10%，\"面对上年同期强劲第一方内容表现带来的高基数\"（`press_release.txt` 第 6 段；`transcript.txt` 第 27080 行）。Satya Nadella 在电话会上明确表态：\"在 XBOX 方面，我们正在跨内容组合、平台和运营做出必要决策，以重置业务实现长期增长……我们预计在 FY27 恢复增长\"（`transcript.txt` 第 17147 行）。\n\n**（3）XBOX 相关减值与遣散**：本季度 XBOX 计提遣散费和减值（具体金额未单独披露，详见 `press_release.txt` 第 0 段及 `transcript.txt` 第 19645 行关于一次性项目的说明），对分部经营费用形成上行压力。\n\n**（4）搜索广告（剔除 TAC）**：同比增长 10%（恒定汇率 9%），由 Edge 和 Bing 的单次搜索收入提高及搜索量增长驱动，但受到第三方合作伙伴关系的影响（`press_release.txt` 第 6 段；`transcript.txt` 第 26435 行）。\n\n**（5）分部毛利**：毛利美元同比下降 2%，毛利率同比上升，因 Activision 并购摊销减少（`transcript.txt` 第 27080–27138 行）。\n\n**（6）经营费用**：同比增长 8%（恒定汇率 7%），由共享 R&D 投资及 XBOX 减值共同驱动（`transcript.txt` 第 27592 行）。\n\n**（7）经营利润与利润率**：经营利润同比下降 14%（恒定汇率 15%）；\"经营利润率……同比下降至 21%\"（`transcript.txt` 第 27592 行）。\n\n---\n\n## 五、分部对比汇总表\n\n| 指标 | Productivity & Business Processes | Intelligent Cloud | More Personal Computing | 全公司合计 |\n|---|---|---|---|---|\n| **Q4 FY26 营收 ($M)** | 37,847 | 39,306 | 12,854 | 90,007 |\n| **Q4 FY25 营收 ($M)** | 33,112 | 29,878 | 13,451 | 76,441 |\n| **营收 YoY** | +14% | +32% | −4% | +18% |\n| **Q4 FY26 营业成本 ($M)** | 6,989 | 16,876 | 5,660 | 29,525 |\n| **营业成本 YoY** | +15.7% | +42.5% | −7.6% | +22.9% |\n| **Q4 FY26 经营费用 ($M)** | 8,958 | 6,475 | 4,446 | 19,879 |\n| **经营费用 YoY** | +10.9% | +9.9% | +7.5% | +9.8% |\n| **Q4 FY26 经营利润 ($M)** | 21,900 | 15,955 | 2,748 | 40,603 |\n| **经营利润 YoY** | +15.3% | +31.4% | −13.9% | +18% |\n| **Q4 FY26 经营利润率** | 57.9% | 40.6% | 21.4% | 45.1% |\n| **Q4 FY25 经营利润率** | 57.4% | 40.6% | 23.7% | 44.9% |\n| **营业利润率 YoY** | +0.5 pp | 持平 | −2.3 pp | +0.2 pp |\n| **主要增长驱动** | M365 Commercial 14-16%、LinkedIn +12%、D365 +13% | Azure +43% | 搜索广告 +10%；Windows OEM −7%、XBOX −10% 拖累 |\n\n**全公司合计验证**：\n- 收入合计：37,847 + 39,306 + 12,854 = **90,007** ✓\n- 营业成本合计：6,989 + 16,876 + 5,660 = **29,525** ✓\n- 经营费用合计：8,958 + 6,475 + 4,446 = **19,879** ✓\n- 经营利润合计：21,900 + 15,955 + 2,748 = **40,603** ✓\n\n---\n\n## 六、口径提示（读者使用注意事项）\n\n1. **分部 vs 公司合计的口径差异**：上述分部数据仅包含分部层面的收入、成本与经营费用，不含\"Other income/expense, net\"（本季度 $3,444M，上年同期 −$1,707M）。公司经营利润 = 分部经营利润合计 + 其他收益（$40,603 + $3,444 ≠ $40,603，因为公司合计经营利润 $40,603M 已包含分部外其他项目的净额调整）。因此 **分部经营利润加总 ≠ 公司经营利润** 的差额来源于 Other income/expense。本报告分部合计恰好等于公司数，是因为 Microsoft 报告口径下 Other income/expense 列示在分部之外但归入公司经营利润——经核对 `financial_statements.txt` 显示公司合计 $40,603M 等于三分部之和 $40,603M，说明本季度 Other income/expense net 为零或已并入分部（`financial_statements.txt` 显示 Other income net = $3,444M 与 $34,323M 的差值已包含在分部间分配中，请注意分部合计与公司合计的一致性验证以 `financial_statements.txt` Segment Results 工作表为准）。\n\n2. **不可直接比较的指标**：\n   - **毛利率**（分部层面未直接披露百分比，仅披露毛利美元与百分比变化方向；公司层面为 67%）。不同分部的毛利率结构差异极大（Intelligent Cloud 因 Azure 高毛利但 COGS 同比 +42.5% 显著拖累，More Personal Computing 因 Activision 摊销减少反而毛利率上升），不宜跨分部直接比较毛利率绝对值。\n   - **经营利润率**：各分部利润率跨度从 21%（More Personal Computing）到 58%（Productivity and Business Processes），可比性较强但需注意分部业务模型差异。\n   - **增长口径**：报告口径 vs 恒定汇率口径可能不同（如 More Personal Computing 营收 −4% 报告 / −5% 恒定汇率）。本报告主要采用报告口径。\n\n3. **一次性项目**：本季度 EPS 受 $3.2B Anthropic 投资收益及 XBOX 减值/遣散等一次性事件影响（净贡献 +$0.27 EPS），分部层面未单独披露这些项目在分部间的分配。\n\n4. **Microsoft Cloud 口径**：$59.3B 是公司层面跨分部汇总指标（主要来自 Intelligent Cloud 和 Productivity and Business Processes 中的 M365 Commercial 云、Azure 等），非某一分部独有。\n\n5. **时间口径**：所有分部数据为季度数据（三个月），财年截至 6 月 30 日，FY26 Q4 对应自然季度 2026 年 4 月 1 日—6 月 30 日。\n\n6. **数据精度**：`press_release.txt` 与 `metrics.txt` 中的某些数字进行了四舍五入（如营收以 $37.8B 表述），详细分项数据以 `financial_statements.txt` Segment Results 工作表的整数金额为准。\n\n---\n\n**出处汇总**：\n- 全公司合计与分部财务：`press_release.txt` 第 0–6 段 + `financial_statements.txt` Segment Results 工作表\n- 分部增长驱动与电话会原文：`transcript.txt` 第 22960 行（Productivity and Business Processes）、第 24808 行（Intelligent Cloud）、第 26435–27592 行（More Personal Computing）\n- 一次性项目说明：`press_release.txt` 第 0 段 + `transcript.txt` 第 19645 行\n- 投资者指标：`metrics.txt`（完整 Q4'26 数据行）\n- 历史分部数据（趋势对照）：`financial_statements.txt` Segment History 工作表",
+  "trace": [
+    {
+      "iter": 1,
+      "tool": "list_materials",
+      "args": {},
+      "result_len": 177
+    },
+    {
+      "iter": 2,
+      "tool": "read_material",
+      "args": {
+        "name": "press_release.txt"
+      },
+      "result_len": 20041
+    },
+    {
+      "iter": 2,
+      "tool": "read_material",
+      "args": {
+        "name": "metrics.txt"
+      },
+      "result_len": 2299
+    },
+    {
+      "iter": 2,
+      "tool": "read_material",
+      "args": {
+        "name": "financial_statements.txt"
+      },
+      "result_len": 20048
+    },
+    {
+      "iter": 3,
+      "tool": "read_material",
+      "args": {
+        "name": "transcript.txt",
+        "length": "60000"
+      },
+      "result_len": 58144
+    },
+    {
+      "iter": 3,
+      "tool": "search_material",
+      "args": {
+        "name": "transcript.txt",
+        "query": "Productivity and Business Processes"
+      },
+      "result_len": 2455
+    },
+    {
+      "iter": 3,
+      "tool": "search_material",
+      "args": {
+        "name": "transcript.txt",
+        "query": "Intelligent Cloud"
+      },
+      "result_len": 2455
+    },
+    {
+      "iter": 3,
+      "tool": "search_material",
+      "args": {
+        "name": "transcript.txt",
+        "query": "More Personal Computing"
+      },
+      "result_len": 2455
+    },
+    {
+      "iter": 4,
+      "tool": "search_material",
+      "args": {
+        "name": "transcript.txt",
+        "query": "Productivity and Business Processes revenue",
+        "max_hits": "10"
+      },
+      "result_len": 67
+    },
+    {
+      "iter": 4,
+      "tool": "search_material",
+      "args": {
+        "name": "transcript.txt",
+        "query": "More Personal Computing revenue declined",
+        "max_hits": "10"
+      },
+      "result_len": 64
+    },
+    {
+      "iter": 4,
+      "tool": "search_material",
+      "args": {
+        "name": "transcript.txt",
+        "query": "XBOX impairment severance",
+        "max_hits": "10"
+      },
+      "result_len": 49
+    },
+    {
+      "iter": 5,
+      "tool": "search_material",
+      "args": {
+        "max_hits": "10",
+        "name": "transcript.txt",
+        "query": "Productivity and Business Processes"
+      },
+      "result_len": 2455
+    },
+    {
+      "iter": 6,
+      "tool": "read_material",
+      "args": {
+        "name": "transcript.txt",
+        "offset": "22960",
+        "length": "10000"
+      },
+      "result_len": 10042
+    },
+    {
+      "iter": 7,
+      "tool": "search_material",
+      "args": {
+        "max_hits": "10",
+        "name": "transcript.txt",
+        "query": "XBOX"
+      },
+      "result_len": 4912
+    },
+    {
+      "iter": 8,
+      "tool": "run_python",
+      "args": {
+        "code": "\n# Verify all reconciliations\nimport json\n\n# Q4 FY26 Segment data (from financial_statements.txt Segment Results)\nseg_q4_26 = {\n    \"Productivity and Business Processes\": {\"revenue\": 37847, \"cost_rev\""
+      },
+      "result_len": 1655
+    }
+  ]
+}

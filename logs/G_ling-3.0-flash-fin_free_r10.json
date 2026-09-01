@@ -1,0 +1,19 @@
+{
+  "model": "inclusionai/ling-3.0-flash-fin:free",
+  "task": "G",
+  "run": 10,
+  "iters": 1,
+  "tool_calls": 0,
+  "max_tokens": 8000,
+  "use_tools": false,
+  "prompt_tokens": 152112,
+  "completion_tokens": 2440,
+  "reasoning_tokens": 1021,
+  "cost": 0.0,
+  "http_errors": [],
+  "retries_429": 0,
+  "hit_length_cap": false,
+  "elapsed": 29.0,
+  "final": "## 微软 FY26 Q4 摊薄每股收益（Diluted EPS）详解\n\n### 1. FY26 Q4 两种口径的 EPS 及同比增速\n\n| 口径 | FY26 Q4 EPS | 同比增速 |\n|------|------------|---------|\n| **GAAP** | **$4.81** | **+32%** |\n| **Non-GAAP** | **$4.74** | **+23%** |\n\n**出处**：`press_release.txt` 中 \"Diluted earnings per share was $4.81 and increased 32% on a GAAP basis, and was $4.74 and increased 23% on a non-GAAP basis\"；以及 GAAP/Non-GAAP 对账表（Q4 FY26 列：GAAP $4.81，OpenAI 影响 $(0.07)，Non-GAAP $4.74）。\n\n---\n\n### 2. FY25 Q4（去年同期）两种口径的 EPS\n\n| 口径 | FY25 Q4 EPS |\n|------|------------|\n| **GAAP** | **$3.65** |\n| **Non-GAAP** | **$3.86** |\n\n**出处**：`press_release.txt` 中 GAAP/Non-GAAP 对账表（Q4 FY25 列：GAAP $3.65，OpenAI 影响 $0.21，Non-GAAP $3.86）。\n\n---\n\n### 3. 两个口径增速差距的来源\n\n32%（GAAP）与 23%（Non-GAAP）之间 **9 个百分点的差距** 完全来自 **OpenAI 投资的影响**，具体机制如下：\n\n- **FY26 Q4**：OpenAI 投资产生了净收益，GAAP 口径包含了这部分收益（+ $0.07/股），而非 GAAP 口径将其剔除。\n- **FY25 Q4**：OpenAI 投资产生了净亏损，GAAP 口径包含了这部分亏损（− $0.21/股），而非 GAAP 口径将其加回。\n\n因此 GAAP 口径的同比基数（$3.65）被人为压低（因含 OpenAI 亏损），而 FY26 Q4 的 GAAP 数值（$4.81）被人为抬高（因含 OpenAI 收益），导致 GAAP 增速（32%）显著高于 Non-GAAP 增速（23%）。\n\n**这并不反映核心经营业务的改善**。Non-GAAP 口径（+23%）才是剔除投资波动后、反映微软实际经营表现的更准确指标。GAAP 与 Non-GAAP 的差异是 **OpenAI 投资会计处理**（权益法下公允价值变动/稀释收益）造成的，而非主营业务的经营差异。\n\n**出处**：`press_release.txt` Non-GAAP Definition 部分：\"In fiscal year 2026, net income and diluted earnings per share were impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted earnings per share of $480 million and $0.07, respectively, in the fourth quarter, and $4,963 million and $0.67, respectively, for the full fiscal year. In fiscal year 2025, net income and diluted earnings per share were impacted by net losses from investments in OpenAI, which resulted in a decrease in net income and diluted earnings per share of $1,575 million and $0.21, respectively, in the fourth quarter…\"\n\n---\n\n### 4. \"离散项\"（Discrete Items）与口径差异不是一回事\n\n财报中提到的\"离散项\"与 GAAP/Non-GAAP 口径差异是 **两个完全不同的概念**：\n\n| 概念 | 涉及金额（每股影响） | 内容 | 用途 |\n|------|-------------------|------|------|\n| **GAAP vs Non-GAAP 差异** | $0.07（Q4 FY26） | 仅来自 OpenAI 投资的净损益 | 经常性调整，便于跨期比较经营表现 |\n| **相对于指引的离散项** | $0.27（Q4 FY26 整体收益） | 包括 $3.2B Anthropic 投资收益、Voluntary Retirement Program 节省费用（部分被 XBOX 遣散费和减值抵消） | 一次性/非经常性项目，解释实际结果与此前（4月29日）指引的偏差 |\n\n**关键区别**：\n\n- **口径差异**是微软每年都做的持续性调整（排除 OpenAI 投资影响），目的是让投资者看清经营性趋势。\n- **离散项**是当季实际结果与此前给出的前瞻性指引之间的偏差来源，属于一次性事件（Anthropic 投资收益、VRP 费用节约、XBOX 减值等），目的是解释\"为什么实际数字和之前指引不一样\"。\n\n两者金额不同、性质不同、目的也不同，**不能混为一谈**。\n\n**出处**：`press_release.txt`：\"Several discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share. These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program which were partially offset by severance expense and impairment charges in XBOX.\"；`transcript.txt` 中 Amy Hood 重复了相同表述。",
+  "trace": []
+}

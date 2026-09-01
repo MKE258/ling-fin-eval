@@ -1,0 +1,19 @@
+{
+  "model": "inclusionai/ling-3.0-flash-fin:free",
+  "task": "G",
+  "run": 7,
+  "iters": 1,
+  "tool_calls": 0,
+  "max_tokens": 8000,
+  "use_tools": false,
+  "prompt_tokens": 152112,
+  "completion_tokens": 2084,
+  "reasoning_tokens": 1023,
+  "cost": 0.0,
+  "http_errors": [],
+  "retries_429": 0,
+  "hit_length_cap": false,
+  "elapsed": 26.2,
+  "final": "## 1. FY26 Q4 摊薄每股收益（diluted EPS）\n\n| 口径 | FY26 Q4 EPS | 同比增长 |\n|------|-------------|----------|\n| GAAP | $4.81 | +32% |\n| Non-GAAP | $4.74 | +23% |\n\n**出处**：press_release.txt 首段及 Non-GAAP 调节表（Three Months Ended June 30, 2026）。\n\n## 2. 去年同期（FY25 Q4）摊薄每股收益\n\n| 口径 | FY25 Q4 EPS |\n|------|-------------|\n| GAAP | $3.65 |\n| Non-GAAP | $3.86 |\n\n**出处**：press_release.txt 中 Non-GAAP 调节表（Three Months Ended June 30, 2025 列）。\n\n## 3. 两个口径同比增速差距的来源\n\n差距为 32% − 23% = **9 个百分点**。这一差距**完全来自 OpenAI 投资的影响**：\n\n- **FY25 Q4**：OpenAI 投资产生净亏损 $1,575M（$0.21/股），拖累了 GAAP EPS。Non-GAAP 口径将其剔除后，FY25 Q4 EPS 从 $3.65 上调至 $3.86，使基数变大，同比增速降低。\n- **FY26 Q4**：OpenAI 投资产生净收益 $480M（$0.07/股），抬高了 GAAP EPS。Non-GAAP 口径将其剔除后，FY26 Q4 EPS 从 $4.81 下调至 $4.74，使分子变小，同比增速降低。\n\n**具体机制**：GAAP 口径下，FY25 Q4 基数被 OpenAI 亏损压低，FY26 Q4 分子被 OpenAI 收益抬高，双向作用使 GAAP 同比增速（32%）远高于 Non-GAAP（23%）。\n\n**是否反映核心经营改善？**：23% 的 Non-GAAP 增速更准确地反映了核心经营业务（收入 +18%、经营利润 +18%）的改善。GAAP 的 32% 增速被 OpenAI 投资损益的波动所放大，不能直接等同于核心经营能力的提升。\n\n**出处**：press_release.txt 中 \"Non-GAAP Definition\" 段及调节表；transcript.txt 中 Amy Hood 发言确认。\n\n## 4. \"离散项\"与口径差异是否同一回事\n\n**不是同一回事。**\n\n- **GAAP vs Non-GAAP 差异**：仅排除 OpenAI 投资的影响（FY26 Q4 为 $0.07/股收益，FY25 Q4 为 $0.21/股亏损）。\n- **相对于指引的离散项**（合计 $0.27/股收益）：包括 (a) Anthropic 投资 $3.2B 收益、(b) 自愿退休计划（VRP）费用低于预期、(c) XBOX 遣散费和减值费用的部分抵消。\n\n两者的区别：\n1. **目的不同**：GAAP→Non-GAAP 是为了剔除 OpenAI 这一长期战略投资的会计影响，以看清经营趋势；离散项是实际结果与 4 月 29 日前瞻指引之间的差异分析。\n2. **内容不同**：Non-GAAP 调整项只有 OpenAI；离散项包括 Anthropic、VRP、XBOX 减值等多个一次性项目。\n3. **数值不同**：OpenAI 对 FY26 Q4 EPS 的影响为 $0.07；而离散项合计影响为 $0.27。\n\n**出处**：press_release.txt 首段（离散项描述）及 Non-GAAP Definition 段；transcript.txt 中 Amy Hood 发言。",
+  "trace": []
+}

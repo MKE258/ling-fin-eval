@@ -1,0 +1,19 @@
+{
+  "model": "inclusionai/ling-3.0-flash-fin:free",
+  "task": "G",
+  "run": 2,
+  "iters": 1,
+  "tool_calls": 0,
+  "max_tokens": 8000,
+  "use_tools": false,
+  "prompt_tokens": 152112,
+  "completion_tokens": 2674,
+  "reasoning_tokens": 1372,
+  "cost": 0.0,
+  "http_errors": [],
+  "retries_429": 0,
+  "hit_length_cap": false,
+  "elapsed": 35.6,
+  "final": "## 微软 FY26 Q4 摊薄每股收益（Diluted EPS）分析\n\n---\n\n### 1. FY26 Q4 的 GAAP 与非 GAAP 摊薄每股收益及各自同比增速\n\n| 口径 | FY26 Q4 EPS | 同比增速 |\n|------|------------|---------|\n| GAAP | **$4.81** | **+32%** |\n| Non-GAAP | **$4.74** | **+23%** |\n\n**出处**：`press_release.txt` 正文（\"Diluted earnings per share was $4.81 and increased 32% on a GAAP basis, and was $4.74 and increased 23% on a non-GAAP basis\"）及 GAAP/non-GAAP 对账表（Q4 列：GAAP $4.81，OpenAI 影响 $(0.07)，Non-GAAP $4.74；去年同期 GAAP $3.65，OpenAI 影响 $0.21，Non-GAAP $3.86）。\n\n---\n\n### 2. 去年同期（FY25 Q4）的 GAAP 与非 GAAP 摊薄每股收益\n\n| 口径 | FY25 Q4 EPS |\n|------|------------|\n| GAAP | **$3.65** |\n| Non-GAAP | **$3.86** |\n\n**出处**：同上 GAAP/non-GAAP 对账表（\"Three Months Ended June 30, 2025\" 列）。\n\n---\n\n### 3. 两个口径同比增速差距的来源及是否反映核心经营改善\n\n**差距大小**：GAAP 增速 32% − 非 GAAP 增速 23% = **9 个百分点**。\n\n**具体来源**：差距完全来自 **OpenAI 投资收益的同比 swing**。根据财报披露（`press_release.txt` Non-GAAP Definition 段落）：\n\n- FY26 Q4：OpenAI 净收益使 EPS 增加 **+$0.07**；\n- FY25 Q4：OpenAI 净亏损使 EPS 减少 **−$0.21**。\n\n两者之间的 swing 为 **$0.28**（即对账表中 \"Net Impact from OpenAI\" 的 $(0.28)）。这个 $0.28 的 swing 正好解释了 GAAP 与非 GAAP 增速之间的全部差距（GAAP 多涨了约 $1.16，非 GAAP 多涨了约 $0.88，差值为 $0.28）。\n\n**是否反映核心经营业务改善？**：**不是。** GAAP 口径 32% 的高增速中，有相当一部分来自 OpenAI 投资的非经营性公允价值变动（主要因 OpenAI 重组导致的稀释收益）。剔除这一投资影响后，非 GAAP 口径的 23% 增速才更接近微软核心业务的真实经营改善幅度。因此，**GAAP 与非 GAAP 之间的增速差异反映的是投资活动波动，而非核心经营业务的改善**。\n\n---\n\n### 4. \"相对于此前指引的离散项\"与第 3 问口径差异是否为同一回事\n\n**不是同一回事**，两者是完全不同的概念：\n\n| | 离散项（vs. 指引） | GAAP vs. Non-GAAP 差异 |\n|---|---|---|\n| **性质** | 实际结果 vs. 4月29日管理层前瞻指引的偏差 | 会计准则 vs. 剔除 OpenAI 后的非 GAAP 指标 |\n| **金额** | **+$0.27** EPS benefit | **$0.28** EPS swing（YoY） |\n| **构成** | Anthropic 投资收益 $32 亿 + 自愿退休计划（VRP）费用节约 − XBOX 遣散费及减值 | 仅 OpenAI 投资的净损益变动 |\n| **比较基准** | 与自身指引对比（forward-looking guidance） | 与去年同期对比（YoY），且仅针对 OpenAI |\n\n**关键区别**：\n- 离散项中提到的 **Anthropic $32 亿收益** 和 **XBOX 减值/遣散费** 并**未被排除在非 GAAP 之外**——微软的非 GAAP 调整**仅剔除 OpenAI 的影响**。因此，非 GAAP EPS $4.74 中仍然包含了 Anthropic 收益和 XBOX 费用的影响。\n- 离散项回答的是\"实际结果为何好于/差于4月的指引\"，而 GAAP/non-GAAP 差异回答的是\"OpenAI 投资波动对同比增速的扭曲程度\"。\n\n**结论**：离散项（Anthropic、VRP、XBOX）与 GAAP/non-GAAP 口径差异（OpenAI）是**两件不同的事**，不应混淆。",
+  "trace": []
+}

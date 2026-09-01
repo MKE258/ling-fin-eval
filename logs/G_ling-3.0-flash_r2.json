@@ -1,0 +1,19 @@
+{
+  "model": "inclusionai/ling-3.0-flash",
+  "task": "G",
+  "run": 2,
+  "iters": 1,
+  "tool_calls": 0,
+  "max_tokens": 8000,
+  "use_tools": false,
+  "prompt_tokens": 152112,
+  "completion_tokens": 2460,
+  "reasoning_tokens": 1552,
+  "cost": 0.0007946568,
+  "http_errors": [],
+  "retries_429": 0,
+  "hit_length_cap": false,
+  "elapsed": 13.1,
+  "final": "### 1. FY26 Q4 摊薄 EPS（GAAP vs 非 GAAP）及其同比增速\n\n| 口径 | FY26 Q4 EPS | 同比增速 | 出处 |\n|---|---|---|---|\n| GAAP | $4.81 | +32% | press_release.txt 开头：\"Diluted earnings per share was $4.81 and increased 32% on a GAAP basis\" |\n| 非 GAAP | $4.74 | +23% | press_release.txt 开头：\"was $4.74 and increased 23% on a non-GAAP basis\" |\n\n去年同期（FY25 Q4）数据来自 earnings table 的 Three Months Ended June 30, 2025 列：\n- GAAP 摊薄 EPS = **$3.65**\n- 非 GAAP 摊薄 EPS = **$3.86**\n\n### 2. 同比增速差距（约 9 个百分点）的来源\n\n差距来自 **OpenAI 投资影响的两年不对称切换**，而非核心经营业务本身。\n\n- **FY25 Q4**：OpenAI 净亏损 $1,575M，使 GAAP EPS 被压低 $0.21（即 non-GAAP $3.86 比 GAAP $3.65 高 $0.21）。来源：Non-GAAP Definition 段：\"net losses from investments in OpenAI…$1,575 million and $0.21, respectively, in the fourth quarter [of FY25]\"。\n- **FY26 Q4**：OpenAI 净收益 $480M，使 GAAP EPS 被推高 $0.07（即 GAAP $4.81 比 non-GAAP $4.74 高 $0.07）。来源：Non-GAAP Definition 段：\"net gains from investments in OpenAI…$480 million and $0.07, respectively, in the fourth quarter [of FY26]\"。\n\n由于去年 non-GAAP 剔除了亏损（non-GAAP 反而更高）、今年 GAAP 包含了收益（GAAP 反而更高），这种\"方向反转\"使得 GAAP 同比增速（32%）显著高于 non-GAAP 增速（23%）。**这主要是一个会计口径切换效应，不完全反映核心经营业务的改善。** non-GAAP 23% 的增速更纯粹地反映了剔除 OpenAI 投资后的核心业务表现。\n\n### 3. 离散项与口径差异的关系\n\n财报提到的\"相对于此前指引的离散项\"包括：\n- **$3.2 billion Anthropic 投资收益**\n- **VRS（自愿退休计划）费用低于预期**\n- **XBOX 遣散费用和减值**（部分抵消）\n\n来源：press_release.txt：\"Several discrete items impacted our financial results…resulting in a benefit of $0.27 on diluted EPS. These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program which were partially offset by severance expense and impairment charges in XBOX.\"\n\n**这些离散项与第 3 问中的口径差异不是同一回事。** 原因如下：\n\n- **口径差异**（GAAP 32% vs non-GAAP 23%）完全由 OpenAI 投资影响在两年间的\"不对称切换\"造成（去年 GAAP 受损、今年 GAAP 受益）。\n- **离散项**（Anthropic 收益、VRS、XBOX 减值）不涉及 OpenAI 投资，它们在 GAAP 和 non-GAAP 两个口径中**都被保留**。non-GAAP 定义仅剔除 OpenAI 投资影响，不剔除这些项目。因此这些离散项**同时推高了两个口径的 EPS**，不是造成两个口径增速差异的原因。\n\n简言之：口径差异 = OpenAI 会计切换；离散项 = Anthropic/VRS/XBOX 等独立事件，两者是不同的概念。",
+  "trace": []
+}

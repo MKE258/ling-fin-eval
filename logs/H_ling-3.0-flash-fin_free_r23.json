@@ -1,0 +1,74 @@
+{
+  "model": "inclusionai/ling-3.0-flash-fin:free",
+  "task": "H",
+  "run": 23,
+  "iters": 5,
+  "tool_calls": 6,
+  "max_tokens": 8000,
+  "use_tools": true,
+  "prompt_tokens": 38157,
+  "completion_tokens": 1931,
+  "reasoning_tokens": 1298,
+  "cost": 0.0,
+  "http_errors": [],
+  "retries_429": 0,
+  "hit_length_cap": false,
+  "elapsed": 37.0,
+  "final": "",
+  "trace": [
+    {
+      "iter": 1,
+      "tool": "list_materials",
+      "args": {},
+      "result_len": 177
+    },
+    {
+      "iter": 2,
+      "tool": "search_material",
+      "args": {
+        "name": "catl_2025_annual.txt",
+        "query": "归属于上市公司股东的净利润",
+        "max_hits": "10"
+      },
+      "result_len": 817
+    },
+    {
+      "iter": 2,
+      "tool": "search_material",
+      "args": {
+        "name": "catl_2025_annual.txt",
+        "query": "扣除非经常性损益",
+        "max_hits": "10"
+      },
+      "result_len": 5559
+    },
+    {
+      "iter": 2,
+      "tool": "search_material",
+      "args": {
+        "name": "catl_2025_annual.txt",
+        "query": "非经常性损益",
+        "max_hits": "10"
+      },
+      "result_len": 8178
+    },
+    {
+      "iter": 3,
+      "tool": "run_python",
+      "args": {
+        "code": "# 验证计算\n# 净利润\nnet_profit = 72201282  # 千元\nnet_profit_2024 = 50744682\n# 扣非净利润\ndeducted_net = 64507864\ndeducted_net_2024 = 44992919\n\n# 同比增速\nprint(\"净利润同比增速: {:.2f}%\".format((net_profit - net_profit_2024) "
+      },
+      "result_len": 270
+    },
+    {
+      "iter": 4,
+      "tool": "search_material",
+      "args": {
+        "max_hits": "10",
+        "name": "catl_2025_annual.txt",
+        "query": "其他符合非经常性损益定义的损益项目"
+      },
+      "result_len": 3274
+    }
+  ]
+}

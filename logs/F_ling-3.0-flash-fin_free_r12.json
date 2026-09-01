@@ -1,0 +1,152 @@
+{
+  "model": "inclusionai/ling-3.0-flash-fin:free",
+  "task": "F",
+  "run": 12,
+  "iters": 13,
+  "tool_calls": 15,
+  "max_tokens": 32768,
+  "use_tools": true,
+  "prompt_tokens": 469250,
+  "completion_tokens": 10243,
+  "reasoning_tokens": 849,
+  "cost": 0.0,
+  "http_errors": [],
+  "retries_429": 0,
+  "hit_length_cap": false,
+  "elapsed": 129.8,
+  "final": "数据已全部验证完毕，三个分部之和与全公司合计完全勾稽一致。下面是完整分析报告。\n\n---\n\n# 微软 FY26 Q4（截至 2026 年 6 月 30 日）三大业务分部分析报告\n\n> **数据来源**：微软 FY26 Q4 财报新闻稿（`press_release.txt`）、分部结果工作表（`financial_statements.txt` → \"Segment Results\" 工作表）、Q4 FY26 业绩电话会记录（`transcript.txt`）。所有金额单位为百万美元（$M），同比为 YoY。\n\n---\n\n## 一、全公司合计概览\n\n| 指标 | Q4 FY26 | Q4 FY25 | 同比变化 | 同比 % |\n|---|---|---|---|---|\n| 收入 | 90,007 | 76,441 | +13,566 | **+18%**（恒定汇率 +17%） |\n| 收入成本（Cost of revenue） | 29,525 | 24,014 | +5,511 | +23% |\n| 毛利（Gross margin） | 60,482 | 52,427 | +8,055 | +15% |\n| 毛利率 | 67.2% | 68.6% | — | -1.4 pp |\n| 经营费用（Operating expenses） | 19,879 | 18,104 | +1,775 | +10% |\n| 经营利润（Operating income） | 40,603 | 34,323 | +6,280 | **+18%**（恒定汇率 +18%） |\n| 经营利润率 | 45.1% | 44.9% | — | +0.2 pp |\n| 净利润 | 35,766 | 27,233 | +8,533 | +31% |\n| 摊薄 EPS | $4.81 | $3.65 | +$1.16 | +32% |\n\n**来源**：`financial_statements.txt` → \"Income Statements\" 工作表；`press_release.txt`（Q4 FY26 摘要段）；`transcript.txt`（Amy Hood 开场陈述）。\n\n> **口径提示**：全公司口径中，\"经营费用\"（Operating expenses）= R&D + 销售与市场 + 行政与管理 = 9,997 + 7,595 + 2,287 = 19,879（`financial_statements.txt` → \"Income Statements\" 工作表）。分部层面微软不单独披露 R&D/S&M/G&A，而是以\"经营费用\"（Operating expenses）一个合并科目列示，各分部之间不可直接与全公司费用科目对比。\n\n---\n\n## 二、分部一：Productivity and Business Processes（PBP，生产力与业务流程）\n\n### 2.1 财务数据\n\n| 指标 | Q4 FY26 | Q4 FY25 | 同比变化（绝对值） | 同比 % |\n|---|---|---|---|---|\n| 收入 | 37,847 | 33,112 | +4,735 | **+14%**（恒定汇率 +14%） |\n| 收入成本（Cost of revenue） | 6,989 | 6,042 | +947 | +16% |\n| 毛利（Gross margin） | 30,858 | 27,070 | +3,788 | +14% |\n| 毛利率 | 81.5% | 81.8% | — | -0.3 pp |\n| 经营费用（Operating expenses） | 8,958 | 8,077 | +881 | +11% |\n| 经营利润（Operating income） | 21,900 | 18,993 | +2,907 | **+15%**（恒定汇率 +14%） |\n| 经营利润率 | 57.9% | 57.4% | — | +0.5 pp |\n\n**来源**：`financial_statements.txt` → \"Segment Results\" 工作表；同比由本报告计算得出。\n\n### 2.2 增长驱动因素（引用电话会原文）\n\nAmy Hood 在电话会上对该分部的陈述（`transcript.txt` 第 20,000–29,000 字符区间，Amy Hood prepared remarks 段）：\n\n> \"Revenue from Productivity and Business Processes was $37.8 billion and grew 14%.\"\n> \n> \"M365 Commercial cloud revenue increased 16% on an adjusted basis when normalized for the prior-year comparable that benefited from 2 points of in-period revenue recognition. And on a reported basis, revenue growth was 14%. Building on our Copilot momentum from Q3, net paid seat adds more than doubled sequentially, with paid seats now over 30 million. Premium offerings, including Copilot, E5, and early traction in E7, drove ARPU growth this quarter. And paid M365 Commercial seats grew 6% year-over-year…\"\n>\n> \"M365 consumer cloud revenue increased 24% and 22% in constant currency, again driven by ARPU growth. And M365 consumer subscriptions grew 7%.\"\n>\n> \"LinkedIn revenue increased 12% and 10% in constant currency primarily driven by Marketing Solutions.\"\n>\n> \"Dynamics 365 revenue increased 13% and 12% in constant currency against a strong prior-year comparable. Bookings growth in ERP remains healthy, while CRM continued to moderate with longer sales cycles.\"\n>\n> \"Segment gross margin dollars increased 14% and 13% in constant currency. And gross margin percentage decreased slightly with increased M365 Copilot usage… Operating expenses increased 11% primarily driven by the shared R&D investments mentioned earlier. Operating income increased 15% and 14% in constant currency. And operating margins increased year-over-year to 58%.\"\n\n**核心驱动总结**：\n- **Microsoft 365 Commercial 云**：Copilot 付费席位突破 3000 万（环比净增席位翻倍），E5/E7 高价值 SKU 推动 ARPU 增长；席位数同比 +6%。\n- **Microsoft 365 Consumer 云**：ARPU 增长驱动，同比 +24%（恒定汇率 +22%），订阅数 +7%。\n- **LinkedIn**：Marketing Solutions 驱动，同比 +12%（恒定汇率 +10%）。\n- **Dynamics 365**：ERP 预订健康，CRM 有所放缓，同比 +13%。\n- **成本端**：Copilot 使用增加小幅压低毛利率；经营费用 +11% 主要源于共享 R&D 投资。经营利润率微升至 58%。\n\n### 2.3 同比变化分解\n\n| 项目 | Q4 FY26 | Q4 FY25 | 变化 |\n|---|---|---|---|\n| 收入 | 37,847 | 33,112 | +4,735 |\n| 收入成本 | 6,989 | 6,042 | +947 |\n| 毛利 | 30,858 | 27,070 | +3,788 |\n| 经营费用 | 8,958 | 8,077 | +881 |\n| 经营利润 | 21,900 | 18,993 | +2,907 |\n\n---\n\n## 三、分部二：Intelligent Cloud（IC，智能云）\n\n### 3.1 财务数据\n\n| 指标 | Q4 FY26 | Q4 FY25 | 同比变化（绝对值） | 同比 % |\n|---|---|---|---|---|\n| 收入 | 39,306 | 29,878 | +9,428 | **+32%**（恒定汇率 +31%） |\n| 收入成本（Cost of revenue） | 16,876 | 11,845 | +5,031 | +43% |\n| 毛利（Gross margin） | 22,430 | 18,033 | +4,397 | +24% |\n| 毛利率 | 57.1% | 60.4% | — | -3.3 pp |\n| 经营费用（Operating expenses） | 6,475 | 5,893 | +582 | +10% |\n| 经营利润（Operating income） | 15,955 | 12,140 | +3,815 | **+31%**（恒定汇率 +31%） |\n| 经营利润率 | 40.6% | 40.6% | — | 持平 |\n\n**来源**：`financial_statements.txt` → \"Segment Results\" 工作表。\n\n### 3.2 增长驱动因素（引用电话会原文）\n\nAmy Hood 陈述（`transcript.txt`，Amy Hood prepared remarks 段）：\n\n> \"Revenue was $39.3 billion and grew 32% and 31% in constant currency.\"\n>\n> \"In Azure and other cloud services, revenue grew 43%, against a prior year that included accelerating growth. Customer demand continues to exceed available capacity. Revenue growth was ahead of expectations driven by efficiency gains across our CPU and GPU fleet as well as process improvements to enable earlier delivery of new capacity. That additional in-quarter capacity for Azure was quickly monetized. Results also benefited from stronger-than-expected GitHub Copilot consumption following the June business model change to align pricing with usage and value.\"\n>\n> \"In our on-premises server business, revenue was relatively unchanged year-over-year and was down 1% in constant currency. Results were ahead of expectations primarily driven by renewals with higher in-period revenue recognition from the mix of contracts.\"\n>\n> \"Segment gross margin dollars increased 24% and gross margin percentage decreased year-over-year primarily driven by sales mix shift to Azure, as well as the continued scaling of our AI infrastructure ahead of growing demand, partially offset by ongoing efficiency gains in Azure. Segment gross margins were also impacted by growing GitHub Copilot usage, though margins improved through the quarter with the June business model change to usage-based pricing. Operating expenses increased 10% driven by the shared R&D investments noted earlier. Operating income grew 31% and operating margins, with a strong focus on efficiencies and investment returns, were relatively unchanged year-over-year at 41%.\"\n\n**核心驱动总结**：\n- **Azure 及其他云服务**：同比 +43%，是本季度全公司最大增长引擎。驱动因素为：(1) CPU/GPU 集群效率提升；(2) 流程改进使新产能更快交付并当季变现；(3) GitHub Copilot 6 月商业模式切换为按用量计费后消费超预期。需求持续超过供给。\n- **本地服务器业务**：同比基本持平（恒定汇率 -1%），合同组合带来更高当期收入确认。\n- **成本端**：Azure 销售结构占比上升 + AI 基础设施规模化部署大幅推高收入成本（+43%），但效率改善部分对冲；经营利润率持平于 41%。\n\n### 3.3 同比变化分解\n\n| 项目 | Q4 FY26 | Q4 FY25 | 变化 |\n|---|---|---|---|\n| 收入 | 39,306 | 29,878 | +9,428 |\n| 收入成本 | 16,876 | 11,845 | +5,031 |\n| 毛利 | 22,430 | 18,033 | +4,397 |\n| 经营费用 | 6,475 | 5,893 | +582 |\n| 经营利润 | 15,955 | 12,140 | +3,815 |\n\n---\n\n## 四、分部三：More Personal Computing（MPC，更多个人计算）\n\n### 4.1 财务数据\n\n| 指标 | Q4 FY26 | Q4 FY25 | 同比变化（绝对值） | 同比 % |\n|---|---|---|---|---|\n| 收入 | 12,854 | 13,451 | -597 | **-4%**（恒定汇率 -5%） |\n| 收入成本（Cost of revenue） | 5,660 | 6,127 | -467 | -8% |\n| 毛利（Gross margin） | 7,194 | 7,324 | -130 | -2% |\n| 毛利率 | 56.0% | 54.4% | — | +1.6 pp |\n| 经营费用（Operating expenses） | 4,446 | 4,134 | +312 | +8% |\n| 经营利润（Operating income） | 2,748 | 3,190 | -442 | **-14%**（恒定汇率 -15%） |\n| 经营利润率 | 21.4% | 23.7% | — | -2.3 pp |\n\n**来源**：`financial_statements.txt` → \"Segment Results\" 工作表。\n\n### 4.2 下滑驱动因素（引用电话会原文）\n\nAmy Hood 陈述（`transcript.txt`，Amy Hood prepared remarks 段）：\n\n> \"Revenue was $12.9 billion and declined 4% and 5% in constant currency.\"\n>\n> \"Windows OEM and Devices revenue decreased 7% and Windows OEM decreased 5% driven by lower PC market demand and a high prior-year comparable that benefited from Windows 10 end of support. Results were ahead of expectations as OEM and channel partners continued to build inventory given increasing component prices.\"\n>\n> \"Search advertising revenue ex-TAC increased 10% and 9% in constant currency with growth driven by higher revenue per search across Edge and Bing, as well as higher volume, though growth was impacted by third-party partnerships.\"\n>\n> \"And in XBOX, revenue decreased 10% and 11% in constant currency. XBOX content and services revenue decreased 10% against a prior-year comparable that benefited from strong first-party content performance.\"\n>\n> \"Segment gross margin dollars decreased 2% and gross margin percentage increased year-over-year driven by lower amortization from the Activision acquisition. Operating expenses increased 8% and 7% in constant currency driven by the continued investments in shared R&D noted earlier as well as impairment charges in XBOX. Operating income decreased 14% and 15% in constant currency and operating margins decreased year-over-year to 21%.\"\n\n**核心驱动总结**：\n- **Windows OEM 与设备**：同比 -7%，受 PC 市场需求疲软、Windows 10 终止支持的高基数效应、零部件涨价与库存水位影响。\n- **搜索广告（不含 TAC）**：同比 +10%（恒定汇率 +9%），Edge/Bing 单次搜索收入与搜索量双升，但受第三方合作伙伴关系影响。\n- **XBOX 内容与服务**：同比 -10%（恒定汇率 -11%），主因去年同期第一方内容表现强劲形成高基数。\n- **成本端**：Activision 摊销减少推动毛利率小幅提升；但 XBOX 减值费用 + 共享 R&D 投入推高经营费用（+8%），导致经营利润下滑 14%、经营利润率降至 21%。\n\n### 4.3 同比变化分解\n\n| 项目 | Q4 FY26 | Q4 FY25 | 变化 |\n|---|---|---|---|\n| 收入 | 12,854 | 13,451 | -597 |\n| 收入成本 | 5,660 | 6,127 | -467 |\n| 毛利 | 7,194 | 7,324 | -130 |\n| 经营费用 | 4,446 | 4,134 | +312 |\n| 经营利润 | 2,748 | 3,190 | -442 |\n\n---\n\n## 五、三大分部对比总表\n\n| 指标（百万美元） | Productivity & Business Processes | Intelligent Cloud | More Personal Computing | **合计/全公司** |\n|---|---|---|---|---|\n| **Q4 FY26 收入** | 37,847 | 39,306 | 12,854 | **90,007** ✓ |\n| Q4 FY25 收入 | 33,112 | 29,878 | 13,451 | 76,441 |\n| 收入同比变化 | +4,735 | +9,428 | -597 | +13,566 |\n| 收入同比 % | **+14%** | **+32%** | **-4%** | **+18%** |\n| **Q4 FY26 收入成本** | 6,989 | 16,876 | 5,660 | **29,525** ✓ |\n| Q4 FY25 收入成本 | 6,042 | 11,845 | 6,127 | 24,014 |\n| 收入成本同比 % | +16% | +43% | -8% | +23% |\n| **Q4 FY26 毛利** | 30,858 | 22,430 | 7,194 | 60,482 |\n| Q4 FY25 毛利 | 27,070 | 18,033 | 7,324 | 52,427 |\n| 毛利同比 % | +14% | +24% | -2% | +15% |\n| **Q4 FY26 毛利率** | 81.5% | 57.1% | 56.0% | 67.2% |\n| Q4 FY25 毛利率 | 81.8% | 60.4% | 54.4% | 68.6% |\n| 毛利率变化 | -0.3 pp | -3.3 pp | +1.6 pp | -1.4 pp |\n| **Q4 FY26 经营费用** | 8,958 | 6,475 | 4,446 | **19,879** ✓ |\n| Q4 FY25 经营费用 | 8,077 | 5,893 | 4,134 | 18,104 |\n| 经营费用同比 % | +11% | +10% | +8% | +10% |\n| **Q4 FY26 经营利润** | 21,900 | 15,955 | 2,748 | **40,603** ✓ |\n| Q4 FY25 经营利润 | 18,993 | 12,140 | 3,190 | 34,323 |\n| 经营利润同比变化 | +2,907 | +3,815 | -442 | +6,280 |\n| 经营利润同比 % | **+15%** | **+31%** | **-14%** | **+18%** |\n| **Q4 FY26 经营利润率** | 57.9% | 40.6% | 21.4% | 45.1% |\n| Q4 FY25 经营利润率 | 57.4% | 40.6% | 23.7% | 44.9% |\n| 经营利润率变化 | +0.5 pp | 0.0 pp | -2.3 pp | +0.2 pp |\n\n**勾稽验证**：三个分部收入之和 = 37,847 + 39,306 + 12,854 = 90,007 = 全公司收入 ✓；收入成本之和 = 6,989 + 16,876 + 5,660 = 29,525 = 全公司收入成本 ✓；经营费用之和 = 8,958 + 6,475 + 4,446 = 19,879 = 全公司经营费用 ✓；经营利润之和 = 21,900 + 15,955 + 2,748 = 40,603 = 全公司经营利润 ✓。全部完全勾稽。\n\n---\n\n## 六、关键口径提示（读者注意事项）\n\n1. **分部\"经营费用\"是合并口径**：微软在分部层面仅披露一个\"Operating expenses\"科目，包含分摊到该分部的 R&D、销售与市场、行政与管理费用之和。各分部之间不可直接比较 R&D/S&M/G&A 的各自占比，也不能与全公司利润表中单独列示的 R&D（9,997）、S&M（7,595）、G&A（2,287）直接对比（`financial_statements.txt` → \"Income Statements\" 工作表）。\n\n2. **分部\"毛利\"为派生指标**：微软官方 Segment Results 工作表不直接披露分部\"Gross margin\"或\"Gross margin %\"，本报告中的分部毛利 = 分部收入 − 分部收入成本，是派生计算值。分部毛利率跨分部不可直接比较，因为各分部业务模式差异极大（PBP 以软件订阅为主、毛利率 ~81%；IC 含大量云基础设施成本、毛利率 ~57%；MPC 含硬件、毛利率 ~56%）。\n\n3. **\"Microsoft Cloud\"是跨分部口径**：Microsoft Cloud 收入 $59.3B（同比 +27%）跨越 PBP（含 M365 Commercial cloud）和 IC（含 Azure）两大分部，并非独立分部。`metrics.txt` 显示 Microsoft Cloud 毛利率为 65%（Q4 FY26），与任一单一分部毛利率均不同。\n\n4. **GAAP vs 非 GAAP**：本报告所有分部数字均为 GAAP 口径。全公司层面有 OpenAI 投资影响的非 GAAP 调整（Q4 FY26 净利润调减 $480M、EPS 调减 $0.07），但分部报告中未单独区分（`press_release.txt` 非 GAAP 定义段）。\n\n5. **恒定汇率口径**：全公司收入恒定汇率增长 17%（vs 报告 18%）；IC 恒定汇率 31%（vs 报告 32%）；MPC 恒定汇率 -5%（vs 报告 -4%）。分部层面微软未单独披露恒定汇率的细分项金额，仅披露增长率。\n\n6. **FY26 全年数据参考**：FY26 全年三分部收入分别为 PBP $139,996M（+16%）、IC $137,791M（+30%）、MPC $54,052M（-1%），合计 $331,839M = 全公司 FY26 收入；经营利润分别为 $83,879M、$56,972M、$14,386M，合计 $155,237M = 全公司 FY26 经营利润（`financial_statements.txt` → \"Segment Results\" 工作表）。\n\n7. **离散项目影响**：本季度业绩受到多项一次性事项影响（合计 EPS 受益 $0.27）：Anthropic 投资收益 $3.2B（计入其他收入）、自愿退休计划费用低于预期、XBOX 裁员费用及减值（`press_release.txt` 与 `transcript.txt` Amy Hood 陈述段）。这些事项主要影响全公司\"其他收入\"和 MPC 分部经营费用，不影响分部收入与收入成本的同比比较。\n\n---\n\n## 七、结论性观察\n\n- **增长极清晰**：IC 是本季度最大增长引擎（收入 +32%、经营利润 +31%），Azure +43% 是核心驱动力；PBP 稳健增长（收入 +14%、经营利润 +15%），Copilot 商业化（3000 万付费席位、E7 套装）持续兑现。\n- **唯一下滑分部**：MPC 收入 -4%、经营利润 -14%，主因 Windows OEM 高基数 + XBOX 内容服务周期性回落，但搜索广告仍保持 +10% 正增长。\n- **利润率分化**：PBP 经营利润率 58%（最高且提升），IC 41%（持平），MPC 21%（下降 2.3 pp）；全公司整体 45.1%，同比基本持平。\n- **结构性压力**：全公司毛利率下降 1.4 pp，主要源于销售结构向 Azure 倾斜及 AI 基础设施投入，这是在收入 +18% 背景下经营杠杆得以维持的关键。\n\n---\n\n**报告复核路径**：所有分部金额均出自 `financial_statements.txt` → \"Segment Results\" 工作表；驱动因素均引自 `transcript.txt` 中 Amy Hood prepared remarks 段；全公司数据交叉验证 `press_release.txt` 与 `financial_statements.txt` → \"Income Statements\" 工作表。三个分部加总与全公司合计完全一致，已通过 Python 程序验证。",
+  "trace": [
+    {
+      "iter": 1,
+      "tool": "list_materials",
+      "args": {},
+      "result_len": 177
+    },
+    {
+      "iter": 2,
+      "tool": "read_material",
+      "args": {
+        "name": "press_release.txt"
+      },
+      "result_len": 20041
+    },
+    {
+      "iter": 2,
+      "tool": "read_material",
+      "args": {
+        "name": "metrics.txt"
+      },
+      "result_len": 2299
+    },
+    {
+      "iter": 3,
+      "tool": "read_material",
+      "args": {
+        "name": "press_release.txt",
+        "offset": "20000"
+      },
+      "result_len": 9994
+    },
+    {
+      "iter": 3,
+      "tool": "read_material",
+      "args": {
+        "name": "financial_statements.txt"
+      },
+      "result_len": 20048
+    },
+    {
+      "iter": 4,
+      "tool": "read_material",
+      "args": {
+        "name": "financial_statements.txt",
+        "offset": "20000"
+      },
+      "result_len": 9664
+    },
+    {
+      "iter": 4,
+      "tool": "read_material",
+      "args": {
+        "name": "transcript.txt",
+        "offset": "0",
+        "length": "30000"
+      },
+      "result_len": 30038
+    },
+    {
+      "iter": 5,
+      "tool": "read_material",
+      "args": {
+        "name": "transcript.txt",
+        "offset": "30000",
+        "length": "28000"
+      },
+      "result_len": 28042
+    },
+    {
+      "iter": 6,
+      "tool": "read_material",
+      "args": {
+        "name": "transcript.txt",
+        "offset": "39000",
+        "length": "19000"
+      },
+      "result_len": 19042
+    },
+    {
+      "iter": 7,
+      "tool": "read_material",
+      "args": {
+        "name": "transcript.txt",
+        "length": "9000",
+        "offset": "29000"
+      },
+      "result_len": 9042
+    },
+    {
+      "iter": 8,
+      "tool": "read_material",
+      "args": {
+        "name": "transcript.txt",
+        "length": "9000",
+        "offset": "20000"
+      },
+      "result_len": 9042
+    },
+    {
+      "iter": 9,
+      "tool": "read_material",
+      "args": {
+        "name": "transcript.txt",
+        "length": "20000",
+        "offset": "9000"
+      },
+      "result_len": 20041
+    },
+    {
+      "iter": 10,
+      "tool": "run_python",
+      "args": {
+        "code": "\n# 整理数据并验证勾稽关系\n\n# Q4 FY26\nseg = {\n    'Productivity and Business Processes': {'rev': 37847, 'cor': 6989, 'opex': 8958, 'oi': 21900},\n    'Intelligent Cloud': {'rev': 39306, 'cor': 16876, 'opex': 6475,"
+      },
+      "result_len": 1797
+    },
+    {
+      "iter": 11,
+      "tool": "run_python",
+      "args": {
+        "code": "\n# 全公司同比变化\nprint(\"=== 全公司同比变化 ===\")\nprint(f\"Revenue: +{90007-76441:,} ({(90007-76441)/76441*100:.1f}%)\")\nprint(f\"COR: +{29525-24014:,} ({(29525-24014)/24014*100:.1f}%)\")\nprint(f\"Opex: +{19879-18104:,}"
+      },
+      "result_len": 207
+    },
+    {
+      "iter": 12,
+      "tool": "run_python",
+      "args": {
+        "code": "\n# 验证微软公布的四舍五入增长率 vs 精确计算\n# 微软报告：PBP 14%, IC 32%, MPC -4%, Total 18%\n# 精确：PBP 14.3%, IC 31.6%, MPC -4.4%, Total 17.7%\n\n# FY26 全年\nprint(\"=== FY26 全年验证 ===\")\nseg_fy26 = {\n    'PBP': {'rev': 139996, 'cor"
+      },
+      "result_len": 410
+    }
+  ]
+}

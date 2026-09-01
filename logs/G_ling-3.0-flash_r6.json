@@ -1,0 +1,19 @@
+{
+  "model": "inclusionai/ling-3.0-flash",
+  "task": "G",
+  "run": 6,
+  "iters": 1,
+  "tool_calls": 0,
+  "max_tokens": 8000,
+  "use_tools": false,
+  "prompt_tokens": 152112,
+  "completion_tokens": 2257,
+  "reasoning_tokens": 966,
+  "cost": 0.0007818678,
+  "http_errors": [],
+  "retries_429": 0,
+  "hit_length_cap": false,
+  "elapsed": 11.7,
+  "final": "## 微软 FY26 Q4 摊薄每股收益（Diluted EPS）分析\n\n### 1. GAAP 与非 GAAP 口径的 EPS 及同比增长\n\n| 口径 | FY26 Q4 EPS | 同比增速 | 出处 |\n|------|-------------|----------|------|\n| GAAP | **$4.81** | **+32%** | press_release.txt 头部摘要：\"Diluted earnings per share was $4.81 and increased 32% on a GAAP basis\" |\n| 非 GAAP | **$4.74** | **+23%** | press_release.txt 头部摘要：\"was $4.74 and increased 23% on a non-GAAP basis\" |\n\n非 GAAP 定义为：\"Non-GAAP results exclude the impact from investments in OpenAI\"（press_release.txt Non-GAAP Definition 段落）。\n\n---\n\n### 2. 去年同期（FY25 Q4）EPS\n\n| 口径 | FY25 Q4 EPS | 出处 |\n|------|-------------|------|\n| GAAP | **$3.65** | press_release.txt 合并表格：FY25 Q4 GAAP Diluted EPS = $3.65 |\n| 非 GAAP | **$3.86** | press_release.txt 合并表格：FY25 Q4 Non-GAAP Diluted EPS = $3.86 |\n\n验证：GAAP 增速 = ($4.81 − $3.65) / $3.65 ≈ 31.8% ≈ 32% ✓；非 GAAP 增速 = ($4.74 − $3.86) / $3.86 ≈ 22.8% ≈ 23% ✓。\n\n---\n\n### 3. 两个口径同比增速差距的来源\n\n**差距来源：** 完全来自 **OpenAI 投资损益的逆向摆动**。\n\n- **FY26 Q4：** OpenAI 投资净收益为 **+$480 million / +$0.07 EPS**（GAAP 口径）。非 GAAP 口径将其剔除，因此 Non-GAAP EPS 少了 $0.07。\n  - 出处：press_release.txt Non-GAAP Definition — \"In fiscal year 2026, net income and diluted earnings per share were impacted by net gains from investments in OpenAI, which resulted in an increase … of $480 million and $0.07, respectively, in the fourth quarter\"\n\n- **FY25 Q4：** OpenAI 投资净损失为 **−$1,575 million / −$0.21 EPS**（GAAP 口径）。非 GAAP 口径同样将其剔除，因此去年 Non-GAAP EPS 少了 −$0.21（即 Non-GAAP 反而高于 GAAP）。\n  - 出处：press_release.txt Non-GAAP Definition — \"In fiscal year 2025, net income and diluted earnings per share were impacted by net losses from investments in OpenAI, which resulted in a decrease … of $1,575 million and $0.21, respectively, in the fourth quarter\"\n\n**这一差异是否反映核心经营业务的改善？**\n\n是的，它**纯粹反映了 OpenAI 投资会计的影响**，而非核心业务的差异化表现。Non-GAAP 增长 23% 是衡量核心经营业务的更干净指标——它剔除了 OpenAI 这笔投资性损益的波动。GAAP 32% 的高增长则被本季 OpenAI 反向贡献的 +$0.07 EPS 所放大，其中既有 FY26 Q4 的 gains，也有 FY25 Q4 的 losses 基数效应（即\"基数低\"使得同比看起来更高）。\n\n---\n\n### 4. \"离散项\"（Discrete Items）与口径差异是否为同一回事？\n\n**不是同一回事。** 它们是相互独立的两个概念。\n\n**离散项**是指本季相对于 4 月 29 日 forward-looking guidance 的意外偏差，总共带来 **+$0.27 EPS** 的好处，包括：\n- **$3.2 billion 的 Anthropic 投资收益**\n- **Voluntary Retirement Program** 费用低于预期\n- 部分被 **XBOX 减值和遣散费** 抵消\n\n出处：press_release.txt：\"Several discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share.\"\n\n**关键区别：**\n- 离散项（Anthropic 收益、VRP、XBOX 减值）**同时存在于 GAAP 和 Non-GAAP 口径中**，因为 Non-GAAP 仅剔除 OpenAI 投资影响，不剔除这些经营层面的离散项目。\n- GAAP 与 Non-GAAP 的口径差异**仅**来源于 OpenAI 投资的 ±$0.07 / ±$0.21 EPS 调整。\n\n因此，$0.27 的离散项好处是叠加在 GAAP 和 Non-GAAP 之上的共同增量，而两个口径之间的 9 个百分点增速差（32% vs 23%）完全由 OpenAI 投资的会计摆动驱动，与离散项无关。",
+  "trace": []
+}

@@ -1,0 +1,58 @@
+{
+  "model": "inclusionai/ling-3.0-flash-fin:free",
+  "task": "D",
+  "run": 12,
+  "iters": 4,
+  "tool_calls": 5,
+  "prompt_tokens": 10357,
+  "completion_tokens": 435,
+  "reasoning_tokens": 420,
+  "cost": 0.0,
+  "http_errors": [],
+  "retries_429": 0,
+  "hit_length_cap": false,
+  "elapsed": 15.2,
+  "final": "",
+  "trace": [
+    {
+      "iter": 1,
+      "tool": "list_materials",
+      "args": {},
+      "result_len": 142
+    },
+    {
+      "iter": 2,
+      "tool": "search_material",
+      "args": {
+        "name": "press_release.txt",
+        "query": "diluted EPS GAAP non-GAAP"
+      },
+      "result_len": 52
+    },
+    {
+      "iter": 2,
+      "tool": "search_material",
+      "args": {
+        "name": "metrics.txt",
+        "query": "diluted EPS"
+      },
+      "result_len": 32
+    },
+    {
+      "iter": 3,
+      "tool": "read_material",
+      "args": {
+        "name": "metrics.txt"
+      },
+      "result_len": 2299
+    },
+    {
+      "iter": 3,
+      "tool": "read_material",
+      "args": {
+        "name": "press_release.txt"
+      },
+      "result_len": 20041
+    }
+  ]
+}
