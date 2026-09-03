@@ -1,0 +1,171 @@
+{
+  "model": "inclusionai/ling-3.0-flash-fin:free",
+  "task": "I",
+  "run": 12,
+  "iters": 13,
+  "tool_calls": 17,
+  "max_tokens": 42000,
+  "use_tools": true,
+  "prompt_tokens": 359712,
+  "completion_tokens": 11601,
+  "reasoning_tokens": 1129,
+  "cost": 0.0,
+  "http_errors": [],
+  "retries_429": 0,
+  "hit_length_cap": false,
+  "elapsed": 153.3,
+  "final": "数据全部验证完毕，三个分部之和与合计完全勾稽。现在撰写完整报告。\n\n---\n\n# 微软 FY26 Q4（截至 2026 年 6 月 30 日）三大业务分部完整分析报告\n\n> 数据来源：`financial_statements.txt`（Segment Results 工作表）、`press_release.txt`、`transcript.txt`、`metrics.txt`\n\n---\n\n## 一、关键结论摘要\n\n微软 FY26 Q4 总营收 **900 亿美元**，同比增长 **18%**（恒定汇率 +17%）；经营利润 **406 亿美元**，同比增长 **18%**；摊薄 EPS **4.81 美元**（GAAP，+32%），非 GAAP 4.74 美元（+23%）(press_release.txt; financial_statements.txt)。\n\n三大分部呈现**\"两升一降\"**格局：\n- **Intelligent Cloud** 营收 +32%，是增长主引擎，Azure +43%；\n- **Productivity and Business Processes** 营收 +14%，M365 Copilot 付费席位突破 3000 万；\n- **More Personal Computing** 营收 **-4%**，受 Windows OEM 需求疲软、Xbox 去年同期高基数及组件涨价拖累。\n\n---\n\n## 二、三大分部完整财务数据（Q4 FY26 vs Q4 FY25）\n\n> 原始数据出处：`financial_statements.txt` → 工作表 **Segment Results**\n\n### 2.1 Productivity and Business Processes（生产力和业务流程）\n\n| 指标 | Q4 FY26（百万美元） | Q4 FY25（百万美元） | 同比变化 |\n|---|---:|---:|---:|\n| **收入** | 37,847 | 33,112 | **+14.3%** |\n| **收入成本** | 6,989 | 6,042 | +15.7% |\n| **毛利** | 30,858 | 27,070 | +14.0% |\n| **毛利率** | 81.5% | 81.8% | -0.3 ppt |\n| **经营费用** | 8,958 | 8,077 | +10.9% |\n| **经营利润** | 21,900 | 18,993 | **+15.3%** |\n| **经营利润率** | 57.9% | 57.4% | +0.5 ppt |\n\n### 2.2 Intelligent Cloud（智能云）\n\n| 指标 | Q4 FY26（百万美元） | Q4 FY25（百万美元） | 同比变化 |\n|---|---:|---:|---:|\n| **收入** | 39,306 | 29,878 | **+31.6%** |\n| **收入成本** | 16,876 | 11,845 | +42.5% |\n| **毛利** | 22,430 | 18,033 | +24.4% |\n| **毛利率** | 57.1% | 60.4% | -3.3 ppt |\n| **经营费用** | 6,475 | 5,893 | +9.9% |\n| **经营利润** | 15,955 | 12,140 | **+31.4%** |\n| **经营利润率** | 40.6% | 40.6% | 持平 |\n\n### 2.3 More Personal Computing（更多个人计算）\n\n| 指标 | Q4 FY26（百万美元） | Q4 FY25（百万美元） | 同比变化 |\n|---|---:|---:|---:|\n| **收入** | 12,854 | 13,451 | **-4.4%** |\n| **收入成本** | 5,660 | 6,127 | -7.6% |\n| **毛利** | 7,194 | 7,324 | -1.8% |\n| **毛利率** | 56.0% | 54.4% | +1.5 ppt |\n| **经营费用** | 4,446 | 4,134 | +7.5% |\n| **经营利润** | 2,748 | 3,190 | **-13.9%** |\n| **经营利润率** | 21.4% | 23.7% | -2.3 ppt |\n\n### 2.4 全公司合计\n\n| 指标 | Q4 FY26（百万美元） | Q4 FY25（百万美元） | 同比变化 |\n|---|---:|---:|---:|\n| **收入** | 90,007 | 76,441 | **+17.7%** |\n| **收入成本** | 29,525 | 24,014 | +22.9% |\n| **毛利** | 60,482 | 52,427 | +15.4% |\n| **毛利率** | 67.2% | 68.6% | -1.4 ppt |\n| **经营费用** | 19,879 | 18,104 | +9.8% |\n| **经营利润** | 40,603 | 34,323 | **+18.3%** |\n| **经营利润率** | 45.1% | 44.9% | +0.2 ppt |\n| **摊薄 EPS** | $4.81 | $3.65 | +31.8%（GAAP）/ +22.8%（非 GAAP） |\n\n> 出处：press_release.txt（全公司收入、经营利润、EPS）；financial_statements.txt → Income Statements（成本、费用明细）\n\n---\n\n## 三、分部勾稽验证\n\n| 项目 | PBP + IC + MPC | 全公司合计 | 是否一致 |\n|---|---:|---:|:---:|\n| 收入 Q4'26 | 37,847 + 39,306 + 12,854 = **90,007** | 90,007 | ✅ |\n| 收入 Q4'25 | 33,112 + 29,878 + 13,451 = **76,441** | 76,441 | ✅ |\n| 收入成本 Q4'26 | 6,989 + 16,876 + 5,660 = **29,525** | 29,525 | ✅ |\n| 经营费用 Q4'26 | 8,958 + 6,475 + 4,446 = **19,879** | 19,879 | ✅ |\n| 经营利润 Q4'26 | 21,900 + 15,955 + 2,748 = **40,603** | 40,603 | ✅ |\n| 经营利润 Q4'25 | 18,993 + 12,140 + 3,190 = **34,323** | 34,323 | ✅ |\n\n> **结论：三个分部在收入、收入成本、经营费用、经营利润四个维度均与全公司合计完全勾稽一致。**（来源：financial_statements.txt → Segment Results vs Income Statements）\n\n---\n\n## 四、各分部增长驱动因素（引用电话会原文）\n\n### 4.1 Productivity and Business Processes（收入 +14%，经营利润 +15%，经营利润率 57.9%）\n\n**驱动因素：**\n\n- **M365 Commercial 云收入 +14%（调整后 +16%）**：电话会原文——\"Building on our Copilot momentum from Q3, **net paid seat adds more than doubled sequentially, with paid seats now over 30 million**. Premium offerings, including **Copilot, E5, and early traction in E7, drove ARPU growth** this quarter.\"（transcript.txt §Segment Results）\n- **M365 Commercial 产品收入 +19%**：\"ahead of expectations driven by large, long-duration M365 contracts that resulted in higher in-period revenue recognition from the Windows Commercial on-premises component.\"（transcript.txt）\n- **M365 Consumer 云收入 +24%（恒定汇率 +22%）**：\"again driven by ARPU growth. And M365 consumer subscriptions grew 7%.\"（transcript.txt）\n- **LinkedIn 收入 +12%（恒定汇率 +10%）**：\"primarily driven by Marketing Solutions.\"（transcript.txt）\n- **Dynamics 365 收入 +13%（恒定汇率 +12%）**：\"against a strong prior-year comparable. Bookings growth in ERP remains healthy, while CRM continued to moderate with longer sales cycles.\"（transcript.txt）\n- **毛利率微降**：\"decreased slightly with increased M365 Copilot usage as we continue to invest in product quality and drive further efficiency gains.\"（transcript.txt）\n- **经营费用 +11%**：\"primarily driven by the shared R&D investments mentioned earlier.\"（transcript.txt）\n\n### 4.2 Intelligent Cloud（收入 +32%，经营利润 +31%，经营利润率 40.6% 持平）\n\n**驱动因素：**\n\n- **Azure 及其他云服务 +43%**：\"Customer demand continues to exceed available capacity. Revenue growth was ahead of expectations driven by **efficiency gains across our CPU and GPU fleet as well as process improvements to enable earlier delivery of new capacity**. That additional in-quarter capacity for Azure was quickly monetized.\"（transcript.txt）\n- **Azure 增长还受益于 GitHub Copilot**：\"Results also benefited from stronger-than-expected GitHub Copilot consumption following the June business model change to align pricing with usage and value.\"（transcript.txt）\n- **本地服务器业务基本持平**：\"revenue was relatively unchanged year-over-year and was down 1% in constant currency. Results were ahead of expectations primarily driven by renewals with higher in-period revenue recognition from the mix of contracts.\"（transcript.txt）\n- **毛利率下降 3.3 ppt**：\"decreased year-over-year primarily driven by sales mix shift to Azure, as well as the continued scaling of our AI infrastructure ahead of growing demand, partially offset by ongoing efficiency gains in Azure. Segment gross margins were also impacted by growing GitHub Copilot usage, though margins improved through the quarter with the June business model change to usage-based pricing.\"（transcript.txt）\n- **经营费用 +10%**：\"driven by the shared R&D investments noted earlier.\"（transcript.txt）\n- **经营利润率持平于 40.6%**：\"with a strong focus on efficiencies and investment returns, were relatively unchanged year-over-year at 41%.\"（transcript.txt）\n\n### 4.3 More Personal Computing（收入 -4%，经营利润 -14%，经营利润率 21.4%）\n\n**驱动因素：**\n\n- **Windows OEM 及设备 -7%（其中 OEM -5%）**：\"driven by lower PC market demand and a high prior-year comparable that benefited from Windows 10 end of support. Results were ahead of expectations as OEM and channel partners continued to build inventory given increasing component prices.\"（transcript.txt）\n- **搜索广告（不含 TAC）+10%（恒定汇率 +9%）**：\"with growth driven by higher revenue per search across Edge and Bing, as well as higher volume, though growth was impacted by third-party partnerships.\"（transcript.txt）\n- **Xbox 内容及服务 -10%（恒定汇率 -11%）**：\"against a prior-year comparable that benefited from strong first-party content performance.\"（transcript.txt）\n- **毛利率反而上升 1.5 ppt**：\"driven by lower amortization from the Activision acquisition.\"（transcript.txt）\n- **经营费用 +8%**：\"driven by the continued investments in shared R&D noted earlier as well as impairment charges in XBOX.\"（transcript.txt）\n- **经营利润下降 14%，经营利润率降至 21%**：\"Operating income decreased 14% and 15% in constant currency and operating margins decreased year-over-year to 21%.\"（transcript.txt）\n\n---\n\n## 五、完整分部对比表\n\n| 指标 | Productivity & Business Processes | Intelligent Cloud | More Personal Computing | **全公司合计** |\n|---|---:|---:|---:|---:|\n| **收入 Q4 FY26（百万美元）** | 37,847 | 39,306 | 12,854 | **90,007** |\n| **收入 Q4 FY25（百万美元）** | 33,112 | 29,878 | 13,451 | **76,441** |\n| **收入同比** | +14.3% | +31.6% | -4.4% | **+17.7%** |\n| **收入成本 Q4 FY26** | 6,989 | 16,876 | 5,660 | 29,525 |\n| **收入成本同比** | +15.7% | +42.5% | -7.6% | +22.9% |\n| **毛利 Q4 FY26** | 30,858 | 22,430 | 7,194 | 60,482 |\n| **毛利同比** | +14.0% | +24.4% | -1.8% | +15.4% |\n| **毛利率 Q4 FY26** | 81.5% | 57.1% | 56.0% | 67.2% |\n| **毛利率同比变化** | -0.3 ppt | -3.3 ppt | +1.5 ppt | -1.4 ppt |\n| **经营费用 Q4 FY26** | 8,958 | 6,475 | 4,446 | 19,879 |\n| **经营费用同比** | +10.9% | +9.9% | +7.5% | +9.8% |\n| **经营利润 Q4 FY26** | 21,900 | 15,955 | 2,748 | **40,603** |\n| **经营利润同比** | +15.3% | +31.4% | -13.9% | +18.3% |\n| **经营利润率 Q4 FY26** | 57.9% | 40.6% | 21.4% | 45.1% |\n| **经营利润率同比变化** | +0.5 ppt | 持平 | -2.3 ppt | +0.2 ppt |\n| **分部收入占比** | 42.0% | 43.7% | 14.3% | 100% |\n| **分部经营利润占比** | 53.9% | 39.3% | 6.8% | 100% |\n\n---\n\n## 六、口径提示与使用注意事项\n\n1. **分部间收入不可直接加总对比**：三大分部收入之和严格等于全公司总收入（90,007 = 37,847 + 39,306 + 12,854），但各分部之间存在内部抵消，Microsoft Cloud 收入（593 亿美元）跨 Productivity & Business Processes 和 Intelligent Cloud 两个分部统计，**不能与分部收入直接相加**，否则会重复计算（metrics.txt）。\n\n2. **各分部毛利率口径不同、不可直接横向比较**：\n   - PBP 毛利率 81.5%（主要含高毛利订阅许可）；\n   - IC 毛利率 57.1%（含大规模 AI 基础设施折旧）；\n   - MPC 毛利率 56.0%（含硬件成本）。\n   三者商业模式差异巨大，毛利率差异反映的是业务结构而非经营效率优劣。\n\n3. **经营费用包含\"共享 R&D\"**：电话会多次提及各分部经营费用增长均由\"shared R&D investments\"驱动（transcript.txt），这意味着分部经营费用并非完全独立核算，部分研发投入按管理层判断分摊，**跨分部经营费用对比需谨慎**。\n\n4. **同比口径已剔除 OpenAI 投资影响**：本季度 GAAP 与非 GAAP 收入、经营利润一致（OpenAI 影响仅涉及\"Other income (expense), net\"，不影响分部经营利润）（press_release.txt Non-GAAP Definition）。但净收入和 EPS 受 OpenAI 影响——GAAP 净收入 358 亿美元，非 GAAP 353 亿美元。\n\n5. **恒定汇率增速与报告增速差异**：PBP 收入恒定汇率 +14%（与报告一致），IC +31%（vs 报告 +32%），MPC -5%（vs 报告 -4%）。跨分部增速对比时应统一口径（metrics.txt）。\n\n6. **Xbox 同比基数效应**：Xbox 内容及服务 -10% 主要因去年同期第一方内容表现强劲形成高基数，并非业务本身恶化（transcript.txt）。\n\n7. **M365 Commercial 云报告增速 vs 调整后增速**：报告 +14%，但去年同期有 2 个百分点的一次性收入确认收益，调整后为 +16%（press_release.txt; transcript.txt）。\n\n8. **FY27 折旧年限调整**：自 FY27 起，数据中心和办公建筑折旧年限从 15 年延长至 25 年，预计对 FY27 经营利润仅有\"minimal benefit\"，但会改变资本支出口径（finance lease → operating lease），FY26 CapEx 实际为 1453 亿美元（financial_statements.txt → CapEx 工作表）。\n\n9. **Xbox 减值**：本季度 MPC 经营费用包含 Xbox 减值费用（transcript.txt），但未披露具体金额，分析 MPC 经营利润时应注意此一次性影响。\n\n---\n\n## 七、关键指标一览（来自 metrics.txt）\n\n| 指标 | Q4 FY26 | 同比 |\n|---|---|---|\n| Microsoft Cloud 收入 | 593 亿美元 | +27% |\n| Microsoft Cloud 毛利率 | 65% | 同比下降 |\n| 商业剩余履约义务（RPO） | 6780 亿美元 | +84% |\n| 商业预订量增速 | +10% / +11% | — |\n| Azure 及其他云服务增速 | +43% | — |\n| M365 Commercial 云增速 | +14%（调整后 +16%） | — |\n| LinkedIn 收入增速 | +12%（+10% CC） | — |\n| Dynamics 365 增速 | +13%（+12% CC） | — |\n| Windows OEM 及设备增速 | -7% | — |\n| Xbox 内容及服务增速 | -10% | — |\n| 搜索广告（不含 TAC）增速 | +10%（+9% CC） | — |\n\n> 出处：metrics.txt（全部指标）；press_release.txt（Microsoft Cloud 收入、RPO、业务亮点摘要）；transcript.txt（各分部驱动因素细节）\n\n---\n\n**报告完成。** 所有数字均来自微软 FY26 Q4 官方财报材料，三个分部之和与全公司合计在收入、收入成本、经营费用、经营利润四个维度完全勾稽一致（验证通过）。",
+  "trace": [
+    {
+      "iter": 1,
+      "tool": "list_materials",
+      "args": {},
+      "result_len": 177
+    },
+    {
+      "iter": 2,
+      "tool": "read_material",
+      "args": {
+        "name": "metrics.txt"
+      },
+      "result_len": 2299
+    },
+    {
+      "iter": 2,
+      "tool": "read_material",
+      "args": {
+        "name": "press_release.txt"
+      },
+      "result_len": 20041
+    },
+    {
+      "iter": 3,
+      "tool": "read_material",
+      "args": {
+        "name": "press_release.txt",
+        "offset": "20000"
+      },
+      "result_len": 9994
+    },
+    {
+      "iter": 3,
+      "tool": "read_material",
+      "args": {
+        "name": "financial_statements.txt"
+      },
+      "result_len": 20048
+    },
+    {
+      "iter": 4,
+      "tool": "read_material",
+      "args": {
+        "name": "financial_statements.txt",
+        "offset": "20000"
+      },
+      "result_len": 9664
+    },
+    {
+      "iter": 4,
+      "tool": "search_material",
+      "args": {
+        "name": "transcript.txt",
+        "query": "Productivity and Business Processes"
+      },
+      "result_len": 2455
+    },
+    {
+      "iter": 5,
+      "tool": "search_material",
+      "args": {
+        "name": "transcript.txt",
+        "query": "Intelligent Cloud",
+        "max_hits": "10"
+      },
+      "result_len": 2455
+    },
+    {
+      "iter": 5,
+      "tool": "search_material",
+      "args": {
+        "name": "transcript.txt",
+        "query": "More Personal Computing",
+        "max_hits": "10"
+      },
+      "result_len": 2455
+    },
+    {
+      "iter": 6,
+      "tool": "read_material",
+      "args": {
+        "name": "transcript.txt",
+        "offset": "22960",
+        "length": "3000"
+      },
+      "result_len": 3042
+    },
+    {
+      "iter": 6,
+      "tool": "read_material",
+      "args": {
+        "name": "transcript.txt",
+        "offset": "24808",
+        "length": "2000"
+      },
+      "result_len": 2042
+    },
+    {
+      "iter": 7,
+      "tool": "read_material",
+      "args": {
+        "name": "transcript.txt",
+        "length": "2500",
+        "offset": "26435"
+      },
+      "result_len": 2542
+    },
+    {
+      "iter": 8,
+      "tool": "read_material",
+      "args": {
+        "name": "transcript.txt",
+        "length": "3000",
+        "offset": "22800"
+      },
+      "result_len": 3042
+    },
+    {
+      "iter": 9,
+      "tool": "read_material",
+      "args": {
+        "name": "transcript.txt",
+        "length": "2300",
+        "offset": "22600"
+      },
+      "result_len": 2342
+    },
+    {
+      "iter": 10,
+      "tool": "run_python",
+      "args": {
+        "code": "\n# Verify segment reconciliation and compute all metrics\n# Q4 FY26\npbp_26 = {'rev': 37847, 'cor': 6989, 'opex': 8958, 'oi': 21900}\nic_26 = {'rev': 39306, 'cor': 16876, 'opex': 6475, 'oi': 15955}\nmpc_2"
+      },
+      "result_len": 1068
+    },
+    {
+      "iter": 11,
+      "tool": "run_python",
+      "args": {
+        "code": "\n# Verify segment reconciliation and compute all metrics\npbp_26 = {'rev': 37847, 'cor': 6989, 'opex': 8958, 'oi': 21900}\nic_26 = {'rev': 39306, 'cor': 16876, 'opex': 6475, 'oi': 15955}\nmpc_26 = {'rev'"
+      },
+      "result_len": 2570
+    },
+    {
+      "iter": 12,
+      "tool": "run_python",
+      "args": {
+        "code": "pbp_26 = {'rev': 37847, 'cor': 6989, 'opex': 8958, 'oi': 21900}\nic_26 = {'rev': 39306, 'cor': 16876, 'opex': 6475, 'oi': 15955}\nmpc_26 = {'rev': 12854, 'cor': 5660, 'opex': 4446, 'oi': 2748}\npbp_25 = "
+      },
+      "result_len": 422
+    }
+  ]
+}
