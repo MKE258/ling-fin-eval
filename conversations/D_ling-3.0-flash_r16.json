@@ -1,0 +1,571 @@
+[
+  {
+    "role": "user",
+    "content": "你是金融投研分析师。可用工具读取微软 FY26 Q4 的官方财报材料。\n请先用 list_materials 查看有哪些文件，再按需读取。\n所有结论必须给出具体出处（文件名 + 位置），不得凭印象作答。\n\n问题：微软 FY26 Q4 的摊薄每股收益（diluted EPS）：\n\n1. GAAP 口径和非 GAAP 口径分别是多少？各自同比增长多少？\n2. 去年同期（FY25 Q4）的 GAAP 和非 GAAP 摊薄每股收益分别是多少？\n3. 两个口径的同比增速存在明显差距。请解释这个差距**具体从哪里来**，\n   并说明它是否反映了核心经营业务的改善。\n4. 财报中还提到了若干\"相对于此前指引的离散项\"。这些离散项和第 3 问中的\n   口径差异是不是同一回事？请说明。\n\n每个数字都要给出出处。\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_cb45cec8c3ed4f23be2a76bb",
+        "function": {
+          "name": "list_materials",
+          "arguments": "{}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_cb45cec8c3ed4f23be2a76bb",
+    "name": "list_materials",
+    "content": "10k.txt  (423,020 字符)\ncatl_2025_annual.txt  (215,347 字符)\nfinancial_statements.txt  (29,612 字符)\nmetrics.txt  (2,266 字符)\npress_release.txt  (29,949 字符)\ntranscript.txt  (58,106 字符)"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_6de4f15de98e4b549d00e7b6",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"diluted EPS\", \"max_hits\": 10}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_4e1efd46bb35494582612679",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"metrics.txt\", \"query\": \"diluted EPS\", \"max_hits\": 10}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_9b2cdd3a3d6e4437ad33c4ae",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"financial_statements.txt\", \"query\": \"diluted EPS\", \"max_hits\": 10}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_6de4f15de98e4b549d00e7b6",
+    "name": "search_material",
+    "content": "在 press_release.txt 中未找到 “diluted EPS”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_4e1efd46bb35494582612679",
+    "name": "search_material",
+    "content": "在 metrics.txt 中未找到 “diluted EPS”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_9b2cdd3a3d6e4437ad33c4ae",
+    "name": "search_material",
+    "content": "在 financial_statements.txt 中未找到 “diluted EPS”"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_d07afad2a79444da9f6f1bbe",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"press_release.txt\", \"query\": \"EPS\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_411f00d9e19445cb8d372a75",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"metrics.txt\", \"query\": \"EPS\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_1438269d1f174e78a2639b1b",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"financial_statements.txt\", \"query\": \"EPS\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_d07afad2a79444da9f6f1bbe",
+    "name": "search_material",
+    "content": "在 press_release.txt 中未找到 “EPS”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_411f00d9e19445cb8d372a75",
+    "name": "search_material",
+    "content": "在 metrics.txt 中未找到 “EPS”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_1438269d1f174e78a2639b1b",
+    "name": "search_material",
+    "content": "在 financial_statements.txt 中未找到 “EPS”"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_f1516f93b7374051b9381932",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"10k.txt\", \"query\": \"diluted EPS\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_f4c61331ba294c2892c25398",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"transcript.txt\", \"query\": \"diluted EPS\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_95e7f21b7dea42cc8ffcf045",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"transcript.txt\", \"query\": \"EPS\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_f1516f93b7374051b9381932",
+    "name": "search_material",
+    "content": "[位置 148937]\n... the entire portfolio, impairment and other related expenses in our XBOX business, investments in commercial sales, and higher Copilot advertising expenses. \nOperating income increased $26.7 billion or 21% driven by growth in Productivity and Business Processes and Intelligent Cloud.\nRevenue and operating income both included a favorable foreign currency impact of 2%. \nCurrent year net income and diluted EPS were positively impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted EPS of $5.0 billion and $0.67, respectively. Prior year net income and diluted EPS were negatively impacted by net losses from investments in OpenAI, which resulted in a decrease in net income and diluted EPS of $3.6 billion and $0.49, respectively.\nSEGMENT RESULTS ...\n\n[位置 149063]\n... Copilot advertising expenses. \nOperating income increased $26.7 billion or 21% driven by growth in Productivity and Business Processes and Intelligent Cloud.\nRevenue and operating income both included a favorable foreign currency impact of 2%. \nCurrent year net income and diluted EPS were positively impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted EPS of $5.0 billion and $0.67, respectively. Prior year net income and diluted EPS were negatively impacted by net losses from investments in OpenAI, which resulted in a decrease in net income and diluted EPS of $3.6 billion and $0.49, respectively.\nSEGMENT RESULTS OF OPERATIONS\nReportable Segments\nFiscal Year 2026 Compared with Fiscal Year 2025 \nProductivity and Business Processes\nRevenue...\n\n[位置 149142]\n... driven by growth in Productivity and Business Processes and Intelligent Cloud.\nRevenue and operating income both included a favorable foreign currency impact of 2%. \nCurrent year net income and diluted EPS were positively impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted EPS of $5.0 billion and $0.67, respectively. Prior year net income and diluted EPS were negatively impacted by net losses from investments in OpenAI, which resulted in a decrease in net income and diluted EPS of $3.6 billion and $0.49, respectively.\nSEGMENT RESULTS OF OPERATIONS\nReportable Segments\nFiscal Year 2026 Compared with Fiscal Year 2025 \nProductivity and Business Processes\nRevenue increased $19.2 billion or 16%.\n•\tMicrosoft 365 Commercial products and cloud ...\n\n[位置 149268]\n...avorable foreign currency impact of 2%. \nCurrent year net income and diluted EPS were positively impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted EPS of $5.0 billion and $0.67, respectively. Prior year net income and diluted EPS were negatively impacted by net losses from investments in OpenAI, which resulted in a decrease in net income and diluted EPS of $3.6 billion and $0.49, respectively.\nSEGMENT RESULTS OF OPERATIONS\nReportable Segments\nFiscal Year 2026 Compared with Fiscal Year 2025 \nProductivity and Business Processes\nRevenue increased $19.2 billion or 16%.\n•\tMicrosoft 365 Commercial products and cloud services revenue increased $14.2 billion or 16%. Microsoft 365 Commercial cloud revenue grew 17% with growth in revenue per us...\n\n[位置 159804]\n...n many jurisdictions outside the U.S., some of which are currently under audit by local tax authorities. The resolution of these audits is not expected to be material to our consolidated financial statements. Our operations in Ireland remain subject to examination for tax years 2021 and thereafter.\nNON-GAAP FINANCIAL MEASURES\nAdjusted other income (expense), net, adjusted net income, and adjusted diluted EPS are non-GAAP financial measures which exclude net (gains) losses from investments in OpenAI. We believe these non-GAAP measures aid investors by providing additional insight into our financial performance and help clarify trends affecting our business. For comparability of reporting, management considers non-GAAP measures in conjunction with GAAP financial results in evaluating busines...\n\n[位置 216524]\n...he weighted average number of shares of common stock outstanding during the period. Diluted EPS is computed based on the weighted average number of shares of common stock plus the effect of dilutive potential common shares outstanding during the period using the treasury stock method. Dilutive potential common shares include outstanding stock options and stock awards. \nThe components of basic and diluted EPS were as follows:\nAnti-dilutive stock-based awards excluded from the calculations of diluted EPS were immaterial during the periods presented.\nNOTE 3 — OTHER INCOME (EXPENSE), NET\nThe components of other income (expense), net were as follows:\nOther income (expense), net included $6.5 billion of net gains, $4.8 billion of net losses, and $1.5 billion of net losses for fiscal years 2026, ...\n\n[位置 216620]\n...is computed based on the weighted average number of shares of common stock plus the effect of dilutive potential common shares outstanding during the period using the treasury stock method. Dilutive potential common shares include outstanding stock options and stock awards. \nThe components of basic and diluted EPS were as follows:\nAnti-dilutive stock-based awards excluded from the calculations of diluted EPS were immaterial during the periods presented.\nNOTE 3 — OTHER INCOME (EXPENSE), NET\nThe components of other income (expense), net were as follows:\nOther income (expense), net included $6.5 billion of net gains, $4.8 billion of net losses, and $1.5 billion of net losses for fiscal years 2026, 2025, and 2024, respectively, from investments in OpenAI, primarily net recognized gains (losses..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_f4c61331ba294c2892c25398",
+    "name": "search_material",
+    "content": "在 transcript.txt 中未找到 “diluted EPS”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_95e7f21b7dea42cc8ffcf045",
+    "name": "search_material",
+    "content": "在 transcript.txt 中未找到 “EPS”"
+  },
+  {
+    "role": "assistant",
+    "content": "我找到了关键信息。让我继续查找更具体的数字，包括 FY26 Q4 的具体 EPS 数字。",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_1417f3271b914b68a421c626",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"10k.txt\", \"query\": \"fiscal year 2026 quarterly\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_9e006f837a3b477ea6bdc42e",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"10k.txt\", \"query\": \"FY26 Q4\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_738ea70e308a4de59fb0e525",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"10k.txt\", \"query\": \"quarter ended\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_1417f3271b914b68a421c626",
+    "name": "search_material",
+    "content": "在 10k.txt 中未找到 “fiscal year 2026 quarterly”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_9e006f837a3b477ea6bdc42e",
+    "name": "search_material",
+    "content": "在 10k.txt 中未找到 “FY26 Q4”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_738ea70e308a4de59fb0e525",
+    "name": "search_material",
+    "content": "[位置 260898]\n...r financial reporting based on the framework in Internal Control – Integrated Framework (2013) issued by the Committee of Sponsoring Organizations of the Treadway Commission. Based on this evaluation, management concluded that the Company’s internal control over financial reporting was effective as of June 30, 2026. There were no changes in our internal control over financial reporting during the quarter ended June 30, 2026 that have materially affected, or are reasonably likely to materially affect, our internal control over financial reporting. Deloitte & Touche LLP has audited our internal control over financial reporting as of June 30, 2026; their report is included in Item 9A. \nREPORT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTING FIRM \nTo the Stockholders and the Board of Directors of M...\n\n[位置 265599]\n...ton\nJuly 29, 2026\nITEM 9B. OTHER INFORMATION\nInsider Trading Arrangements\nOur Section 16 officers and directors, as defined in Rule 16a-1(f) of the Securities Exchange Act of 1934 (the “Exchange Act”), may from time to time enter into plans for the purchase or sale of our common stock that are intended to satisfy the affirmative defense conditions of Rule 10b5-1(c) of the Exchange Act. During the quarter ended June 30, 2026, the following Section 16 officers and directors adopted, modified, or terminated “Rule 10b5-1 trading arrangements” (as defined in Item 408 of Regulation S-K of the Exchange Act):\nAmy E. Hood, our Executive Vice President and Chief Financial Officer, adopted a new written 10b5-1 trading plan on June 10, 2026, during an open trading window. The plan’s maximum duration i..."
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_5fcec3c8c20b4ced808c4918",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 20, \"name\": \"10k.txt\", \"query\": \"diluted EPS\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_5fcec3c8c20b4ced808c4918",
+    "name": "search_material",
+    "content": "[位置 148937]\n... the entire portfolio, impairment and other related expenses in our XBOX business, investments in commercial sales, and higher Copilot advertising expenses. \nOperating income increased $26.7 billion or 21% driven by growth in Productivity and Business Processes and Intelligent Cloud.\nRevenue and operating income both included a favorable foreign currency impact of 2%. \nCurrent year net income and diluted EPS were positively impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted EPS of $5.0 billion and $0.67, respectively. Prior year net income and diluted EPS were negatively impacted by net losses from investments in OpenAI, which resulted in a decrease in net income and diluted EPS of $3.6 billion and $0.49, respectively.\nSEGMENT RESULTS ...\n\n[位置 149063]\n... Copilot advertising expenses. \nOperating income increased $26.7 billion or 21% driven by growth in Productivity and Business Processes and Intelligent Cloud.\nRevenue and operating income both included a favorable foreign currency impact of 2%. \nCurrent year net income and diluted EPS were positively impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted EPS of $5.0 billion and $0.67, respectively. Prior year net income and diluted EPS were negatively impacted by net losses from investments in OpenAI, which resulted in a decrease in net income and diluted EPS of $3.6 billion and $0.49, respectively.\nSEGMENT RESULTS OF OPERATIONS\nReportable Segments\nFiscal Year 2026 Compared with Fiscal Year 2025 \nProductivity and Business Processes\nRevenue...\n\n[位置 149142]\n... driven by growth in Productivity and Business Processes and Intelligent Cloud.\nRevenue and operating income both included a favorable foreign currency impact of 2%. \nCurrent year net income and diluted EPS were positively impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted EPS of $5.0 billion and $0.67, respectively. Prior year net income and diluted EPS were negatively impacted by net losses from investments in OpenAI, which resulted in a decrease in net income and diluted EPS of $3.6 billion and $0.49, respectively.\nSEGMENT RESULTS OF OPERATIONS\nReportable Segments\nFiscal Year 2026 Compared with Fiscal Year 2025 \nProductivity and Business Processes\nRevenue increased $19.2 billion or 16%.\n•\tMicrosoft 365 Commercial products and cloud ...\n\n[位置 149268]\n...avorable foreign currency impact of 2%. \nCurrent year net income and diluted EPS were positively impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted EPS of $5.0 billion and $0.67, respectively. Prior year net income and diluted EPS were negatively impacted by net losses from investments in OpenAI, which resulted in a decrease in net income and diluted EPS of $3.6 billion and $0.49, respectively.\nSEGMENT RESULTS OF OPERATIONS\nReportable Segments\nFiscal Year 2026 Compared with Fiscal Year 2025 \nProductivity and Business Processes\nRevenue increased $19.2 billion or 16%.\n•\tMicrosoft 365 Commercial products and cloud services revenue increased $14.2 billion or 16%. Microsoft 365 Commercial cloud revenue grew 17% with growth in revenue per us...\n\n[位置 159804]\n...n many jurisdictions outside the U.S., some of which are currently under audit by local tax authorities. The resolution of these audits is not expected to be material to our consolidated financial statements. Our operations in Ireland remain subject to examination for tax years 2021 and thereafter.\nNON-GAAP FINANCIAL MEASURES\nAdjusted other income (expense), net, adjusted net income, and adjusted diluted EPS are non-GAAP financial measures which exclude net (gains) losses from investments in OpenAI. We believe these non-GAAP measures aid investors by providing additional insight into our financial performance and help clarify trends affecting our business. For comparability of reporting, management considers non-GAAP measures in conjunction with GAAP financial results in evaluating busines...\n\n[位置 216524]\n...he weighted average number of shares of common stock outstanding during the period. Diluted EPS is computed based on the weighted average number of shares of common stock plus the effect of dilutive potential common shares outstanding during the period using the treasury stock method. Dilutive potential common shares include outstanding stock options and stock awards. \nThe components of basic and diluted EPS were as follows:\nAnti-dilutive stock-based awards excluded from the calculations of diluted EPS were immaterial during the periods presented.\nNOTE 3 — OTHER INCOME (EXPENSE), NET\nThe components of other income (expense), net were as follows:\nOther income (expense), net included $6.5 billion of net gains, $4.8 billion of net losses, and $1.5 billion of net losses for fiscal years 2026, ...\n\n[位置 216620]\n...is computed based on the weighted average number of shares of common stock plus the effect of dilutive potential common shares outstanding during the period using the treasury stock method. Dilutive potential common shares include outstanding stock options and stock awards. \nThe components of basic and diluted EPS were as follows:\nAnti-dilutive stock-based awards excluded from the calculations of diluted EPS were immaterial during the periods presented.\nNOTE 3 — OTHER INCOME (EXPENSE), NET\nThe components of other income (expense), net were as follows:\nOther income (expense), net included $6.5 billion of net gains, $4.8 billion of net losses, and $1.5 billion of net losses for fiscal years 2026, 2025, and 2024, respectively, from investments in OpenAI, primarily net recognized gains (losses..."
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_42e6e858724242b6acba0ee1",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 20, \"name\": \"10k.txt\", \"query\": \"quarter\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_61e94de54cbd4131bb7a4512",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 20, \"name\": \"financial_statements.txt\", \"query\": \"diluted\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_42e6e858724242b6acba0ee1",
+    "name": "search_material",
+    "content": "[位置 43867]\n....\nAVAILABLE INFORMATION\nOur Internet address is www.microsoft.com. At our Investor Relations website, www.microsoft.com/investor, we make available free of charge a variety of information for investors. Our goal is to maintain the Investor Relations website as a portal through which investors can easily find or navigate to pertinent information about us, including:\nOur annual report on Form 10-K, quarterly reports on Form 10-Q, current reports on Form 8-K, and any amendments to those reports, as soon as reasonably practicable after we electronically file that material with, or furnish it to, the Securities and Exchange Commission (“SEC”) at www.sec.gov.\nInformation on our business strategies, financial results, and metrics for investors.\nAnnouncements of investor conferences, speeches, and...\n\n[位置 44423]\n...file that material with, or furnish it to, the Securities and Exchange Commission (“SEC”) at www.sec.gov.\nInformation on our business strategies, financial results, and metrics for investors.\nAnnouncements of investor conferences, speeches, and events at which our executives talk about our product, service, and competitive strategies. Archives of these events are also available.\nPress releases on quarterly earnings, product and service announcements, and legal developments.\nCorporate governance information including our articles of incorporation, bylaws, governance guidelines, committee charters, codes of conduct and ethics, corporate responsibility initiatives, and other governance-related policies.\nOther news and announcements that we may post from time to time that investors might find ...\n\n[位置 119480]\n...rations.\nCatastrophic events or geopolitical conditions could disrupt our business. A disruption or failure of our systems, operations, or supply chain because of a major earthquake, weather event, cyberattack, terrorist attack, pandemic, or other catastrophic event could cause delays in completing sales, providing services, or performing other critical functions. As an example, our corporate headquarters, a significant portion of our research and development activities, and certain other essential business operations are in the Seattle, Washington area, and we have other business operations in the Silicon Valley area of California, both of which are seismically active regions. A catastrophic event that results in the destruction or disruption of any of our critical business or systems, or...\n\n[位置 132766]\n...eats, enhancing the security of our products, investing in our cybersecurity infrastructure, and collaborating with peers, customers, service providers, regulators, and governments to advance our and the entire digital ecosystem’s cybersecurity defenses and resiliency.\nGOVERNANCE\nOur Board of Directors oversees cybersecurity risk. Cybersecurity reviews by the Board are scheduled to occur at least quarterly, or more frequently as determined to be necessary or advisable. Presentations to the Board of Directors are made by senior management, including our Chief Information Security Officer (“CISO”), our EVP of Microsoft Security, our EVP of Cloud + AI, and the head of our Customer Security and Trust organization. The presentations address topics such as cybersecurity threats, incidents, top r...\n\n[位置 135151]\n...igations, reviewing the industry standard alignment, and supporting compliance with cybersecurity regulations. Our cybersecurity efforts are supported directly by Microsoft’s security and threat intelligence experts and our employees across the company, all of whom receive cybersecurity awareness training and education and are expected to support our efforts.\nITEM 2. PROPERTIES \nOur corporate headquarters are located in Redmond, Washington. We have approximately 14 million square feet of space located in King County, Washington that is used for engineering, sales, marketing, and operations, among other general and administrative purposes. These facilities include approximately 12 million square feet of owned space situated on approximately 520 acres of land we own at our corporate headquar...\n\n[位置 135547]\n...headquarters are located in Redmond, Washington. We have approximately 14 million square feet of space located in King County, Washington that is used for engineering, sales, marketing, and operations, among other general and administrative purposes. These facilities include approximately 12 million square feet of owned space situated on approximately 520 acres of land we own at our corporate headquarters, and approximately 2 million square feet of space we lease. \nWe own and lease other facilities domestically and internationally, primarily for offices, datacenters, and research and development. The largest owned international properties include space in the following locations: China, India, Ireland, the Netherlands, and Sweden. The largest leased international properties include space i...\n\n[位置 136883]\n...II\nITEM 5. MARKET FOR REGISTRANT’S COMMON EQUITY, RELATED STOCKHOLDER MATTERS, AND ISSUER PURCHASES OF EQUITY SECURITIES\nMARKET AND STOCKHOLDERS \nOur common stock is traded on the NASDAQ Stock Market under the symbol MSFT. On July 23, 2026, there were 74,199 registered holders of record of our common stock.\nSHARE REPURCHASES AND DIVIDENDS\nFollowing are our monthly share repurchases for the fourth quarter of fiscal year 2026:\nAll share repurchases were made using cash resources. Our share repurchases may occur through open market purchases or pursuant to a Rule 10b5-1 trading plan. The above table excludes shares repurchased to settle employee tax withholding related to the vesting of stock awards. \nOur Board of Directors declared the following dividends during the fourth quarter of fiscal ...\n\n[位置 137265]\n...es for the fourth quarter of fiscal year 2026:\nAll share repurchases were made using cash resources. Our share repurchases may occur through open market purchases or pursuant to a Rule 10b5-1 trading plan. The above table excludes shares repurchased to settle employee tax withholding related to the vesting of stock awards. \nOur Board of Directors declared the following dividends during the fourth quarter of fiscal year 2026: \nWe returned $10.2 billion to shareholders in the form of share repurchases and dividends in the fourth quarter of fiscal year 2026. Refer to Note 15 – Stockholders’ Equity of the Notes to Financial Statements (Part II, Item 8 of this Form 10-K) for further discussion regarding share repurchases and dividends.\nITEM 6. [RESERVED] \nITEM 7. MANAGEMENT’S DISCUSSION AND ANA...\n\n[位置 137398]\n...through open market purchases or pursuant to a Rule 10b5-1 trading plan. The above table excludes shares repurchased to settle employee tax withholding related to the vesting of stock awards. \nOur Board of Directors declared the following dividends during the fourth quarter of fiscal year 2026: \nWe returned $10.2 billion to shareholders in the form of share repurchases and dividends in the fourth quarter of fiscal year 2026. Refer to Note 15 – Stockholders’ Equity of the Notes to Financial Statements (Part II, Item 8 of this Form 10-K) for further discussion regarding share repurchases and dividends.\nITEM 6. [RESERVED] \nITEM 7. MANAGEMENT’S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS OF OPERATIONS\nThe following Management’s Discussion and Analysis of Financial Condition and ...\n\n[位置 144444]\n...estrictions on international trade, including tariffs and other controls on imports or exports, could result in increased supply chain challenges, cost volatility, and consumer and economic uncertainty which may adversely affect our results of operations.\nRefer to Risk Factors (Part I, Item 1A of this Form 10-K) for a discussion of these factors and other risks.\nSeasonality\nOur revenue fluctuates quarterly and is generally higher in the fourth quarter of our fiscal year. Fourth quarter revenue is driven by a higher volume of multi-year contracts executed during the period. \nReportable Segments\nWe report our financial performance based on the following three segments: Productivity and Business Processes, Intelligent Cloud, and More Personal Computing. The segment amounts included in MD&A ar...\n\n[位置 144492]\n...riffs and other controls on imports or exports, could result in increased supply chain challenges, cost volatility, and consumer and economic uncertainty which may adversely affect our results of operations.\nRefer to Risk Factors (Part I, Item 1A of this Form 10-K) for a discussion of these factors and other risks.\nSeasonality\nOur revenue fluctuates quarterly and is generally higher in the fourth quarter of our fiscal year. Fourth quarter revenue is driven by a higher volume of multi-year contracts executed during the period. \nReportable Segments\nWe report our financial performance based on the following three segments: Productivity and Business Processes, Intelligent Cloud, and More Personal Computing. The segment amounts included in MD&A are presented on a basis consistent with our inter...\n\n[位置 144527]\n... or exports, could result in increased supply chain challenges, cost volatility, and consumer and economic uncertainty which may adversely affect our results of operations.\nRefer to Risk Factors (Part I, Item 1A of this Form 10-K) for a discussion of these factors and other risks.\nSeasonality\nOur revenue fluctuates quarterly and is generally higher in the fourth quarter of our fiscal year. Fourth quarter revenue is driven by a higher volume of multi-year contracts executed during the period. \nReportable Segments\nWe report our financial performance based on the following three segments: Productivity and Business Processes, Intelligent Cloud, and More Personal Computing. The segment amounts included in MD&A are presented on a basis consistent with our internal management reporting. \nAddition...\n\n[位置 145943]\n...r products and services. The metrics are disclosed in the MD&A or the Notes to Financial Statements (Part II, Item 8 of this Form 10-K). Financial metrics are calculated based on financial results prepared in accordance with accounting principles generally accepted in the United States of America (“GAAP”), and growth comparisons relate to the corresponding period of last fiscal year.\nIn the first quarter of fiscal year 2026, we made updates to our metrics to align with how we manage and monitor certain businesses. As part of these updates, Microsoft 365 Consumer subscribers was removed as a metric.\nCommercial\nOur commercial business primarily consists of Server products and cloud services, Microsoft 365 Commercial products and cloud services, the commercial portion of LinkedIn, Dynamics pr...\n\n[位置 174551]\n...urement alternative). Equity method investments may be recorded on a lag of up to three months when sufficient financial information is not available in a timely manner. For equity method investments recorded on a lag, we recognize the impact of intervening events that have a material impact on our consolidated financial statements in the period in which they occurred. \nWe review debt investments quarterly for credit losses and impairment. If the cost of an investment exceeds its fair value, we evaluate, among other factors, general market conditions, credit quality of debt instrument issuers, and the extent to which the fair value is less than cost. This determination requires significant judgment. In making this judgment, we employ a systematic methodology that considers available quanti...\n\n[位置 239058]\n...at any time. As of June 30, 2026, $40.6 billion remained of this $60.0 billion share repurchase program.\nWe repurchased the following shares of common stock under the share repurchase programs:\nAll share repurchases were made using cash resources. Shares repurchased during fiscal year 2026 were under the share repurchase program approved on September 16, 2024. Shares repurchased during the fourth quarter of fiscal year 2025 were under the share repurchase programs approved on September 14, 2021 and September 16, 2024. All other shares repurchased were under the share repurchase program approved on September 14, 2021. The above table excludes shares repurchased to settle employee tax withholding related to the vesting of stock awards of $5.6 billion, $5.4 billion, and $5.3 billion for fisca...\n\n[位置 260898]\n...r financial reporting based on the framework in Internal Control – Integrated Framework (2013) issued by the Committee of Sponsoring Organizations of the Treadway Commission. Based on this evaluation, management concluded that the Company’s internal control over financial reporting was effective as of June 30, 2026. There were no changes in our internal control over financial reporting during the quarter ended June 30, 2026 that have materially affected, or are reasonably likely to materially affect, our internal control over financial reporting. Deloitte & Touche LLP has audited our internal control over financial reporting as of June 30, 2026; their report is included in Item 9A. \nREPORT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTING FIRM \nTo the Stockholders and the Board of Directors of M...\n\n[位置 265599]\n...ton\nJuly 29, 2026\nITEM 9B. OTHER INFORMATION\nInsider Trading Arrangements\nOur Section 16 officers and directors, as defined in Rule 16a-1(f) of the Securities Exchange Act of 1934 (the “Exchange Act”), may from time to time enter into plans for the purchase or sale of our common stock that are intended to satisfy the affirmative defense conditions of Rule 10b5-1(c) of the Exchange Act. During the quarter ended June 30, 2026, the following Section 16 officers and directors adopted, modified, or terminated “Rule 10b5-1 trading arrangements” (as defined in Item 408 of Regulation S-K of the Exchange Act):\nAmy E. Hood, our Executive Vice President and Chief Financial Officer, adopted a new written 10b5-1 trading plan on June 10, 2026, during an open trading window. The plan’s maximum duration i...\n\n[位置 281792]\n...d when your status is Trading Allowed in the Insider Trading Compliance Tool. However, even during an Open Window Period, you may not trade Microsoft securities if you possess material, nonpublic information about Microsoft. For more information about material, nonpublic information, see the General Insider Trading Policy.\nAn Open Window Period means a defined period of time following Microsoft's quarterly earnings release when the public has been apprised of all relevant material information about Microsoft's recent business and financial performance.\nOpen Window Periods typically begin with the opening of trading on the second full trading day following Microsoft's public release of quarterly earnings, and end at the close of trading on the 10th calendar day of the third month of the fis...\n\n[位置 282086]\n...eneral Insider Trading Policy.\nAn Open Window Period means a defined period of time following Microsoft's quarterly earnings release when the public has been apprised of all relevant material information about Microsoft's recent business and financial performance.\nOpen Window Periods typically begin with the opening of trading on the second full trading day following Microsoft's public release of quarterly earnings, and end at the close of trading on the 10th calendar day of the third month of the fiscal quarter in which the earnings were released (or, if the 10th calendar day is not a business day, the business day following such date). \nFor example, if Microsoft made an earnings announcement on a Wednesday, the Open Window Period would open on Friday, and would end at the close of the tr...\n\n[位置 282196]\n...terly earnings release when the public has been apprised of all relevant material information about Microsoft's recent business and financial performance.\nOpen Window Periods typically begin with the opening of trading on the second full trading day following Microsoft's public release of quarterly earnings, and end at the close of trading on the 10th calendar day of the third month of the fiscal quarter in which the earnings were released (or, if the 10th calendar day is not a business day, the business day following such date). \nFor example, if Microsoft made an earnings announcement on a Wednesday, the Open Window Period would open on Friday, and would end at the close of the trading on the 10th calendar day (or the following business day) of the third month of that fiscal quarter.\nAfte..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_61e94de54cbd4131bb7a4512",
+    "name": "search_material",
+    "content": "在 financial_statements.txt 中未找到 “diluted”"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_9b70331cde7e4056b9b4f924",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"financial_statements.txt\", \"length\": 5000}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_92535f497e4446e996f2abeb",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"length\": 5000}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_9b70331cde7e4056b9b4f924",
+    "name": "read_material",
+    "content": "[financial_statements.txt 第 0–5000 字符，共 29612]\n\n### 工作表: Splash\n | Microsoft Financial Data - FY26Q4\n | This file contains downloadable content that corresponds to Microsoft's Investor Relations portal at http://www.microsoft.com/investor. Click a link below to navigate to that section of the workbook. Each sheet contains a link back to this main page.\n\n | Current Financial Statements |  |  | Trended Historical Financial Statements\n | Income Statements |  |  | Quarterly Income Statements\n | Comprehensive Income Statements |  |  | Segment History\n | Balance Sheets |  |  | Products & Services History\n | Cash Flows Statements |  |  | Yearly Income Statements\n | Segment Results |  |  | Return of Cash to Shareholders\n | Metrics |  |  | Capital Expenditures\n | We adopted new accounting standards related to revenue recognition and leases effective July 1, 2017. The prior periods presented here have been restated to reflect adoption of these new standards.\n | We have recast certain prior period amounts on our consolidated cash flows statements to conform to the current period presentation. The recast of these prior period amounts had no impact on our consolidated balance sheets, consolidated income statements, or net cash from (used in) operations, investing, or financing on our consolidated cash flows statements.\t\t\t\n\n### 工作表: Income Statements\nMICROSOFT CORPORATION |  |  |  |  |  |  |  |  | Back to Main\nINCOME STATEMENTS\n(In millions, except per share amounts) (Unaudited)\n | Three Months Ended June 30, |  |  |  | Twelve Months Ended June 30,\n | 2026 |  | 2025 |  | 2026 |  | 2025\nRevenue:\n   Product | 17234 |  | 17136 |  | 64696 |  | 63946\n   Service and other | 72773 |  | 59305 |  | 267143 |  | 217778\n      Total revenue | 90007 |  | 76441 |  | 331839 |  | 281724\nCost of revenue:\n   Product | 2938 |  | 3314 |  | 12098 |  | 13501\n   Service and other | 26587 |  | 20700 |  | 94276 |  | 74330\n      Total cost of revenue | 29525 |  | 24014 |  | 106374 |  | 87831\n      Gross margin | 60482 |  | 52427 |  | 225465 |  | 193893\nResearch and development  | 9997 |  | 8829 |  | 35562 |  | 32488\nSales and marketing | 7595 |  | 7285 |  | 26710 |  | 25654\nGeneral and administrative  | 2287 |  | 1990 |  | 7956 |  | 7223\nOperating income | 40603 |  | 34323 |  | 155237 |  | 128528\nOther income (expense), net | 3444 |  | -1707 |  | 10697 |  | -4901\nIncome before income taxes | 44047 |  | 32616 |  | 165934 |  | 123627\nProvision for income taxes | 8281 |  | 5383 |  | 32185 |  | 21795\nNet income | 35766 |  | 27233 |  | 133749 |  | 101832\nEarnings per share:\n   Basic | 4.82 |  | 3.66 |  | 18 |  | 13.7\n   Diluted | 4.81 |  | 3.65 |  | 17.95 |  | 13.64\nWeighted average shares outstanding:\n   Basic | 7427 |  | 7432 |  | 7429 |  | 7433\n   Diluted | 7443 |  | 7461 |  | 7453 |  | 7465\n\n### 工作表: Comprehensive Income\nMICROSOFT CORPORATION |  |  |  |  |  |  |  |  | Back to Main\nCOMPREHENSIVE INCOME STATEMENTS\n(In millions) (Unaudited)\n | Three Months Ended June 30, |  |  |  | Twelve Months Ended June 30,\n | 2026 |  | 2025 |  | 2026 |  | 2025\nNet income | 35766 |  | 27233 |  | 133749 |  | 101832\nOther comprehensive income (loss), net of tax:\n  Net change related to derivatives | 14 |  | -9 |  | 8 |  | -5\n  Net change related to investments | -72 |  | 444 |  | 215 |  | 1574\n  Translation adjustments and other | 2 |  | 1051 |  | -160 |  | 674\n   Other comprehensive income (loss) | -56 |  | 1486 |  | 63 |  | 2243\nComprehensive income | 35710 |  | 28719 |  | 133812 |  | 104075\n\n### 工作表: Balance Sheets\nMICROSOFT CORPORATION |  |  |  |  |  | Back to Main\nBALANCE SHEETS\n(In millions) (Unaudited)\n | June 30,\n2026 |  | June 30, 2025\nAssets\nCurrent assets:\n   Cash and cash equivalents | 20935 |  | 30242\n   Short-term investments | 55908 |  | 64323\n      Total cash, cash equivalents, and short-term investments | 76843 |  | 94565\n   Accounts receivable, net of allowance for doubtful\n      accounts of $1,040 and $944 | 80876 |  | 69905\n   Inventories | 1397 |  | 938\n   Other current assets | 48594 |  | 25723\n      Total current assets | 207710 |  | 191131\nProperty and equipment, net of accumulated\n   depreciation of $118,691 and $93,653 | 313076 |  | 204966\nOperating lease right-of-use assets | 24177 |  | 24823\nEquity and other investments | 36348 |  | 15405\nGoodwill | 119651 |  | 119509\nIntangible assets, net | 18609 |  | 22604\nOther long-term assets | 38805 |  | 40565\n            Total assets | 758376 |  | 619003\nLiabilities and stockholders' equity\nCurrent liabilities:\n   Accounts payable | 42416 |  | 27724\n   Current portion of long-term debt | 9227 |  | 2999\n   Accrued compensation | 14945 |  | 13709\n   Short-term income taxes | 2534 |  | 7211\n   Short-term unearned revenue | 72965 |  | 64555\n   Other current liabilities | 26738 |  | 25020\n      Total current liabilities | 168825 |  | 141218\nLong-term debt | 31067 |  | 40152\nLong-term income taxes | 28647 |  | 25986\nLong-term unearned revenue | 2747 |  | 2710\nDeferred income taxes | 3054 |  | 2835\nOperating lease liabilities | 16532 |  | 17437\nOther "
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_92535f497e4446e996f2abeb",
+    "name": "read_material",
+    "content": "[press_release.txt 第 0–5000 字符，共 29949]\nMicrosoft Cloud and AI Strength Fuels Fourth Quarter Results\nREDMOND, Wash. — July 29, 2026 — Microsoft Corp. today announced the following results for the quarter ended June 30, 2026, as compared to the corresponding period of last fiscal year:\nRevenue was $90.0 billion and increased 18% (up 17% in constant currency)\nOperating income was $40.6 billion and increased 18% \nNet income was $35.8 billion and increased 31% on a GAAP basis, and was $35.3 billion and increased 22% on a non-GAAP basis\nDiluted earnings per share was $4.81 and increased 32% on a GAAP basis, and was $4.74 and increased 23% on a non-GAAP basis\nNon-GAAP results exclude the impact from investments in OpenAI, explained in the Non-GAAP Definition section below\nSeveral discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share. These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program which were partially offset by severance expense and impairment charges in XBOX. When adjusting for these items, we exceeded expectations across revenue, operating income, and diluted earnings per share.\n“We are advancing the frontier on the cost-to-outcome curve, ensuring every customer can turn tokens into business results,\" said Satya Nadella, chairman and chief executive officer of Microsoft. “This year, Azure revenue surpassed $100 billion for the first time, and Microsoft 365 Copilot reached over 30 million paid seats, reflecting the confidence customers are placing in us to power their AI transformation.”\n “We delivered a strong quarter to close out the fiscal year, highlighted by Microsoft Cloud revenue of $59.3 billion, up 27% year-over-year,” said Amy Hood, executive vice president and chief financial officer of Microsoft.\nThe following table adjusts for the impact from investments in OpenAI and reconciles our financial results reported in accordance with generally accepted accounting principles (GAAP) to non-GAAP financial results. Additional information regarding our non-GAAP definition is provided below. All growth comparisons relate to the corresponding period in the last fiscal year. \n*Impact from OpenAI adjusts for the impact from investments in OpenAI \nBusiness Highlights\nMicrosoft Cloud revenue was $59.3 billion and increased 27%, and commercial remaining performance obligation increased 84% to $678 billion.\nRevenue in Productivity and Business Processes was $37.8 billion and increased 14%, with the following business highlights:\nMicrosoft 365 Commercial cloud revenue increased 16% when adjusted for the prior year comparable that benefited from 2 points of in-period revenue recognition. On a reported basis, Microsoft 365 Commercial cloud revenue increased 14%.\nMicrosoft 365 Consumer cloud revenue increased 24% (up 22% in constant currency) \nLinkedIn revenue increased 12% (up 10% in constant currency)\nDynamics 365 revenue increased 13% (up 12% in constant currency)\nRevenue in Intelligent Cloud was $39.3 billion and increased 32% (up 31% in constant currency), with the following business highlights:\nAzure and other cloud services revenue increased 43%\nRevenue in More Personal Computing was $12.9 billion and decreased 4% (down 5% in constant currency), with the following business highlights:\nWindows OEM and Devices revenue decreased 7% \nXBOX content and services revenue decreased 10%\nSearch advertising revenue excluding traffic acquisition costs increased 10% (up 9% in constant currency)\nMicrosoft returned $10.2 billion to shareholders in the form of dividends and share repurchases in the fourth quarter of fiscal year 2026. \nFiscal Year 2026 Results\nMicrosoft Corp. today announced the following results for the fiscal year ended June 30, 2026, as compared to the corresponding period of last fiscal year:\nRevenue was $331.8 billion and increased 18% (up 16% in constant currency)\nOperating income was $155.2 billion and increased 21% (up 19% in constant currency)\nNet income was $133.7 billion and increased 31% on a GAAP basis, and increased 22% (up 20% in constant currency) on a non-GAAP basis\nDiluted earnings per share was $17.95 and increased 32% on a GAAP basis, and increased 22% (up 21% in constant currency) on a non-GAAP basis\nNon-GAAP results exclude the impact from investments in OpenAI, explained in the Non-GAAP Definition section below\nThe following table adjusts for the impact from investments in OpenAI and reconciles our financial results reported in accordance with GAAP to non-GAAP financial results. Additional information regarding our non-GAAP definition is provided below. All growth comparisons relate to the corresponding period in the last fiscal year. \n*Impact from OpenAI adjusts for the impact from investments in OpenAI \nBusiness Outlook\nMicrosoft will provide forward-looking guidance in connection with this quart"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_bcb74aa408c348fd91a4ae30",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"length\": 10000, \"name\": \"press_release.txt\", \"offset\": 5000}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_bcb74aa408c348fd91a4ae30",
+    "name": "read_material",
+    "content": "[press_release.txt 第 5000–15000 字符，共 29949]\nerly earnings announcement on its earnings conference call and webcast. \nQuarterly Highlights, Product Releases, and Customer Stories\nEvery quarter Microsoft delivers hundreds of products, services, and enhancements. These releases are driven by years of significant research and development investments, to empower customers with greater productivity, security, and differentiated value. \nThis momentum is reflected in stories that showcase how our technology is shaping industries and driving customer success. We share innovation updates on our product blogs across Azure, Microsoft 365, and more on our Official Microsoft blog.\nWebcast Details\nSatya Nadella, chairman and chief executive officer, Amy Hood, executive vice president and chief financial officer, Alice Jolla, chief accounting officer, Brian DeFoe, deputy general counsel and corporate secretary, and Jonathan Neilson, vice president of investor relations, will host a conference call and webcast at 2:30 p.m. Pacific time (5:30 p.m. Eastern time) today to discuss details of the company’s performance for the quarter and certain forward-looking information. The session may be accessed at http://www.microsoft.com/en-us/investor. Participants can also dial into the conference call at (877) 407-0666 or +1 (201) 689-8023 for international, no password required. The webcast will be available for replay through the close of business on July 29, 2027.\nNon-GAAP Definition\nImpact from investments in OpenAI. In fiscal year 2026, net income and diluted earnings per share were impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted earnings per share of $480 million and $0.07, respectively, in the fourth quarter, and $4,963 million and $0.67, respectively, for the full fiscal year. In fiscal year 2025, net income and diluted earnings per share were impacted by net losses from investments in OpenAI, which resulted in a decrease in net income and diluted earnings per share of $1,575 million and $0.21, respectively, in the fourth quarter, and $3,620 million and $0.49, respectively, for the full fiscal year.\nMicrosoft has provided non-GAAP financial measures related to the impact from investments in OpenAI to aid investors in better understanding our performance. Microsoft believes these non-GAAP measures assist investors by providing additional insight into its operational performance and help clarify trends affecting its business. For comparability of reporting, management considers non-GAAP measures in conjunction with GAAP financial results in evaluating business performance. The non-GAAP financial measures presented in this release should not be considered as a substitute for, or superior to, the measures of financial performance prepared in accordance with GAAP.\nConstant Currency\nMicrosoft presents constant currency information to provide a framework for assessing how our underlying businesses performed excluding the effect of foreign currency rate fluctuations. To present this information, current and comparative prior period results for entities reporting in currencies other than United States dollars are converted into United States dollars using the average exchange rates from the comparative period rather than the actual exchange rates in effect during the respective periods. All growth comparisons relate to the corresponding period in the last fiscal year. Microsoft has provided this non-GAAP financial information to aid investors in better understanding our performance. The non-GAAP financial measures presented in this release should not be considered as a substitute for, or superior to, the measures of financial performance prepared in accordance with GAAP.\nFinancial Performance Constant Currency Reconciliation\nSegment Revenue Constant Currency Reconciliation\nSelected Product and Service Information Constant Currency Reconciliation\t\nAbout Microsoft\nMicrosoft (Nasdaq “MSFT” @microsoft) creates platforms and tools powered by AI to deliver innovative solutions that meet the evolving needs of our customers. The technology company is committed to making AI available broadly and doing so responsibly, with a mission to empower every person and every organization on the planet to achieve more.\nForward-Looking Statements\nStatements in this release that are “forward-looking statements” are based on current expectations and assumptions that are subject to risks and uncertainties. Actual results could differ materially because of factors such as: \nintense competition in all of our markets that could adversely affect our results of operations;\nsubstantial investments in cloud and AI strategy that depend on customer demand, technological developments, competitive dynamics, and regulatory condition;\ndevelopment, delivery, and maintenance of competitive cloud-based and AI products and services that achieve broad customer adoption and sustainable revenue growth;\nsignificant investments in products and services that may not achieve expected returns;\nacquisitions, joint ventures, and strategic alliances that could have an adverse effect on our business;\ncyberattacks and security vulnerabilities that could lead to reduced revenue, increased costs, liability claims, or harm to our reputation or competitive position;\ndisclosure and misuse of personal data that could cause liability and harm to our reputation; \nthe possibility that we may not be able to protect information in our products and services from use by others;\nabuse of our platforms that may harm our reputation or user engagement;\nproducts and services, how they are used by customers, and how third-party products and services interact with them, presenting security, privacy, and execution risks;\nissues about the development, deployment, and use of AI that may result in reputational or competitive harm, or liability; \ninability to develop and expand adequate infrastructure;\nsupply or other quality problems;\nexcessive outages, disruptions, or capacity constraints of our services if we fail to maintain an adequate operations infrastructure or secure resources necessary to support it;\npotential consequences of new, existing, and evolving legal and regulatory requirements;\nclaims against us that could result in adverse outcomes in legal disputes;\nuncertainties relating to our business with government customers;\nadditional tax liabilities;\nan inability to protect and utilize our intellectual property may harm our business and operating results;\nclaims that Microsoft has infringed the intellectual property rights of others;\ndamage to our reputation or our brands that may harm our business and results of operations;\nadverse economic or market conditions that could harm our business; \ncatastrophic events or geopolitical conditions that could disrupt our business; \nexposure to increased economic and operational uncertainties from operating a global business, including the effects of foreign currency exchange; and\nthe dependence of our business on our ability to attract and retain talented employees.\nFor more information about risks and uncertainties associated with Microsoft’s business, please refer to the “Management’s Discussion and Analysis of Financial Condition and Results of Operations” and “Risk Factors” sections of Microsoft’s SEC filings, including, but not limited to, its annual report on Form 10-K and quarterly reports on Form 10-Q, copies of which may be obtained by contacting Microsoft’s Investor Relations department at (800) 285-7772 or at Microsoft’s Investor Relations website at http://www.microsoft.com/en-us/investor.\nAll information in this release is as of June 30, 2026. The company undertakes no duty to update any forward-looking statement to conform the statement to actual results or changes in the company’s expectations.\nFor more information, press only: \nMicrosoft Media Relations, WE Communications for Microsoft, (425) 638-7777, rrt@we-worldwide.com \nFor more information, financial analysts and investors only: \nJonathan Neilson, Vice President, Investor Relations, (425) 706-4400\nNote to editors: For more information, news and perspectives from Microsoft, please visit the Microsoft News Center at http://www.microsoft.com/news. Web links, telephone numbers, and titles were correct at time of publication, but may since have changed. Shareholder and financial information, as well as today’s 2:30 p.m. Pacific time conference call with investors and analysts, is available at http://www.microsoft.com/en-us/investor.\nThree Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30,\n | 2026 | 2026 | 2026 |  | 2025 | 2025 | 2025 |  | Percentage Change Y/Y | Percentage Change Y/Y | Percentage Change Y/Y |  | Percentage Change Y/Y | Percentage Change Y/Y | Percentage Change Y/Y\n($ in millions, except per share amounts) | As\nReported\n(GAAP) | Impact from OpenAI* | As \nAdjusted \n(non-GAAP) |  | As\nReported\n(GAAP) | Impact from OpenAI* | As \nAdjusted \n(non-GAAP) |  | GAAP | Constant Currency | Net Impact from OpenAI* | Net Impact from OpenAI* | Net Impact from OpenAI* | Non-GAAP | Non-GAAP Constant Currency\nNet \nIncome | $35,766 | $(480) | $35,286 |  | $27,233 | $1,575 | $28,808 |  | 31% | 31% | $(2,055) | $(2,055) | $(2,055) | 22% | 22%\nDiluted \nEarnings\nper Share | $4.81 | $(0.07) | $4.74 |  | $3.65 | $0.21 | $3.86 |  | 32% | 32% | $(0.28) | $(0.28) | $(0.28) | 23% | 23%\nTwelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months "
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_9248594e1cbb407d94d7f08b",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"length\": 10000, \"name\": \"press_release.txt\", \"offset\": 15000}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_9248594e1cbb407d94d7f08b",
+    "name": "read_material",
+    "content": "[press_release.txt 第 15000–25000 字符，共 29949]\nEnded June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30,\n | 2026 | 2026 | 2026 |  | 2025 | 2025 | 2025 |  | Percentage Change Y/Y | Percentage Change Y/Y | Percentage Change Y/Y |  | Percentage Change Y/Y | Percentage Change Y/Y | Percentage Change Y/Y\n($ in millions, except per share amounts) | As\nReported\n(GAAP) | Impact from OpenAI* | As \nAdjusted \n(non-GAAP) |  | As\nReported\n(GAAP) | Impact from OpenAI* | As \nAdjusted \n(non-GAAP) |  | GAAP | Constant Currency | Net Impact from OpenAI* | Net Impact from OpenAI* | Net Impact from OpenAI* | Non-GAAP | Non-GAAP Constant Currency\nNet \nIncome | $133,749 | $(4,963) | $128,786 |  | $101,832 | $3,620 | $105,452 |  | 31% | 30% | $(8,583) | $(8,583) | $(8,583) | 22% | 20%\nDiluted \nEarnings\nper Share | $17.95 | $(0.67) | $17.28 |  | $13.64 | $0.49 | $14.13 |  | 32% | 30% | $(1.16) | $(1.16) | $(1.16) | 22% | 21%\nThree Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30,\n($ in millions, except per share amounts) | 2026 | 2026 |  | 2025 | 2025 |  | Percentage Change Y/Y | Percentage Change Y/Y |  | Percentage Change Y/Y | Percentage Change Y/Y\n($ in millions, except per share amounts) | As Reported\n(GAAP) | As Adjusted \n(non-GAAP) |  | As Reported \n(GAAP) | As Adjusted \n(non-GAAP) |  | GAAP | Non-\nGAAP | Constant Currency Impact | Constant Currency | Non-GAAP Constant \nCurrency\nRevenue | $90,007 | - |  | $76,441 | - |  | 18% | - | $391 | 17% | -\nOperating \nIncome | $40,603 | - |  | $34,323 | - |  | 18% | - | $269 | 18% | -\nNet Income | $35,766 | $35,286 |  | $27,233 | $28,808 |  | 31% | 22% | $40 | 31% | 22%\nDiluted \nEarnings \nper Share | $4.81 | $4.74 |  | $3.65 | $3.86 |  | 32% | 23% | $0.01 | 32% | 23%\nTwelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30,\n($ in millions, except per share amounts) | 2026 | 2026 |  | 2025 | 2025 |  | Percentage Change Y/Y | Percentage Change Y/Y |  | Percentage Change Y/Y | Percentage Change Y/Y\n($ in millions, except per share amounts) | As Reported\n(GAAP) | As Adjusted \n(non-GAAP) |  | As Reported \n(GAAP) | As Adjusted \n(non-GAAP) |  | GAAP | Non-\nGAAP | Constant Currency Impact | Constant Currency | Non-GAAP Constant \nCurrency\nRevenue | $331,839 | - |  | $281,724 | - |  | 18% | - | $4,445 | 16% | -\nOperating \nIncome | $155,237 | - |  | $128,528 | - |  | 21% | - | $2,896 | 19% | -\nNet Income | $133,749 | $128,786 |  | $101,832 | $105,452 |  | 31% | 22% | $1,772 | 30% | 20%\nDiluted \nEarnings \nper Share | $17.95 | $17.28 |  | $13.64 | $14.13 |  | 32% | 22% | $0.24 | 30% | 21%\nThree Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30,\n($ in millions) | 2026 |  | 2025 |  | Percentage Change Y/Y | Constant Currency Impact | Percentage Change Y/Y\n($ in millions) | As Reported\n(GAAP) |  | As Reported\n(GAAP) |  | GAAP | Constant Currency Impact | Constant Currency\nProductivity and Business Processes | $37,847 |  | $33,112 |  | 14% | $244 | 14%\nIntelligent Cloud | $39,306 |  | $29,878 |  | 32% | $80 | 31%\nMore Personal Computing | $12,854 |  | $13,451 |  | (4)% | $67 | (5)%\nThree Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026\n | Percentage Change Y/Y (GAAP) | Constant Currency Impact | Percentage Change Y/Y Constant Currency\nMicrosoft Cloud revenue | 27% | 0% | 27%\nCommercial remaining performance obligation | 84% | 0% | 84%\nMicrosoft 365 Commercial cloud revenue | 14% | 0% | 14%\nMicrosoft 365 Consumer cloud revenue | 24% | (2)% | 22%\nLinkedIn revenue | 12% | (2)% | 10%\nDynamics 365 revenue | 13% | (1)% | 12%\nAzure and other cloud services revenue | 43% | 0% | 43%\nWindows OEM and Devices revenue | (7)% | 0% | (7)%\nXBOX content and services revenue | (10)% | 0% | (10)%\nSearch advertising revenue excluding traffic acquisition costs | 10% | (1)% | 9%\nMICROSOFT CORPORATION | MICROSOFT CORPORATION |  |  |  |  |  | \nINCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS\n(In millions, except per share amounts) (Unaudited) | (In millions, except per share amounts) (Unaudited) | (In millions, except per share amounts) (Unaudited) | (In millions, except per share amounts) (Unaudited) | (In millions, except per share amounts) (Unaudited) | (In millions, except per share amounts) (Unaudited) | (In millions, except per share amounts) (Unaudited) | (In millions, except per share amounts) (Unaudited)\n | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, |  | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30,\n | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, |  | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30,\n | 2026 |  | 2025 |  | 2026 |  | 2025\nRevenue: |  |  |  |  |  |  | \nProduct | $17,234 |  | $17,136 |  | $64,696 |  | $63,946\nService and other | 72,773 |  | 59,305 |  | 267,143 |  | 217,778\nTotal revenue | 90,007 |  | 76,441 |  | 331,839 |  | 281,724\nCost of revenue: |  |  |  |  |  |  | \nProduct | 2,938 |  | 3,314 |  | 12,098 |  | 13,501\nService and other | 26,587 |  | 20,700 |  | 94,276 |  | 74,330\nTotal cost of revenue | 29,525 |  | 24,014 |  | 106,374 |  | 87,831\nGross margin | 60,482 |  | 52,427 |  | 225,465 |  | 193,893\nResearch and development | 9,997 |  | 8,829 |  | 35,562 |  | 32,488\nSales and marketing | 7,595 |  | 7,285 |  | 26,710 |  | 25,654\nGeneral and administrative | 2,287 |  | 1,990 |  | 7,956 |  | 7,223\nOperating income | 40,603 |  | 34,323 |  | 155,237 |  | 128,528\nOther income (expense), net | 3,444 |  | (1,707) |  | 10,697 |  | (4,901)\nIncome before income taxes | 44,047 |  | 32,616 |  | 165,934 |  | 123,627\nProvision for income taxes | 8,281 |  | 5,383 |  | 32,185 |  | 21,795\nNet income | $35,766 |  | $27,233 |  | $133,749 |  | $101,832\nEarnings per share: |  |  |  |  |  |  | \nBasic | $4.82 |  | $3.66 |  | $18.00 |  | $13.70\nDiluted | $4.81 |  | $3.65 |  | $17.95 |  | $13.64\nWeighted average shares outstanding: | Weighted average shares outstanding: | Weighted average shares outstanding: | Weighted average shares outstanding: |  |  |  | \nBasic | 7,427 |  | 7,432 |  | 7,429 |  | 7,433\nDiluted | 7,443 |  | 7,461 |  | 7,453 |  | 7,465\nCOMPREHENSIVE INCOME STATEMENTS | COMPREHENSIVE INCOME STATEMENTS | COMPREHENSIVE INCOME STATEMENTS | COMPREHENSIVE INCOME STATEMENTS | COMPREHENSIVE INCOME STATEMENTS | COMPREHENSIVE INCOME STATEMENTS | COMPREHENSIVE INCOME STATEMENTS | COMPREHENSIVE INCOME STATEMENTS\n(In millions) (Unaudited) | (In millions) (Unaudited) | (In millions) (Unaudited) | (In millions) (Unaudited) | (In millions) (Unaudited) | (In millions) (Unaudited) | (In millions) (Unaudited) | (In millions) (Unaudited)\n | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, |  | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30,\n | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, |  | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30,\n | 2026 |  | 2025 |  | 2026 |  | 2025\nNet income | $35,766 |  | $27,233 |  | $133,749 |  | $101,832\nOther comprehensive income (loss), net of tax: |  |  |  |  |  |  | \nNet change related to derivatives | 14 |  | (9) |  | 8 |  | (5)\nNet change related to investments | (72) |  | 444 |  | 215 |  | 1,574\nTranslation adjustments and other | 2 |  | 1,051 |  | (160) |  | 674\nOther comprehensive income (loss) | (56) |  | 1,486 |  | 63 |  | 2,243\nComprehensive income | $35,710 |  | $28,719 |  | $133,812 |  | $104,075\nBALANCE SHEETS | BALANCE SHEETS | BALANCE SHEETS\n(In millions) (Unaudited) | (In millions) (Unaudited) | (In millions) (Unaudited)\n | June 30,\n2026 | June 30, 2025\nAssets |  | \nCurrent assets: |  | \nCash and cash equivalents | $20,935 | $30,242\nShort-term investments | 55,908 | 64,323\nTotal cash, cash equivalents, and short-term investments | 76,843 | 94,565\nAccounts receivable, net of allowance for doubtful\n      accounts of $1,040 and $944 | 80,876 | 69,905\nInventories | 1,397 | 938\nOther current assets | 48,594 | 25,723\nTotal current assets | 207,710 | 191,131\nProperty and equipment, net of accumulated\n   depreciation of $118,691 and $93,653 | 313,076 | 204,966\nOperating lease right-of-use assets | 24,177 | 24,823\nEquity and other investments | 36,348 | 15,405\nGoodwill | 119,651 | 119,509\nIntangible assets, net | 18,609 | 22,604\nOther long-term assets | 38,805 | 40,565\nTotal assets | $758,376 | $619,003\nLiabilities and stockholders' equity |  | \nCurrent liabilities: |  | \nAccounts payable | $42,416 | $27,724\nCurrent portion of long-term debt | 9,227 | 2,999\nAccrued compensation | 14,945 | 13,709\nShort-term income taxes | 2,534 | 7,211\nShort-term unearned revenue | 72,965 | 64,555\nOther current liabilities | 26,738 | 25,020\nTotal current liabilities | 168,825 | 141,218\nLong-term debt | 31,067 | "
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_64795c2e66bb44aabe5ace1e",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"press_release.txt\", \"query\": \"discrete\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_ba7c0db3c2b94604b955589b",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"10k.txt\", \"query\": \"discrete\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_836c52e455734a1eb764a5af",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"press_release.txt\", \"query\": \"Anthropic\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_64795c2e66bb44aabe5ace1e",
+    "name": "search_material",
+    "content": "[位置 745]\n...6 billion and increased 18% \nNet income was $35.8 billion and increased 31% on a GAAP basis, and was $35.3 billion and increased 22% on a non-GAAP basis\nDiluted earnings per share was $4.81 and increased 32% on a GAAP basis, and was $4.74 and increased 23% on a non-GAAP basis\nNon-GAAP results exclude the impact from investments in OpenAI, explained in the Non-GAAP Definition section below\nSeveral discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share. These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program which were partially offset by severance expense and impai..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_ba7c0db3c2b94604b955589b",
+    "name": "search_material",
+    "content": "在 10k.txt 中未找到 “discrete”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_836c52e455734a1eb764a5af",
+    "name": "search_material",
+    "content": "[位置 1000]\n...% on a non-GAAP basis\nNon-GAAP results exclude the impact from investments in OpenAI, explained in the Non-GAAP Definition section below\nSeveral discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share. These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program which were partially offset by severance expense and impairment charges in XBOX. When adjusting for these items, we exceeded expectations across revenue, operating income, and diluted earnings per share.\n“We are advancing the frontier on the cost-to-outcome curve, ensuring every customer can turn tokens into bus..."
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_2e0a6792ae1b46ccac8109ad",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"10k.txt\", \"query\": \"Voluntary Retirement\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_8b991717114043328c4cdded",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"10k.txt\", \"query\": \"Anthropic\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_2e0a6792ae1b46ccac8109ad",
+    "name": "search_material",
+    "content": "在 10k.txt 中未找到 “Voluntary Retirement”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_8b991717114043328c4cdded",
+    "name": "search_material",
+    "content": "在 10k.txt 中未找到 “Anthropic”"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_28b633eb42e4498ba42a45b3",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"press_release.txt\", \"query\": \"guidance\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_44de472b48f646d3a8715466",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"transcript.txt\", \"query\": \"discrete\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_28b633eb42e4498ba42a45b3",
+    "name": "search_material",
+    "content": "[位置 843]\n...as $35.3 billion and increased 22% on a non-GAAP basis\nDiluted earnings per share was $4.81 and increased 32% on a GAAP basis, and was $4.74 and increased 23% on a non-GAAP basis\nNon-GAAP results exclude the impact from investments in OpenAI, explained in the Non-GAAP Definition section below\nSeveral discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share. These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program which were partially offset by severance expense and impairment charges in XBOX. When adjusting for these items, we exceeded expectations across revenue, op...\n\n[位置 4962]\n...s in OpenAI and reconciles our financial results reported in accordance with GAAP to non-GAAP financial results. Additional information regarding our non-GAAP definition is provided below. All growth comparisons relate to the corresponding period in the last fiscal year. \n*Impact from OpenAI adjusts for the impact from investments in OpenAI \nBusiness Outlook\nMicrosoft will provide forward-looking guidance in connection with this quarterly earnings announcement on its earnings conference call and webcast. \nQuarterly Highlights, Product Releases, and Customer Stories\nEvery quarter Microsoft delivers hundreds of products, services, and enhancements. These releases are driven by years of significant research and development investments, to empower customers with greater productivity, security,..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_44de472b48f646d3a8715466",
+    "name": "search_material",
+    "content": "[位置 19214]\n...55 billion as we invested in long-term growth while continuing to expand operating leverage.\nThis quarter, revenue was $90 billion, up 18% and 17% in constant currency. Gross margin dollars increased 15% and operating income increased 18%. Earnings per share was $4.74, an increase of 23%, when adjusted for the impact from our investment in OpenAI. And FX was roughly in line with guidance.\nSeveral discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on our April earnings call, resulting in a benefit of 27 cents on diluted earnings per share. \nThese include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program, which were partially offset by severance exp...\n\n[位置 20331]\n...ed investments in AI infrastructure and growing product usage, partially offset by ongoing efficiency gains, particularly in Azure and M365 Commercial cloud. \nOperating expenses increased 10% driven by continued investment in R&D compute capacity, talent, and data to support product development across the portfolio. G and A growth was impacted by a low prior-year comparable as well as some of the discrete items mentioned earlier. Operating margins increased slightly year-over-year to 45%.\nTotal company headcount declined 2% year-over-year.\nWhen adjusted for the impact of our investments in OpenAI, other income and expense was $2.8 billion driven by the gain on investment in Anthropic noted earlier. \nCapital expenditures were $41 billion including the impact from higher component pricing as..."
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_7fa7d3066ef7499b94234853",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"transcript.txt\", \"query\": \"Guidance\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_7fa7d3066ef7499b94234853",
+    "name": "search_material",
+    "content": "在 transcript.txt 中未找到 “Guidance”"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_ad33148d4412411199488533",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"transcript.txt\", \"query\": \"April 29\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_ad33148d4412411199488533",
+    "name": "search_material",
+    "content": "在 transcript.txt 中未找到 “April 29”"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_5bc3809256564455be267976",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"transcript.txt\", \"query\": \"27 cents\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_70ba33d497a54581b4c01d1d",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"transcript.txt\", \"query\": \"Voluntary\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_5bc3809256564455be267976",
+    "name": "search_material",
+    "content": "[位置 19384]\n...ross margin dollars increased 15% and operating income increased 18%. Earnings per share was $4.74, an increase of 23%, when adjusted for the impact from our investment in OpenAI. And FX was roughly in line with guidance.\nSeveral discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on our April earnings call, resulting in a benefit of 27 cents on diluted earnings per share. \nThese include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program, which were partially offset by severance expense and impairment charges in XBOX. \nWhen adjusting for these items, we exceeded expectations across revenue, operating income and earnings per share due to strong deman..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_70ba33d497a54581b4c01d1d",
+    "name": "search_material",
+    "content": "[位置 19540]\n...r investment in OpenAI. And FX was roughly in line with guidance.\nSeveral discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on our April earnings call, resulting in a benefit of 27 cents on diluted earnings per share. \nThese include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program, which were partially offset by severance expense and impairment charges in XBOX. \nWhen adjusting for these items, we exceeded expectations across revenue, operating income and earnings per share due to strong demand and execution in the quarter.\nCompany gross margin percentage was 67%, down year-over-year, driven by sales mix shift to Azure as well as continued invest..."
+  },
+  {
+    "role": "assistant",
+    "content": "现在我有足够的信息来回答所有问题。让我先确认关键数据的出处，然后给出完整分析。\n\n---\n\n## 微软 FY26 Q4 摊薄 EPS 分析\n\n### 1. FY26 Q4 摊薄 EPS 口径与同比\n\n| 口径 | FY26 Q4 EPS | 同比增长 | 出处 |\n|------|------------|---------|------|\n| **GAAP** | **$4.81** | **+32%** | `press_release.txt` 第 745 字符：\"Diluted earnings per share was $4.81 and increased 32% on a GAAP basis\" |\n| **Non-GAAP** | **$4.74** | **+23%** | `press_release.txt` 第 745 字符：\"was $4.74 and increased 23% on a non-GAAP basis\" |\n\nFY25 Q4 同期对照：\n- GAAP：**$3.65**（`financial_statements.txt` 第 0 行 Income Statements：\"Diluted ... 3.65\"，对应 \"Three Months Ended June 30, 2025\"）\n- Non-GAAP：**$3.86**（`press_release.txt` 第 745 字符处的 reconciliation 表：\"As Adjusted (non-GAAP) ... $3.86\"，对应 FY25 Q4）\n\n### 2. 去年同期（FY25 Q4）摊薄 EPS\n\n- GAAP：**$3.65**（出处同上，`financial_statements.txt` 和 `press_release.txt` FY25 Q4 列）\n- Non-GAAP：**$3.86**（出处同上，`press_release.txt` reconciliation 表 FY25 Q4 non-GAAP 列）\n\n### 3. 同比增速差距（32% GAAP vs 23% Non-GAAP）的来源\n\n**差距的核心来源是 OpenAI 投资收益的会计口径不同**：\n\n- FY26 Q4 GAAP 净利润中包含了 **+$480M** 的 OpenAI 投资净收益，对应 EPS 增加 **+$0.07**（`press_release.txt` Non-GAAP 定义段：\"net gains from investments in OpenAI, which resulted in an increase in net income and diluted earnings per share of $480 million and $0.07, respectively, in the fourth quarter\"）\n- FY25 Q4 GAAP 净利润中包含了 **−$1,575M** 的 OpenAI 投资净损失，对应 EPS 减少 **−$0.21**（同上：\"net losses from investments in OpenAI, which resulted in a decrease in net income and diluted earnings per share of $1,575 million and $0.21, respectively, in the fourth quarter\"）\n\n也就是说，GAAP 口径下 FY26 Q4 受了 +$0.07 的\"OpenAI 收益\"正向贡献，而 FY25 Q4 受了 −$0.21 的\"OpenAI 损失\"负向贡献。Non-GAAP 口径把这两项都剔除。\n\n**计算验证**：\n- GAAP 同比增速 = ($4.81 − $3.65) / $3.65 = 31.8% ≈ 32%\n- Non-GAAP 同比增速 = ($4.74 − $3.86) / $3.86 = 22.8% ≈ 23%\n- 差距 = 32% − 23% = **9 个百分点**\n\n**这是否反映了核心经营业务的改善？**\n**不是**。这 9 个百分点的增速差距**并不反映核心经营业务的改善**，它反映的是：\n1. 去年同期有一笔 −$0.21 的 OpenAI 损失拖累，Non-GAAP 已将其剔除；\n2. 今年同期有一笔 +$0.07 的 OpenAI 收益加成，GAAP 将其计入、Non-GAAP 将其剔除。\n\n因此口径差异主要来自**非经常性、基于投资的会计确认**（OpenAI 投资的公允价值变动/已实现收益），而不是主营云业务或产品业务的表现。Non-GAAP 口径（+23%）才是衡量核心经营业务改善的更相关指标。\n\n### 4. 离散项 vs 口径差异：是不是同一回事？\n\n**不是同一回事**。\n\n- **口径差异（GAAP vs Non-GAAP）**：来自是否计入 **OpenAI 投资收益/损失**。这是会计列报的分类问题，影响所有季度的 EPS，且是系统性的（FY26 Q4 GAAP 比 Non-GAAP 高 $0.07）。\n\n- **离散项（discrete items）**：是相对于 **4 月 29 日 forward-looking guidance** 的**超出或低于预期的单笔项目**，总贡献 **+$0.27**  EPS（`press_release.txt` 第 745 字符：\"Several discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share.\"）。具体包括：\n  - **+$3.2B Anthropic 投资收益**（正贡献）\n  - **VRP（Voluntary Retirement Program）低于预期的费用**（正贡献）\n  - 部分被 **XBOX 减值和遣散费** 抵消（负贡献）\n  （出处同上：\"a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program which were partially offset by severance expense and impairment charges in XBOX\"）\n\n离散项 **+$0.27** 与口径差异 **+$0.07**（FY26 Q4 GAAP − Non-GAAP）**完全无关**：一个是相对自身指引的超预期，一个是相对 GAAP/Non-GAAP 的会计口径调整。实际上，$0.27 的离散收益 **已经包含在 GAAP 和 Non-GAAP 两个数字之中**——无论 GAAP 还是 Non-GAAP，都会受到 Anthropic 收益（$3.2B）和 VRP 节省的影响，因为这些项目与 OpenAI 投资无关，不被 Non-GAAP 调整剔除（`press_release.txt` 明确说明 Non-GAAP 仅排除 OpenAI 影响）。\n\n---\n\n**总结**：\n- FY26 Q4 GAAP 摊薄 EPS $4.81（+32% YoY），Non-GAAP $4.74（+23% YoY）。\n- 同比增速差距来自 OpenAI 投资收益在 GAAP 中确认而在 Non-GAAP 中剔除，Non-GAAP（+23%）更能反映核心业务。\n- 离散项（+$0.27 EPS）是相对 April 29 指引的超预期项目，与 GAAP/Non-GAAP 口径差异（+$0.07 EPS）不是一回事。"
+  }
+]

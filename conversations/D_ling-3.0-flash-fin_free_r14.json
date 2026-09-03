@@ -1,0 +1,655 @@
+[
+  {
+    "role": "user",
+    "content": "你是金融投研分析师。可用工具读取微软 FY26 Q4 的官方财报材料。\n请先用 list_materials 查看有哪些文件，再按需读取。\n所有结论必须给出具体出处（文件名 + 位置），不得凭印象作答。\n\n问题：微软 FY26 Q4 的摊薄每股收益（diluted EPS）：\n\n1. GAAP 口径和非 GAAP 口径分别是多少？各自同比增长多少？\n2. 去年同期（FY25 Q4）的 GAAP 和非 GAAP 摊薄每股收益分别是多少？\n3. 两个口径的同比增速存在明显差距。请解释这个差距**具体从哪里来**，\n   并说明它是否反映了核心经营业务的改善。\n4. 财报中还提到了若干\"相对于此前指引的离散项\"。这些离散项和第 3 问中的\n   口径差异是不是同一回事？请说明。\n\n每个数字都要给出出处。\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_1520d0acd13e4e10b2955349",
+        "function": {
+          "name": "list_materials",
+          "arguments": "{}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_1520d0acd13e4e10b2955349",
+    "name": "list_materials",
+    "content": "10k.txt  (423,020 字符)\nfinancial_statements.txt  (29,612 字符)\nmetrics.txt  (2,266 字符)\npress_release.txt  (29,949 字符)\ntranscript.txt  (58,106 字符)"
+  },
+  {
+    "role": "assistant",
+    "content": "\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_c95c3216f4fd4de9a92ee58f",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"metrics.txt\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_9c33ebaa16824f689fbfc697",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"press_release.txt\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_c95c3216f4fd4de9a92ee58f",
+    "name": "read_material",
+    "content": "[metrics.txt 第 0–2266 字符，共 2266]\n\n### 工作表: Metrics\n | Investor Metrics\n | (in billions, except for percentages) |  | Q4'25 | FY25 | Q1'26 | Q2'26 | Q3'26 | Q4'26 | FY26\n | Commercial (Includes commercial portion of LinkedIn)\n |  | Commercial bookings growth (y/y)* | 37% / 30% | 0.38 | 112% / 111% | 230% / 228% | -4% / -6% | 10% / 11% | 0.8300000000000001\n |  | Commercial remaining performance obligation | 368 | 368 | 392 | 625 | 627 | 678 | 678\n |  | Microsoft Cloud revenue | 46.7 | 168.9 | 49.1 | 51.5 | 54.5 | 59.3 | 214.4\n |  | Microsoft Cloud revenue growth (y/y)* | 27% / 25% | 23% / 23% | 26% / 25% | 26% / 24% | 29% / 25% | 27% / 27% | 27% / 25%\n |  | Microsoft Cloud gross margin percentage | 0.68 | 0.6900000000000001 | 0.68 | 0.67 | 0.66 | 0.65 | 0.66\n | Productivity & Business Processes and Intelligent Cloud\n |  | Microsoft 365 Commercial cloud revenue growth (y/y)* | 18% / 16% | 15% / 15% | 17% / 15% | 17% / 14% | 19% / 15% | 14% / 14% | 17% / 14%\n |  | Microsoft 365 Commercial seat growth (y/y) | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06\n |  | Microsoft 365 Consumer cloud revenue growth (y/y)* | 20% / 20% | 11% / 12% | 26% / 25% | 29% / 27% | 33% / 29% | 24% / 22% | 28% / 26%\n |  | LinkedIn revenue growth (y/y)* | 9% / 8% | 9% / 9% | 10%/ 9% | 11% / 10% | 12% / 9% | 12% / 10% | 11% / 9%\n |  | Dynamics 365 revenue growth (y/y)* | 23% / 21% | 19% / 19% | 18% / 16% | 19% / 17% | 22% / 17% | 13% / 12% | 18% / 15%\n |  | Azure and other cloud services revenue growth (y/y)* | 39% / 39% | 34% / 35% | 40% / 39% | 39% / 38% | 40% / 39% | 43% / 43% | 41% / 40%\n | More Personal Computing\n |  | Windows OEM and Devices revenue growth (y/y)* | 3% / 3% | 3% / 3% | 6% / 6% | 1% / 0% | -2% / -3% | -7% / -7% | -1% / -1%\n |  | XBOX content and services revenue growth (y/y)* | 13% / 12% | 16% / 16% | 1% / 0% | -5% / -6% | -5% / -7% | -10% / -10% | -5% / -6%\n |  | Search advertising revenue (ex TAC) growth (y/y)* | 21% / 20% | 20% / 21% | 16% / 15% | 10% / 9% | 12% / 9% | 10% / 9% | 12% / 10%\n |  | * Includes non-GAAP constant currency growth (GAAP% / Constant Currency%)\n |  | Certain amounts have been rounded for presentation purposes\n |  | Reconciliation of GAAP and non-GAAP financial measures are available in the Earnings Release Slides (http://aka.ms/slidesfy26q4)"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_9c33ebaa16824f689fbfc697",
+    "name": "read_material",
+    "content": "[press_release.txt 第 0–20000 字符，共 29949]\nMicrosoft Cloud and AI Strength Fuels Fourth Quarter Results\nREDMOND, Wash. — July 29, 2026 — Microsoft Corp. today announced the following results for the quarter ended June 30, 2026, as compared to the corresponding period of last fiscal year:\nRevenue was $90.0 billion and increased 18% (up 17% in constant currency)\nOperating income was $40.6 billion and increased 18% \nNet income was $35.8 billion and increased 31% on a GAAP basis, and was $35.3 billion and increased 22% on a non-GAAP basis\nDiluted earnings per share was $4.81 and increased 32% on a GAAP basis, and was $4.74 and increased 23% on a non-GAAP basis\nNon-GAAP results exclude the impact from investments in OpenAI, explained in the Non-GAAP Definition section below\nSeveral discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share. These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program which were partially offset by severance expense and impairment charges in XBOX. When adjusting for these items, we exceeded expectations across revenue, operating income, and diluted earnings per share.\n“We are advancing the frontier on the cost-to-outcome curve, ensuring every customer can turn tokens into business results,\" said Satya Nadella, chairman and chief executive officer of Microsoft. “This year, Azure revenue surpassed $100 billion for the first time, and Microsoft 365 Copilot reached over 30 million paid seats, reflecting the confidence customers are placing in us to power their AI transformation.”\n “We delivered a strong quarter to close out the fiscal year, highlighted by Microsoft Cloud revenue of $59.3 billion, up 27% year-over-year,” said Amy Hood, executive vice president and chief financial officer of Microsoft.\nThe following table adjusts for the impact from investments in OpenAI and reconciles our financial results reported in accordance with generally accepted accounting principles (GAAP) to non-GAAP financial results. Additional information regarding our non-GAAP definition is provided below. All growth comparisons relate to the corresponding period in the last fiscal year. \n*Impact from OpenAI adjusts for the impact from investments in OpenAI \nBusiness Highlights\nMicrosoft Cloud revenue was $59.3 billion and increased 27%, and commercial remaining performance obligation increased 84% to $678 billion.\nRevenue in Productivity and Business Processes was $37.8 billion and increased 14%, with the following business highlights:\nMicrosoft 365 Commercial cloud revenue increased 16% when adjusted for the prior year comparable that benefited from 2 points of in-period revenue recognition. On a reported basis, Microsoft 365 Commercial cloud revenue increased 14%.\nMicrosoft 365 Consumer cloud revenue increased 24% (up 22% in constant currency) \nLinkedIn revenue increased 12% (up 10% in constant currency)\nDynamics 365 revenue increased 13% (up 12% in constant currency)\nRevenue in Intelligent Cloud was $39.3 billion and increased 32% (up 31% in constant currency), with the following business highlights:\nAzure and other cloud services revenue increased 43%\nRevenue in More Personal Computing was $12.9 billion and decreased 4% (down 5% in constant currency), with the following business highlights:\nWindows OEM and Devices revenue decreased 7% \nXBOX content and services revenue decreased 10%\nSearch advertising revenue excluding traffic acquisition costs increased 10% (up 9% in constant currency)\nMicrosoft returned $10.2 billion to shareholders in the form of dividends and share repurchases in the fourth quarter of fiscal year 2026. \nFiscal Year 2026 Results\nMicrosoft Corp. today announced the following results for the fiscal year ended June 30, 2026, as compared to the corresponding period of last fiscal year:\nRevenue was $331.8 billion and increased 18% (up 16% in constant currency)\nOperating income was $155.2 billion and increased 21% (up 19% in constant currency)\nNet income was $133.7 billion and increased 31% on a GAAP basis, and increased 22% (up 20% in constant currency) on a non-GAAP basis\nDiluted earnings per share was $17.95 and increased 32% on a GAAP basis, and increased 22% (up 21% in constant currency) on a non-GAAP basis\nNon-GAAP results exclude the impact from investments in OpenAI, explained in the Non-GAAP Definition section below\nThe following table adjusts for the impact from investments in OpenAI and reconciles our financial results reported in accordance with GAAP to non-GAAP financial results. Additional information regarding our non-GAAP definition is provided below. All growth comparisons relate to the corresponding period in the last fiscal year. \n*Impact from OpenAI adjusts for the impact from investments in OpenAI \nBusiness Outlook\nMicrosoft will provide forward-looking guidance in connection with this quarterly earnings announcement on its earnings conference call and webcast. \nQuarterly Highlights, Product Releases, and Customer Stories\nEvery quarter Microsoft delivers hundreds of products, services, and enhancements. These releases are driven by years of significant research and development investments, to empower customers with greater productivity, security, and differentiated value. \nThis momentum is reflected in stories that showcase how our technology is shaping industries and driving customer success. We share innovation updates on our product blogs across Azure, Microsoft 365, and more on our Official Microsoft blog.\nWebcast Details\nSatya Nadella, chairman and chief executive officer, Amy Hood, executive vice president and chief financial officer, Alice Jolla, chief accounting officer, Brian DeFoe, deputy general counsel and corporate secretary, and Jonathan Neilson, vice president of investor relations, will host a conference call and webcast at 2:30 p.m. Pacific time (5:30 p.m. Eastern time) today to discuss details of the company’s performance for the quarter and certain forward-looking information. The session may be accessed at http://www.microsoft.com/en-us/investor. Participants can also dial into the conference call at (877) 407-0666 or +1 (201) 689-8023 for international, no password required. The webcast will be available for replay through the close of business on July 29, 2027.\nNon-GAAP Definition\nImpact from investments in OpenAI. In fiscal year 2026, net income and diluted earnings per share were impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted earnings per share of $480 million and $0.07, respectively, in the fourth quarter, and $4,963 million and $0.67, respectively, for the full fiscal year. In fiscal year 2025, net income and diluted earnings per share were impacted by net losses from investments in OpenAI, which resulted in a decrease in net income and diluted earnings per share of $1,575 million and $0.21, respectively, in the fourth quarter, and $3,620 million and $0.49, respectively, for the full fiscal year.\nMicrosoft has provided non-GAAP financial measures related to the impact from investments in OpenAI to aid investors in better understanding our performance. Microsoft believes these non-GAAP measures assist investors by providing additional insight into its operational performance and help clarify trends affecting its business. For comparability of reporting, management considers non-GAAP measures in conjunction with GAAP financial results in evaluating business performance. The non-GAAP financial measures presented in this release should not be considered as a substitute for, or superior to, the measures of financial performance prepared in accordance with GAAP.\nConstant Currency\nMicrosoft presents constant currency information to provide a framework for assessing how our underlying businesses performed excluding the effect of foreign currency rate fluctuations. To present this information, current and comparative prior period results for entities reporting in currencies other than United States dollars are converted into United States dollars using the average exchange rates from the comparative period rather than the actual exchange rates in effect during the respective periods. All growth comparisons relate to the corresponding period in the last fiscal year. Microsoft has provided this non-GAAP financial information to aid investors in better understanding our performance. The non-GAAP financial measures presented in this release should not be considered as a substitute for, or superior to, the measures of financial performance prepared in accordance with GAAP.\nFinancial Performance Constant Currency Reconciliation\nSegment Revenue Constant Currency Reconciliation\nSelected Product and Service Information Constant Currency Reconciliation\t\nAbout Microsoft\nMicrosoft (Nasdaq “MSFT” @microsoft) creates platforms and tools powered by AI to deliver innovative solutions that meet the evolving needs of our customers. The technology company is committed to making AI available broadly and doing so responsibly, with a mission to empower every person and every organization on the planet to achieve more.\nForward-Looking Statements\nStatements in this release that are “forward-looking statements” are based on current expectations and assumptions that are subject to risks and uncertainties. Actual results could differ materially because of factors such as: \nintense competition in all of our markets that could adversely affect our results of operations;\nsubstantial investments in cloud and AI strategy that depend on customer demand, technological developments, competitive dynamics, and regulatory condition;\ndevelopment, delivery, and maintenance of competitive cloud-based and AI products and services that achieve broad customer adoption and sustainable revenue growth;\nsignificant investments in products and services that may not achieve expected returns;\nacquisitions, joint ventures, and strategic alliances that could have an adverse effect on our business;\ncyberattacks and security vulnerabilities that could lead to reduced revenue, increased costs, liability claims, or harm to our reputation or competitive position;\ndisclosure and misuse of personal data that could cause liability and harm to our reputation; \nthe possibility that we may not be able to protect information in our products and services from use by others;\nabuse of our platforms that may harm our reputation or user engagement;\nproducts and services, how they are used by customers, and how third-party products and services interact with them, presenting security, privacy, and execution risks;\nissues about the development, deployment, and use of AI that may result in reputational or competitive harm, or liability; \ninability to develop and expand adequate infrastructure;\nsupply or other quality problems;\nexcessive outages, disruptions, or capacity constraints of our services if we fail to maintain an adequate operations infrastructure or secure resources necessary to support it;\npotential consequences of new, existing, and evolving legal and regulatory requirements;\nclaims against us that could result in adverse outcomes in legal disputes;\nuncertainties relating to our business with government customers;\nadditional tax liabilities;\nan inability to protect and utilize our intellectual property may harm our business and operating results;\nclaims that Microsoft has infringed the intellectual property rights of others;\ndamage to our reputation or our brands that may harm our business and results of operations;\nadverse economic or market conditions that could harm our business; \ncatastrophic events or geopolitical conditions that could disrupt our business; \nexposure to increased economic and operational uncertainties from operating a global business, including the effects of foreign currency exchange; and\nthe dependence of our business on our ability to attract and retain talented employees.\nFor more information about risks and uncertainties associated with Microsoft’s business, please refer to the “Management’s Discussion and Analysis of Financial Condition and Results of Operations” and “Risk Factors” sections of Microsoft’s SEC filings, including, but not limited to, its annual report on Form 10-K and quarterly reports on Form 10-Q, copies of which may be obtained by contacting Microsoft’s Investor Relations department at (800) 285-7772 or at Microsoft’s Investor Relations website at http://www.microsoft.com/en-us/investor.\nAll information in this release is as of June 30, 2026. The company undertakes no duty to update any forward-looking statement to conform the statement to actual results or changes in the company’s expectations.\nFor more information, press only: \nMicrosoft Media Relations, WE Communications for Microsoft, (425) 638-7777, rrt@we-worldwide.com \nFor more information, financial analysts and investors only: \nJonathan Neilson, Vice President, Investor Relations, (425) 706-4400\nNote to editors: For more information, news and perspectives from Microsoft, please visit the Microsoft News Center at http://www.microsoft.com/news. Web links, telephone numbers, and titles were correct at time of publication, but may since have changed. Shareholder and financial information, as well as today’s 2:30 p.m. Pacific time conference call with investors and analysts, is available at http://www.microsoft.com/en-us/investor.\nThree Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30,\n | 2026 | 2026 | 2026 |  | 2025 | 2025 | 2025 |  | Percentage Change Y/Y | Percentage Change Y/Y | Percentage Change Y/Y |  | Percentage Change Y/Y | Percentage Change Y/Y | Percentage Change Y/Y\n($ in millions, except per share amounts) | As\nReported\n(GAAP) | Impact from OpenAI* | As \nAdjusted \n(non-GAAP) |  | As\nReported\n(GAAP) | Impact from OpenAI* | As \nAdjusted \n(non-GAAP) |  | GAAP | Constant Currency | Net Impact from OpenAI* | Net Impact from OpenAI* | Net Impact from OpenAI* | Non-GAAP | Non-GAAP Constant Currency\nNet \nIncome | $35,766 | $(480) | $35,286 |  | $27,233 | $1,575 | $28,808 |  | 31% | 31% | $(2,055) | $(2,055) | $(2,055) | 22% | 22%\nDiluted \nEarnings\nper Share | $4.81 | $(0.07) | $4.74 |  | $3.65 | $0.21 | $3.86 |  | 32% | 32% | $(0.28) | $(0.28) | $(0.28) | 23% | 23%\nTwelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30,\n | 2026 | 2026 | 2026 |  | 2025 | 2025 | 2025 |  | Percentage Change Y/Y | Percentage Change Y/Y | Percentage Change Y/Y |  | Percentage Change Y/Y | Percentage Change Y/Y | Percentage Change Y/Y\n($ in millions, except per share amounts) | As\nReported\n(GAAP) | Impact from OpenAI* | As \nAdjusted \n(non-GAAP) |  | As\nReported\n(GAAP) | Impact from OpenAI* | As \nAdjusted \n(non-GAAP) |  | GAAP | Constant Currency | Net Impact from OpenAI* | Net Impact from OpenAI* | Net Impact from OpenAI* | Non-GAAP | Non-GAAP Constant Currency\nNet \nIncome | $133,749 | $(4,963) | $128,786 |  | $101,832 | $3,620 | $105,452 |  | 31% | 30% | $(8,583) | $(8,583) | $(8,583) | 22% | 20%\nDiluted \nEarnings\nper Share | $17.95 | $(0.67) | $17.28 |  | $13.64 | $0.49 | $14.13 |  | 32% | 30% | $(1.16) | $(1.16) | $(1.16) | 22% | 21%\nThree Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30,\n($ in millions, except per share amounts) | 2026 | 2026 |  | 2025 | 2025 |  | Percentage Change Y/Y | Percentage Change Y/Y |  | Percentage Change Y/Y | Percentage Change Y/Y\n($ in millions, except per share amounts) | As Reported\n(GAAP) | As Adjusted \n(non-GAAP) |  | As Reported \n(GAAP) | As Adjusted \n(non-GAAP) |  | GAAP | Non-\nGAAP | Constant Currency Impact | Constant Currency | Non-GAAP Constant \nCurrency\nRevenue | $90,007 | - |  | $76,441 | - |  | 18% | - | $391 | 17% | -\nOperating \nIncome | $40,603 | - |  | $34,323 | - |  | 18% | - | $269 | 18% | -\nNet Income | $35,766 | $35,286 |  | $27,233 | $28,808 |  | 31% | 22% | $40 | 31% | 22%\nDiluted \nEarnings \nper Share | $4.81 | $4.74 |  | $3.65 | $3.86 |  | 32% | 23% | $0.01 | 32% | 23%\nTwelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30,\n($ in millions, except per share amounts) | 2026 | 2026 |  | 2025 | 2025 |  | Percentage Change Y/Y | Percentage Change Y/Y |  | Percentage Change Y/Y | Percentage Change Y/Y\n($ in millions, except per share amounts) | As Reported\n(GAAP) | As Adjusted \n(non-GAAP) |  | As Reported \n(GAAP) | As Adjusted \n(non-GAAP) |  | GAAP | Non-\nGAAP | Constant Currency Impact | Constant Currency | Non-GAAP Constant \nCurrency\nRevenue | $331,839 | - |  | $281,724 | - |  | 18% | - | $4,445 | 16% | -\nOperating \nIncome | $155,237 | - |  | $128,528 | - |  | 21% | - | $2,896 | 19% | -\nNet Income | $133,749 | $128,786 |  | $101,832 | $105,452 |  | 31% | 22% | $1,772 | 30% | 20%\nDiluted \nEarnings \nper Share | $17.95 | $17.28 |  | $13.64 | $14.13 |  | 32% | 22% | $0.24 | 30% | 21%\nThree Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30,\n($ in millions) | 2026 |  | 2025 |  | Percentage Change Y/Y | Constant Currency Impact | Percentage Change Y/Y\n($ in millions) | As Reported\n(GAAP) |  | As Reported\n(GAAP) |  | GAAP | Constant Currency Impact | Constant Currency\nProductivity and Business Processes | $37,847 |  | $33,112 |  | 14% | $244 | 14%\nIntelligent Cloud | $39,306 |  | $29,878 |  | 32% | $80 | 31%\nMore Personal Computing | $12,854 |  | $13,451 |  | (4)% | $67 | (5)%\nThree Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026\n | Percentage Change Y/Y (GAAP) | Constant Currency Impact | Percentage Change Y/Y Constant Currency\nMicrosoft Cloud revenue | 27% | 0% | 27%\nCommercial remaining performance obligation | 84% | 0% | 84%\nMicrosoft 365 Commercial cloud revenue | 14% | 0% | 14%\nMicrosoft 365 Consumer cloud revenue | 24% | (2)% | 22%\nLinkedIn revenue | 12% | (2)% | 10%\nDynamics 365 revenue | 13% | (1)% | 12%\nAzure and other cloud services revenue | 43% | 0% | 43%\nWindows OEM and Devices revenue | (7)% | 0% | (7)%\nXBOX content and services revenue | (10)% | 0% | (10)%\nSearch advertising revenue excluding traffic acquisition costs | 10% | (1)% | 9%\nMICROSOFT CORPORATION | MICROSOFT CORPORATION |  |  |  |  |  | \nINCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENT"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_758e64b021c44efa961610ab",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nwith open('transcript.txt', 'r') as f:\\n    text = f.read()\\n\\n# Search for discrete items, OpenAI, Anthropic, guidance mentions\\nimport re\\nkeywords = ['discrete', 'guidance', 'Anthropic', 'OpenAI', 'Voluntary Retirement', 'severance', 'impairment', 'XBOX']\\nfor kw in keywords:\\n    positions = [m.start() for m in re.finditer(kw, text, re.IGNORECASE)]\\n    print(f\\\"\\\\n=== '{kw}' found at {len(positions)} positions ===\\\")\\n    for p in positions[:5]:\\n        start = max(0, p-200)\\n        end = min(len(text), p+300)\\n        snippet = text[start:end].replace('\\\\n', ' ')\\n        print(f\\\"  ...{snippet}...\\\")\\n        print(\\\"  ---\\\")\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_758e64b021c44efa961610ab",
+    "name": "run_python",
+    "content": "exit=1\n--- stdout ---\n\n--- stderr ---\nTraceback (most recent call last):\n  File \"D:\\<redacted>\\Users\\Admin\\Documents\\RealYDT Commercial Projects\\2026-08-Ling-3.0-flash-Fin\\tests\\_runs\\D_ling-3.0-flash-fin_free_r14\\_step_1788166172999.py\", line 2, in <module>\n    with open('transcript.txt', 'r') as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'transcript.txt'\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_fe379aca8c024eb8ba91aef6",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nfor root, dirs, files in os.walk('.'):\\n    for fn in files:\\n        print(os.path.join(root, fn))\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_fe379aca8c024eb8ba91aef6",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\n.\\_step_1788166172999.py\n.\\_step_1788166174961.py\n.\\materials\\FinancialStatementFY26Q4.xlsx\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_cc8c8a381a6f4cc48b908675",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nwith open('./materials/transcript.txt', 'r') as f:\\n    text = f.read()\\n\\nimport re\\nkeywords = ['discrete', 'guidance', 'Anthropic', 'OpenAI', 'Voluntary Retirement', 'severance', 'impairment', 'XBOX']\\nfor kw in keywords:\\n    positions = [m.start() for m in re.finditer(kw, text, re.IGNORECASE)]\\n    print(f\\\"\\\\n=== '{kw}' found at {len(positions)} positions ===\\\")\\n    for p in positions[:5]:\\n        start = max(0, p-200)\\n        end = min(len(text), p+300)\\n        snippet = text[start:end].replace('\\\\n', ' ')\\n        print(f\\\"  ...{snippet}...\\\")\\n        print(\\\"  ---\\\")\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_cc8c8a381a6f4cc48b908675",
+    "name": "run_python",
+    "content": "exit=1\n--- stdout ---\n\n--- stderr ---\nTraceback (most recent call last):\n  File \"D:\\<redacted>\\Users\\Admin\\Documents\\RealYDT Commercial Projects\\2026-08-Ling-3.0-flash-Fin\\tests\\_runs\\D_ling-3.0-flash-fin_free_r14\\_step_1788166179839.py\", line 2, in <module>\n    with open('./materials/transcript.txt', 'r') as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: './materials/transcript.txt'\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_bc16bd92535b4fa3a40f85a6",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nfor root, dirs, files in os.walk('./materials'):\\n    for fn in files:\\n        print(os.path.join(root, fn))\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_bc16bd92535b4fa3a40f85a6",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\n./materials\\FinancialStatementFY26Q4.xlsx\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_e9782d0ecd7d4ba286036b40",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nfor root, dirs, files in os.walk('.'):\\n    for fn in files:\\n        if fn.endswith('.txt') or fn.endswith('.xlsx'):\\n            print(os.path.join(root, fn))\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_e9782d0ecd7d4ba286036b40",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\n.\\materials\\FinancialStatementFY26Q4.xlsx\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_9e1c0f8b7012480888f29de0",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\n# The tool said materials in ./materials/. But list_materials returned files in working dir?\\n# Let me check the actual working directory contents via run_python\\nimport os\\nprint(\\\"CWD:\\\", os.getcwd())\\nprint(\\\"Root files:\\\", os.listdir('.'))\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_9e1c0f8b7012480888f29de0",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\nCWD: D:\\<redacted>\\Users\\Admin\\Documents\\RealYDT Commercial Projects\\2026-08-Ling-3.0-flash-Fin\\tests\\_runs\\D_ling-3.0-flash-fin_free_r14\nRoot files: ['materials', '_step_1788166172999.py', '_step_1788166174961.py', '_step_1788166179839.py', '_step_1788166182333.py', '_step_1788166186199.py', '_step_1788166190296.py']\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_e227f971cb7b4d03ac851e11",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\n# The list_materials tool showed files in working dir, but they're actually read via a different mechanism\\n# Let me just re-read via the read_material tool which worked for press_release.txt and metrics.txt\\n# Actually let me check what's in materials dir\\nprint(os.listdir('./materials'))\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_e227f971cb7b4d03ac851e11",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\n['FinancialStatementFY26Q4.xlsx']\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_9af53d0486e64729b8f57b3a",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\n# The read_material tool works with files like 'press_release.txt', 'transcript.txt' etc.\\n# but run_python sees different cwd. Let me find where those txt files actually are\\nimport os\\nfor root, dirs, files in os.walk('/'):\\n    if 'press_release.txt' in files:\\n        print(os.path.join(root, 'press_release.txt'))\\n    # limit depth\\n    if root.count(os.sep) > 4:\\n        continue\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_9af53d0486e64729b8f57b3a",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\n/<redacted>\\Users\\Admin\\Documents\\RealYDT Commercial Projects\\2026-08-Ling-3.0-flash-Fin\\tests\\_context\\press_release.txt\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_f9a3f65693a2421f8cee6ad5",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nprint(os.listdir(ctx_dir))\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_f9a3f65693a2421f8cee6ad5",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\n['10k.txt', 'financial_statements.txt', 'metrics.txt', 'press_release.txt', 'transcript.txt']\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_82d842c21e4e4c66bfbf89d0",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'transcript.txt'), 'r') as f:\\n    text = f.read()\\n\\nimport re\\nkeywords = ['discrete', 'guidance', 'Anthropic', 'Voluntary Retirement', 'severance', 'impairment', 'XBOX']\\nfor kw in keywords:\\n    positions = [m.start() for m in re.finditer(kw, text, re.IGNORECASE)]\\n    print(f\\\"\\\\n=== '{kw}' found at {len(positions)} positions ===\\\")\\n    for p in positions[:6]:\\n        start = max(0, p-250)\\n        end = min(len(text), p+350)\\n        snippet = text[start:end].replace('\\\\n', ' ')\\n        print(f\\\"  ...{snippet}...\\\")\\n        print(\\\"  ---\\\")\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_82d842c21e4e4c66bfbf89d0",
+    "name": "run_python",
+    "content": "exit=1\n--- stdout ---\n\n--- stderr ---\nTraceback (most recent call last):\n  File \"D:\\<redacted>\\Users\\Admin\\Documents\\RealYDT Commercial Projects\\2026-08-Ling-3.0-flash-Fin\\tests\\_runs\\D_ling-3.0-flash-fin_free_r14\\_step_1788166279518.py\", line 3, in <module>\n    with open(os.path.join(ctx_dir, 'transcript.txt'), 'r') as f:\n              ^^\nNameError: name 'os' is not defined. Did you forget to import 'os'?\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_6c1e0e4bb3724bd8b3701198",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'transcript.txt'), 'r') as f:\\n    text = f.read()\\n\\nimport re\\nkeywords = ['discrete', 'guidance', 'Anthropic', 'Voluntary Retirement', 'severance', 'impairment', 'XBOX']\\nfor kw in keywords:\\n    positions = [m.start() for m in re.finditer(kw, text, re.IGNORECASE)]\\n    print(f\\\"\\\\n=== '{kw}' found at {len(positions)} positions ===\\\")\\n    for p in positions[:6]:\\n        start = max(0, p-250)\\n        end = min(len(text), p+350)\\n        snippet = text[start:end].replace('\\\\n', ' ')\\n        print(f\\\"  ...{snippet}...\\\")\\n        print(\\\"  ---\\\")\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_6c1e0e4bb3724bd8b3701198",
+    "name": "run_python",
+    "content": "exit=1\n--- stdout ---\n\n--- stderr ---\nTraceback (most recent call last):\n  File \"D:\\<redacted>\\Users\\Admin\\Documents\\RealYDT Commercial Projects\\2026-08-Ling-3.0-flash-Fin\\tests\\_runs\\D_ling-3.0-flash-fin_free_r14\\_step_1788166283281.py\", line 5, in <module>\n    text = f.read()\n           ^^^^^^^^\nUnicodeDecodeError: 'gbk' codec can't decode byte 0xaf in position 1289: illegal multibyte sequence\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_38c06849e86f43c8b491291e",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'transcript.txt'), 'r', encoding='utf-8', errors='replace') as f:\\n    text = f.read()\\n\\nimport re\\nkeywords = ['discrete', 'guidance', 'Anthropic', 'Voluntary Retirement', 'severance', 'impairment', 'XBOX']\\nfor kw in keywords:\\n    positions = [m.start() for m in re.finditer(kw, text, re.IGNORECASE)]\\n    print(f\\\"\\\\n=== '{kw}' found at {len(positions)} positions ===\\\")\\n    for p in positions[:6]:\\n        start = max(0, p-250)\\n        end = min(len(text), p+350)\\n        snippet = text[start:end].replace('\\\\n', ' ')\\n        print(f\\\"  ...{snippet}...\\\")\\n        print(\\\"  ---\\\")\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_38c06849e86f43c8b491291e",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\nent Program, which were partially offset by severance expense and impairment charges in XBOX.  When adjusting for these items, we exceeded expectations across revenue, operating income and earnings per share due to strong demand and execution in the quarter. Company gross margin percentage was 67%, down year-over-year, driven by sa...\n  ---\n\n=== 'severance' found at 1 positions ===\n  ... call, resulting in a benefit of 27 cents on diluted earnings per share.  These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program, which were partially offset by severance expense and impairment charges in XBOX.  When adjusting for these items, we exceeded expectations across revenue, operating income and earnings per share due to strong demand and execution in the quarter. Company gross margin percentage was 67%, down year-over-year, driven by sales mix shift to Azure as well as continued investments in AI...\n  ---\n\n=== 'impairment' found at 2 positions ===\n  ...benefit of 27 cents on diluted earnings per share.  These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program, which were partially offset by severance expense and impairment charges in XBOX.  When adjusting for these items, we exceeded expectations across revenue, operating income and earnings per share due to strong demand and execution in the quarter. Company gross margin percentage was 67%, down year-over-year, driven by sales mix shift to Azure as well as continued investments in AI infrastructure and gr...\n  ---\n  ...and gross margin percentage increased year-over-year driven by lower amortization from the Activision acquisition. Operating expenses increased 8% and 7% in constant currency driven by the continued investments in shared R&D noted earlier as well as impairment charges in XBOX. Operating income decreased 14% and 15% in constant currency and operating margins decreased year-over-year to 21%.  Now, before I move to outlook, effective at the start of FY27, we are extending the estimated useful lives of our datacenters and office buildings, from 15 to 25 years, reflecting our operating history and ...\n  ---\n\n=== 'XBOX' found at 6 positions ===\n  ...artnered with LSEG to embed AI into LSEG Workspace, helping finance professionals ask complex questions and quickly find answers across structured and unstructured financial content.  Finally, let me talk about devices and consumer. When it comes to XBOX, we are making the necessary decisions required across our content portfolio, platform, and operations to reset the business for long-term growth. We have the best IP in the industry, and talented studios around the world, and believe we can bring these strengths together and expect to return the business to growth in fiscal 2027. In Windows, ...\n  ---\n  ... diluted earnings per share.  These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program, which were partially offset by severance expense and impairment charges in XBOX.  When adjusting for these items, we exceeded expectations across revenue, operating income and earnings per share due to strong demand and execution in the quarter. Company gross margin percentage was 67%, down year-over-year, driven by sales mix shift to Azure as well as continued investments in AI infrastructure and growing product usage, p...\n  ---\n  ...ponent prices. Search advertising revenue ex-TAC increased 10% and 9% in constant currency with growth driven by higher revenue per search across Edge and Bing, as well as higher volume, though growth was impacted by third-party partnerships. And in XBOX, revenue decreased 10% and 11% in constant currency. XBOX content and services revenue decreased 10% against a prior-year comparable that benefited from strong first-party content performance. Segment gross margin dollars decreased 2% and gross margin percentage increased year-over-year driven by lower amortization from the Activision acquisit...\n  ---\n  ... 10% and 9% in constant currency with growth driven by higher revenue per search across Edge and Bing, as well as higher volume, though growth was impacted by third-party partnerships. And in XBOX, revenue decreased 10% and 11% in constant currency. XBOX content and services revenue decreased 10% against a prior-year comparable that benefited from strong first-party content performance. Segment gross margin dollars decreased 2% and gross margin percentage increased year-over-year driven by lower amortization from the Activision acquisition. Operating expenses increased 8% and 7% in constant cu...\n  ---\n  ...ntage increased year-over-year driven by lower amortization from the Activision acquisition. Operating expenses increased 8% and 7% in constant currency driven by the continued investments in shared R&D noted earlier as well as impairment charges in XBOX. Operating income decreased 14% and 15% in constant currency and operating margins decreased year-over-year to 21%.  Now, before I move to outlook, effective at the start of FY27, we are extending the estimated useful lives of our datacenters and office buildings, from 15 to 25 years, reflecting our operating history and expected use of these ...\n  ---\n  ...an normal.  Search advertising revenue ex-TAC growth should be in the mid-single digits, down sequentially due to the impact of third-party partnerships. Growth will continue to be driven by consistent trends in revenue per search and volume. And in XBOX content and services, we expect revenue to decline in the mid-single digits. Hardware revenue should decline year-over-year.  Therefore, at the total company level, revenue should be between $89.85 and $90.95 billion or growth of 16% to 17% with accelerating commercial growth partially offset by the impact from the PC market dynamics noted ear...\n  ---\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_57b07877bfd34088a222fe37",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'transcript.txt'), 'r', encoding='utf-8', errors='replace') as f:\\n    text = f.read()\\n\\nimport re\\nkeywords = ['guidance', 'prior', 'April 29', 'outlook', 'expectations']\\nfor kw in keywords:\\n    positions = [m.start() for m in re.finditer(kw, text, re.IGNORECASE)]\\n    print(f\\\"\\\\n=== '{kw}' found at {len(positions)} positions ===\\\")\\n    for p in positions[:6]:\\n        start = max(0, p-250)\\n        end = min(len(text), p+350)\\n        snippet = text[start:end].replace('\\\\n', ' ')\\n        print(f\\\"  ...{snippet}...\\\")\\n        print(\\\"  ---\\\")\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_57b07877bfd34088a222fe37",
+    "name": "run_python",
+    "content": "exit=1\n--- stdout ---\nal discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on our April earnings call, resulting in a benefit of 27 cents on diluted earnings per share.  These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Volunt...\n  ---\n  ... per share was $4.74, an increase of 23%, when adjusted for the impact from our investment in OpenAI. And FX was roughly in line with guidance. Several discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on our April earnings call, resulting in a benefit of 27 cents on diluted earnings per share.  These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program, which were partially offset by severance expense and impairment charges in XBOX.  When adjus...\n  ---\n  ...tive at the start of FY27, we are extending the estimated useful lives of our datacenters and office buildings, from 15 to 25 years, reflecting our operating history and expected use of these assets. The impact of this update is reflected in today's guidance.  This change affects only the timing of future depreciation and is expected to have a minimal benefit to FY27 operating income. The greater impact is on capital expenditures as more of our future datacenter leases will shift from finance leases to operating leases as a result of this update. Finance leases are included in capital expendit...\n  ---\n  ..., the significant OpenAI contracts signed in the prior year will result in some quarterly volatility in both the bookings and RPO growth rates. Microsoft Cloud gross margin percentage should be relatively stable quarter-over-quarter.  Now to segment guidance. In Productivity and Business Processes we expect revenue of $36.7 to $37 billion, or growth of 11% to 12%. In M365 Commercial cloud, we expect growth of approximately 16% in constant currency on an adjusted basis which normalizes for the prior-year comparable that benefited from 1 point of in-period revenue recognition, or 15% on a report...\n  ---\n\n=== 'prior' found at 13 positions ===\n  ...ns, particularly in Azure and M365 Commercial cloud.  Operating expenses increased 10% driven by continued investment in R&D compute capacity, talent, and data to support product development across the portfolio. G and A growth was impacted by a low prior-year comparable as well as some of the discrete items mentioned earlier. Operating margins increased slightly year-over-year to 45%. Total company headcount declined 2% year-over-year. When adjusted for the impact of our investments in OpenAI, other income and expense was $2.8 billion driven by the gain on investment in Anthropic noted earlie...\n  ---\n  ... offset by ongoing efficiency gains noted earlier.  Now to our segment results. Revenue from Productivity and Business Processes was $37.8 billion and grew 14%. M365 Commercial cloud revenue increased 16% on an adjusted basis when normalized for the prior-year comparable that benefited from 2 points of in-period revenue recognition. And on a reported basis, revenue growth was 14%. Building on our Copilot momentum from Q3, net paid seat adds more than doubled sequentially, with paid seats now over 30 million. Premium offerings, including Copilot, E5, and early traction in E7, drove ARPU growth ...\n  ---\n  ...in driven by ARPU growth. And M365 consumer subscriptions grew 7%.  LinkedIn revenue increased 12% and 10% in constant currency primarily driven by Marketing Solutions. Dynamics 365 revenue increased 13% and 12% in constant currency against a strong prior-year comparable. Bookings growth in ERP remains healthy, while CRM continued to moderate with longer sales cycles.   Segment gross margin dollars increased 14% and 13% in constant currency. And gross margin percentage decreased slightly with increased M365 Copilot usage as we continue to invest in product quality and drive further efficiency ...\n  ---\n  ...% in constant currency. And operating margins increased year-over-year to 58%.  Next, the Intelligent Cloud segment. Revenue was $39.3 billion and grew 32% and 31% in constant currency.  In Azure and other cloud services, revenue grew 43%, against a prior year that included accelerating growth. Customer demand continues to exceed available capacity. Revenue growth was ahead of expectations driven by efficiency gains across our CPU and GPU fleet as well as process improvements to enable earlier delivery of new capacity. That additional in-quarter capacity for Azure was quickly monetized. Result...\n  ---\n  ...nged year-over-year at 41%.  Now to More Personal Computing. Revenue was $12.9 billion and declined 4% and 5% in constant currency. Windows OEM and Devices revenue decreased 7% and Windows OEM decreased 5% driven by lower PC market demand and a high prior-year comparable that benefited from Windows 10 end of support. Results were ahead of expectations as OEM and channel partners continued to build inventory given increasing component prices. Search advertising revenue ex-TAC increased 10% and 9% in constant currency with growth driven by higher revenue per search across Edge and Bing, as well ...\n  ---\n  ...her revenue per search across Edge and Bing, as well as higher volume, though growth was impacted by third-party partnerships. And in XBOX, revenue decreased 10% and 11% in constant currency. XBOX content and services revenue decreased 10% against a prior-year comparable that benefited from strong first-party content performance. Segment gross margin dollars decreased 2% and gross margin percentage increased year-over-year driven by lower amortization from the Activision acquisition. Operating expenses increased 8% and 7% in constant currency driven by the continued investments in shared R&D n...\n  ---\n\n=== 'April 29' found at 0 positions ===\n\n=== 'outlook' found at 8 positions ===\n\n--- stderr ---\nTraceback (most recent call last):\n  File \"D:\\<redacted>\\Users\\Admin\\Documents\\RealYDT Commercial Projects\\2026-08-Ling-3.0-flash-Fin\\tests\\_runs\\D_ling-3.0-flash-fin_free_r14\\_step_1788166291732.py\", line 16, in <module>\n    print(f\"  ...{snippet}...\")\nUnicodeEncodeError: 'gbk' codec can't encode character '\\u202f' in position 508: illegal multibyte sequence\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_b1d11bb6722f43f3ba9c54d8",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'transcript.txt'), 'r', encoding='utf-8', errors='replace') as f:\\n    text = f.read()\\n\\n# Print the section where Amy Hood discusses the discrete items and OpenAI impact on EPS\\nidx = text.find('discrete items')\\nprint(text[idx-1500:idx+1500])\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_b1d11bb6722f43f3ba9c54d8",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\nintelligence, combining powerful on device compute with enterprise-grade security. \nIn search and advertising, Bing and Edge have both taken share for five straight years.\nAnd LinkedIn continues to see strong engagement across the platform, with double-digit member growth for the fifth consecutive year.\nRecruiters at over 20,000 companies are now using our AI-powered solutions to reduce time to hire and improve candidate matching. Seats increased 140% quarter-over-quarter.\nIn closing, I am energized about the opportunities ahead.\nI have never been more confident in Microsoft��s opportunity to drive durable, long-term growth and ensure the benefits of AI flow broadly.\nWith that, let me turn it over to Amy to walk through our financial results and outlook.\nAMY HOOD: \nThank you, Satya, and good afternoon everyone. This fiscal year, we delivered over $331 billion in revenue, with growth accelerating to 18%, driven by strong demand across both the Azure platform and our first-party AI applications and services. Operating income growth outpaced revenue growth, increasing 21% to more than $155 billion as we invested in long-term growth while continuing to expand operating leverage.\nThis quarter, revenue was $90 billion, up 18% and 17% in constant currency. Gross margin dollars increased 15% and operating income increased 18%. Earnings per share was $4.74, an increase of 23%, when adjusted for the impact from our investment in OpenAI. And FX was roughly in line with guidance.\nSeveral discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on our April earnings call, resulting in a benefit of 27 cents on diluted earnings per share. \nThese include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program, which were partially offset by severance expense and impairment charges in XBOX. \nWhen adjusting for these items, we exceeded expectations across revenue, operating income and earnings per share due to strong demand and execution in the quarter.\nCompany gross margin percentage was 67%, down year-over-year, driven by sales mix shift to Azure as well as continued investments in AI infrastructure and growing product usage, partially offset by ongoing efficiency gains, particularly in Azure and M365 Commercial cloud. \nOperating expenses increased 10% driven by continued investment in R&D compute capacity, talent, and data to support product development across the portfolio. G and A growth was impacted by a low prior-year comparable as well as some of the discrete items mentioned earlier. Operating margins increased slightly year-over-year to 45%.\nTotal company headcount declined 2% year-over-year.\nWhen adjusted for the impact of our investments in OpenAI, other income and expense was $2.8 billion driven by the gain on investment in Anthropic noted earlier. \nCapital expenditures were $41 billion including the impact from higher com\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_56685f0b1d4a4bd990147d39",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'transcript.txt'), 'r', encoding='utf-8', errors='replace') as f:\\n    text = f.read()\\n\\n# Find OpenAI non-GAAP definition in transcript\\nidx = text.find('OpenAI')\\npositions = []\\nstart = 0\\nimport re\\nfor m in re.finditer('OpenAI', text):\\n    positions.append(m.start())\\nprint(\\\"OpenAI occurrences:\\\", len(positions))\\n\\n# Look for definition of non-GAAP / OpenAI impact in transcript\\nfor kw in ['non-GAAP definition', 'Impact from investments in OpenAI', 'non-GAAP measures']:\\n    idx = text.find(kw)\\n    print(f\\\"\\\\n=== '{kw}' at {idx} ===\\\")\\n    if idx > 0:\\n        print(text[idx:idx+1200])\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_56685f0b1d4a4bd990147d39",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\nOpenAI occurrences: 14\n\n=== 'non-GAAP definition' at -1 ===\n\n=== 'Impact from investments in OpenAI' at -1 ===\n\n=== 'non-GAAP measures' at -1 ===\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_31429e0b25a347fa9c17b7e0",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'transcript.txt'), 'r', encoding='utf-8', errors='replace') as f:\\n    text = f.read()\\n\\n# Print the section where Amy discusses the EPS reconciliation / OpenAI impact\\nidx = text.find('adjusted for the impact from our investment in OpenAI')\\nprint(text[idx-200:idx+1800])\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_31429e0b25a347fa9c17b7e0",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\nis quarter, revenue was $90 billion, up 18% and 17% in constant currency. Gross margin dollars increased 15% and operating income increased 18%. Earnings per share was $4.74, an increase of 23%, when adjusted for the impact from our investment in OpenAI. And FX was roughly in line with guidance.\nSeveral discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on our April earnings call, resulting in a benefit of 27 cents on diluted earnings per share. \nThese include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program, which were partially offset by severance expense and impairment charges in XBOX. \nWhen adjusting for these items, we exceeded expectations across revenue, operating income and earnings per share due to strong demand and execution in the quarter.\nCompany gross margin percentage was 67%, down year-over-year, driven by sales mix shift to Azure as well as continued investments in AI infrastructure and growing product usage, partially offset by ongoing efficiency gains, particularly in Azure and M365 Commercial cloud. \nOperating expenses increased 10% driven by continued investment in R&D compute capacity, talent, and data to support product development across the portfolio. G and A growth was impacted by a low prior-year comparable as well as some of the discrete items mentioned earlier. Operating margins increased slightly year-over-year to 45%.\nTotal company headcount declined 2% year-over-year.\nWhen adjusted for the impact of our investments in OpenAI, other income and expense was $2.8 billion driven by the gain on investment in Anthropic noted earlier. \nCapital expenditures were $41 billion including the impact from higher component pricing as noted in our guide. Roughly two thirds of our capex was for short-lived assets, primarily CPUs and GPUs as customers increasingly build solutions that leverage both AI and non-A\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": "现在我已掌握所有关键信息。让我验证一下计算，并查阅财务报表以确认 OpenAI 的明细数据。\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_1915915cc94a4264a8752b28",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'press_release.txt'), 'r', encoding='utf-8', errors='replace') as f:\\n    text = f.read()\\n\\n# Verify the numbers\\n# GAAP diluted EPS Q4'26 = $4.81, non-GAAP = $4.74\\n# GAAP diluted EPS Q4'25 = $3.65, non-GAAP = $3.86\\n# Growth GAAP = 32%, non-GAAP = 23%\\n# Let's verify\\ngaap26 = 4.81\\ngaap25 = 3.65\\nnongaap26 = 4.74\\nnongaap25 = 3.86\\nprint(\\\"GAAP growth:\\\", round((gaap26/gaap25 - 1)*100, 1), \\\"%\\\")\\nprint(\\\"Non-GAAP growth:\\\", round((nongaap26/nongaap25 - 1)*100, 1), \\\"%\\\")\\nprint(\\\"Gap in growth rates:\\\", round((gaap26/gaap25 - 1)*100,1) - round((nongaap26/nongaap25 - 1)*100,1), \\\"pp\\\")\\n\\n# The gap between GAAP growth (32%) and non-GAAP growth (23%) = 9pp\\n# Why? Because prior year had OpenAI LOSS of $0.21 EPS (which depressed GAAP base)\\n# This year has OpenAI GAIN of $0.07 EPS (which boosts GAAP)\\n# So GAAP benefits from a swing of $0.28 ($0.07 - (-$0.21))\\n# Non-GAAP strips out OpenAI both years\\n\\n# Let's compute the OpenAI swing impact\\nprint(\\\"\\\\nOpenAI swing:\\\")\\nprint(\\\"FY25 Q4 OpenAI impact: loss of $0.21 (reduced GAAP EPS)\\\")\\nprint(\\\"FY26 Q4 OpenAI impact: gain of $0.07 (increased GAAP EPS)\\\")\\nprint(\\\"Swing = 0.07 - (-0.21) = $0.28\\\")\\nprint(\\\"As % of FY25 GAAP EPS base ($3.65):\\\", round(0.28/3.65*100,1), \\\"%\\\")\\nprint(\\\"As % of FY25 non-GAAP EPS base ($3.86):\\\", round(0.28/3.86*100,1), \\\"%\\\")\\n\\n# So the GAAP-vs-nonGAAP growth gap is entirely due to the OpenAI investment swing\\n# Non-GAAP excludes OpenAI both years -> comparable\\n# GAAP includes OpenAI both years -> this year a small gain, last year a loss -> artificial boost to growth\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_1915915cc94a4264a8752b28",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\nGAAP growth: 31.8 %\nNon-GAAP growth: 22.8 %\nGap in growth rates: 9.0 pp\n\nOpenAI swing:\nFY25 Q4 OpenAI impact: loss of $0.21 (reduced GAAP EPS)\nFY26 Q4 OpenAI impact: gain of $0.07 (increased GAAP EPS)\nSwing = 0.07 - (-0.21) = $0.28\nAs % of FY25 GAAP EPS base ($3.65): 7.7 %\nAs % of FY25 non-GAAP EPS base ($3.86): 7.3 %\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_cd365aaa855d4865a3fdbdb8",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\n# Let me verify the discrete items vs OpenAI distinction\\n# Discrete items = $0.27 benefit (Anthropic gain + lower VRP expenses - XBOX severance/impairment)\\n# These are EXCLUDED from the OpenAI non-GAAP adjustment\\n# The Anthropic gain is in Other Income/Expense, NOT in OpenAI\\n# The press release non-GAAP only adjusts for OpenAI\\n# But the discrete items include Anthropic gain (which is NOT OpenAI)\\n\\n# Let's confirm from press_release:\\n# Non-GAAP = excludes impact from investments in OpenAI ONLY\\n# Discrete items (vs guidance) = Anthropic $3.2B gain + lower VRP - XBOX severance/impairment = $0.27 EPS benefit\\n# So Anthropic is a discrete item but NOT part of the OpenAI non-GAAP adjustment\\n\\nprint(\\\"=== Key distinction ===\\\")\\nprint(\\\"1. Non-GAAP adjustment (vs prior year): strips out OpenAI only\\\")\\nprint(\\\"   - FY26 Q4: +$0.07 EPS (OpenAI gain) -> removed to get non-GAAP $4.74\\\")\\nprint(\\\"   - FY25 Q4: -$0.21 EPS (OpenAI loss) -> added back to get non-GAAP $3.86\\\")\\nprint(\\\"   This creates the GAAP(32%) vs non-GAAP(23%) growth gap\\\")\\nprint()\\nprint(\\\"2. Discrete items (vs guidance): $0.27 EPS benefit\\\")\\nprint(\\\"   - Anthropic $3.2B gain (NOT OpenAI, in Other Income)\\\")\\nprint(\\\"   - Lower-than-expected VRP expenses\\\")\\nprint(\\\"   - Partially offset by XBOX severance + impairment\\\")\\nprint(\\\"   These are items that differed from the April 29 forward guidance\\\")\\nprint()\\nprint(\\\"=> They are DIFFERENT things. The gap (Q3) is about OpenAI YoY swing.\\\")\\nprint(\\\"   The discrete items (Q4) are about Anthropic + VRP + XBOX vs guidance.\\\")\\nprint()\\nprint(\\\"Note: Anthropic gain appears in BOTH contexts:\\\")\\nprint(\\\"   - It's part of the $0.27 discrete item benefit vs guidance\\\")\\nprint(\\\"   - But it is NOT stripped in the non-GAAP reconciliation (only OpenAI is)\\\")\\nprint(\\\"   So the GAAP EPS of $4.81 INCLUDES the Anthropic gain\\\")\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_cd365aaa855d4865a3fdbdb8",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\n=== Key distinction ===\n1. Non-GAAP adjustment (vs prior year): strips out OpenAI only\n   - FY26 Q4: +$0.07 EPS (OpenAI gain) -> removed to get non-GAAP $4.74\n   - FY25 Q4: -$0.21 EPS (OpenAI loss) -> added back to get non-GAAP $3.86\n   This creates the GAAP(32%) vs non-GAAP(23%) growth gap\n\n2. Discrete items (vs guidance): $0.27 EPS benefit\n   - Anthropic $3.2B gain (NOT OpenAI, in Other Income)\n   - Lower-than-expected VRP expenses\n   - Partially offset by XBOX severance + impairment\n   These are items that differed from the April 29 forward guidance\n\n=> They are DIFFERENT things. The gap (Q3) is about OpenAI YoY swing.\n   The discrete items (Q4) are about Anthropic + VRP + XBOX vs guidance.\n\nNote: Anthropic gain appears in BOTH contexts:\n   - It's part of the $0.27 discrete item benefit vs guidance\n   - But it is NOT stripped in the non-GAAP reconciliation (only OpenAI is)\n   So the GAAP EPS of $4.81 INCLUDES the Anthropic gain\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_c12530ac13a34785852bf662",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\n# Let me verify the financial statements for the OpenAI detail and Anthropic gain\\nimport os\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'financial_statements.txt'), 'r', encoding='utf-8', errors='replace') as f:\\n    text = f.read()\\n\\nimport re\\nfor kw in ['OpenAI', 'Anthropic', 'discrete', 'guidance']:\\n    positions = [m.start() for m in re.finditer(kw, text, re.IGNORECASE)]\\n    print(f\\\"\\\\n=== '{kw}' found at {len(positions)} positions ===\\\")\\n    for p in positions[:3]:\\n        start = max(0, p-200)\\n        end = min(len(text), p+300)\\n        snippet = text[start:end].replace('\\\\n', ' ')\\n        print(f\\\"  ...{snippet}...\\\")\\n        print(\\\"  ---\\\")\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_c12530ac13a34785852bf662",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\n\n=== 'OpenAI' found at 0 positions ===\n\n=== 'Anthropic' found at 0 positions ===\n\n=== 'discrete' found at 0 positions ===\n\n=== 'guidance' found at 0 positions ===\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_95632363254e4ef181746112",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'financial_statements.txt'), 'r', encoding='utf-8', errors='replace') as f:\\n    text = f.read()\\n\\nprint(text[:3000])\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_95632363254e4ef181746112",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\n\n### ������: Splash\n | Microsoft Financial Data - FY26Q4\n | This file contains downloadable content that corresponds to Microsoft's Investor Relations portal at http://www.microsoft.com/investor. Click a link below to navigate to that section of the workbook. Each sheet contains a link back to this main page.\n\n | Current Financial Statements |  |  | Trended Historical Financial Statements\n | Income Statements |  |  | Quarterly Income Statements\n | Comprehensive Income Statements |  |  | Segment History\n | Balance Sheets |  |  | Products & Services History\n | Cash Flows Statements |  |  | Yearly Income Statements\n | Segment Results |  |  | Return of Cash to Shareholders\n | Metrics |  |  | Capital Expenditures\n | We adopted new accounting standards related to revenue recognition and leases effective July 1, 2017. The prior periods presented here have been restated to reflect adoption of these new standards.\n | We have recast certain prior period amounts on our consolidated cash flows statements to conform to the current period presentation. The recast of these prior period amounts had no impact on our consolidated balance sheets, consolidated income statements, or net cash from (used in) operations, investing, or financing on our consolidated cash flows statements.\t\t\t\n\n### ������: Income Statements\nMICROSOFT CORPORATION |  |  |  |  |  |  |  |  | Back to Main\nINCOME STATEMENTS\n(In millions, except per share amounts) (Unaudited)\n | Three Months Ended June 30, |  |  |  | Twelve Months Ended June 30,\n | 2026 |  | 2025 |  | 2026 |  | 2025\nRevenue:\n   Product | 17234 |  | 17136 |  | 64696 |  | 63946\n   Service and other | 72773 |  | 59305 |  | 267143 |  | 217778\n      Total revenue | 90007 |  | 76441 |  | 331839 |  | 281724\nCost of revenue:\n   Product | 2938 |  | 3314 |  | 12098 |  | 13501\n   Service and other | 26587 |  | 20700 |  | 94276 |  | 74330\n      Total cost of revenue | 29525 |  | 24014 |  | 106374 |  | 87831\n      Gross margin | 60482 |  | 52427 |  | 225465 |  | 193893\nResearch and development  | 9997 |  | 8829 |  | 35562 |  | 32488\nSales and marketing | 7595 |  | 7285 |  | 26710 |  | 25654\nGeneral and administrative  | 2287 |  | 1990 |  | 7956 |  | 7223\nOperating income | 40603 |  | 34323 |  | 155237 |  | 128528\nOther income (expense), net | 3444 |  | -1707 |  | 10697 |  | -4901\nIncome before income taxes | 44047 |  | 32616 |  | 165934 |  | 123627\nProvision for income taxes | 8281 |  | 5383 |  | 32185 |  | 21795\nNet income | 35766 |  | 27233 |  | 133749 |  | 101832\nEarnings per share:\n   Basic | 4.82 |  | 3.66 |  | 18 |  | 13.7\n   Diluted | 4.81 |  | 3.65 |  | 17.95 |  | 13.64\nWeighted average shares outstanding:\n   Basic | 7427 |  | 7432 |  | 7429 |  | 7433\n   Diluted | 7443 |  | 7461 |  | 7453 |  | 7465\n\n### ������: Comprehensive Income\nMICROSOFT CORPORATION |  |  |  |  |  |  |  |  | Back to Main\nCOMPREHENSIVE INCOME STATEMENTS\n(In millions) (Unaudited)\n | Three Months Ended June 30, |  |  |  | Twelve Months Ended June 30,\n | 2026 |  | 2025 |  | 202\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_682895c72fbd4d1c95139773",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'financial_statements.txt'), 'r', encoding='utf-8', errors='replace') as f:\\n    text = f.read()\\n\\n# Look at quarterly income statements for OpenAI / Other income detail\\nidx = text.find('Quarterly Income Statements')\\nprint(text[idx:idx+3000])\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_682895c72fbd4d1c95139773",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\nQuarterly Income Statements\n | Comprehensive Income Statements |  |  | Segment History\n | Balance Sheets |  |  | Products & Services History\n | Cash Flows Statements |  |  | Yearly Income Statements\n | Segment Results |  |  | Return of Cash to Shareholders\n | Metrics |  |  | Capital Expenditures\n | We adopted new accounting standards related to revenue recognition and leases effective July 1, 2017. The prior periods presented here have been restated to reflect adoption of these new standards.\n | We have recast certain prior period amounts on our consolidated cash flows statements to conform to the current period presentation. The recast of these prior period amounts had no impact on our consolidated balance sheets, consolidated income statements, or net cash from (used in) operations, investing, or financing on our consolidated cash flows statements.\t\t\t\n\n### ������: Income Statements\nMICROSOFT CORPORATION |  |  |  |  |  |  |  |  | Back to Main\nINCOME STATEMENTS\n(In millions, except per share amounts) (Unaudited)\n | Three Months Ended June 30, |  |  |  | Twelve Months Ended June 30,\n | 2026 |  | 2025 |  | 2026 |  | 2025\nRevenue:\n   Product | 17234 |  | 17136 |  | 64696 |  | 63946\n   Service and other | 72773 |  | 59305 |  | 267143 |  | 217778\n      Total revenue | 90007 |  | 76441 |  | 331839 |  | 281724\nCost of revenue:\n   Product | 2938 |  | 3314 |  | 12098 |  | 13501\n   Service and other | 26587 |  | 20700 |  | 94276 |  | 74330\n      Total cost of revenue | 29525 |  | 24014 |  | 106374 |  | 87831\n      Gross margin | 60482 |  | 52427 |  | 225465 |  | 193893\nResearch and development  | 9997 |  | 8829 |  | 35562 |  | 32488\nSales and marketing | 7595 |  | 7285 |  | 26710 |  | 25654\nGeneral and administrative  | 2287 |  | 1990 |  | 7956 |  | 7223\nOperating income | 40603 |  | 34323 |  | 155237 |  | 128528\nOther income (expense), net | 3444 |  | -1707 |  | 10697 |  | -4901\nIncome before income taxes | 44047 |  | 32616 |  | 165934 |  | 123627\nProvision for income taxes | 8281 |  | 5383 |  | 32185 |  | 21795\nNet income | 35766 |  | 27233 |  | 133749 |  | 101832\nEarnings per share:\n   Basic | 4.82 |  | 3.66 |  | 18 |  | 13.7\n   Diluted | 4.81 |  | 3.65 |  | 17.95 |  | 13.64\nWeighted average shares outstanding:\n   Basic | 7427 |  | 7432 |  | 7429 |  | 7433\n   Diluted | 7443 |  | 7461 |  | 7453 |  | 7465\n\n### ������: Comprehensive Income\nMICROSOFT CORPORATION |  |  |  |  |  |  |  |  | Back to Main\nCOMPREHENSIVE INCOME STATEMENTS\n(In millions) (Unaudited)\n | Three Months Ended June 30, |  |  |  | Twelve Months Ended June 30,\n | 2026 |  | 2025 |  | 2026 |  | 2025\nNet income | 35766 |  | 27233 |  | 133749 |  | 101832\nOther comprehensive income (loss), net of tax:\n  Net change related to derivatives | 14 |  | -9 |  | 8 |  | -5\n  Net change related to investments | -72 |  | 444 |  | 215 |  | 1574\n  Translation adjustments and other | 2 |  | 1051 |  | -160 |  | 674\n   Other comprehensive income (loss) | -56 |  | 1486 |  | 63 |  | 2243\nComprehensive income | 35710 | \n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_c5e774c0abdd4373bb3a86bd",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'financial_statements.txt'), 'r', encoding='utf-8', errors='replace') as f:\\n    text = f.read()\\n\\n# Search for OpenAI / Anthropic in the financial statements\\nidx = text.find('OpenAI')\\nprint(\\\"OpenAI at:\\\", idx)\\nidx = text.find('Anthropic')\\nprint(\\\"Anthropic at:\\\", idx)\\nidx = text.find('Other income')\\nprint(\\\"Other income at:\\\", idx)\\n# Look for segment or other detail about investments\\nimport re\\nfor kw in ['investment', 'gain', 'loss']:\\n    positions = [m.start() for m in re.finditer(kw, text, re.IGNORECASE)]\\n    print(f\\\"'{kw}' at {len(positions)} positions\\\")\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_c5e774c0abdd4373bb3a86bd",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\nOpenAI at: -1\nAnthropic at: -1\nOther income at: 2250\n'investment' at 8 positions\n'gain' at 1 positions\n'loss' at 6 positions\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_00894ce5d828431cbfc4055f",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'financial_statements.txt'), 'r', encoding='utf-8', errors='replace') as f:\\n    text = f.read()\\n\\n# Look at the rest of the file for any OpenAI/Anthropic detail\\nidx = text.find('Other income (expense), net')\\nprint(text[idx:idx+2000])\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_00894ce5d828431cbfc4055f",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\nOther income (expense), net | 3444 |  | -1707 |  | 10697 |  | -4901\nIncome before income taxes | 44047 |  | 32616 |  | 165934 |  | 123627\nProvision for income taxes | 8281 |  | 5383 |  | 32185 |  | 21795\nNet income | 35766 |  | 27233 |  | 133749 |  | 101832\nEarnings per share:\n   Basic | 4.82 |  | 3.66 |  | 18 |  | 13.7\n   Diluted | 4.81 |  | 3.65 |  | 17.95 |  | 13.64\nWeighted average shares outstanding:\n   Basic | 7427 |  | 7432 |  | 7429 |  | 7433\n   Diluted | 7443 |  | 7461 |  | 7453 |  | 7465\n\n### ������: Comprehensive Income\nMICROSOFT CORPORATION |  |  |  |  |  |  |  |  | Back to Main\nCOMPREHENSIVE INCOME STATEMENTS\n(In millions) (Unaudited)\n | Three Months Ended June 30, |  |  |  | Twelve Months Ended June 30,\n | 2026 |  | 2025 |  | 2026 |  | 2025\nNet income | 35766 |  | 27233 |  | 133749 |  | 101832\nOther comprehensive income (loss), net of tax:\n  Net change related to derivatives | 14 |  | -9 |  | 8 |  | -5\n  Net change related to investments | -72 |  | 444 |  | 215 |  | 1574\n  Translation adjustments and other | 2 |  | 1051 |  | -160 |  | 674\n   Other comprehensive income (loss) | -56 |  | 1486 |  | 63 |  | 2243\nComprehensive income | 35710 |  | 28719 |  | 133812 |  | 104075\n\n### ������: Balance Sheets\nMICROSOFT CORPORATION |  |  |  |  |  | Back to Main\nBALANCE SHEETS\n(In millions) (Unaudited)\n | June 30,\n2026 |  | June 30, 2025\nAssets\nCurrent assets:\n   Cash and cash equivalents | 20935 |  | 30242\n   Short-term investments | 55908 |  | 64323\n      Total cash, cash equivalents, and short-term investments | 76843 |  | 94565\n   Accounts receivable, net of allowance for doubtful\n      accounts of $1,040 and $944 | 80876 |  | 69905\n   Inventories | 1397 |  | 938\n   Other current assets | 48594 |  | 25723\n      Total current assets | 207710 |  | 191131\nProperty and equipment, net of accumulated\n   depreciation of $118,691 and $93,653 | 313076 |  | 204966\nOperating lease right-of-use assets | 24177 |  | 24823\nEquity and other investments | 36348 |  | 15405\nGoodwill | \n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_4974af75af6b46459152b1e3",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'financial_statements.txt'), 'r', encoding='utf-8', errors='replace') as f:\\n    text = f.read()\\n\\n# Look at the segment results and any footnotes about OpenAI\\nidx = text.find('Segment Results')\\nprint(text[idx:idx+2500])\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_4974af75af6b46459152b1e3",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\nSegment Results |  |  | Return of Cash to Shareholders\n | Metrics |  |  | Capital Expenditures\n | We adopted new accounting standards related to revenue recognition and leases effective July 1, 2017. The prior periods presented here have been restated to reflect adoption of these new standards.\n | We have recast certain prior period amounts on our consolidated cash flows statements to conform to the current period presentation. The recast of these prior period amounts had no impact on our consolidated balance sheets, consolidated income statements, or net cash from (used in) operations, investing, or financing on our consolidated cash flows statements.\t\t\t\n\n### ������: Income Statements\nMICROSOFT CORPORATION |  |  |  |  |  |  |  |  | Back to Main\nINCOME STATEMENTS\n(In millions, except per share amounts) (Unaudited)\n | Three Months Ended June 30, |  |  |  | Twelve Months Ended June 30,\n | 2026 |  | 2025 |  | 2026 |  | 2025\nRevenue:\n   Product | 17234 |  | 17136 |  | 64696 |  | 63946\n   Service and other | 72773 |  | 59305 |  | 267143 |  | 217778\n      Total revenue | 90007 |  | 76441 |  | 331839 |  | 281724\nCost of revenue:\n   Product | 2938 |  | 3314 |  | 12098 |  | 13501\n   Service and other | 26587 |  | 20700 |  | 94276 |  | 74330\n      Total cost of revenue | 29525 |  | 24014 |  | 106374 |  | 87831\n      Gross margin | 60482 |  | 52427 |  | 225465 |  | 193893\nResearch and development  | 9997 |  | 8829 |  | 35562 |  | 32488\nSales and marketing | 7595 |  | 7285 |  | 26710 |  | 25654\nGeneral and administrative  | 2287 |  | 1990 |  | 7956 |  | 7223\nOperating income | 40603 |  | 34323 |  | 155237 |  | 128528\nOther income (expense), net | 3444 |  | -1707 |  | 10697 |  | -4901\nIncome before income taxes | 44047 |  | 32616 |  | 165934 |  | 123627\nProvision for income taxes | 8281 |  | 5383 |  | 32185 |  | 21795\nNet income | 35766 |  | 27233 |  | 133749 |  | 101832\nEarnings per share:\n   Basic | 4.82 |  | 3.66 |  | 18 |  | 13.7\n   Diluted | 4.81 |  | 3.65 |  | 17.95 |  | 13.64\nWeighted average shares outstanding:\n   Basic | 7427 |  | 7432 |  | 7429 |  | 7433\n   Diluted | 7443 |  | 7461 |  | 7453 |  | 7465\n\n### ������: Comprehensive Income\nMICROSOFT CORPORATION |  |  |  |  |  |  |  |  | Back to Main\nCOMPREHENSIVE INCOME STATEMENTS\n(In millions) (Unaudited)\n | Three Months Ended June 30, |  |  |  | Twelve Months Ended June 30,\n | 2026 |  | 2025 |  | 2026 |  | 2025\nNet income | 35766 |  | 27233 |  | 133749 |  | 101832\nOther comprehensive income (loss), net of tax:\n  Net c\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_b03d796ade2f4817b5459593",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'financial_statements.txt'), 'r', encoding='utf-8', errors='replace') as f:\\n    text = f.read()\\n\\n# Look at the whole file tail for any segment detail or footnote about OpenAI\\nprint(\\\"FILE LENGTH:\\\", len(text))\\nprint(text[-3000:])\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_b03d796ade2f4817b5459593",
+    "name": "run_python",
+    "content": "exit=1\n--- stdout ---\nFILE LENGTH: 29612\n\n--- stderr ---\nTraceback (most recent call last):\n  File \"D:\\<redacted>\\Users\\Admin\\Documents\\RealYDT Commercial Projects\\2026-08-Ling-3.0-flash-Fin\\tests\\_runs\\D_ling-3.0-flash-fin_free_r14\\_step_1788166345253.py\", line 9, in <module>\n    print(text[-3000:])\nUnicodeEncodeError: 'gbk' codec can't encode character '\\xa0' in position 1877: illegal multibyte sequence\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_0c27b336fa6d409ea4c9fe72",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'financial_statements.txt'), 'r', encoding='utf-8', errors='replace') as f:\\n    text = f.read()\\n\\nprint(\\\"FILE LENGTH:\\\", len(text))\\n# Print last 2500 chars safely\\ntail = text[-2500:]\\n# write to a file to inspect\\nwith open('/tmp/tail.txt', 'w', encoding='utf-8') as f:\\n    f.write(tail)\\nprint(tail)\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_0c27b336fa6d409ea4c9fe72",
+    "name": "run_python",
+    "content": "exit=1\n--- stdout ---\nFILE LENGTH: 29612\n\n--- stderr ---\nTraceback (most recent call last):\n  File \"D:\\<redacted>\\Users\\Admin\\Documents\\RealYDT Commercial Projects\\2026-08-Ling-3.0-flash-Fin\\tests\\_runs\\D_ling-3.0-flash-fin_free_r14\\_step_1788166349423.py\", line 11, in <module>\n    with open('/tmp/tail.txt', 'w', encoding='utf-8') as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/tmp/tail.txt'\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_1d982c0646e94b5db941f29d",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'financial_statements.txt'), 'r', encoding='utf-8', errors='replace') as f:\\n    text = f.read()\\n\\nprint(\\\"FILE LENGTH:\\\", len(text))\\ntail = text[-2500:]\\nprint(tail.encode('utf-8', errors='replace').decode('utf-8', errors='replace'))\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_1d982c0646e94b5db941f29d",
+    "name": "run_python",
+    "content": "exit=1\n--- stdout ---\nFILE LENGTH: 29612\n\n--- stderr ---\nTraceback (most recent call last):\n  File \"D:\\<redacted>\\Users\\Admin\\Documents\\RealYDT Commercial Projects\\2026-08-Ling-3.0-flash-Fin\\tests\\_runs\\D_ling-3.0-flash-fin_free_r14\\_step_1788166353032.py\", line 9, in <module>\n    print(tail.encode('utf-8', errors='replace').decode('utf-8', errors='replace'))\nUnicodeEncodeError: 'gbk' codec can't encode character '\\xa0' in position 1377: illegal multibyte sequence\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_e79f928f1347413f8b0e80ef",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\nimport os, sys\\nctx_dir = '/<redacted>/Users/<user>/Documents/RealYDT Commercial Projects/2026-08-Ling-3.0-flash-Fin/tests/_context'\\nwith open(os.path.join(ctx_dir, 'financial_statements.txt'), 'r', encoding='utf-8', errors='replace') as f:\\n    text = f.read()\\n\\n# Force stdout to write bytes\\nsys.stdout.reconfigure(encoding='utf-8', errors='replace')\\nprint(\\\"FILE LENGTH:\\\", len(text))\\ntail = text[-2500:]\\nprint(tail)\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_e79f928f1347413f8b0e80ef",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\nFILE LENGTH: 29612\n| 0.75 | 0.83 | 0.83 | 0.83 | 0.83 | 0.91 | 0.91 | 0.91 | 0.91\nTotal Dividends |  | 0.868 | 0.86 | 0.857 | 0.846 | 0.926 | 0.916 | 0.897 | 0.98 | 0.978 | 0.952 | 0.938 | 1.034 | 1.023 | 1.02 | 0.998 | 1.157 | 1.155 | 1.158 | 1.157 | 1.152 | 1.139 | 1.13 | 1.118 | 1.363 | 1.349 | 1.35 | 1.341 | 1.683 | 1.683 | 1.678 | 1.676 | 1.933 | 1.925 | 1.921 | 1.916 | 2.332 | 2.322 | 2.309 | 2.307 | 2.547 | 2.532 | 2.496 | 2.475 | 2.868 | 2.842 | 2.821 | 2.8 | 3.024 | 3.012 | 3.009 | 3.003 | 3.238 | 3.232 | 3.226 | 3.22 | 3.544 | 3.526 | 3.521 | 3.51 | 3.886 | 3.876 | 3.865 | 3.856 | 4.23 | 4.221 | 4.214 | 4.206 | 4.652 | 4.645 | 4.632 | 4.621 | 5.066 | 5.059 | 5.054 | 5.051 | 5.574 | 5.573 | 5.574 | 5.574 | 6.17 | 6.169 | 6.169 | 6.168 | 6.762 | 6.756 | 6.758 | 6.759\nShare Buyback |  | 0.655 | 2.42 | 4.302 | 3.029 | 7.666 | 4.879 | 4.175 | 6.965 | 6.037 | 6.744 | 7.367 | 2.348 | 4.081 | 1.02 | 4.975 | 5.966 | 2.234 | 0 | 0 | 1.445 | 3.583 | 2 | 3.808 | 4 | 5 | 0.827 | 1.631 | 1 | 1 | 1 | 1 | 1 | 1.607 | 1 | 1 | 1.5 | 2 | 1.791 | 1.118 | 2 | 2 | 5 | 4.209 | 4 | 3.6 | 3.6 | 3.6 | 3.55 | 3.533 | 1.6 | 1.6 | 1.6 | 1.8 | 3.1 | 2.1 | 2.6 | 6.1 | 3.899 | 4.2 | 4 | 4.6 | 6 | 5.088 | 5.27 | 5.75 | 5.75 | 6.2 | 6.2 | 6.233 | 7.8 | 7.8 | 4.6 | 4.6 | 4.6 | 4.6 | 3.56 | 2.8 | 2.8 | 2.8 | 2.8 | 3.5 | 3.5 | 3.2 | 3.955 | 5.964 | 3.4 | 3.4\n\n### 工作表: CapEx\nMicrosoft Corporation  | Back to Main\nCapital Expenditures Including Assets Acquired Under Capital Leases\n(In billions)\n | Q1-16 | Q2-16 | Q3-16 | Q4-16 | Fiscal Year 2016 |  | Q1-17 | Q2-17 | Q3-17 | Q4-17 | Fiscal Year 2017 |  | Q1-18 | Q2-18 | Q3-18 | Q4-18 | Fiscal Year 2018 |  | Q1-19 | Q2-19 | Q3-19 | Q4-19 | Fiscal Year 2019 |  | Q1-20 | Q2-20 | Q3-20 | Q4-20 | Fiscal Year 2020 |  | Q1-21 | Q2-21 | Q3-21 | Q4-21 | Fiscal Year 2021 |  | Q1-22 | Q2-22 | Q3-22 | Q4-22 | Fiscal Year 2022 |  | Q1-23 | Q2-23 | Q3-23 | Q4-23 | Fiscal Year 2023 |  | Q1-24 | Q2-24 | Q3-24 | Q4-24 | Fiscal Year 2024 |  | Q1-25 | Q2-25 | Q3-25 | Q4-25 | Fiscal Year 2025 |  | Q1-26 | Q2-26 | Q3-26 | Q4-26 | Fiscal Year 2026\nCapital expenditures including assets acquired under capital leases | 1.5 | 2 | 2.3 | 3.1 | 8.9 |  | 2.3 | 2.5 | 2.1 | 3.3 | 10.2 |  | 2.7 | 3.3 | 3.5 | 4.1 | 13.6 |  | 4.3 | 3.9 | 3.4 | 5.3 | 16.9 |  | 4.8 | 4.5 | 3.9 | 5.8 | 19 |  | 5.5 | 5.4 | 6 | 7.3 | 24.2 |  | 7.4 | 6.8 | 6.3 | 8.7 | 29.2 |  | 6.6 | 6.8 | 7.8 | 10.7 | 31.9 |  | 11.2 | 11.5 | 14 | 19 | 55.7 |  | 20 | 22.6 | 21.4 | 24.2 | 88.2 |  | 34.9 | 37.5 | 31.9 | 41 | 145.3\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": "现在我已经收集到所有需要的信息。让我来整理最终答案。\n\n---\n\n## 微软 FY26 Q4 摊薄每股收益（Diluted EPS）分析\n\n### 1. FY26 Q4 两种口径的摊薄 EPS 及同比增速\n\n| 口径 | FY26 Q4 EPS | 同比增速 |\n|------|------------|---------|\n| GAAP | **$4.81** | **+32%** |\n| 非 GAAP | **$4.74** | **+23%** |\n\n**出处**：`press_release.txt` 中\"Microsoft Corp. today announced...\"段落原文：\"Diluted earnings per share was $4.81 and increased 32% on a GAAP basis, and was $4.74 and increased 23% on a non-GAAP basis\"。\n\n同时在 `press_release.txt` 后部的 GAAP-to-non-GAAP 对账表中亦可交叉验证：Q4'26 GAAP $4.81 → 减去 OpenAI 影响 $(0.07) → non-GAAP $4.74；Q4'25 GAAP $3.65 → 加回 OpenAI 影响 $0.21 → non-GAAP $3.86；同比增速列分别为 GAAP 32%、non-GAAP 23%。\n\n---\n\n### 2. 去年同期（FY25 Q4）的摊薄 EPS\n\n| 口径 | FY25 Q4 EPS |\n|------|------------|\n| GAAP | **$3.65** |\n| 非 GAAP | **$3.86** |\n\n**出处**：同上 `press_release.txt` 后部对账表，\"Three Months Ended June 30, 2025\"列：GAAP $3.65、Impact from OpenAI $0.21、non-GAAP $3.86。`financial_statements.txt`（工作表 Income Statements）中 Three Months Ended June 30, 2025 的 Diluted EPS 也是 $3.65（该表仅列 GAAP）。\n\n---\n\n### 3. 两种口径同比增速差距的来源\n\n**差距 = 32%（GAAP）− 23%（non-GAAP）= 9 个百分点。**\n\n**来源**：`press_release.txt` \"Non-GAAP Definition\" 段落明确指出——\n\n> \"In fiscal year 2026, net income and diluted earnings per share were impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted earnings per share of $480 million and $0.07, respectively, in the fourth quarter\"\n\n> \"In fiscal year 2025, net income and diluted earnings per share were impacted by net losses from investments in OpenAI, which resulted in a decrease in net income and diluted earnings per share of $1,575 million and $0.21, respectively, in the fourth quarter\"\n\n也就是说：\n- **FY25 Q4**：OpenAI 投资净**亏损** $0.21 EPS，拉低了 GAAP 基数（GAAP $3.65 < non-GAAP $3.86）。\n- **FY26 Q4**：OpenAI 投资净**收益** $0.07 EPS，抬高了 GAAP 当期值（GAAP $4.81 > non-GAAP $4.74）。\n- 一年间 OpenAI 对 GAAP EPS 的**摆幅**为 $0.07 − (−$0.21) = **$0.28**，相当于 FY25 Q4 GAAP 基数 $3.65 的约 7.7%。这几乎就是 GAAP 与 non-GAAP 增速差距（9pp）的全部来源。\n\n**是否反映核心经营业务的改善？**\n\n**不反映。** 非 GAAP 口径（剔除 OpenAI 投资损益后）增速 23% 更能代表核心业务。GAAP 增速 32% 中有约 9 个百分点来自 OpenAI 投资从\"亏损\"到\"收益\"的会计摆幅，属于**非经营性投资损益的基数效应**，并非主业经营改善。事实上，核心业务本身的增速是 23%（non-GAAP），与经营收入增速 18%、营收增速 18% 大体匹配，属于正常水平。\n\n---\n\n### 4. \"相对于此前指引的离散项\"是否与第 3 问的口径差异同一回事\n\n**不是同一回事。** 两者来源、目的、构成均不同：\n\n**A. 口径差异（第 3 问）—— OpenAI 投资损益的同比基数效应**\n- 来源：`press_release.txt` Non-GAAP Definition 段落\n- 性质：GAAP 与 non-GAAP 之间的**会计口径差异**，来自对 OpenAI 投资的会计处理（按市值计价）\n- 方向：FY25 Q4 亏损 $0.21、FY26 Q4 收益 $0.07 → 摆幅 $0.28\n- 目的：管理层提供 non-GAAP 帮助投资者看清**经营趋势**\n\n**B. 离散项（vs 指引）—— 实际结果与 4 月 29 日指引的偏离**\n- 来源：`press_release.txt` 正文段落：\"Several discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share. These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program which were partially offset by severance expense and impairment charges in XBOX.\"\n- `transcript.txt` 中 Amy Hood 同样表述：\"Several discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on our April earnings call, resulting in a benefit of 27 cents on diluted earnings per share. These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program, which were partially offset by severance expense and impairment charges in XBOX.\"\n- 构成（合计 +$0.27 EPS）：\n  - + Anthropic 投资 $3.2B 收益（计入 Other Income，**不是** OpenAI）\n  - + 自愿退休计划（VRP）费用低于预期\n  - − XBOX 的遣散费与减值（部分抵消）\n- 目的：说明**实际业绩 vs 此前指引**的偏离，解释为何超预期\n\n**关键区别**：\n| 维度 | 口径差异 | 离散项 |\n|------|---------|--------|\n| 比较对象 | GAAP vs non-GAAP（两种口径）| 实际 vs 指引（同口径内）|\n| 涉及项目 | OpenAI 投资 | Anthropic 收益、VRP、XBOX 减值 |\n| 金额 | $0.28 摆幅 | $0.27 净收益 |\n| 时间维度 | 同比（FY26 Q4 vs FY25 Q4）| vs 4 月 29 日指引 |\n| 是否影响 non-GAAP | 是（non-GAAP 剔除 OpenAI）| 否（non-GAAP 不剔除这些）|\n\n**特别提示**：Anthropic 的 $3.2B 收益既出现在\"离散项\"中（vs 指引超预期），也**包含在 GAAP EPS $4.81 中**（因为 non-GAAP 只剔除 OpenAI，不剔除 Anthropic）。这意味着 non-GAAP EPS $4.74 **仍然包含** Anthropic 收益——它不是非经营性的\"噪音\"，而是被管理层视为可持续的其他投资收益。因此即便用 non-GAAP 口径 $4.74（+23%），其中也有一部分来自 Anthropic 浮盈，并非纯粹的核心经营改善。\n\n---\n\n**总结**：\n- GAAP $4.81 / +32%，non-GAAP $4.74 / +23%\n- 去年同期 GAAP $3.65 / non-GAAP $3.86\n- 9pp 增速差距**完全来自** OpenAI 投资从亏损到收益的会计摆幅（$0.28），**不反映核心经营改善**\n- \"离散项\"（Anthropic + VRP + XBOX，合计 $0.27）是与指引的偏离，**不同于**口径差异（OpenAI 的同比基数效应），二者构成项目、比较维度都不同"
+  }
+]

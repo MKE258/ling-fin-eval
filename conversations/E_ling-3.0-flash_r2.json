@@ -1,0 +1,688 @@
+[
+  {
+    "role": "user",
+    "content": "你是金融投研分析师。可用工具读取微软 FY26 Q4 的官方财报材料。\n请先用 list_materials 查看有哪些文件，再按需读取。\n所有结论必须给出具体出处（文件名 + 位置），不得凭印象作答。\n\n问题：根据提供的微软 FY26 Q4 财报材料，回答：\n\n1. Microsoft 365 Copilot 在 FY26 Q4 的收入是多少美元？\n2. Azure 在 FY26 Q4 单季度的收入绝对金额是多少美元？\n\n请给出具体数字和出处。如果某个数字在材料中无法确定，请直接说明无法确定，\n并说明材料中实际披露的是什么。\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_f0dfa2536e544efc9b07ef3e",
+        "function": {
+          "name": "list_materials",
+          "arguments": "{}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_f0dfa2536e544efc9b07ef3e",
+    "name": "list_materials",
+    "content": "10k.txt  (423,020 字符)\nfinancial_statements.txt  (29,612 字符)\nmetrics.txt  (2,266 字符)\npress_release.txt  (29,949 字符)\ntranscript.txt  (58,106 字符)"
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_27d0ce6f989b40e9bbb76f67",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"Microsoft 365 Copilot\", \"max_hits\": 10}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_726382450c0a4a9fbd8998c6",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"Azure revenue\", \"max_hits\": 10}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_5c1c2ff53d7e45c8af96071d",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"transcript.txt\", \"query\": \"Microsoft 365 Copilot\", \"max_hits\": 10}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 3,
+        "id": "call_ba8852aa5b81461a929d214b",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"transcript.txt\", \"query\": \"Azure revenue\", \"max_hits\": 10}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_27d0ce6f989b40e9bbb76f67",
+    "name": "search_material",
+    "content": "[位置 1560]\n...n XBOX. When adjusting for these items, we exceeded expectations across revenue, operating income, and diluted earnings per share.\n“We are advancing the frontier on the cost-to-outcome curve, ensuring every customer can turn tokens into business results,\" said Satya Nadella, chairman and chief executive officer of Microsoft. “This year, Azure revenue surpassed $100 billion for the first time, and Microsoft 365 Copilot reached over 30 million paid seats, reflecting the confidence customers are placing in us to power their AI transformation.”\n “We delivered a strong quarter to close out the fiscal year, highlighted by Microsoft Cloud revenue of $59.3 billion, up 27% year-over-year,” said Amy Hood, executive vice president and chief financial officer of Microsoft.\nThe following table adjusts ..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_726382450c0a4a9fbd8998c6",
+    "name": "search_material",
+    "content": "[位置 1499]\n...artially offset by severance expense and impairment charges in XBOX. When adjusting for these items, we exceeded expectations across revenue, operating income, and diluted earnings per share.\n“We are advancing the frontier on the cost-to-outcome curve, ensuring every customer can turn tokens into business results,\" said Satya Nadella, chairman and chief executive officer of Microsoft. “This year, Azure revenue surpassed $100 billion for the first time, and Microsoft 365 Copilot reached over 30 million paid seats, reflecting the confidence customers are placing in us to power their AI transformation.”\n “We delivered a strong quarter to close out the fiscal year, highlighted by Microsoft Cloud revenue of $59.3 billion, up 27% year-over-year,” said Amy Hood, executive vice president and chief..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_5c1c2ff53d7e45c8af96071d",
+    "name": "search_material",
+    "content": "[位置 10455]\n...ends companies’ existing governance, identity, security, and management frameworks to agents they build.\nJust two months in, Agent 365 now has nearly 40 million agents registered across tens of thousands of companies.\nNow, let me turn to the apps and agents we are building on top of this platform for individuals and organizations. \nWhen it comes to knowledge work, we now have over 30 million paid Microsoft 365 Copilot seats, with net seat adds more than doubling quarter-over-quarter. \nCopilot is evolving rapidly, from chat to Cowork to Autopilots.\nLast month, we made Cowork generally available, helping customers complete multi-step tasks grounded in their work data while meeting enterprise security and compliance requirements.\nThis quarter, we also introduced Autopilots, autonomous, long-r..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_ba8852aa5b81461a929d214b",
+    "name": "search_material",
+    "content": "在 transcript.txt 中未找到 “Azure revenue”"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_2e7ff03a4053494e9734fe49",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"transcript.txt\", \"max_hits\": 10, \"query\": \"Azure\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_660a9a3ca2804216ba2b93a7",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"metrics.txt\", \"max_hits\": 10, \"query\": \"Azure\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_030cd29ab695482697994c6c",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"metrics.txt\", \"max_hits\": 10, \"query\": \"Copilot\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 3,
+        "id": "call_ddb66cf5026d43d3bfc03400",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"10k.txt\", \"max_hits\": 10, \"query\": \"Microsoft 365 Copilot\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 4,
+        "id": "call_96ea1ba64c4e4d1f97b3a39a",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"10k.txt\", \"max_hits\": 10, \"query\": \"Azure\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_2e7ff03a4053494e9734fe49",
+    "name": "search_material",
+    "content": "[位置 2977]\n... filings with the Securities and Exchange Commission. We do not undertake any duty to update any forward-looking statement.  \nAnd with that, I’ll turn the call over to Satya.\nSATYA NADELLA:\nThank you very much, Jonathan.\nIt was a very strong close to what was a record fiscal year for us.\nAll up, our annual revenue surpassed $331 billion, up 18%.\nMicrosoft Cloud surpassed $214 billion, up 27%.\nAnd Azure surpassed $100 billion, up 41%.\nGoing forward, we have two goals. First, ensuring AI empowers every person, amplifying their agency and ambition. And second, empowering every organization to build their own continuous learning loop and ensuring that they don’t outsource their core IP.\nNow, let’s talk about how we are delivering this across our stack, starting with our AI platform and infrast...\n\n[位置 8246]\n...s fast, secure access to real-time data and context they need for memory and retrieval.\nPostgreSQL revenue was up 55%, accelerating for the third consecutive quarter.\nAlso, the number of PostgreSQL customers also using Foundry increased 80%, as customers increasingly choose it as their database for AI workloads.\nAnd we are going further with Horizon DB, our new fully managed PostgreSQL service on Azure, which delivers three times the throughput of self-managed deployments.\nWhen it comes to analytics, we now have over 40,000 paid Fabric customers, up more than 60% year-over-year.\nAnd over 17,000 customers now use Foundry and Fabric, up 60% year-over-year, as enterprises connect agents to real-time operational, analytical, and unstructured data in Fabric.\nThis quarter, we also introduced Ray...\n\n[位置 18670]\n...re confident in Microsoft’s opportunity to drive durable, long-term growth and ensure the benefits of AI flow broadly.\nWith that, let me turn it over to Amy to walk through our financial results and outlook.\nAMY HOOD: \nThank you, Satya, and good afternoon everyone. This fiscal year, we delivered over $331 billion in revenue, with growth accelerating to 18%, driven by strong demand across both the Azure platform and our first-party AI applications and services. Operating income growth outpaced revenue growth, increasing 21% to more than $155 billion as we invested in long-term growth while continuing to expand operating leverage.\nThis quarter, revenue was $90 billion, up 18% and 17% in constant currency. Gross margin dollars increased 15% and operating income increased 18%. Earnings per sha...\n\n[位置 19907]\n...expected expenses related to the Voluntary Retirement Program, which were partially offset by severance expense and impairment charges in XBOX. \nWhen adjusting for these items, we exceeded expectations across revenue, operating income and earnings per share due to strong demand and execution in the quarter.\nCompany gross margin percentage was 67%, down year-over-year, driven by sales mix shift to Azure as well as continued investments in AI infrastructure and growing product usage, partially offset by ongoing efficiency gains, particularly in Azure and M365 Commercial cloud. \nOperating expenses increased 10% driven by continued investment in R&D compute capacity, talent, and data to support product development across the portfolio. G and A growth was impacted by a low prior-year comparable...\n\n[位置 20056]\n... adjusting for these items, we exceeded expectations across revenue, operating income and earnings per share due to strong demand and execution in the quarter.\nCompany gross margin percentage was 67%, down year-over-year, driven by sales mix shift to Azure as well as continued investments in AI infrastructure and growing product usage, partially offset by ongoing efficiency gains, particularly in Azure and M365 Commercial cloud. \nOperating expenses increased 10% driven by continued investment in R&D compute capacity, talent, and data to support product development across the portfolio. G and A growth was impacted by a low prior-year comparable as well as some of the discrete items mentioned earlier. Operating margins increased slightly year-over-year to 45%.\nTotal company headcount decline...\n\n[位置 21863]\n...inging our total cash returned to shareholders to over $43 billion for the full fiscal year. \nNow, to our commercial results.\nCommercial bookings grew 18% when excluding the impact from OpenAI driven by strong execution in our core annuity sales motions and reflecting broad customer demand across geographies and customer segments. Bookings increased 10% and 11% in constant currency when including Azure commitments from OpenAI. \nCommercial remaining performance obligation grew 84% to $678 billion. All sequential commercial RPO growth was driven by commitments from customers outside of frontier model companies. And RPO increased 25% when excluding OpenAI.  \nRPO, including OpenAI, has a weighted average duration of 2.3 years. And roughly 30% will be recognized in revenue in the next 12 months...\n\n[位置 22452]\n...f frontier model companies. And RPO increased 25% when excluding OpenAI.  \nRPO, including OpenAI, has a weighted average duration of 2.3 years. And roughly 30% will be recognized in revenue in the next 12 months, up 37% year-over-year. The remaining portion recognized beyond the next 12 months increased 112%. \nMicrosoft Cloud revenue was $59.3 billion and grew 27%, reflecting strong demand across Azure and our first-party AI applications and services. And for the full year, our cloud revenue surpassed $214 billion, with nearly 90% from customers outside of frontier model companies. \nMicrosoft Cloud gross margin percentage was better than expected at 65%, and down year-over-year driven by sales mix shift to Azure, as well as continued investments in AI infrastructure and increased product u...\n\n[位置 22768]\n...osoft Cloud revenue was $59.3 billion and grew 27%, reflecting strong demand across Azure and our first-party AI applications and services. And for the full year, our cloud revenue surpassed $214 billion, with nearly 90% from customers outside of frontier model companies. \nMicrosoft Cloud gross margin percentage was better than expected at 65%, and down year-over-year driven by sales mix shift to Azure, as well as continued investments in AI infrastructure and increased product usage, partially offset by ongoing efficiency gains noted earlier. \nNow to our segment results.\nRevenue from Productivity and Business Processes was $37.8 billion and grew 14%.\nM365 Commercial cloud revenue increased 16% on an adjusted basis when normalized for the prior-year comparable that benefited from 2 points ...\n\n[位置 24908]\n...continue to invest in product quality and drive further efficiency gains. Operating expenses increased 11% primarily driven by the shared R&D investments mentioned earlier. Operating income increased 15% and 14% in constant currency. And operating margins increased year-over-year to 58%. \nNext, the Intelligent Cloud segment. Revenue was $39.3 billion and grew 32% and 31% in constant currency. \nIn Azure and other cloud services, revenue grew 43%, against a prior year that included accelerating growth. Customer demand continues to exceed available capacity. Revenue growth was ahead of expectations driven by efficiency gains across our CPU and GPU fleet as well as process improvements to enable earlier delivery of new capacity. That additional in-quarter capacity for Azure was quickly monetiz...\n\n[位置 25283]\n...n constant currency. \nIn Azure and other cloud services, revenue grew 43%, against a prior year that included accelerating growth. Customer demand continues to exceed available capacity. Revenue growth was ahead of expectations driven by efficiency gains across our CPU and GPU fleet as well as process improvements to enable earlier delivery of new capacity. That additional in-quarter capacity for Azure was quickly monetized. Results also benefited from stronger-than-expected GitHub Copilot consumption following the June business model change to align pricing with usage and value. \nIn our on-premises server business, revenue was relatively unchanged year-over-year and was down 1% in constant currency. Results were ahead of expectations primarily driven by renewals with higher in-period reve..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_660a9a3ca2804216ba2b93a7",
+    "name": "search_material",
+    "content": "[位置 1419]\n... | 0.06 | 0.06\n |  | Microsoft 365 Consumer cloud revenue growth (y/y)* | 20% / 20% | 11% / 12% | 26% / 25% | 29% / 27% | 33% / 29% | 24% / 22% | 28% / 26%\n |  | LinkedIn revenue growth (y/y)* | 9% / 8% | 9% / 9% | 10%/ 9% | 11% / 10% | 12% / 9% | 12% / 10% | 11% / 9%\n |  | Dynamics 365 revenue growth (y/y)* | 23% / 21% | 19% / 19% | 18% / 16% | 19% / 17% | 22% / 17% | 13% / 12% | 18% / 15%\n |  | Azure and other cloud services revenue growth (y/y)* | 39% / 39% | 34% / 35% | 40% / 39% | 39% / 38% | 40% / 39% | 43% / 43% | 41% / 40%\n | More Personal Computing\n |  | Windows OEM and Devices revenue growth (y/y)* | 3% / 3% | 3% / 3% | 6% / 6% | 1% / 0% | -2% / -3% | -7% / -7% | -1% / -1%\n |  | XBOX content and services revenue growth (y/y)* | 13% / 12% | 16% / 16% | 1% / 0% | -5% / -6% | -5% / ..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_030cd29ab695482697994c6c",
+    "name": "search_material",
+    "content": "在 metrics.txt 中未找到 “Copilot”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_ddb66cf5026d43d3bfc03400",
+    "name": "search_material",
+    "content": "[位置 10118]\n...people communicate, collaborate, learn, work, and interact with one another.\nBuilding and running cloud-based services in ways that utilize ubiquitous computing to unleash new experiences and opportunities for businesses and individuals.\nApplying AI and ambient intelligence to drive insights, revolutionize many types of work and business processes, and provide substantive productivity gains using Microsoft 365 Copilot and agents.\nHelping customers drive frontier transformation by applying frontier AI capabilities, engineering expertise, and trusted platforms to reinvent how their organizations operate, improve decision-making, create new value, and deliver measurable business outcomes from AI.\nProviding a unified intelligence layer for enterprise AI to ground AI in a continuously evolving ...\n\n[位置 13190]\n...nning a variety of devices and platforms. This segment primarily comprises:\n•\tMicrosoft 365 Commercial products and cloud services, including Microsoft 365 Commercial cloud, comprising Microsoft 365 Commercial, Enterprise Mobility + Security, the cloud portion of Windows Commercial, the per-user portion of Power BI, Exchange, SharePoint, Microsoft Teams, Microsoft 365 Security and Compliance, and Microsoft 365 Copilot; and Microsoft 365 Commercial products, comprising Windows Commercial on-premises and Office licensed on-premises.\n•\tMicrosoft 365 Consumer products and cloud services, including Microsoft 365 Consumer subscriptions, Office licensed on-premises, and other consumer services.\n•\tLinkedIn, including Talent Solutions, Marketing Solutions, Premium Subscriptions, and Sales Solutions...\n\n[位置 13983]\n...lutions.\n•\tDynamics products and cloud services, including Dynamics 365, comprising a set of intelligent, cloud-based applications across ERP, CRM, Power Apps, and Power Automate; and on-premises ERP and CRM applications.\nMicrosoft 365 Commercial Products and Cloud Services\nMicrosoft 365 Commercial is an AI-powered business and productivity solutions platform that brings together Office, Windows, Microsoft 365 Copilot, and Enterprise Mobility + Security to help organizations empower their employees. Growth depends on our ability to reach new users in new markets such as frontline workers, small and medium businesses, and growth markets, as well as add AI-enabled tools, features, and agentic scenarios to our core product and service offerings across communication, collaboration, analytics, ...\n\n[位置 149681]\n...f $3.6 billion and $0.49, respectively.\nSEGMENT RESULTS OF OPERATIONS\nReportable Segments\nFiscal Year 2026 Compared with Fiscal Year 2025 \nProductivity and Business Processes\nRevenue increased $19.2 billion or 16%.\n•\tMicrosoft 365 Commercial products and cloud services revenue increased $14.2 billion or 16%. Microsoft 365 Commercial cloud revenue grew 17% with growth in revenue per user driven by Microsoft 365 Copilot and Microsoft 365 E5. Microsoft 365 Commercial seats grew 6% driven by small and medium businesses and frontline worker offerings. Microsoft 365 Commercial products revenue grew 13% driven by growth in the Windows Commercial on-premises components of Microsoft 365 suite sales, as well as an increase in Office 2024 transactional purchasing.\n•\tMicrosoft 365 Consumer products an...\n\n[位置 150687]\n...nue increased $2.0 billion or 11% with growth across all lines of business.\n•\tDynamics products and cloud services revenue increased $1.2 billion or 15% driven by growth in Dynamics 365. Dynamics 365 revenue grew 18% with growth across all workloads.\nOperating income increased $14.1 billion or 20%.\nCost of revenue increased $2.6 billion or 12% driven by investments in AI infrastructure to support Microsoft 365 Copilot seat and usage growth.\nGross margin increased $16.6 billion or 17% driven by growth in Microsoft 365 Commercial cloud. Gross margin percentage increased slightly primarily driven by efficiency gains in Microsoft 365 Commercial cloud, offset in part by continued investments in AI infrastructure and growing AI product usage.\nOperating expenses increased $2.5 billion or 9% drive...\n\n[位置 244451]\n...nning a variety of devices and platforms. This segment primarily comprises:\n•\tMicrosoft 365 Commercial products and cloud services, including Microsoft 365 Commercial cloud, comprising Microsoft 365 Commercial, Enterprise Mobility + Security, the cloud portion of Windows Commercial, the per-user portion of Power BI, Exchange, SharePoint, Microsoft Teams, Microsoft 365 Security and Compliance, and Microsoft 365 Copilot; and Microsoft 365 Commercial products, comprising Windows Commercial on-premises and Office licensed on-premises.\n•\tMicrosoft 365 Consumer products and cloud services, including Microsoft 365 Consumer subscriptions, Office licensed on-premises, and other consumer services.\n•\tLinkedIn, including Talent Solutions, Marketing Solutions, Premium Subscriptions, and Sales Solutions...\n\n[位置 337505]\n...centage |  | Gross margin percentage for our Microsoft Cloud business\nMicrosoft 365 Commercial cloud revenue growth |  | Revenue from Microsoft 365 Commercial subscriptions, comprising Microsoft 365 Commercial, Enterprise Mobility + Security, the cloud portion of Windows Commercial, the per-user portion of Power BI, Exchange, SharePoint, Microsoft Teams, Microsoft 365 Security and Compliance, and Microsoft 365 Copilot\nMicrosoft 365 Commercial seat growth |  | The number of Microsoft 365 Commercial seats at end of period where seats are paid users covered by a Microsoft 365 Commercial subscription\nMicrosoft 365 Consumer cloud revenue growth |  | Revenue from Microsoft 365 Consumer subscriptions and other consumer services\nLinkedIn revenue growth |  | Revenue from LinkedIn, including Talent ..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_96ea1ba64c4e4d1f97b3a39a",
+    "name": "search_material",
+    "content": "[位置 18689]\n...panies with lead generation and customer intelligence and insights.\nDynamics competes with cloud-based and on-premises business solution providers.\nIntelligent Cloud\nOur Intelligent Cloud segment consists of our public, private, and hybrid server products and cloud services that power modern business and developers. This segment primarily comprises:\n•\tServer products and cloud services, including Azure and other cloud services, comprising cloud and AI consumption-based services, GitHub cloud services, Health and Life Sciences cloud services (formerly Nuance Healthcare cloud services), virtual desktop offerings, and other cloud services; and Server products, comprising SQL Server, Windows Server, Visual Studio, System Center, related Client Access Licenses (“CALs”), and other on-premises of...\n\n[位置 19279]\n..., virtual desktop offerings, and other cloud services; and Server products, comprising SQL Server, Windows Server, Visual Studio, System Center, related Client Access Licenses (“CALs”), and other on-premises offerings.\n•\tEnterprise and partner services, including Enterprise Support Services, Industry Solutions, Microsoft Partner Network, and Learning Experience.\nServer Products and Cloud Services\nAzure is a comprehensive set of cloud services that offer developers, IT professionals, and enterprises freedom to build, deploy, and manage applications on any platform or device. Customers can use Azure through our global network of datacenters for computing, networking, storage, mobile and web application services, AI, and Internet of Things. Azure enables customers to devote more resources to ...\n\n[位置 19478]\n...premises offerings.\n•\tEnterprise and partner services, including Enterprise Support Services, Industry Solutions, Microsoft Partner Network, and Learning Experience.\nServer Products and Cloud Services\nAzure is a comprehensive set of cloud services that offer developers, IT professionals, and enterprises freedom to build, deploy, and manage applications on any platform or device. Customers can use Azure through our global network of datacenters for computing, networking, storage, mobile and web application services, AI, and Internet of Things. Azure enables customers to devote more resources to development and use of applications that benefit their organizations, rather than managing on-premises hardware and software. Azure revenue is mainly affected by infrastructure-as-a-service and platf...\n\n[位置 19627]\n...ning Experience.\nServer Products and Cloud Services\nAzure is a comprehensive set of cloud services that offer developers, IT professionals, and enterprises freedom to build, deploy, and manage applications on any platform or device. Customers can use Azure through our global network of datacenters for computing, networking, storage, mobile and web application services, AI, and Internet of Things. Azure enables customers to devote more resources to development and use of applications that benefit their organizations, rather than managing on-premises hardware and software. Azure revenue is mainly affected by infrastructure-as-a-service and platform-as-a-service consumption-based services.\nAzure AI offerings provide a competitive advantage as companies seek ways to optimize and scale their bu...\n\n[位置 19805]\n...oy, and manage applications on any platform or device. Customers can use Azure through our global network of datacenters for computing, networking, storage, mobile and web application services, AI, and Internet of Things. Azure enables customers to devote more resources to development and use of applications that benefit their organizations, rather than managing on-premises hardware and software. Azure revenue is mainly affected by infrastructure-as-a-service and platform-as-a-service consumption-based services.\nAzure AI offerings provide a competitive advantage as companies seek ways to optimize and scale their business with AI. We offer supercomputing power for AI at scale to run large workloads, complemented by our rapidly expanding portfolio of AI cloud services (including the latest m...\n\n[位置 19923]\n...rs for computing, networking, storage, mobile and web application services, AI, and Internet of Things. Azure enables customers to devote more resources to development and use of applications that benefit their organizations, rather than managing on-premises hardware and software. Azure revenue is mainly affected by infrastructure-as-a-service and platform-as-a-service consumption-based services.\nAzure AI offerings provide a competitive advantage as companies seek ways to optimize and scale their business with AI. We offer supercomputing power for AI at scale to run large workloads, complemented by our rapidly expanding portfolio of AI cloud services (including the latest models) and hardware, which includes custom-built silicon and strong partnerships with chip manufacturers. Azure AI Fou...\n\n[位置 20311]\n...d services.\nAzure AI offerings provide a competitive advantage as companies seek ways to optimize and scale their business with AI. We offer supercomputing power for AI at scale to run large workloads, complemented by our rapidly expanding portfolio of AI cloud services (including the latest models) and hardware, which includes custom-built silicon and strong partnerships with chip manufacturers. Azure AI Foundry is a unified platform for developers to design, customize, and manage AI applications and agents. \nOur server products are designed to make IT professionals, developers, and their systems more productive and efficient. Server software is integrated server infrastructure and middleware designed to support software applications built on the Windows Server operating system. This incl...\n\n[位置 21997]\n... solutions to the healthcare industry. \nEnterprise and Partner Services\nEnterprise and partner services assist customers in developing, deploying, and managing Microsoft server solutions, Microsoft desktop solutions, and conversational AI and ambient intelligent solutions, along with providing training and certification to developers and IT professionals on various Microsoft products.\nCompetition\nAzure faces diverse competition from cloud service providers and open-source offerings. Azure’s competitive advantage includes enabling a hybrid cloud, allowing deployment of existing datacenters with our public cloud into a single, cohesive infrastructure, and the ability to run at a scale that meets the needs of businesses of all sizes and complexities. Our AI offerings compete with AI products ...\n\n[位置 22085]\n...artner services assist customers in developing, deploying, and managing Microsoft server solutions, Microsoft desktop solutions, and conversational AI and ambient intelligent solutions, along with providing training and certification to developers and IT professionals on various Microsoft products.\nCompetition\nAzure faces diverse competition from cloud service providers and open-source offerings. Azure’s competitive advantage includes enabling a hybrid cloud, allowing deployment of existing datacenters with our public cloud into a single, cohesive infrastructure, and the ability to run at a scale that meets the needs of businesses of all sizes and complexities. Our AI offerings compete with AI products from hyperscalers, as well as products from other emerging competitors and other open-so...\n\n[位置 22559]\n...eployment of existing datacenters with our public cloud into a single, cohesive infrastructure, and the ability to run at a scale that meets the needs of businesses of all sizes and complexities. Our AI offerings compete with AI products from hyperscalers, as well as products from other emerging competitors and other open-source offerings, many of which are also current or potential partners. Our Azure Security offerings include our cloud security solution and our security information and event management solution, which compete with providers in the cybersecurity and cloud security space. We believe our cloud’s global scale, coupled with our broad portfolio of identity and security solutions, allows us to effectively solve complex cybersecurity challenges for our customers and differentia..."
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_f8dbacdbc37a42b6a8372efc",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"10k.txt\", \"query\": \"Azure.*revenue|Azure.*$[0-9]\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_58ae5e6235164a35bb62a6e3",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"financial_statements.txt\", \"query\": \"Azure\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_f5f8e7b2fdca4439835df172",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"10k.txt\", \"query\": \"Azure and other cloud services revenue\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 3,
+        "id": "call_959cec6dcfc541938995e455",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"10k.txt\", \"query\": \"Productivity and Business Processes.*revenue\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_f8dbacdbc37a42b6a8372efc",
+    "name": "search_material",
+    "content": "在 10k.txt 中未找到 “Azure.*revenue|Azure.*$[0-9]”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_58ae5e6235164a35bb62a6e3",
+    "name": "search_material",
+    "content": "[位置 11066]\n... | 0.06 | 0.06\n |  | Microsoft 365 Consumer cloud revenue growth (y/y)* | 20% / 20% | 11% / 12% | 26% / 25% | 29% / 27% | 33% / 29% | 24% / 22% | 28% / 26%\n |  | LinkedIn revenue growth (y/y)* | 9% / 8% | 9% / 9% | 10%/ 9% | 11% / 10% | 12% / 9% | 12% / 10% | 11% / 9%\n |  | Dynamics 365 revenue growth (y/y)* | 23% / 21% | 19% / 19% | 18% / 16% | 19% / 17% | 22% / 17% | 13% / 12% | 18% / 15%\n |  | Azure and other cloud services revenue growth (y/y)* | 39% / 39% | 34% / 35% | 40% / 39% | 39% / 38% | 40% / 39% | 43% / 43% | 41% / 40%\n | More Personal Computing\n |  | Windows OEM and Devices revenue growth (y/y)* | 3% / 3% | 3% / 3% | 6% / 6% | 1% / 0% | -2% / -3% | -7% / -7% | -1% / -1%\n |  | XBOX content and services revenue growth (y/y)* | 13% / 12% | 16% / 16% | 1% / 0% | -5% / -6% | -5% / ..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_f5f8e7b2fdca4439835df172",
+    "name": "search_material",
+    "content": "[位置 139885]\n...xes.\nHighlights from fiscal year 2026 compared with fiscal year 2025 included:\n•\tMicrosoft Cloud revenue increased 27% to $214.4 billion.\n•\tCommercial remaining performance obligation increased 84% to $678 billion.\n•\tMicrosoft 365 Commercial cloud revenue increased 17%.\n•\tMicrosoft 365 Consumer cloud revenue increased 28%. \n•\tLinkedIn revenue increased 11%.\n•\tDynamics 365 revenue increased 18%.\n•\tAzure and other cloud services revenue increased 41%.\n•\tWindows OEM and Devices revenue decreased slightly.\n•\tXBOX content and services revenue decreased 5%.\n•\tSearch advertising (formerly Search and news advertising) revenue excluding traffic acquisition costs increased 12%.\nIndustry Trends and Opportunities\nOur industry is dynamic and highly competitive, with frequent changes in both technologie...\n\n[位置 151629]\n...entire portfolio, as well as investments in commercial sales and higher Copilot advertising expenses.\nRevenue, gross margin, and operating income included a favorable foreign currency impact of 2%, 3%, and 3%, respectively.\nIntelligent Cloud\nRevenue increased $31.5 billion or 30%.\n•\tServer products and cloud services revenue increased $31.0 billion or 31% driven by Azure and other cloud services. Azure and other cloud services revenue grew 41% driven by demand for services across the platform with continued growth across all workloads. Server products revenue increased 1% primarily driven by higher purchases of licenses running in multi-cloud environments, offset in part by continued customer shift to cloud.\n•\tEnterprise and partner services revenue increased $500 million or 6% driven by g...\n\n[位置 338145]\n... growth |  | Revenue from Microsoft 365 Consumer subscriptions and other consumer services\nLinkedIn revenue growth |  | Revenue from LinkedIn, including Talent Solutions, Marketing Solutions, Premium Subscriptions, and Sales Solutions\nDynamics 365 revenue growth |  | Revenue from Dynamics 365, including a set of intelligent, cloud-based applications across ERP, CRM, Power Apps, and Power Automate\nAzure and other cloud services revenue growth |  | Revenue from Azure and other cloud services, including cloud and AI consumption-based services, GitHub cloud services, Health and Life Sciences cloud services (formerly Nuance Healthcare cloud services), virtual desktop offerings, and other cloud services\nWindows OEM and Devices revenue growth |  | Revenue from sales of Windows Pro and non-Pro lic..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_959cec6dcfc541938995e455",
+    "name": "search_material",
+    "content": "在 10k.txt 中未找到 “Productivity and Business Processes.*revenue”"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_e9919ab6eb734f3d8478899b",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"10k.txt\", \"query\": \"Azure and other cloud services.*\\\\$[0-9]\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_f5dd25c3693b431092235012",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"10k.txt\", \"query\": \"Copilot.*revenue|Copilot.*\\\\$[0-9]\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_285cf8a3b6d14a1383752b00",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"transcript.txt\", \"query\": \"Azure.*grew 43%|Azure.*43 percent\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 3,
+        "id": "call_227e64b98e50422c9224cded",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"transcript.txt\", \"query\": \"Azure.*\\\\$|Azure.*billion\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_e9919ab6eb734f3d8478899b",
+    "name": "search_material",
+    "content": "在 10k.txt 中未找到 “Azure and other cloud services.*\\$[0-9]”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_f5dd25c3693b431092235012",
+    "name": "search_material",
+    "content": "在 10k.txt 中未找到 “Copilot.*revenue|Copilot.*\\$[0-9]”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_285cf8a3b6d14a1383752b00",
+    "name": "search_material",
+    "content": "在 transcript.txt 中未找到 “Azure.*grew 43%|Azure.*43 percent”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_227e64b98e50422c9224cded",
+    "name": "search_material",
+    "content": "在 transcript.txt 中未找到 “Azure.*\\$|Azure.*billion”"
+  },
+  {
+    "role": "assistant",
+    "content": "\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_695aa240d28645929fe1f61c",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"transcript.txt\", \"query\": \"Azure and other cloud\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_d4a9a111a18d46909dca5e72",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"transcript.txt\", \"query\": \"revenue was \\\\$|revenue of \\\\$|revenue.*billion\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_695aa240d28645929fe1f61c",
+    "name": "search_material",
+    "content": "[位置 24908]\n...continue to invest in product quality and drive further efficiency gains. Operating expenses increased 11% primarily driven by the shared R&D investments mentioned earlier. Operating income increased 15% and 14% in constant currency. And operating margins increased year-over-year to 58%. \nNext, the Intelligent Cloud segment. Revenue was $39.3 billion and grew 32% and 31% in constant currency. \nIn Azure and other cloud services, revenue grew 43%, against a prior year that included accelerating growth. Customer demand continues to exceed available capacity. Revenue growth was ahead of expectations driven by efficiency gains across our CPU and GPU fleet as well as process improvements to enable earlier delivery of new capacity. That additional in-quarter capacity for Azure was quickly monetiz..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_d4a9a111a18d46909dca5e72",
+    "name": "search_material",
+    "content": "在 transcript.txt 中未找到 “revenue was \\$|revenue of \\$|revenue.*billion”"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_450ba6dc43bf421a988cacbc",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"transcript.txt\", \"query\": \"Intelligent Cloud segment\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_67818b2443bc4b97b5f8eb34",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"transcript.txt\", \"query\": \"Productivity and Business Processes segment\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_450ba6dc43bf421a988cacbc",
+    "name": "search_material",
+    "content": "[位置 24808]\n...nt currency. And gross margin percentage decreased slightly with increased M365 Copilot usage as we continue to invest in product quality and drive further efficiency gains. Operating expenses increased 11% primarily driven by the shared R&D investments mentioned earlier. Operating income increased 15% and 14% in constant currency. And operating margins increased year-over-year to 58%. \nNext, the Intelligent Cloud segment. Revenue was $39.3 billion and grew 32% and 31% in constant currency. \nIn Azure and other cloud services, revenue grew 43%, against a prior year that included accelerating growth. Customer demand continues to exceed available capacity. Revenue growth was ahead of expectations driven by efficiency gains across our CPU and GPU fleet as well as process improvements to enable..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_67818b2443bc4b97b5f8eb34",
+    "name": "search_material",
+    "content": "在 transcript.txt 中未找到 “Productivity and Business Processes segment”"
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_651df25f09944d8f828bacee",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"transcript.txt\", \"query\": \"Productivity.*Revenue was\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_67868aeb5e124362bd327401",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"transcript.txt\", \"query\": \"commercial revenue|Commercial revenue\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_8b688104fc984c6d9cc2fc45",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"press_release.txt\", \"query\": \"Azure and other cloud services.*revenue\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_651df25f09944d8f828bacee",
+    "name": "search_material",
+    "content": "在 transcript.txt 中未找到 “Productivity.*Revenue was”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_67868aeb5e124362bd327401",
+    "name": "search_material",
+    "content": "在 transcript.txt 中未找到 “commercial revenue|Commercial revenue”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_8b688104fc984c6d9cc2fc45",
+    "name": "search_material",
+    "content": "在 press_release.txt 中未找到 “Azure and other cloud services.*revenue”"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_c9a3f7e6026c467695c856ef",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"press_release.txt\", \"query\": \"Azure and other\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_39fe26f2e39749eeab9a649f",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"press_release.txt\", \"query\": \"Microsoft 365 Copilot.*seat|paid.*Copilot\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_8fa2b8bf65f04778bcf9adb0",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"transcript.txt\", \"query\": \"Microsoft 365 Copilot\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 3,
+        "id": "call_3b1a3cad79fb467f863231b1",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"financial_statements.txt\", \"query\": \"Microsoft 365 Copilot\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_c9a3f7e6026c467695c856ef",
+    "name": "search_material",
+    "content": "[位置 3240]\n..., Microsoft 365 Commercial cloud revenue increased 14%.\nMicrosoft 365 Consumer cloud revenue increased 24% (up 22% in constant currency) \nLinkedIn revenue increased 12% (up 10% in constant currency)\nDynamics 365 revenue increased 13% (up 12% in constant currency)\nRevenue in Intelligent Cloud was $39.3 billion and increased 32% (up 31% in constant currency), with the following business highlights:\nAzure and other cloud services revenue increased 43%\nRevenue in More Personal Computing was $12.9 billion and decreased 4% (down 5% in constant currency), with the following business highlights:\nWindows OEM and Devices revenue decreased 7% \nXBOX content and services revenue decreased 10%\nSearch advertising revenue excluding traffic acquisition costs increased 10% (up 9% in constant currency)\nMicro...\n\n[位置 19556]\n...30, 2026\n | Percentage Change Y/Y (GAAP) | Constant Currency Impact | Percentage Change Y/Y Constant Currency\nMicrosoft Cloud revenue | 27% | 0% | 27%\nCommercial remaining performance obligation | 84% | 0% | 84%\nMicrosoft 365 Commercial cloud revenue | 14% | 0% | 14%\nMicrosoft 365 Consumer cloud revenue | 24% | (2)% | 22%\nLinkedIn revenue | 12% | (2)% | 10%\nDynamics 365 revenue | 13% | (1)% | 12%\nAzure and other cloud services revenue | 43% | 0% | 43%\nWindows OEM and Devices revenue | (7)% | 0% | (7)%\nXBOX content and services revenue | (10)% | 0% | (10)%\nSearch advertising revenue excluding traffic acquisition costs | 10% | (1)% | 9%\nMICROSOFT CORPORATION | MICROSOFT CORPORATION |  |  |  |  |  | \nINCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEM..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_39fe26f2e39749eeab9a649f",
+    "name": "search_material",
+    "content": "在 press_release.txt 中未找到 “Microsoft 365 Copilot.*seat|paid.*Copilot”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_8fa2b8bf65f04778bcf9adb0",
+    "name": "search_material",
+    "content": "[位置 10455]\n...ends companies’ existing governance, identity, security, and management frameworks to agents they build.\nJust two months in, Agent 365 now has nearly 40 million agents registered across tens of thousands of companies.\nNow, let me turn to the apps and agents we are building on top of this platform for individuals and organizations. \nWhen it comes to knowledge work, we now have over 30 million paid Microsoft 365 Copilot seats, with net seat adds more than doubling quarter-over-quarter. \nCopilot is evolving rapidly, from chat to Cowork to Autopilots.\nLast month, we made Cowork generally available, helping customers complete multi-step tasks grounded in their work data while meeting enterprise security and compliance requirements.\nThis quarter, we also introduced Autopilots, autonomous, long-r..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_3b1a3cad79fb467f863231b1",
+    "name": "search_material",
+    "content": "在 financial_statements.txt 中未找到 “Microsoft 365 Copilot”"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_d7b7732441d0427ea5dff826",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"press_release.txt\", \"query\": \"Azure.*\\\\$|Azure.*billion\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_9a1b579af2a54ae98a03b98f",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"10k.txt\", \"query\": \"Azure.*revenue.*\\\\$|Azure.*billion\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_827fa94b634749c3b95a890e",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"financial_statements.txt\", \"query\": \"Azure\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_d7b7732441d0427ea5dff826",
+    "name": "search_material",
+    "content": "在 press_release.txt 中未找到 “Azure.*\\$|Azure.*billion”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_9a1b579af2a54ae98a03b98f",
+    "name": "search_material",
+    "content": "在 10k.txt 中未找到 “Azure.*revenue.*\\$|Azure.*billion”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_827fa94b634749c3b95a890e",
+    "name": "search_material",
+    "content": "[位置 11066]\n... | 0.06 | 0.06\n |  | Microsoft 365 Consumer cloud revenue growth (y/y)* | 20% / 20% | 11% / 12% | 26% / 25% | 29% / 27% | 33% / 29% | 24% / 22% | 28% / 26%\n |  | LinkedIn revenue growth (y/y)* | 9% / 8% | 9% / 9% | 10%/ 9% | 11% / 10% | 12% / 9% | 12% / 10% | 11% / 9%\n |  | Dynamics 365 revenue growth (y/y)* | 23% / 21% | 19% / 19% | 18% / 16% | 19% / 17% | 22% / 17% | 13% / 12% | 18% / 15%\n |  | Azure and other cloud services revenue growth (y/y)* | 39% / 39% | 34% / 35% | 40% / 39% | 39% / 38% | 40% / 39% | 43% / 43% | 41% / 40%\n | More Personal Computing\n |  | Windows OEM and Devices revenue growth (y/y)* | 3% / 3% | 3% / 3% | 6% / 6% | 1% / 0% | -2% / -3% | -7% / -7% | -1% / -1%\n |  | XBOX content and services revenue growth (y/y)* | 13% / 12% | 16% / 16% | 1% / 0% | -5% / -6% | -5% / ..."
+  },
+  {
+    "role": "assistant",
+    "content": "让我再仔细检查是否有完整的分部数据表可以提供更多信息",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_bd436bad5d6742fe8af0787f",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"10k.txt\", \"query\": \"Server products and cloud services revenue\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_a745ae2125b547b3aea39aa1",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"10k.txt\", \"query\": \"FY26 Q4|fiscal.*2026.*quarter|fourth quarter\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_bd436bad5d6742fe8af0787f",
+    "name": "search_material",
+    "content": "[位置 151513]\n... in research and development compute capacity, AI talent, and data to support product development that benefits the entire portfolio, as well as investments in commercial sales and higher Copilot advertising expenses.\nRevenue, gross margin, and operating income included a favorable foreign currency impact of 2%, 3%, and 3%, respectively.\nIntelligent Cloud\nRevenue increased $31.5 billion or 30%.\n•\tServer products and cloud services revenue increased $31.0 billion or 31% driven by Azure and other cloud services. Azure and other cloud services revenue grew 41% driven by demand for services across the platform with continued growth across all workloads. Server products revenue increased 1% primarily driven by higher purchases of licenses running in multi-cloud environments, offset in part by c..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_a745ae2125b547b3aea39aa1",
+    "name": "search_material",
+    "content": "在 10k.txt 中未找到 “FY26 Q4|fiscal.*2026.*quarter|fourth quarter”"
+  },
+  {
+    "role": "assistant",
+    "content": "\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_da3bfcd4c2f045d09374aea2",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"press_release.txt\", \"query\": \"Productivity.*Business Processes.*\\\\$\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_2ab627c7dc0f4b6db9c215af",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"press_release.txt\", \"query\": \"\\\\$[0-9]+\\\\.[0-9]+ billion\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_bf59356bb0c04623bdcf6118",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"10k.txt\", \"query\": \"Microsoft 365 Copilot.*seat|30 million\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 3,
+        "id": "call_9ff026ded785434796f67691",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"financial_statements.txt\", \"query\": \"Azure and other\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_da3bfcd4c2f045d09374aea2",
+    "name": "search_material",
+    "content": "在 press_release.txt 中未找到 “Productivity.*Business Processes.*\\$”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_2ab627c7dc0f4b6db9c215af",
+    "name": "search_material",
+    "content": "在 press_release.txt 中未找到 “\\$[0-9]+\\.[0-9]+ billion”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_bf59356bb0c04623bdcf6118",
+    "name": "search_material",
+    "content": "在 10k.txt 中未找到 “Microsoft 365 Copilot.*seat|30 million”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_9ff026ded785434796f67691",
+    "name": "search_material",
+    "content": "[位置 11066]\n... | 0.06 | 0.06\n |  | Microsoft 365 Consumer cloud revenue growth (y/y)* | 20% / 20% | 11% / 12% | 26% / 25% | 29% / 27% | 33% / 29% | 24% / 22% | 28% / 26%\n |  | LinkedIn revenue growth (y/y)* | 9% / 8% | 9% / 9% | 10%/ 9% | 11% / 10% | 12% / 9% | 12% / 10% | 11% / 9%\n |  | Dynamics 365 revenue growth (y/y)* | 23% / 21% | 19% / 19% | 18% / 16% | 19% / 17% | 22% / 17% | 13% / 12% | 18% / 15%\n |  | Azure and other cloud services revenue growth (y/y)* | 39% / 39% | 34% / 35% | 40% / 39% | 39% / 38% | 40% / 39% | 43% / 43% | 41% / 40%\n | More Personal Computing\n |  | Windows OEM and Devices revenue growth (y/y)* | 3% / 3% | 3% / 3% | 6% / 6% | 1% / 0% | -2% / -3% | -7% / -7% | -1% / -1%\n |  | XBOX content and services revenue growth (y/y)* | 13% / 12% | 16% / 16% | 1% / 0% | -5% / -6% | -5% / ..."
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_8707763cefaa4d25975a16ed",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"press_release.txt\", \"query\": \"Microsoft 365 Copilot\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_1e1c8e58dcfa4e8095752a3e",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 10, \"name\": \"press_release.txt\", \"query\": \"Azure\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_8707763cefaa4d25975a16ed",
+    "name": "search_material",
+    "content": "[位置 1560]\n...n XBOX. When adjusting for these items, we exceeded expectations across revenue, operating income, and diluted earnings per share.\n“We are advancing the frontier on the cost-to-outcome curve, ensuring every customer can turn tokens into business results,\" said Satya Nadella, chairman and chief executive officer of Microsoft. “This year, Azure revenue surpassed $100 billion for the first time, and Microsoft 365 Copilot reached over 30 million paid seats, reflecting the confidence customers are placing in us to power their AI transformation.”\n “We delivered a strong quarter to close out the fiscal year, highlighted by Microsoft Cloud revenue of $59.3 billion, up 27% year-over-year,” said Amy Hood, executive vice president and chief financial officer of Microsoft.\nThe following table adjusts ..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_1e1c8e58dcfa4e8095752a3e",
+    "name": "search_material",
+    "content": "[位置 1499]\n...artially offset by severance expense and impairment charges in XBOX. When adjusting for these items, we exceeded expectations across revenue, operating income, and diluted earnings per share.\n“We are advancing the frontier on the cost-to-outcome curve, ensuring every customer can turn tokens into business results,\" said Satya Nadella, chairman and chief executive officer of Microsoft. “This year, Azure revenue surpassed $100 billion for the first time, and Microsoft 365 Copilot reached over 30 million paid seats, reflecting the confidence customers are placing in us to power their AI transformation.”\n “We delivered a strong quarter to close out the fiscal year, highlighted by Microsoft Cloud revenue of $59.3 billion, up 27% year-over-year,” said Amy Hood, executive vice president and chief...\n\n[位置 3240]\n..., Microsoft 365 Commercial cloud revenue increased 14%.\nMicrosoft 365 Consumer cloud revenue increased 24% (up 22% in constant currency) \nLinkedIn revenue increased 12% (up 10% in constant currency)\nDynamics 365 revenue increased 13% (up 12% in constant currency)\nRevenue in Intelligent Cloud was $39.3 billion and increased 32% (up 31% in constant currency), with the following business highlights:\nAzure and other cloud services revenue increased 43%\nRevenue in More Personal Computing was $12.9 billion and decreased 4% (down 5% in constant currency), with the following business highlights:\nWindows OEM and Devices revenue decreased 7% \nXBOX content and services revenue decreased 10%\nSearch advertising revenue excluding traffic acquisition costs increased 10% (up 9% in constant currency)\nMicro...\n\n[位置 5569]\n...ndreds of products, services, and enhancements. These releases are driven by years of significant research and development investments, to empower customers with greater productivity, security, and differentiated value. \nThis momentum is reflected in stories that showcase how our technology is shaping industries and driving customer success. We share innovation updates on our product blogs across Azure, Microsoft 365, and more on our Official Microsoft blog.\nWebcast Details\nSatya Nadella, chairman and chief executive officer, Amy Hood, executive vice president and chief financial officer, Alice Jolla, chief accounting officer, Brian DeFoe, deputy general counsel and corporate secretary, and Jonathan Neilson, vice president of investor relations, will host a conference call and webcast at 2...\n\n[位置 19556]\n...30, 2026\n | Percentage Change Y/Y (GAAP) | Constant Currency Impact | Percentage Change Y/Y Constant Currency\nMicrosoft Cloud revenue | 27% | 0% | 27%\nCommercial remaining performance obligation | 84% | 0% | 84%\nMicrosoft 365 Commercial cloud revenue | 14% | 0% | 14%\nMicrosoft 365 Consumer cloud revenue | 24% | (2)% | 22%\nLinkedIn revenue | 12% | (2)% | 10%\nDynamics 365 revenue | 13% | (1)% | 12%\nAzure and other cloud services revenue | 43% | 0% | 43%\nWindows OEM and Devices revenue | (7)% | 0% | (7)%\nXBOX content and services revenue | (10)% | 0% | (10)%\nSearch advertising revenue excluding traffic acquisition costs | 10% | (1)% | 9%\nMICROSOFT CORPORATION | MICROSOFT CORPORATION |  |  |  |  |  | \nINCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEM..."
+  },
+  {
+    "role": "assistant",
+    "content": "根据对微软 FY26 Q4 财报材料的系统性检索，以下是两个问题的回答：\n\n---\n\n## 1. Microsoft 365 Copilot 在 FY26 Q4 的收入是多少美元？\n\n**无法确定。**\n\n材料中没有披露 Microsoft 365 Copilot 的单独收入金额。所有相关材料仅披露了以下信息：\n\n- **出处：press_release.txt 位置 1560** — Satya Nadella 称 \"Microsoft 365 Copilot reached over 30 million paid seats\"，即超过 3000 万付费席位。\n- **出处：transcript.txt 位置 10455** — 提到 \"over 30 million paid Microsoft 365 Copilot seats, with net seat adds more than doubling quarter-over-quarter\"，同样是席位数量而非收入。\n- **出处：10k.txt 位置 149681** — 在分部结果中提到 \"Microsoft 365 Commercial cloud revenue grew 17% with growth in revenue per user driven by Microsoft 365 Copilot and Microsoft 365 E5\"，说明 Copilot 是 Microsoft 365 Commercial cloud 收入增长的一个驱动因素，但并未单独披露 Copilot 的收入金额。\n- **出处：10k.txt 位置 13190** — 说明 Microsoft 365 Copilot 是 Microsoft 365 Commercial products and cloud services 的组成部分。\n\n**结论：** 材料仅披露了 Copilot 的付费席位数量（>3000 万）和其对 Microsoft 365 Commercial cloud 收入增长的贡献，未给出单独收入数字。\n\n---\n\n## 2. Azure 在 FY26 Q4 单季度的收入绝对金额是多少美元？\n\n**无法确定。**\n\n材料中没有披露 Azure 单季度的绝对收入金额。所有相关材料仅披露了增长率：\n\n- **出处：press_release.txt 位置 3240** — \"Azure and other cloud services revenue increased 43%\"（Q4 FY26）。\n- **出处：transcript.txt 位置 24908** — \"In Azure and other cloud services, revenue grew 43%, against a prior year that included accelerating growth.\"\n- **出处：transcript.txt 位置 2977** — Satya Nadella 称 \"Azure surpassed $100 billion, up 41%\"，但这是**全年（FY26）**数据，不是 Q4 单季度数据。\n\n**结论：** 材料中 Azure 的披露仅包含 Q4 FY26 同比增速（43%）和全年累计突破 1000 亿美元的信息，未提供 Q4 单季度的绝对收入金额。"
+  }
+]

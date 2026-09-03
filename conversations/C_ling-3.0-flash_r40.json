@@ -1,0 +1,457 @@
+[
+  {
+    "role": "user",
+    "content": "你是金融投研分析师。可用工具读取微软 FY26 Q4 的官方财报材料。\n请先用 list_materials 查看有哪些文件，再按需读取。\n所有结论必须给出具体出处（文件名 + 位置），不得凭印象作答。\n\n问题：关于微软 FY26 Q4 的 Intelligent Cloud 分部：\n1. 本季度收入同比增长了多少百分比？请给出计算过程和两个期间的原始数字。\n2. 管理层在财报电话会上把这个增长归因于哪些因素？请引用电话会记录中的原话。\n3. 在你列出的归因里，哪些是已经发生的事实，哪些是管理层对未来的前瞻性表述？\n   请逐条标注，并说明你依据什么做出这个区分。\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_414c677d4b65446d89ebdc69",
+        "function": {
+          "name": "list_materials",
+          "arguments": "{}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_414c677d4b65446d89ebdc69",
+    "name": "list_materials",
+    "content": "10k.txt  (423,020 字符)\ncatl_2025_annual.txt  (215,347 字符)\nfinancial_statements.txt  (29,612 字符)\nmetrics.txt  (2,266 字符)\npress_release.txt  (29,949 字符)\ntranscript.txt  (58,106 字符)"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_4209932aa008484386d5c443",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"Intelligent Cloud\", \"max_hits\": 10}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_519239ab074543ebacb1f06e",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"financial_statements.txt\", \"query\": \"Intelligent Cloud\", \"max_hits\": 10}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_5807e1beea8f4d01828df303",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"metrics.txt\", \"query\": \"Intelligent Cloud\", \"max_hits\": 10}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 3,
+        "id": "call_158d39d74b9f4a2baef325a8",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"transcript.txt\", \"query\": \"Intelligent Cloud\", \"max_hits\": 10}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_4209932aa008484386d5c443",
+    "name": "search_material",
+    "content": "[位置 3115]\n...hen adjusted for the prior year comparable that benefited from 2 points of in-period revenue recognition. On a reported basis, Microsoft 365 Commercial cloud revenue increased 14%.\nMicrosoft 365 Consumer cloud revenue increased 24% (up 22% in constant currency) \nLinkedIn revenue increased 12% (up 10% in constant currency)\nDynamics 365 revenue increased 13% (up 12% in constant currency)\nRevenue in Intelligent Cloud was $39.3 billion and increased 32% (up 31% in constant currency), with the following business highlights:\nAzure and other cloud services revenue increased 43%\nRevenue in More Personal Computing was $12.9 billion and decreased 4% (down 5% in constant currency), with the following business highlights:\nWindows OEM and Devices revenue decreased 7% \nXBOX content and services revenue ...\n\n[位置 18895]\n...| Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30,\n($ in millions) | 2026 |  | 2025 |  | Percentage Change Y/Y | Constant Currency Impact | Percentage Change Y/Y\n($ in millions) | As Reported\n(GAAP) |  | As Reported\n(GAAP) |  | GAAP | Constant Currency Impact | Constant Currency\nProductivity and Business Processes | $37,847 |  | $33,112 |  | 14% | $244 | 14%\nIntelligent Cloud | $39,306 |  | $29,878 |  | 32% | $80 | 31%\nMore Personal Computing | $12,854 |  | $13,451 |  | (4)% | $67 | (5)%\nThree Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026\n | Percentage Change Y/Y (GAAP) | Constant Currency Impact | Percentage Change Y/Y Constant Currency\nMicrosoft Cloud revenue | 27%..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_519239ab074543ebacb1f06e",
+    "name": "search_material",
+    "content": "[位置 8877]\n...LTS\n(In millions) (Unaudited)\n | Three Months Ended June 30, |  |  |  | Twelve Months Ended June 30,\n | 2026 |  | 2025 |  | 2026 |  | 2025\nProductivity and Business Processes\nRevenue | 37847 |  | 33112 |  | 139996 |  | 120810\nCost of revenue  | 6989 |  | 6042 |  | 25017 |  | 22422\nOperating expenses | 8958 |  | 8077 |  | 31100 |  | 28615\n  Operating income | 21900 |  | 18993 |  | 83879 |  | 69773\nIntelligent Cloud\nRevenue | 39306 |  | 29878 |  | 137791 |  | 106265\nCost of revenue  | 16876 |  | 11845 |  | 57876 |  | 40171\nOperating expenses | 6475 |  | 5893 |  | 22943 |  | 21505\n  Operating income | 15955 |  | 12140 |  | 56972 |  | 44589\nMore Personal Computing\nRevenue | 12854 |  | 13451 |  | 54052 |  | 54649\nCost of revenue  | 5660 |  | 6127 |  | 23481 |  | 25238\nOperating expenses | 4446 ...\n\n[位置 10422]\n... 368 | 368 | 392 | 625 | 627 | 678 | 678\n |  | Microsoft Cloud revenue | 46.7 | 168.9 | 49.1 | 51.5 | 54.5 | 59.3 | 214.4\n |  | Microsoft Cloud revenue growth (y/y)* | 27% / 25% | 23% / 23% | 26% / 25% | 26% / 24% | 29% / 25% | 27% / 27% | 27% / 25%\n |  | Microsoft Cloud gross margin percentage | 0.68 | 0.6900000000000001 | 0.68 | 0.67 | 0.66 | 0.65 | 0.66\n | Productivity & Business Processes and Intelligent Cloud\n |  | Microsoft 365 Commercial cloud revenue growth (y/y)* | 18% / 16% | 15% / 15% | 17% / 15% | 17% / 14% | 19% / 15% | 14% / 14% | 17% / 14%\n |  | Microsoft 365 Commercial seat growth (y/y) | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06\n |  | Microsoft 365 Consumer cloud revenue growth (y/y)* | 20% / 20% | 11% / 12% | 26% / 25% | 29% / 27% | 33% / 29% | 24% / 22% | 28% / 26%\n...\n\n[位置 19278]\n...| Fiscal Year 2026\nRevenue | 28317 | 29437 | 29944 | 33112 | 120810 |  | 33020 | 34116 | 35013 | 37847 | 139996\nCost of revenue  | 5294 | 5569 | 5517 | 6042 | 22422 |  | 5721 | 6110 | 6197 | 6989 | 25017\nOperating expenses | 6507 | 6983 | 7048 | 8077 | 28615 |  | 6892 | 7407 | 7843 | 8958 | 31100\n  Operating income | 16516 | 16885 | 17379 | 18993 | 69773 |  | 20407 | 20599 | 20973 | 21900 | 83879\nIntelligent Cloud | Q1-25 | Q2-25 | Q3-25 | Q4-25 | Fiscal Year 2025 |  | Q1-26 | Q2-26 | Q3-26 | Q4-26 | Fiscal Year 2026\nRevenue | 24092 | 25544 | 26751 | 29878 | 106265 |  | 30897 | 32907 | 34681 | 39306 | 137791\nCost of revenue  | 8614 | 9405 | 10307 | 11845 | 40171 |  | 12314 | 13566 | 15120 | 16876 | 57876\nOperating expenses | 4975 | 5288 | 5349 | 5893 | 21505 |  | 5192 | 5468 | 5808 | 6475 ..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_5807e1beea8f4d01828df303",
+    "name": "search_material",
+    "content": "[位置 775]\n... 368 | 368 | 392 | 625 | 627 | 678 | 678\n |  | Microsoft Cloud revenue | 46.7 | 168.9 | 49.1 | 51.5 | 54.5 | 59.3 | 214.4\n |  | Microsoft Cloud revenue growth (y/y)* | 27% / 25% | 23% / 23% | 26% / 25% | 26% / 24% | 29% / 25% | 27% / 27% | 27% / 25%\n |  | Microsoft Cloud gross margin percentage | 0.68 | 0.6900000000000001 | 0.68 | 0.67 | 0.66 | 0.65 | 0.66\n | Productivity & Business Processes and Intelligent Cloud\n |  | Microsoft 365 Commercial cloud revenue growth (y/y)* | 18% / 16% | 15% / 15% | 17% / 15% | 17% / 14% | 19% / 15% | 14% / 14% | 17% / 14%\n |  | Microsoft 365 Commercial seat growth (y/y) | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06\n |  | Microsoft 365 Consumer cloud revenue growth (y/y)* | 20% / 20% | 11% / 12% | 26% / 25% | 29% / 27% | 33% / 29% | 24% / 22% | 28% / 26%\n..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_158d39d74b9f4a2baef325a8",
+    "name": "search_material",
+    "content": "[位置 24808]\n...nt currency. And gross margin percentage decreased slightly with increased M365 Copilot usage as we continue to invest in product quality and drive further efficiency gains. Operating expenses increased 11% primarily driven by the shared R&D investments mentioned earlier. Operating income increased 15% and 14% in constant currency. And operating margins increased year-over-year to 58%. \nNext, the Intelligent Cloud segment. Revenue was $39.3 billion and grew 32% and 31% in constant currency. \nIn Azure and other cloud services, revenue grew 43%, against a prior year that included accelerating growth. Customer demand continues to exceed available capacity. Revenue growth was ahead of expectations driven by efficiency gains across our CPU and GPU fleet as well as process improvements to enable...\n\n[位置 30498]\n...mately 20%.\nNow, to the outlook for our first quarter, which unless specifically noted otherwise, is on a US dollar basis.\nBased on current rates, we expect FX to decrease total revenue growth by less than 1 point with no meaningful impact to COGS or operating expense growth. Within the segments, we expect FX to decrease revenue growth in Productivity and Business Processes by roughly 1 point and Intelligent Cloud by less than 1 point. There is no meaningful impact in More Personal Computing. \nStarting with our commercial business.\nIn commercial bookings, when adjusted for the impact from OpenAI, we expect healthy growth on a growing expiry base driven by strong execution across our core annuity sales motions. As a reminder, the significant OpenAI contracts signed in the prior year will re...\n\n[位置 32535]\n...s we lap the benefit from last year’s price increase. Growth will again be driven by ARPU and an increase in subscription volume.\nFor LinkedIn, we expect revenue growth in the high-single digits.\nAnd in Dynamics 365, we expect revenue growth to be in the low-teens, relatively stable quarter-over-quarter driven by continued growth in ERP, although impacted by the bookings trends noted earlier.\nFor Intelligent Cloud, we expect revenue of $40.95 to $41.25 billion, or growth of 33% to 34%. \nIn Azure, we expect revenue growth of approximately 45% in constant currency and we remain focused on delivering efficiencies that help us bridge the gaps we see as customer demand continues to exceed supply. Even with the strong close to Q4, we continue to expect H1 growth to accelerate. And as a reminder,..."
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_a475615c91a74ab8b2f639b1",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"offset\": 3080, \"length\": 400}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_de5f6ac0624d4a8789a116f8",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"transcript.txt\", \"offset\": 24750, \"length\": 200}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_38513661ce84433cb243e62b",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"transcript.txt\", \"offset\": 30430, \"length\": 200}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_a475615c91a74ab8b2f639b1",
+    "name": "read_material",
+    "content": "[press_release.txt 第 3080–3480 字符，共 29949]\n% in constant currency)\nRevenue in Intelligent Cloud was $39.3 billion and increased 32% (up 31% in constant currency), with the following business highlights:\nAzure and other cloud services revenue increased 43%\nRevenue in More Personal Computing was $12.9 billion and decreased 4% (down 5% in constant currency), with the following business highlights:\nWindows OEM and Devices revenue decreased 7% "
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_de5f6ac0624d4a8789a116f8",
+    "name": "read_material",
+    "content": "[transcript.txt 第 24750–24950 字符，共 58106]\nating margins increased year-over-year to 58%. \nNext, the Intelligent Cloud segment. Revenue was $39.3 billion and grew 32% and 31% in constant currency. \nIn Azure and other cloud services, revenue gr"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_38513661ce84433cb243e62b",
+    "name": "read_material",
+    "content": "[transcript.txt 第 30430–30630 字符，共 58106]\nrowth in Productivity and Business Processes by roughly 1 point and Intelligent Cloud by less than 1 point. There is no meaningful impact in More Personal Computing. \nStarting with our commercial busi"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_7c177277e11844868aefd814",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 15, \"name\": \"transcript.txt\", \"query\": \"Intelligent Cloud growth drivers\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_e8613a8bacaf4c65b5472bb7",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 15, \"name\": \"transcript.txt\", \"query\": \"Azure demand capacity\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_7c177277e11844868aefd814",
+    "name": "search_material",
+    "content": "在 transcript.txt 中未找到 “Intelligent Cloud growth drivers”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_e8613a8bacaf4c65b5472bb7",
+    "name": "search_material",
+    "content": "在 transcript.txt 中未找到 “Azure demand capacity”"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_a3d5aafaba3340c5a9941987",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"max_hits\": 15, \"name\": \"transcript.txt\", \"query\": \"Azure\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_a3d5aafaba3340c5a9941987",
+    "name": "search_material",
+    "content": "[位置 2977]\n... filings with the Securities and Exchange Commission. We do not undertake any duty to update any forward-looking statement.  \nAnd with that, I’ll turn the call over to Satya.\nSATYA NADELLA:\nThank you very much, Jonathan.\nIt was a very strong close to what was a record fiscal year for us.\nAll up, our annual revenue surpassed $331 billion, up 18%.\nMicrosoft Cloud surpassed $214 billion, up 27%.\nAnd Azure surpassed $100 billion, up 41%.\nGoing forward, we have two goals. First, ensuring AI empowers every person, amplifying their agency and ambition. And second, empowering every organization to build their own continuous learning loop and ensuring that they don’t outsource their core IP.\nNow, let’s talk about how we are delivering this across our stack, starting with our AI platform and infrast...\n\n[位置 8246]\n...s fast, secure access to real-time data and context they need for memory and retrieval.\nPostgreSQL revenue was up 55%, accelerating for the third consecutive quarter.\nAlso, the number of PostgreSQL customers also using Foundry increased 80%, as customers increasingly choose it as their database for AI workloads.\nAnd we are going further with Horizon DB, our new fully managed PostgreSQL service on Azure, which delivers three times the throughput of self-managed deployments.\nWhen it comes to analytics, we now have over 40,000 paid Fabric customers, up more than 60% year-over-year.\nAnd over 17,000 customers now use Foundry and Fabric, up 60% year-over-year, as enterprises connect agents to real-time operational, analytical, and unstructured data in Fabric.\nThis quarter, we also introduced Ray...\n\n[位置 18670]\n...re confident in Microsoft’s opportunity to drive durable, long-term growth and ensure the benefits of AI flow broadly.\nWith that, let me turn it over to Amy to walk through our financial results and outlook.\nAMY HOOD: \nThank you, Satya, and good afternoon everyone. This fiscal year, we delivered over $331 billion in revenue, with growth accelerating to 18%, driven by strong demand across both the Azure platform and our first-party AI applications and services. Operating income growth outpaced revenue growth, increasing 21% to more than $155 billion as we invested in long-term growth while continuing to expand operating leverage.\nThis quarter, revenue was $90 billion, up 18% and 17% in constant currency. Gross margin dollars increased 15% and operating income increased 18%. Earnings per sha...\n\n[位置 19907]\n...expected expenses related to the Voluntary Retirement Program, which were partially offset by severance expense and impairment charges in XBOX. \nWhen adjusting for these items, we exceeded expectations across revenue, operating income and earnings per share due to strong demand and execution in the quarter.\nCompany gross margin percentage was 67%, down year-over-year, driven by sales mix shift to Azure as well as continued investments in AI infrastructure and growing product usage, partially offset by ongoing efficiency gains, particularly in Azure and M365 Commercial cloud. \nOperating expenses increased 10% driven by continued investment in R&D compute capacity, talent, and data to support product development across the portfolio. G and A growth was impacted by a low prior-year comparable...\n\n[位置 20056]\n... adjusting for these items, we exceeded expectations across revenue, operating income and earnings per share due to strong demand and execution in the quarter.\nCompany gross margin percentage was 67%, down year-over-year, driven by sales mix shift to Azure as well as continued investments in AI infrastructure and growing product usage, partially offset by ongoing efficiency gains, particularly in Azure and M365 Commercial cloud. \nOperating expenses increased 10% driven by continued investment in R&D compute capacity, talent, and data to support product development across the portfolio. G and A growth was impacted by a low prior-year comparable as well as some of the discrete items mentioned earlier. Operating margins increased slightly year-over-year to 45%.\nTotal company headcount decline...\n\n[位置 21863]\n...inging our total cash returned to shareholders to over $43 billion for the full fiscal year. \nNow, to our commercial results.\nCommercial bookings grew 18% when excluding the impact from OpenAI driven by strong execution in our core annuity sales motions and reflecting broad customer demand across geographies and customer segments. Bookings increased 10% and 11% in constant currency when including Azure commitments from OpenAI. \nCommercial remaining performance obligation grew 84% to $678 billion. All sequential commercial RPO growth was driven by commitments from customers outside of frontier model companies. And RPO increased 25% when excluding OpenAI.  \nRPO, including OpenAI, has a weighted average duration of 2.3 years. And roughly 30% will be recognized in revenue in the next 12 months...\n\n[位置 22452]\n...f frontier model companies. And RPO increased 25% when excluding OpenAI.  \nRPO, including OpenAI, has a weighted average duration of 2.3 years. And roughly 30% will be recognized in revenue in the next 12 months, up 37% year-over-year. The remaining portion recognized beyond the next 12 months increased 112%. \nMicrosoft Cloud revenue was $59.3 billion and grew 27%, reflecting strong demand across Azure and our first-party AI applications and services. And for the full year, our cloud revenue surpassed $214 billion, with nearly 90% from customers outside of frontier model companies. \nMicrosoft Cloud gross margin percentage was better than expected at 65%, and down year-over-year driven by sales mix shift to Azure, as well as continued investments in AI infrastructure and increased product u...\n\n[位置 22768]\n...osoft Cloud revenue was $59.3 billion and grew 27%, reflecting strong demand across Azure and our first-party AI applications and services. And for the full year, our cloud revenue surpassed $214 billion, with nearly 90% from customers outside of frontier model companies. \nMicrosoft Cloud gross margin percentage was better than expected at 65%, and down year-over-year driven by sales mix shift to Azure, as well as continued investments in AI infrastructure and increased product usage, partially offset by ongoing efficiency gains noted earlier. \nNow to our segment results.\nRevenue from Productivity and Business Processes was $37.8 billion and grew 14%.\nM365 Commercial cloud revenue increased 16% on an adjusted basis when normalized for the prior-year comparable that benefited from 2 points ...\n\n[位置 24908]\n...continue to invest in product quality and drive further efficiency gains. Operating expenses increased 11% primarily driven by the shared R&D investments mentioned earlier. Operating income increased 15% and 14% in constant currency. And operating margins increased year-over-year to 58%. \nNext, the Intelligent Cloud segment. Revenue was $39.3 billion and grew 32% and 31% in constant currency. \nIn Azure and other cloud services, revenue grew 43%, against a prior year that included accelerating growth. Customer demand continues to exceed available capacity. Revenue growth was ahead of expectations driven by efficiency gains across our CPU and GPU fleet as well as process improvements to enable earlier delivery of new capacity. That additional in-quarter capacity for Azure was quickly monetiz...\n\n[位置 25283]\n...n constant currency. \nIn Azure and other cloud services, revenue grew 43%, against a prior year that included accelerating growth. Customer demand continues to exceed available capacity. Revenue growth was ahead of expectations driven by efficiency gains across our CPU and GPU fleet as well as process improvements to enable earlier delivery of new capacity. That additional in-quarter capacity for Azure was quickly monetized. Results also benefited from stronger-than-expected GitHub Copilot consumption following the June business model change to align pricing with usage and value. \nIn our on-premises server business, revenue was relatively unchanged year-over-year and was down 1% in constant currency. Results were ahead of expectations primarily driven by renewals with higher in-period reve...\n\n[位置 25861]\n...d value. \nIn our on-premises server business, revenue was relatively unchanged year-over-year and was down 1% in constant currency. Results were ahead of expectations primarily driven by renewals with higher in-period revenue recognition from the mix of contracts.\nSegment gross margin dollars increased 24% and gross margin percentage decreased year-over-year primarily driven by sales mix shift to Azure, as well as the continued scaling of our AI infrastructure ahead of growing demand, partially offset by ongoing efficiency gains in Azure. Segment gross margins were also impacted by growing GitHub Copilot usage, though margins improved through the quarter with the June business model change to usage-based pricing. Operating expenses increased 10% driven by the shared R&D investments noted e...\n\n[位置 25999]\n...s were ahead of expectations primarily driven by renewals with higher in-period revenue recognition from the mix of contracts.\nSegment gross margin dollars increased 24% and gross margin percentage decreased year-over-year primarily driven by sales mix shift to Azure, as well as the continued scaling of our AI infrastructure ahead of growing demand, partially offset by ongoing efficiency gains in Azure. Segment gross margins were also impacted by growing GitHub Copilot usage, though margins improved through the quarter with the June business model change to usage-based pricing. Operating expenses increased 10% driven by the shared R&D investments noted earlier. Operating income grew 31% and operating margins, with a strong focus on efficiencies and investment returns, were relatively uncha...\n\n[位置 32630]\n...n increase in subscription volume.\nFor LinkedIn, we expect revenue growth in the high-single digits.\nAnd in Dynamics 365, we expect revenue growth to be in the low-teens, relatively stable quarter-over-quarter driven by continued growth in ERP, although impacted by the bookings trends noted earlier.\nFor Intelligent Cloud, we expect revenue of $40.95 to $41.25 billion, or growth of 33% to 34%. \nIn Azure, we expect revenue growth of approximately 45% in constant currency and we remain focused on delivering efficiencies that help us bridge the gaps we see as customer demand continues to exceed supply. Even with the strong close to Q4, we continue to expect H1 growth to accelerate. And as a reminder, year-over-year Azure growth rates can vary quarter-to-quarter based on capacity timing and con...\n\n[位置 32951]\n...d, we expect revenue of $40.95 to $41.25 billion, or growth of 33% to 34%. \nIn Azure, we expect revenue growth of approximately 45% in constant currency and we remain focused on delivering efficiencies that help us bridge the gaps we see as customer demand continues to exceed supply. Even with the strong close to Q4, we continue to expect H1 growth to accelerate. And as a reminder, year-over-year Azure growth rates can vary quarter-to-quarter based on capacity timing and contract mix. \nIn our on-premises server business, we expect revenue to decline in the low to mid-single digits, with ongoing customer shift to cloud offerings and the prior-year comparable noted earlier. \nIn More Personal Computing, we expect revenue to be $12.2 to $12.7 billion as we continue to lap the strong prior-year...\n\n[位置 39324]\n...nd the choice, the cost control and the capability that they need in order to be able to control their destiny.\nAMY HOOD: And I think maybe, Karl, just to add a little bit to the end of your question, which is that it’s why it’s important that the platform is built, and I think Satya mentioned this in his comments, to be able to deliver the right model for the right job on the architecture called Azure. \nAnd so, given that we continue to see growing demand no matter what model is chosen or what model family or whether it’s run a model of your own, the Azure platform is quite efficient at delivering that. Think about that infrastructure as being pretty fungible.\nKARL KEIRSTEAD: Very helpful, thanks.\nJONATHAN NEILSON: Thanks, Karl. Operator, next question, please.\nOPERATOR: The next question..."
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_f98c139f59f942c181c64788",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"transcript.txt\", \"offset\": 24908, \"length\": 200}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_f98c139f59f942c181c64788",
+    "name": "read_material",
+    "content": "[transcript.txt 第 24908–25108 字符，共 58106]\nAzure and other cloud services, revenue grew 43%, against a prior year that included accelerating growth. Customer demand continues to exceed available capacity. Revenue growth was ahead of expectatio"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_ed5677e0f2484dda986f1585",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"length\": 100, \"name\": \"transcript.txt\", \"offset\": 24908}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_ed5677e0f2484dda986f1585",
+    "name": "read_material",
+    "content": "[transcript.txt 第 24908–25008 字符，共 58106]\nAzure and other cloud services, revenue grew 43%, against a prior year that included accelerating gr"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_2d3243ecec13446d8017912e",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"length\": 120, \"name\": \"transcript.txt\", \"offset\": 24910}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_2d3243ecec13446d8017912e",
+    "name": "read_material",
+    "content": "[transcript.txt 第 24910–25030 字符，共 58106]\nure and other cloud services, revenue grew 43%, against a prior year that included accelerating growth. Customer demand "
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_c5a0977a30164fe7959f5771",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"length\": 150, \"name\": \"transcript.txt\", \"offset\": 24908}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_c5a0977a30164fe7959f5771",
+    "name": "read_material",
+    "content": "[transcript.txt 第 24908–25058 字符，共 58106]\nAzure and other cloud services, revenue grew 43%, against a prior year that included accelerating growth. Customer demand continues to exceed availabl"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_7596b125e6514300a6f9dfe3",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"length\": 200, \"name\": \"transcript.txt\", \"offset\": 24900}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_7596b125e6514300a6f9dfe3",
+    "name": "read_material",
+    "content": "[transcript.txt 第 24900–25100 字符，共 58106]\ncy. \nIn Azure and other cloud services, revenue grew 43%, against a prior year that included accelerating growth. Customer demand continues to exceed available capacity. Revenue growth was ahead of ex"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_ba0c794cbec74ea2a866fb27",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"length\": 300, \"name\": \"transcript.txt\", \"offset\": 24890}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_ba0c794cbec74ea2a866fb27",
+    "name": "read_material",
+    "content": "[transcript.txt 第 24890–25190 字符，共 58106]\nant currency. \nIn Azure and other cloud services, revenue grew 43%, against a prior year that included accelerating growth. Customer demand continues to exceed available capacity. Revenue growth was ahead of expectations driven by efficiency gains across our CPU and GPU fleet as well as process impr"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_64bf9f72e4e04e28bbadfe44",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"length\": 400, \"name\": \"transcript.txt\", \"offset\": 24880}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_64bf9f72e4e04e28bbadfe44",
+    "name": "read_material",
+    "content": "[transcript.txt 第 24880–25280 字符，共 58106]\n% in constant currency. \nIn Azure and other cloud services, revenue grew 43%, against a prior year that included accelerating growth. Customer demand continues to exceed available capacity. Revenue growth was ahead of expectations driven by efficiency gains across our CPU and GPU fleet as well as process improvements to enable earlier delivery of new capacity. That additional in-quarter capacity f"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_cb0998d632c84e939861fd14",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"length\": 500, \"name\": \"transcript.txt\", \"offset\": 24870}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_cb0998d632c84e939861fd14",
+    "name": "read_material",
+    "content": "[transcript.txt 第 24870–25370 字符，共 58106]\n32% and 31% in constant currency. \nIn Azure and other cloud services, revenue grew 43%, against a prior year that included accelerating growth. Customer demand continues to exceed available capacity. Revenue growth was ahead of expectations driven by efficiency gains across our CPU and GPU fleet as well as process improvements to enable earlier delivery of new capacity. That additional in-quarter capacity for Azure was quickly monetized. Results also benefited from stronger-than-expected GitHub "
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_ffaf58ff8e90472ca692bf38",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"length\": 200, \"name\": \"transcript.txt\", \"offset\": 25160}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_ffaf58ff8e90472ca692bf38",
+    "name": "read_material",
+    "content": "[transcript.txt 第 25160–25360 字符，共 58106]\n fleet as well as process improvements to enable earlier delivery of new capacity. That additional in-quarter capacity for Azure was quickly monetized. Results also benefited from stronger-than-expect"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_babc2145ec8f483b9c53aa23",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"length\": 200, \"name\": \"transcript.txt\", \"offset\": 25170}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_babc2145ec8f483b9c53aa23",
+    "name": "read_material",
+    "content": "[transcript.txt 第 25170–25370 字符，共 58106]\nwell as process improvements to enable earlier delivery of new capacity. That additional in-quarter capacity for Azure was quickly monetized. Results also benefited from stronger-than-expected GitHub "
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_ee06e55c2ee4407e915455b3",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"length\": 300, \"name\": \"transcript.txt\", \"offset\": 25180}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_ee06e55c2ee4407e915455b3",
+    "name": "read_material",
+    "content": "[transcript.txt 第 25180–25480 字符，共 58106]\nocess improvements to enable earlier delivery of new capacity. That additional in-quarter capacity for Azure was quickly monetized. Results also benefited from stronger-than-expected GitHub Copilot consumption following the June business model change to align pricing with usage and value. \nIn our on"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_4f7420107d0b4dbba8a38a92",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"length\": 100, \"name\": \"transcript.txt\", \"offset\": 25480}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_4f7420107d0b4dbba8a38a92",
+    "name": "read_material",
+    "content": "[transcript.txt 第 25480–25580 字符，共 58106]\n-premises server business, revenue was relatively unchanged year-over-year and was down 1% in consta"
+  },
+  {
+    "role": "assistant",
+    "content": "好的，我已经收集了所有必要的信息。下面按问题逐一作答。\n\n---\n\n## 1. Intelligent Cloud 本季度收入同比增长百分比\n\n**计算过程：**\n\n| 项目 | 数值 | 出处 |\n|---|---|---|\n| Q4 FY26（截至 2026/6/30）收入 | $39,306 百万 | financial_statements.txt 位置 8877 / press_release.txt 位置 3115 |\n| Q4 FY25（截至 2025/6/30）收入 | $29,878 百万 | 同上 |\n| 增长额 | $39,306 − $29,878 = $9,428 百万 | 自行计算 |\n| 同比增长率 | $9,428 ÷ $29,878 = **31.56%** | 自行计算 |\n\n管理层口径中表述为 **32%**（press_release.txt 原文：\"Revenue in Intelligent Cloud was $39.3 billion and increased 32%\"，位置 3115；transcript.txt 位置 24870：\"Revenue was $39.3 billion and grew 32%\"）。差异来自四舍五入。\n\n---\n\n## 2. 管理层在电话会上把增长归因于哪些因素\n\n以下全部出自 **transcript.txt**，Amy Hood 在季度回顾部分的原话（位置 24870–25200）：\n\n| # | 原话引用 |\n|---|---|\n| A | *\"Customer demand continues to exceed available capacity.\"*（客户需求持续超过可用产能） |\n| B | *\"Revenue growth was ahead of expectations driven by **efficiency gains across our CPU and GPU fleet** as well as **process improvements to enable earlier delivery of new capacity**.\"*（增长超出预期，受 CPU/GPU 集群效率提升以及流程改进推动，使新产能得以更早交付） |\n| C | *\"That additional in-quarter capacity for Azure was **quickly monetized**.\"*（本季度新增的 Azure 产能被快速货币化） |\n| D | *\"Results also benefited from **stronger-than-expected GitHub Copilot consumption** following the **June business model change to align pricing with usage and value**.\"*（6 月商业模式变更后，GitHub Copilot 消费量超出预期，带来收益） |\n\n---\n\n## 3. 归因中哪些是已发生事实，哪些是前瞻性表述\n\n### ✅ 已发生的事实（4 条，全部使用过去时 / 完成时，描述 Q4 FY26 已实际发生的情况）\n\n| 归因 | 判定依据 |\n|---|---|\n| **A.** 客户需求持续超过可用产能 | \"continues to exceed\" 用现在时描述截至报告期仍在持续的状态；整段回顾均为报告期内的实际观察结果。 |\n| **B.** CPU/GPU 集群效率提升、流程改进使新产能更早交付 | \"efficiency gains\" 和 \"process improvements\" 为已完成的动作；\"was ahead of expectations\" 是已发生的事实比较。 |\n| **C.** 新增 Azure 产能被快速货币化 | \"was quickly monetized\" — 过去时，明确指本季度内已发生的货币化。 |\n| **D.** GitHub Copilot 消费量超出预期 | \"benefited from stronger-than-expected GitHub Copilot consumption\" — 受益于已发生的消费结果；\"June business model change\" 是 6 月已完成的定价模型变更。 |\n\n### 🔮 前瞻性表述（本季度回顾段中 **没有** 出现）\n\n在 Intelligent Cloud 季度回顾段（transcript.txt 位置 24870–25200）中，**全部 4 条归因都是对已完成季度的回顾**，没有任何前瞻性表述。\n\n**前瞻性表述出现在之后的 outlook（指引）部分**，例如：\n- transcript.txt 位置 32630：\"*we continue to expect H1 growth to accelerate*\"（预期下半年增长加速）\n- 同位置：\"*In Azure, we expect revenue growth of approximately 45% in constant currency*\"（预期 Azure 增长约 45%）\n\n这些是管理层对 Q1 FY27 / 下半财年的指引，不属于本季度增长的归因。\n\n### 区分依据总结\n\n判断标准有三条：\n1. **时态**：过去时（\"grew\", \"was\", \"were\", \"benefited\", \"was quickly monetized\"）→ 已发生事实；\n2. **报告期**：描述是否落在 FY26 Q4（截至 2026/6/30）范围内；\n3. **指引性措辞**：如 \"we expect\", \"we continue to expect\", \"outlook\" → 前瞻性表述。本季度回顾段中未出现此类措辞。"
+  }
+]

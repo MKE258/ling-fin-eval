@@ -1,0 +1,310 @@
+[
+  {
+    "role": "user",
+    "content": "你是金融投研分析师。可用工具读取微软 FY26 Q4 的官方财报材料。\n请先用 list_materials 查看有哪些文件，再按需读取。\n所有结论必须给出具体出处（文件名 + 位置），不得凭印象作答。\n\n问题：微软 FY26 Q4 的摊薄每股收益（diluted EPS）：\n\n1. GAAP 口径和非 GAAP 口径分别是多少？各自同比增长多少？\n2. 去年同期（FY25 Q4）的 GAAP 和非 GAAP 摊薄每股收益分别是多少？\n3. 两个口径的同比增速存在明显差距。请解释这个差距**具体从哪里来**，\n   并说明它是否反映了核心经营业务的改善。\n4. 财报中还提到了若干\"相对于此前指引的离散项\"。这些离散项和第 3 问中的\n   口径差异是不是同一回事？请说明。\n\n每个数字都要给出出处。\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_fff41ab82e95444197f4e8b7",
+        "function": {
+          "name": "list_materials",
+          "arguments": "{}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_fff41ab82e95444197f4e8b7",
+    "name": "list_materials",
+    "content": "10k.txt  (423,020 字符)\nfinancial_statements.txt  (29,612 字符)\nmetrics.txt  (2,266 字符)\npress_release.txt  (29,949 字符)\ntranscript.txt  (58,106 字符)"
+  },
+  {
+    "role": "assistant",
+    "content": "\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_52f2d096a92146f3bfdc6a4d",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"diluted EPS GAAP non-GAAP\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_6aacbd57c0d44dbaa10596fc",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"metrics.txt\", \"query\": \"diluted EPS\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_52f2d096a92146f3bfdc6a4d",
+    "name": "search_material",
+    "content": "在 press_release.txt 中未找到 “diluted EPS GAAP non-GAAP”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_6aacbd57c0d44dbaa10596fc",
+    "name": "search_material",
+    "content": "在 metrics.txt 中未找到 “diluted EPS”"
+  },
+  {
+    "role": "assistant",
+    "content": "\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_64f81ad0736c453e9890c6e5",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"diluted\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_13b0b78a3fdb4b48bde00a0a",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"metrics.txt\", \"query\": \"GAAP\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_64f81ad0736c453e9890c6e5",
+    "name": "search_material",
+    "content": "[位置 915]\n...per share was $4.81 and increased 32% on a GAAP basis, and was $4.74 and increased 23% on a non-GAAP basis\nNon-GAAP results exclude the impact from investments in OpenAI, explained in the Non-GAAP Definition section below\nSeveral discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share. These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program which were partially offset by severance expense and impairment charges in XBOX. When adjusting for these items, we exceeded expectations across revenue, operating income, and diluted earnings per share.\n“We are advancing the fr...\n\n[位置 1263]\n... April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share. These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program which were partially offset by severance expense and impairment charges in XBOX. When adjusting for these items, we exceeded expectations across revenue, operating income, and diluted earnings per share.\n“We are advancing the frontier on the cost-to-outcome curve, ensuring every customer can turn tokens into business results,\" said Satya Nadella, chairman and chief executive officer of Microsoft. “This year, Azure revenue surpassed $100 billion for the first time, and Microsoft 365 Copilot reached over 30 million paid seats, reflecting the confidence customers are placi...\n\n[位置 6511]\n...ng information. The session may be accessed at http://www.microsoft.com/en-us/investor. Participants can also dial into the conference call at (877) 407-0666 or +1 (201) 689-8023 for international, no password required. The webcast will be available for replay through the close of business on July 29, 2027.\nNon-GAAP Definition\nImpact from investments in OpenAI. In fiscal year 2026, net income and diluted earnings per share were impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted earnings per share of $480 million and $0.07, respectively, in the fourth quarter, and $4,963 million and $0.67, respectively, for the full fiscal year. In fiscal year 2025, net income and diluted earnings per share were impacted by net losses from investments i...\n\n[位置 6641]\n...ence call at (877) 407-0666 or +1 (201) 689-8023 for international, no password required. The webcast will be available for replay through the close of business on July 29, 2027.\nNon-GAAP Definition\nImpact from investments in OpenAI. In fiscal year 2026, net income and diluted earnings per share were impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted earnings per share of $480 million and $0.07, respectively, in the fourth quarter, and $4,963 million and $0.67, respectively, for the full fiscal year. In fiscal year 2025, net income and diluted earnings per share were impacted by net losses from investments in OpenAI, which resulted in a decrease in net income and diluted earnings per share of $1,575 million and $0.21, respectively, in ...\n\n[位置 6838]\n...n\nImpact from investments in OpenAI. In fiscal year 2026, net income and diluted earnings per share were impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted earnings per share of $480 million and $0.07, respectively, in the fourth quarter, and $4,963 million and $0.67, respectively, for the full fiscal year. In fiscal year 2025, net income and diluted earnings per share were impacted by net losses from investments in OpenAI, which resulted in a decrease in net income and diluted earnings per share of $1,575 million and $0.21, respectively, in the fourth quarter, and $3,620 million and $0.49, respectively, for the full fiscal year.\nMicrosoft has provided non-GAAP financial measures related to the impact from investments in OpenAI to aid ..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_13b0b78a3fdb4b48bde00a0a",
+    "name": "search_material",
+    "content": "[位置 2007]\n...vices revenue growth (y/y)* | 3% / 3% | 3% / 3% | 6% / 6% | 1% / 0% | -2% / -3% | -7% / -7% | -1% / -1%\n |  | XBOX content and services revenue growth (y/y)* | 13% / 12% | 16% / 16% | 1% / 0% | -5% / -6% | -5% / -7% | -10% / -10% | -5% / -6%\n |  | Search advertising revenue (ex TAC) growth (y/y)* | 21% / 20% | 20% / 21% | 16% / 15% | 10% / 9% | 12% / 9% | 10% / 9% | 12% / 10%\n |  | * Includes non-GAAP constant currency growth (GAAP% / Constant Currency%)\n |  | Certain amounts have been rounded for presentation purposes\n |  | Reconciliation of GAAP and non-GAAP financial measures are available in the Earnings Release Slides (http://aka.ms/slidesfy26q4)...\n\n[位置 2038]\n...% / 3% | 3% / 3% | 6% / 6% | 1% / 0% | -2% / -3% | -7% / -7% | -1% / -1%\n |  | XBOX content and services revenue growth (y/y)* | 13% / 12% | 16% / 16% | 1% / 0% | -5% / -6% | -5% / -7% | -10% / -10% | -5% / -6%\n |  | Search advertising revenue (ex TAC) growth (y/y)* | 21% / 20% | 20% / 21% | 16% / 15% | 10% / 9% | 12% / 9% | 10% / 9% | 12% / 10%\n |  | * Includes non-GAAP constant currency growth (GAAP% / Constant Currency%)\n |  | Certain amounts have been rounded for presentation purposes\n |  | Reconciliation of GAAP and non-GAAP financial measures are available in the Earnings Release Slides (http://aka.ms/slidesfy26q4)...\n\n[位置 2156]\n...h (y/y)* | 13% / 12% | 16% / 16% | 1% / 0% | -5% / -6% | -5% / -7% | -10% / -10% | -5% / -6%\n |  | Search advertising revenue (ex TAC) growth (y/y)* | 21% / 20% | 20% / 21% | 16% / 15% | 10% / 9% | 12% / 9% | 10% / 9% | 12% / 10%\n |  | * Includes non-GAAP constant currency growth (GAAP% / Constant Currency%)\n |  | Certain amounts have been rounded for presentation purposes\n |  | Reconciliation of GAAP and non-GAAP financial measures are available in the Earnings Release Slides (http://aka.ms/slidesfy26q4)...\n\n[位置 2169]\n...% / 12% | 16% / 16% | 1% / 0% | -5% / -6% | -5% / -7% | -10% / -10% | -5% / -6%\n |  | Search advertising revenue (ex TAC) growth (y/y)* | 21% / 20% | 20% / 21% | 16% / 15% | 10% / 9% | 12% / 9% | 10% / 9% | 12% / 10%\n |  | * Includes non-GAAP constant currency growth (GAAP% / Constant Currency%)\n |  | Certain amounts have been rounded for presentation purposes\n |  | Reconciliation of GAAP and non-GAAP financial measures are available in the Earnings Release Slides (http://aka.ms/slidesfy26q4)..."
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_6db5e99896cc48899ca74dc1",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"offset\": 800, \"length\": 2000}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_199a418bc45e4ff694258e5d",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"offset\": 6400, \"length\": 2000}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_6db5e99896cc48899ca74dc1",
+    "name": "read_material",
+    "content": "[press_release.txt 第 800–2800 字符，共 29949]\narter when compared to our forward-looking guidance provided on April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share. These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program which were partially offset by severance expense and impairment charges in XBOX. When adjusting for these items, we exceeded expectations across revenue, operating income, and diluted earnings per share.\n“We are advancing the frontier on the cost-to-outcome curve, ensuring every customer can turn tokens into business results,\" said Satya Nadella, chairman and chief executive officer of Microsoft. “This year, Azure revenue surpassed $100 billion for the first time, and Microsoft 365 Copilot reached over 30 million paid seats, reflecting the confidence customers are placing in us to power their AI transformation.”\n “We delivered a strong quarter to close out the fiscal year, highlighted by Microsoft Cloud revenue of $59.3 billion, up 27% year-over-year,” said Amy Hood, executive vice president and chief financial officer of Microsoft.\nThe following table adjusts for the impact from investments in OpenAI and reconciles our financial results reported in accordance with generally accepted accounting principles (GAAP) to non-GAAP financial results. Additional information regarding our non-GAAP definition is provided below. All growth comparisons relate to the corresponding period in the last fiscal year. \n*Impact from OpenAI adjusts for the impact from investments in OpenAI \nBusiness Highlights\nMicrosoft Cloud revenue was $59.3 billion and increased 27%, and commercial remaining performance obligation increased 84% to $678 billion.\nRevenue in Productivity and Business Processes was $37.8 billion and increased 14%, with the following business highlights:\nMicrosoft 365 Commercial cloud revenue increased 16% when adjusted for the prior year comparable that benefited from 2 points of in-period "
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_199a418bc45e4ff694258e5d",
+    "name": "read_material",
+    "content": "[press_release.txt 第 6400–8400 字符，共 29949]\ns on July 29, 2027.\nNon-GAAP Definition\nImpact from investments in OpenAI. In fiscal year 2026, net income and diluted earnings per share were impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted earnings per share of $480 million and $0.07, respectively, in the fourth quarter, and $4,963 million and $0.67, respectively, for the full fiscal year. In fiscal year 2025, net income and diluted earnings per share were impacted by net losses from investments in OpenAI, which resulted in a decrease in net income and diluted earnings per share of $1,575 million and $0.21, respectively, in the fourth quarter, and $3,620 million and $0.49, respectively, for the full fiscal year.\nMicrosoft has provided non-GAAP financial measures related to the impact from investments in OpenAI to aid investors in better understanding our performance. Microsoft believes these non-GAAP measures assist investors by providing additional insight into its operational performance and help clarify trends affecting its business. For comparability of reporting, management considers non-GAAP measures in conjunction with GAAP financial results in evaluating business performance. The non-GAAP financial measures presented in this release should not be considered as a substitute for, or superior to, the measures of financial performance prepared in accordance with GAAP.\nConstant Currency\nMicrosoft presents constant currency information to provide a framework for assessing how our underlying businesses performed excluding the effect of foreign currency rate fluctuations. To present this information, current and comparative prior period results for entities reporting in currencies other than United States dollars are converted into United States dollars using the average exchange rates from the comparative period rather than the actual exchange rates in effect during the respective periods. All growth comparisons relate to the corresponding period in the la"
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_660e51d9f92a436483e79959",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"offset\": 0, \"length\": 800}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_49f0033ac0a0485eab6bed26",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"metrics.txt\", \"offset\": 0, \"length\": 2266}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_660e51d9f92a436483e79959",
+    "name": "read_material",
+    "content": "[press_release.txt 第 0–800 字符，共 29949]\nMicrosoft Cloud and AI Strength Fuels Fourth Quarter Results\nREDMOND, Wash. — July 29, 2026 — Microsoft Corp. today announced the following results for the quarter ended June 30, 2026, as compared to the corresponding period of last fiscal year:\nRevenue was $90.0 billion and increased 18% (up 17% in constant currency)\nOperating income was $40.6 billion and increased 18% \nNet income was $35.8 billion and increased 31% on a GAAP basis, and was $35.3 billion and increased 22% on a non-GAAP basis\nDiluted earnings per share was $4.81 and increased 32% on a GAAP basis, and was $4.74 and increased 23% on a non-GAAP basis\nNon-GAAP results exclude the impact from investments in OpenAI, explained in the Non-GAAP Definition section below\nSeveral discrete items impacted our financial results in the qu"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_49f0033ac0a0485eab6bed26",
+    "name": "read_material",
+    "content": "[metrics.txt 第 0–2266 字符，共 2266]\n\n### 工作表: Metrics\n | Investor Metrics\n | (in billions, except for percentages) |  | Q4'25 | FY25 | Q1'26 | Q2'26 | Q3'26 | Q4'26 | FY26\n | Commercial (Includes commercial portion of LinkedIn)\n |  | Commercial bookings growth (y/y)* | 37% / 30% | 0.38 | 112% / 111% | 230% / 228% | -4% / -6% | 10% / 11% | 0.8300000000000001\n |  | Commercial remaining performance obligation | 368 | 368 | 392 | 625 | 627 | 678 | 678\n |  | Microsoft Cloud revenue | 46.7 | 168.9 | 49.1 | 51.5 | 54.5 | 59.3 | 214.4\n |  | Microsoft Cloud revenue growth (y/y)* | 27% / 25% | 23% / 23% | 26% / 25% | 26% / 24% | 29% / 25% | 27% / 27% | 27% / 25%\n |  | Microsoft Cloud gross margin percentage | 0.68 | 0.6900000000000001 | 0.68 | 0.67 | 0.66 | 0.65 | 0.66\n | Productivity & Business Processes and Intelligent Cloud\n |  | Microsoft 365 Commercial cloud revenue growth (y/y)* | 18% / 16% | 15% / 15% | 17% / 15% | 17% / 14% | 19% / 15% | 14% / 14% | 17% / 14%\n |  | Microsoft 365 Commercial seat growth (y/y) | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06\n |  | Microsoft 365 Consumer cloud revenue growth (y/y)* | 20% / 20% | 11% / 12% | 26% / 25% | 29% / 27% | 33% / 29% | 24% / 22% | 28% / 26%\n |  | LinkedIn revenue growth (y/y)* | 9% / 8% | 9% / 9% | 10%/ 9% | 11% / 10% | 12% / 9% | 12% / 10% | 11% / 9%\n |  | Dynamics 365 revenue growth (y/y)* | 23% / 21% | 19% / 19% | 18% / 16% | 19% / 17% | 22% / 17% | 13% / 12% | 18% / 15%\n |  | Azure and other cloud services revenue growth (y/y)* | 39% / 39% | 34% / 35% | 40% / 39% | 39% / 38% | 40% / 39% | 43% / 43% | 41% / 40%\n | More Personal Computing\n |  | Windows OEM and Devices revenue growth (y/y)* | 3% / 3% | 3% / 3% | 6% / 6% | 1% / 0% | -2% / -3% | -7% / -7% | -1% / -1%\n |  | XBOX content and services revenue growth (y/y)* | 13% / 12% | 16% / 16% | 1% / 0% | -5% / -6% | -5% / -7% | -10% / -10% | -5% / -6%\n |  | Search advertising revenue (ex TAC) growth (y/y)* | 21% / 20% | 20% / 21% | 16% / 15% | 10% / 9% | 12% / 9% | 10% / 9% | 12% / 10%\n |  | * Includes non-GAAP constant currency growth (GAAP% / Constant Currency%)\n |  | Certain amounts have been rounded for presentation purposes\n |  | Reconciliation of GAAP and non-GAAP financial measures are available in the Earnings Release Slides (http://aka.ms/slidesfy26q4)"
+  },
+  {
+    "role": "assistant",
+    "content": "\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_f9485c9b34794f1b9075fa21",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"financial_statements.txt\", \"query\": \"diluted EPS earnings per share\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_86d022fbe2a24f61ab9dc895",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"4.81 4.74\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_f9485c9b34794f1b9075fa21",
+    "name": "search_material",
+    "content": "在 financial_statements.txt 中未找到 “diluted EPS earnings per share”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_86d022fbe2a24f61ab9dc895",
+    "name": "search_material",
+    "content": "在 press_release.txt 中未找到 “4.81 4.74”"
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_27ad0b3d460441beb0cf38d0",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"financial_statements.txt\", \"query\": \"per share\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_27ad0b3d460441beb0cf38d0",
+    "name": "search_material",
+    "content": "[位置 1412]\n...orm to the current period presentation. The recast of these prior period amounts had no impact on our consolidated balance sheets, consolidated income statements, or net cash from (used in) operations, investing, or financing on our consolidated cash flows statements.\t\t\t\n\n### 工作表: Income Statements\nMICROSOFT CORPORATION |  |  |  |  |  |  |  |  | Back to Main\nINCOME STATEMENTS\n(In millions, except per share amounts) (Unaudited)\n | Three Months Ended June 30, |  |  |  | Twelve Months Ended June 30,\n | 2026 |  | 2025 |  | 2026 |  | 2025\nRevenue:\n   Product | 17234 |  | 17136 |  | 64696 |  | 63946\n   Service and other | 72773 |  | 59305 |  | 267143 |  | 217778\n      Total revenue | 90007 |  | 76441 |  | 331839 |  | 281724\nCost of revenue:\n   Product | 2938 |  | 3314 |  | 12098 |  | 13501\n   Se...\n\n[位置 2517]\n...| 25654\nGeneral and administrative  | 2287 |  | 1990 |  | 7956 |  | 7223\nOperating income | 40603 |  | 34323 |  | 155237 |  | 128528\nOther income (expense), net | 3444 |  | -1707 |  | 10697 |  | -4901\nIncome before income taxes | 44047 |  | 32616 |  | 165934 |  | 123627\nProvision for income taxes | 8281 |  | 5383 |  | 32185 |  | 21795\nNet income | 35766 |  | 27233 |  | 133749 |  | 101832\nEarnings per share:\n   Basic | 4.82 |  | 3.66 |  | 18 |  | 13.7\n   Diluted | 4.81 |  | 3.65 |  | 17.95 |  | 13.64\nWeighted average shares outstanding:\n   Basic | 7427 |  | 7432 |  | 7429 |  | 7433\n   Diluted | 7443 |  | 7461 |  | 7453 |  | 7465\n\n### 工作表: Comprehensive Income\nMICROSOFT CORPORATION |  |  |  |  |  |  |  |  | Back to Main\nCOMPREHENSIVE INCOME STATEMENTS\n(In millions) (Unaudited)\n | Three Month...\n\n[位置 12044]\n...ludes non-GAAP constant currency growth (GAAP% / Constant Currency%)\n |  | Certain amounts have been rounded for presentation purposes\n |  | Reconciliation of GAAP and non-GAAP financial measures are available in the Earnings Release Slides (http://aka.ms/slidesfy26q4)\n\n### 工作表: Quarterly Income Statements\nMicrosoft Corporation |  |  | Back to Main\nQuarterly Income Statements\n(In millions, except per share amounts)\n |  |  | Q1-16 | Q2-16 | Q3-16 | Q4-16 | Q1-17 | Q2-17 | Q3-17 | Q4-17 | Q1-18 | Q2-18 | Q3-18 | Q4-18 | Q1-19 | Q2-19 | Q3-19 | Q4-19 | Q1-20 | Q2-20 | Q3-20 | Q4-20 | Q1-21 | Q2-21 | Q3-21 | Q4-21 | Q1-22 | Q2-22 | Q3-22 | Q4-22 | Q1-23 | Q2-23 | Q3-23 | Q4-23 | Q1-24 | Q2-24 | Q3-24 | Q4-24 | Q1-25 | Q2-25 | Q3-25 | Q4-25 | Q1-26 | Q2-26 | Q3-26 | Q4-26\nRevenue:\n   Product | ...\n\n[位置 18008]\n... | 9788 | 7562 | 8281\nNet income (loss) |  |  | 5069 | 5938 | 4305 | 5227 | 5667 | 6267 | 5486 | 8069 | 6576 | -6302 | 7424 | 8873 | 8824 | 8420 | 8809 | 13187 | 10678 | 11649 | 10752 | 11202 | 13893 | 15463 | 15457 | 16458 | 20505 | 18765 | 16728 | 16740 | 17556 | 16425 | 18299 | 20081 | 22291 | 21870 | 21939 | 22036 | 24667 | 24108 | 25824 | 27233 | 27747 | 38458 | 31778 | 35766\nEarnings (loss) per share:\n   Basic |  |  | 0.63 | 0.75 | 0.55 | 0.67 | 0.73 | 0.81 | 0.71 | 1.05 | 0.85 | -0.82 | 0.96 | 1.15 | 1.15 | 1.09 | 1.15 | 1.72 | 1.4 | 1.53 | 1.41 | 1.48 | 1.84 | 2.05 | 2.05 | 2.19 | 2.73 | 2.5 | 2.23 | 2.24 | 2.35 | 2.2 | 2.46 | 2.7 | 3 | 2.94 | 2.95 | 2.96 | 3.32 | 3.24 | 3.47 | 3.66 | 3.73 | 5.18 | 4.28 | 4.82\n   Diluted |  |  | 0.63 | 0.74 | 0.54 | 0.66 | 0.72 | 0.8 | 0.7 | 1.03 |...\n\n[位置 22968]\n... | 70066 | 76441 | 281724 |  | 77673 | 81273 | 82886 | 90007 | 331839\nWe have recast certain prior period amounts to conform to the way we internally manage and monitor our business, which reflects the FY25 changes to the composition of our segments announced in August 2024.\n\n### 工作表: Yearly Income Statements\nMicrosoft Corporation |  |  | Back to Main\nYearly Income Statements\n(In millions, except per share amounts)\n |  |  | FY16 | FY17 | FY18 | FY19 | FY20 | FY21 | FY22 | FY23 | FY24 | FY25 | FY26\nRevenue:\n   Product |  |  | 67336 | 63811 | 64497 | 66069 | 68041 | 71074 | 72732 | 64699 | 64773 | 63946 | 64696\n   Service and other |  |  | 23818 | 32760 | 45863 | 59774 | 74974 | 97014 | 125538 | 147216 | 180349 | 217778 | 267143\n      Total revenue |  |  | 91154 | 96571 | 110360 | 125843 | 1..."
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_c05024a49a6348b8842f8206",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"financial_statements.txt\", \"offset\": 17900, \"length\": 1200}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_c1f19ad01bcb4b3fb9d691ed",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"offset\": 2800, \"length\": 2000}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_c05024a49a6348b8842f8206",
+    "name": "read_material",
+    "content": "[financial_statements.txt 第 17900–19100 字符，共 29612]\n291 | 21870 | 21939 | 22036 | 24667 | 24108 | 25824 | 27233 | 27747 | 38458 | 31778 | 35766\nEarnings (loss) per share:\n   Basic |  |  | 0.63 | 0.75 | 0.55 | 0.67 | 0.73 | 0.81 | 0.71 | 1.05 | 0.85 | -0.82 | 0.96 | 1.15 | 1.15 | 1.09 | 1.15 | 1.72 | 1.4 | 1.53 | 1.41 | 1.48 | 1.84 | 2.05 | 2.05 | 2.19 | 2.73 | 2.5 | 2.23 | 2.24 | 2.35 | 2.2 | 2.46 | 2.7 | 3 | 2.94 | 2.95 | 2.96 | 3.32 | 3.24 | 3.47 | 3.66 | 3.73 | 5.18 | 4.28 | 4.82\n   Diluted |  |  | 0.63 | 0.74 | 0.54 | 0.66 | 0.72 | 0.8 | 0.7 | 1.03 | 0.84 | -0.82 | 0.95 | 1.14 | 1.14 | 1.08 | 1.14 | 1.71 | 1.38 | 1.51 | 1.4 | 1.46 | 1.82 | 2.03 | 2.03 | 2.17 | 2.71 | 2.48 | 2.22 | 2.23 | 2.35 | 2.2 | 2.45 | 2.69 | 2.99 | 2.93 | 2.94 | 2.95 | 3.3 | 3.23 | 3.46 | 3.65 | 3.72 | 5.16 | 4.27 | 4.81\n\n### 工作表: Segment History\nMicrosoft Corporation |  |  | Back to Main\nSegment Results\n(In millions)\nProductivity and Business Processes | Q1-25 | Q2-25 | Q3-25 | Q4-25 | Fiscal Year 2025 |  | Q1-26 | Q2-26 | Q3-26 | Q4-26 | Fiscal Year 2026\nRevenue | 28317 | 29437 | 29944 | 33112 | 120810 |  | 33020 | 34116 | 35013 | 37847 | 139996\nCost of revenue  | 5294 | 5569 | 5517 | 6042 | 22422 |  | 5721 | 6110 | 6197 | 6989 | 25017\nOperating expenses"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_c1f19ad01bcb4b3fb9d691ed",
+    "name": "read_material",
+    "content": "[press_release.txt 第 2800–4800 字符，共 29949]\nrevenue recognition. On a reported basis, Microsoft 365 Commercial cloud revenue increased 14%.\nMicrosoft 365 Consumer cloud revenue increased 24% (up 22% in constant currency) \nLinkedIn revenue increased 12% (up 10% in constant currency)\nDynamics 365 revenue increased 13% (up 12% in constant currency)\nRevenue in Intelligent Cloud was $39.3 billion and increased 32% (up 31% in constant currency), with the following business highlights:\nAzure and other cloud services revenue increased 43%\nRevenue in More Personal Computing was $12.9 billion and decreased 4% (down 5% in constant currency), with the following business highlights:\nWindows OEM and Devices revenue decreased 7% \nXBOX content and services revenue decreased 10%\nSearch advertising revenue excluding traffic acquisition costs increased 10% (up 9% in constant currency)\nMicrosoft returned $10.2 billion to shareholders in the form of dividends and share repurchases in the fourth quarter of fiscal year 2026. \nFiscal Year 2026 Results\nMicrosoft Corp. today announced the following results for the fiscal year ended June 30, 2026, as compared to the corresponding period of last fiscal year:\nRevenue was $331.8 billion and increased 18% (up 16% in constant currency)\nOperating income was $155.2 billion and increased 21% (up 19% in constant currency)\nNet income was $133.7 billion and increased 31% on a GAAP basis, and increased 22% (up 20% in constant currency) on a non-GAAP basis\nDiluted earnings per share was $17.95 and increased 32% on a GAAP basis, and increased 22% (up 21% in constant currency) on a non-GAAP basis\nNon-GAAP results exclude the impact from investments in OpenAI, explained in the Non-GAAP Definition section below\nThe following table adjusts for the impact from investments in OpenAI and reconciles our financial results reported in accordance with GAAP to non-GAAP financial results. Additional information regarding our non-GAAP definition is provided below. All growth comparisons relate to the correspondin"
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_f079a091105f4e64a7d89a16",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"offset\": 4800, \"length\": 2000}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_f079a091105f4e64a7d89a16",
+    "name": "read_material",
+    "content": "[press_release.txt 第 4800–6800 字符，共 29949]\ng period in the last fiscal year. \n*Impact from OpenAI adjusts for the impact from investments in OpenAI \nBusiness Outlook\nMicrosoft will provide forward-looking guidance in connection with this quarterly earnings announcement on its earnings conference call and webcast. \nQuarterly Highlights, Product Releases, and Customer Stories\nEvery quarter Microsoft delivers hundreds of products, services, and enhancements. These releases are driven by years of significant research and development investments, to empower customers with greater productivity, security, and differentiated value. \nThis momentum is reflected in stories that showcase how our technology is shaping industries and driving customer success. We share innovation updates on our product blogs across Azure, Microsoft 365, and more on our Official Microsoft blog.\nWebcast Details\nSatya Nadella, chairman and chief executive officer, Amy Hood, executive vice president and chief financial officer, Alice Jolla, chief accounting officer, Brian DeFoe, deputy general counsel and corporate secretary, and Jonathan Neilson, vice president of investor relations, will host a conference call and webcast at 2:30 p.m. Pacific time (5:30 p.m. Eastern time) today to discuss details of the company’s performance for the quarter and certain forward-looking information. The session may be accessed at http://www.microsoft.com/en-us/investor. Participants can also dial into the conference call at (877) 407-0666 or +1 (201) 689-8023 for international, no password required. The webcast will be available for replay through the close of business on July 29, 2027.\nNon-GAAP Definition\nImpact from investments in OpenAI. In fiscal year 2026, net income and diluted earnings per share were impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted earnings per share of $480 million and $0.07, respectively, in the fourth quarter, and $4,963 million and $0.67, respectively, for the full fiscal year"
+  },
+  {
+    "role": "assistant",
+    "content": "现在我已掌握所有所需数据，让我核实一下计算结果。\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_3a5751d56f5d43ac8c6cf43e",
+        "function": {
+          "name": "run_python",
+          "arguments": "{\"code\": \"\\n# Data from documents\\n# FY26 Q4 GAAP diluted EPS\\ngaap_q4_26 = 4.81\\n# FY26 Q4 non-GAAP diluted EPS (excludes OpenAI)\\nnon_gaap_q4_26 = 4.74\\n\\n# FY25 Q4 GAAP diluted EPS (from income statement)\\ngaap_q4_25 = 3.65\\n\\n# OpenAI impact on diluted EPS\\nopenai_q4_26 = 0.07   # net gain, increased EPS by $0.07\\nopenai_q4_25 = -0.21  # net loss, decreased EPS by $0.21\\n\\n# Non-GAAP FY25 Q4 = GAAP - OpenAI impact (removing the loss)\\nnon_gaap_q4_25 = gaap_q4_25 - openai_q4_25\\nprint(f\\\"FY25 Q4 non-GAAP diluted EPS = {gaap_q4_25} - ({openai_q4_25}) = {non_gaap_q4_25}\\\")\\n\\n# Verify non-GAAP Q4'26\\nprint(f\\\"FY26 Q4 non-GAAP check = {gaap_q4_26} - {openai_q4_26} = {gaap_q4_26 - openai_q4_26}\\\")\\n\\n# YoY growth rates\\ngaap_growth = (gaap_q4_26 - gaap_q4_25) / gaap_q4_25 * 100\\nnon_gaap_growth = (non_gaap_q4_26 - non_gaap_q4_25) / non_gaap_q4_25 * 100\\nprint(f\\\"\\\\nGAAP YoY growth = ({gaap_q4_26} - {gaap_q4_25}) / {gaap_q4_25} = {gaap_growth:.1f}%\\\")\\nprint(f\\\"Non-GAAP YoY growth = ({non_gaap_q4_26} - {non_gaap_q4_25}) / {non_gaap_q4_25} = {non_gaap_growth:.1f}%\\\")\\n\\n# The swing in OpenAI impact\\nswing = openai_q4_26 - openai_q4_25\\nprint(f\\\"\\\\nOpenAI EPS swing (Q4'26 vs Q4'25) = {openai_q4_26} - ({openai_q4_25}) = {swing}\\\")\\nprint(f\\\"This swing explains {swing / (gaap_q4_26 - gaap_q4_25) * 100:.1f}% of the GAAP EPS increase\\\")\\n\\n# Discrete items\\ndiscrete_benefit = 0.27\\nanthropic_gain = 3.2  # billion\\ndiluted_shares = 7443  # millions\\nprint(f\\\"\\\\nDiscrete items benefit vs guidance: ${discrete_benefit}/share\\\")\\nprint(f\\\"Anthropic gain: ${anthropic_gain}B -> ~${anthropic_gain*1000/diluted_shares:.2f}/share pre-tax\\\")\\n\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_3a5751d56f5d43ac8c6cf43e",
+    "name": "run_python",
+    "content": "exit=0\n--- stdout ---\nFY25 Q4 non-GAAP diluted EPS = 3.65 - (-0.21) = 3.86\nFY26 Q4 non-GAAP check = 4.81 - 0.07 = 4.739999999999999\n\nGAAP YoY growth = (4.81 - 3.65) / 3.65 = 31.8%\nNon-GAAP YoY growth = (4.74 - 3.86) / 3.86 = 22.8%\n\nOpenAI EPS swing (Q4'26 vs Q4'25) = 0.07 - (-0.21) = 0.28\nThis swing explains 24.1% of the GAAP EPS increase\n\nDiscrete items benefit vs guidance: $0.27/share\nAnthropic gain: $3.2B -> ~$0.43/share pre-tax\n\n--- stderr ---\n"
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n数据已全部核实。以下是完整分析：\n\n---\n\n## 微软 FY26 Q4 摊薄每股收益（Diluted EPS）分析\n\n### 1. FY26 Q4 两个口径的摊薄 EPS 及同比增速\n\n| 口径 | FY26 Q4 EPS | 同比增长 |\n|------|------------|---------|\n| **GAAP** | **$4.81** | **+32%** |\n| **非 GAAP**（剔除 OpenAI 投资影响） | **$4.74** | **+23%** |\n\n- **出处**：`press_release.txt` 位置 0–800：「Diluted earnings per share was $4.81 and increased 32% on a GAAP basis, and was $4.74 and increased 23% on a non-GAAP basis」\n- 非 GAAP 定义：`press_release.txt` 位置 6511–6838，非 GAAP 仅剔除「OpenAI 投资影响」。\n\n---\n\n### 2. 去年同期（FY25 Q4）的摊薄 EPS\n\n| 口径 | FY25 Q4 EPS |\n|------|------------|\n| **GAAP** | **$3.65** |\n| **非 GAAP** | **$3.86**（= GAAP $3.65 − OpenAI 影响 (−$0.21)） |\n\n- **GAAP 数据出处**：`financial_statements.txt` 位置 ~2517（Income Statements），Diluted 行 Q4-25 = $3.65。\n- **OpenAI 影响出处**：`press_release.txt` 位置 6641–6838：「In fiscal year 2025… net losses from investments in OpenAI… a decrease in net income and diluted earnings per share of $1,575 million and $0.21, respectively, in the fourth quarter」。\n- FY25 Q4 非 GAAP = GAAP $3.65 减去 OpenAI 亏损影响 (−$0.21) = $3.86。\n\n---\n\n### 3. 两个口径同比增速差距的来源\n\nGAAP 同比 +31.8%（≈32%），非 GAAP 同比 +22.8%（≈23%），差距约 **9 个百分点**。差距来源可以拆解：\n\n| 项目 | FY25 Q4 EPS 影响 | FY26 Q4 EPS 影响 | 同比变动 |\n|------|-----------------|-----------------|---------|\n| OpenAI 投资（净损益） | −$0.21（亏损） | +$0.07（盈利） | **+$0.28 摆动** |\n\n计算：\n- FY26 Q4 GAAP EPS 同比增加额 = $4.81 − $3.65 = **$1.16**\n- 其中 OpenAI 投资影响摆动 = $0.07 − (−$0.21) = **$0.28**，占总增加的 **24%**\n- 剔除 OpenAI 后，非 GAAP EPS 同比增加 = $4.74 − $3.86 = **$0.88**，对应 +22.8%\n\n**结论**：两个口径增速差距几乎**完全来自 OpenAI 投资收益的同比摆动**（从去年同期亏损 $0.21 变为今年盈利 $0.07），属于非经营性的投资估值变动，**不反映核心经营业务的改善**。核心业务本身的盈利增速约为 23%，两个口径都体现了 Azure +43%、Microsoft Cloud 收入 +27% 等经营层面的强劲增长。\n\n---\n\n### 4. 「相对于此前指引的离散项」vs 第 3 问的口径差异\n\n**不是同一回事。**\n\n- **第 3 问的口径差异（GAAP vs 非 GAAP）**：是**全年/同比口径**的差异，唯一调整项是 **OpenAI 投资影响**（Q4 影响 $0.07）。这是微软非 GAAP 定义的固定调整项，目的是让投资者看清不含 OpenAI 波动的经营趋势。\n\n- **离散项（discrete items）**：是**实际 vs 指引（forward-looking guidance）** 的差异，出自 `press_release.txt` 位置 915–1263：「Several discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share. These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program which were partially offset by severance expense and impairment charges in XBOX。」\n\n**关键区别**：\n| | 口径差异（GAAP vs 非 GAAP） | 离散项（实际 vs 指引） |\n|--|--------------------------|---------------------|\n| 比较基准 | 去年同期（YoY） | 4 月 29 日给出的前瞻指引 |\n| 调整内容 | 仅 OpenAI 投资影响 | Anthropic $3.2B 收益 + 志愿退休计划节省 − XBOX 遣散/减值 |\n| 量级 | $0.07/股（Q4） | $0.27/股 |\n| 目的 | 揭示经营趋势 | 解释为何超预期 |\n\nAnthropic 的 $3.2B 收益属于「其他收入」（Other income），在 GAAP 和非 GAAP 口径下**都包含**（因为非 GAAP 只剔除 OpenAI）。因此，离散项中的 Anthropic 收益是「超预期」的来源，但不是「口径差异」的来源——口径差异的根源仍然是 OpenAI。\n\n简言之：**口径差异来自 OpenAI（同比视角），离散项来自 Anthropic 等一次性项目（vs 指引视角），两者是不同维度的事件。**"
+  }
+]

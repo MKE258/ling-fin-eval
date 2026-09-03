@@ -1,0 +1,418 @@
+[
+  {
+    "role": "user",
+    "content": "你是金融投研分析师。可用工具读取微软 FY26 Q4 的官方财报材料。\n请先用 list_materials 查看有哪些文件，再按需读取。\n所有结论必须给出具体出处（文件名 + 位置），不得凭印象作答。\n\n问题：根据提供的微软 FY26 Q4 财报材料，回答：\n\n1. Microsoft 365 Copilot 在 FY26 Q4 的收入是多少美元？\n2. Azure 在 FY26 Q4 单季度的收入绝对金额是多少美元？\n\n请给出具体数字和出处。如果某个数字在材料中无法确定，请直接说明无法确定，\n并说明材料中实际披露的是什么。\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_03ce86bf76f44c8b8a0bebf9",
+        "function": {
+          "name": "list_materials",
+          "arguments": "{}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_03ce86bf76f44c8b8a0bebf9",
+    "name": "list_materials",
+    "content": "10k.txt  (423,020 字符)\nfinancial_statements.txt  (29,612 字符)\nmetrics.txt  (2,266 字符)\npress_release.txt  (29,949 字符)\ntranscript.txt  (58,106 字符)"
+  },
+  {
+    "role": "assistant",
+    "content": "\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_9c1a893944ea43c5988337ec",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"Microsoft 365 Copilot revenue\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_d1f300d784374b29a5f9408a",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"Azure revenue\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_9c1a893944ea43c5988337ec",
+    "name": "search_material",
+    "content": "在 press_release.txt 中未找到 “Microsoft 365 Copilot revenue”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_d1f300d784374b29a5f9408a",
+    "name": "search_material",
+    "content": "[位置 1499]\n...artially offset by severance expense and impairment charges in XBOX. When adjusting for these items, we exceeded expectations across revenue, operating income, and diluted earnings per share.\n“We are advancing the frontier on the cost-to-outcome curve, ensuring every customer can turn tokens into business results,\" said Satya Nadella, chairman and chief executive officer of Microsoft. “This year, Azure revenue surpassed $100 billion for the first time, and Microsoft 365 Copilot reached over 30 million paid seats, reflecting the confidence customers are placing in us to power their AI transformation.”\n “We delivered a strong quarter to close out the fiscal year, highlighted by Microsoft Cloud revenue of $59.3 billion, up 27% year-over-year,” said Amy Hood, executive vice president and chief..."
+  },
+  {
+    "role": "assistant",
+    "content": "\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_0269c6e2c7d741458bd9ef04",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"Microsoft 365 Copilot\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_b4c41a28d7f14b008e921edd",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"Azure\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_0269c6e2c7d741458bd9ef04",
+    "name": "search_material",
+    "content": "[位置 1560]\n...n XBOX. When adjusting for these items, we exceeded expectations across revenue, operating income, and diluted earnings per share.\n“We are advancing the frontier on the cost-to-outcome curve, ensuring every customer can turn tokens into business results,\" said Satya Nadella, chairman and chief executive officer of Microsoft. “This year, Azure revenue surpassed $100 billion for the first time, and Microsoft 365 Copilot reached over 30 million paid seats, reflecting the confidence customers are placing in us to power their AI transformation.”\n “We delivered a strong quarter to close out the fiscal year, highlighted by Microsoft Cloud revenue of $59.3 billion, up 27% year-over-year,” said Amy Hood, executive vice president and chief financial officer of Microsoft.\nThe following table adjusts ..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_b4c41a28d7f14b008e921edd",
+    "name": "search_material",
+    "content": "[位置 1499]\n...artially offset by severance expense and impairment charges in XBOX. When adjusting for these items, we exceeded expectations across revenue, operating income, and diluted earnings per share.\n“We are advancing the frontier on the cost-to-outcome curve, ensuring every customer can turn tokens into business results,\" said Satya Nadella, chairman and chief executive officer of Microsoft. “This year, Azure revenue surpassed $100 billion for the first time, and Microsoft 365 Copilot reached over 30 million paid seats, reflecting the confidence customers are placing in us to power their AI transformation.”\n “We delivered a strong quarter to close out the fiscal year, highlighted by Microsoft Cloud revenue of $59.3 billion, up 27% year-over-year,” said Amy Hood, executive vice president and chief...\n\n[位置 3240]\n..., Microsoft 365 Commercial cloud revenue increased 14%.\nMicrosoft 365 Consumer cloud revenue increased 24% (up 22% in constant currency) \nLinkedIn revenue increased 12% (up 10% in constant currency)\nDynamics 365 revenue increased 13% (up 12% in constant currency)\nRevenue in Intelligent Cloud was $39.3 billion and increased 32% (up 31% in constant currency), with the following business highlights:\nAzure and other cloud services revenue increased 43%\nRevenue in More Personal Computing was $12.9 billion and decreased 4% (down 5% in constant currency), with the following business highlights:\nWindows OEM and Devices revenue decreased 7% \nXBOX content and services revenue decreased 10%\nSearch advertising revenue excluding traffic acquisition costs increased 10% (up 9% in constant currency)\nMicro...\n\n[位置 5569]\n...ndreds of products, services, and enhancements. These releases are driven by years of significant research and development investments, to empower customers with greater productivity, security, and differentiated value. \nThis momentum is reflected in stories that showcase how our technology is shaping industries and driving customer success. We share innovation updates on our product blogs across Azure, Microsoft 365, and more on our Official Microsoft blog.\nWebcast Details\nSatya Nadella, chairman and chief executive officer, Amy Hood, executive vice president and chief financial officer, Alice Jolla, chief accounting officer, Brian DeFoe, deputy general counsel and corporate secretary, and Jonathan Neilson, vice president of investor relations, will host a conference call and webcast at 2...\n\n[位置 19556]\n...30, 2026\n | Percentage Change Y/Y (GAAP) | Constant Currency Impact | Percentage Change Y/Y Constant Currency\nMicrosoft Cloud revenue | 27% | 0% | 27%\nCommercial remaining performance obligation | 84% | 0% | 84%\nMicrosoft 365 Commercial cloud revenue | 14% | 0% | 14%\nMicrosoft 365 Consumer cloud revenue | 24% | (2)% | 22%\nLinkedIn revenue | 12% | (2)% | 10%\nDynamics 365 revenue | 13% | (1)% | 12%\nAzure and other cloud services revenue | 43% | 0% | 43%\nWindows OEM and Devices revenue | (7)% | 0% | (7)%\nXBOX content and services revenue | (10)% | 0% | (10)%\nSearch advertising revenue excluding traffic acquisition costs | 10% | (1)% | 9%\nMICROSOFT CORPORATION | MICROSOFT CORPORATION |  |  |  |  |  | \nINCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEM..."
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_f45e6dccd04d463eb8037bec",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"30 million paid seats\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_69ee8286afaf4c7e83bf5966",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"metrics.txt\", \"query\": \"Copilot\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_6d8107f8c14748dc89c9c227",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"metrics.txt\", \"query\": \"Azure\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_f45e6dccd04d463eb8037bec",
+    "name": "search_material",
+    "content": "[位置 1595]\n...ems, we exceeded expectations across revenue, operating income, and diluted earnings per share.\n“We are advancing the frontier on the cost-to-outcome curve, ensuring every customer can turn tokens into business results,\" said Satya Nadella, chairman and chief executive officer of Microsoft. “This year, Azure revenue surpassed $100 billion for the first time, and Microsoft 365 Copilot reached over 30 million paid seats, reflecting the confidence customers are placing in us to power their AI transformation.”\n “We delivered a strong quarter to close out the fiscal year, highlighted by Microsoft Cloud revenue of $59.3 billion, up 27% year-over-year,” said Amy Hood, executive vice president and chief financial officer of Microsoft.\nThe following table adjusts for the impact from investments in ..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_69ee8286afaf4c7e83bf5966",
+    "name": "search_material",
+    "content": "在 metrics.txt 中未找到 “Copilot”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_6d8107f8c14748dc89c9c227",
+    "name": "search_material",
+    "content": "[位置 1419]\n... | 0.06 | 0.06\n |  | Microsoft 365 Consumer cloud revenue growth (y/y)* | 20% / 20% | 11% / 12% | 26% / 25% | 29% / 27% | 33% / 29% | 24% / 22% | 28% / 26%\n |  | LinkedIn revenue growth (y/y)* | 9% / 8% | 9% / 9% | 10%/ 9% | 11% / 10% | 12% / 9% | 12% / 10% | 11% / 9%\n |  | Dynamics 365 revenue growth (y/y)* | 23% / 21% | 19% / 19% | 18% / 16% | 19% / 17% | 22% / 17% | 13% / 12% | 18% / 15%\n |  | Azure and other cloud services revenue growth (y/y)* | 39% / 39% | 34% / 35% | 40% / 39% | 39% / 38% | 40% / 39% | 43% / 43% | 41% / 40%\n | More Personal Computing\n |  | Windows OEM and Devices revenue growth (y/y)* | 3% / 3% | 3% / 3% | 6% / 6% | 1% / 0% | -2% / -3% | -7% / -7% | -1% / -1%\n |  | XBOX content and services revenue growth (y/y)* | 13% / 12% | 16% / 16% | 1% / 0% | -5% / -6% | -5% / ..."
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_71ae6ef1aaf3436abb666b1c",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"metrics.txt\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_71ae6ef1aaf3436abb666b1c",
+    "name": "read_material",
+    "content": "[metrics.txt 第 0–2266 字符，共 2266]\n\n### 工作表: Metrics\n | Investor Metrics\n | (in billions, except for percentages) |  | Q4'25 | FY25 | Q1'26 | Q2'26 | Q3'26 | Q4'26 | FY26\n | Commercial (Includes commercial portion of LinkedIn)\n |  | Commercial bookings growth (y/y)* | 37% / 30% | 0.38 | 112% / 111% | 230% / 228% | -4% / -6% | 10% / 11% | 0.8300000000000001\n |  | Commercial remaining performance obligation | 368 | 368 | 392 | 625 | 627 | 678 | 678\n |  | Microsoft Cloud revenue | 46.7 | 168.9 | 49.1 | 51.5 | 54.5 | 59.3 | 214.4\n |  | Microsoft Cloud revenue growth (y/y)* | 27% / 25% | 23% / 23% | 26% / 25% | 26% / 24% | 29% / 25% | 27% / 27% | 27% / 25%\n |  | Microsoft Cloud gross margin percentage | 0.68 | 0.6900000000000001 | 0.68 | 0.67 | 0.66 | 0.65 | 0.66\n | Productivity & Business Processes and Intelligent Cloud\n |  | Microsoft 365 Commercial cloud revenue growth (y/y)* | 18% / 16% | 15% / 15% | 17% / 15% | 17% / 14% | 19% / 15% | 14% / 14% | 17% / 14%\n |  | Microsoft 365 Commercial seat growth (y/y) | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06\n |  | Microsoft 365 Consumer cloud revenue growth (y/y)* | 20% / 20% | 11% / 12% | 26% / 25% | 29% / 27% | 33% / 29% | 24% / 22% | 28% / 26%\n |  | LinkedIn revenue growth (y/y)* | 9% / 8% | 9% / 9% | 10%/ 9% | 11% / 10% | 12% / 9% | 12% / 10% | 11% / 9%\n |  | Dynamics 365 revenue growth (y/y)* | 23% / 21% | 19% / 19% | 18% / 16% | 19% / 17% | 22% / 17% | 13% / 12% | 18% / 15%\n |  | Azure and other cloud services revenue growth (y/y)* | 39% / 39% | 34% / 35% | 40% / 39% | 39% / 38% | 40% / 39% | 43% / 43% | 41% / 40%\n | More Personal Computing\n |  | Windows OEM and Devices revenue growth (y/y)* | 3% / 3% | 3% / 3% | 6% / 6% | 1% / 0% | -2% / -3% | -7% / -7% | -1% / -1%\n |  | XBOX content and services revenue growth (y/y)* | 13% / 12% | 16% / 16% | 1% / 0% | -5% / -6% | -5% / -7% | -10% / -10% | -5% / -6%\n |  | Search advertising revenue (ex TAC) growth (y/y)* | 21% / 20% | 20% / 21% | 16% / 15% | 10% / 9% | 12% / 9% | 10% / 9% | 12% / 10%\n |  | * Includes non-GAAP constant currency growth (GAAP% / Constant Currency%)\n |  | Certain amounts have been rounded for presentation purposes\n |  | Reconciliation of GAAP and non-GAAP financial measures are available in the Earnings Release Slides (http://aka.ms/slidesfy26q4)"
+  },
+  {
+    "role": "assistant",
+    "content": "\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_4718fd517d1c42aab37e2dc1",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"financial_statements.txt\", \"query\": \"Azure\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_afde9cf7822b4358b1f0cda7",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"financial_statements.txt\", \"query\": \"Microsoft 365\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_4718fd517d1c42aab37e2dc1",
+    "name": "search_material",
+    "content": "[位置 11066]\n... | 0.06 | 0.06\n |  | Microsoft 365 Consumer cloud revenue growth (y/y)* | 20% / 20% | 11% / 12% | 26% / 25% | 29% / 27% | 33% / 29% | 24% / 22% | 28% / 26%\n |  | LinkedIn revenue growth (y/y)* | 9% / 8% | 9% / 9% | 10%/ 9% | 11% / 10% | 12% / 9% | 12% / 10% | 11% / 9%\n |  | Dynamics 365 revenue growth (y/y)* | 23% / 21% | 19% / 19% | 18% / 16% | 19% / 17% | 22% / 17% | 13% / 12% | 18% / 15%\n |  | Azure and other cloud services revenue growth (y/y)* | 39% / 39% | 34% / 35% | 40% / 39% | 39% / 38% | 40% / 39% | 43% / 43% | 41% / 40%\n | More Personal Computing\n |  | Windows OEM and Devices revenue growth (y/y)* | 3% / 3% | 3% / 3% | 6% / 6% | 1% / 0% | -2% / -3% | -7% / -7% | -1% / -1%\n |  | XBOX content and services revenue growth (y/y)* | 13% / 12% | 16% / 16% | 1% / 0% | -5% / -6% | -5% / ..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_afde9cf7822b4358b1f0cda7",
+    "name": "search_material",
+    "content": "[位置 10446]\n... 627 | 678 | 678\n |  | Microsoft Cloud revenue | 46.7 | 168.9 | 49.1 | 51.5 | 54.5 | 59.3 | 214.4\n |  | Microsoft Cloud revenue growth (y/y)* | 27% / 25% | 23% / 23% | 26% / 25% | 26% / 24% | 29% / 25% | 27% / 27% | 27% / 25%\n |  | Microsoft Cloud gross margin percentage | 0.68 | 0.6900000000000001 | 0.68 | 0.67 | 0.66 | 0.65 | 0.66\n | Productivity & Business Processes and Intelligent Cloud\n |  | Microsoft 365 Commercial cloud revenue growth (y/y)* | 18% / 16% | 15% / 15% | 17% / 15% | 17% / 14% | 19% / 15% | 14% / 14% | 17% / 14%\n |  | Microsoft 365 Commercial seat growth (y/y) | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06\n |  | Microsoft 365 Consumer cloud revenue growth (y/y)* | 20% / 20% | 11% / 12% | 26% / 25% | 29% / 27% | 33% / 29% | 24% / 22% | 28% / 26%\n |  | LinkedIn revenue g...\n\n[位置 10589]\n... 27% / 25% | 23% / 23% | 26% / 25% | 26% / 24% | 29% / 25% | 27% / 27% | 27% / 25%\n |  | Microsoft Cloud gross margin percentage | 0.68 | 0.6900000000000001 | 0.68 | 0.67 | 0.66 | 0.65 | 0.66\n | Productivity & Business Processes and Intelligent Cloud\n |  | Microsoft 365 Commercial cloud revenue growth (y/y)* | 18% / 16% | 15% / 15% | 17% / 15% | 17% / 14% | 19% / 15% | 14% / 14% | 17% / 14%\n |  | Microsoft 365 Commercial seat growth (y/y) | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06\n |  | Microsoft 365 Consumer cloud revenue growth (y/y)* | 20% / 20% | 11% / 12% | 26% / 25% | 29% / 27% | 33% / 29% | 24% / 22% | 28% / 26%\n |  | LinkedIn revenue growth (y/y)* | 9% / 8% | 9% / 9% | 10%/ 9% | 11% / 10% | 12% / 9% | 12% / 10% | 11% / 9%\n |  | Dynamics 365 revenue growth (y/y)* | 23% / 21% |...\n\n[位置 10687]\n... Cloud gross margin percentage | 0.68 | 0.6900000000000001 | 0.68 | 0.67 | 0.66 | 0.65 | 0.66\n | Productivity & Business Processes and Intelligent Cloud\n |  | Microsoft 365 Commercial cloud revenue growth (y/y)* | 18% / 16% | 15% / 15% | 17% / 15% | 17% / 14% | 19% / 15% | 14% / 14% | 17% / 14%\n |  | Microsoft 365 Commercial seat growth (y/y) | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06\n |  | Microsoft 365 Consumer cloud revenue growth (y/y)* | 20% / 20% | 11% / 12% | 26% / 25% | 29% / 27% | 33% / 29% | 24% / 22% | 28% / 26%\n |  | LinkedIn revenue growth (y/y)* | 9% / 8% | 9% / 9% | 10%/ 9% | 11% / 10% | 12% / 9% | 12% / 10% | 11% / 9%\n |  | Dynamics 365 revenue growth (y/y)* | 23% / 21% | 19% / 19% | 18% / 16% | 19% / 17% | 22% / 17% | 13% / 12% | 18% / 15%\n |  | Azure and other cloud...\n\n[位置 21275]\n...Main\nRevenue - Significant Product and Service Offerings\n(In millions)\nRevenue | Q1-24 | Q2-24 | Q3-24 | Q4-24 | Fiscal Year 2024 |  | Q1-25 | Q2-25 | Q3-25 | Q4-25 | Fiscal Year 2025 |  | Q1-26 | Q2-26 | Q3-26 | Q4-26 | Fiscal Year 2026\nServer products and cloud services | 18062 | 19597 | 20266 | 21903 | 79828 |  | 22155 | 23641 | 24761 | 27878 | 98435 |  | 28872 | 30865 | 32592 | 37096 | 129425\nMicrosoft 365 Commercial products and cloud services | 18044 | 18321 | 19712 | 20892 | 76969 |  | 20449 | 21117 | 21883 | 24318 | 87767 |  | 23966 | 24524 | 25593 | 27914 | 101997\nXBOX | 3919 | 7111 | 5451 | 5022 | 21503 |  | 5621 | 6581 | 5721 | 5532 | 23455 |  | 5508 | 5958 | 5341 | 4983 | 21790\nLinkedIn | 3913 | 4195 | 4013 | 4251 | 16372 |  | 4292 | 4587 | 4311 | 4622 | 17812 |  | 4714 | 5082 ...\n\n[位置 21964]\n...3 | 21790\nLinkedIn | 3913 | 4195 | 4013 | 4251 | 16372 |  | 4292 | 4587 | 4311 | 4622 | 17812 |  | 4714 | 5082 | 4832 | 5189 | 19817\nWindows and Devices | 4340 | 4363 | 4098 | 4225 | 17026 |  | 4329 | 4512 | 4144 | 4329 | 17314 |  | 4551 | 4479 | 4041 | 4013 | 17084\nSearch advertising | 3018 | 3168 | 3055 | 3065 | 12306 |  | 3225 | 3558 | 3504 | 3591 | 13878 |  | 3697 | 3812 | 3808 | 3859 | 15176\nMicrosoft 365 Consumer products and cloud services | 1643 | 1679 | 1648 | 1678 | 6648 |  | 1727 | 1821 | 1821 | 2035 | 7404 |  | 2204 | 2305 | 2297 | 2369 | 9175\nDynamics products and cloud services | 1626 | 1659 | 1740 | 1806 | 6831 |  | 1849 | 1913 | 1929 | 2136 | 7827 |  | 2136 | 2204 | 2292 | 2374 | 9006\nEnterprise and partner services | 1944 | 1917 | 1861 | 1872 | 7594 |  | 1928 | 1892 | 1946..."
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_e3e4896d7655482f8672587b",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"financial_statements.txt\", \"offset\": 21000}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_e3e4896d7655482f8672587b",
+    "name": "read_material",
+    "content": "[financial_statements.txt 第 21000–29612 字符，共 29612]\n2024 |  | Q1-25 | Q2-25 | Q3-25 | Q4-25 | Fiscal Year 2025 |  | Q1-26 | Q2-26 | Q3-26 | Q4-26 | Fiscal Year 2026\nServer products and cloud services | 18062 | 19597 | 20266 | 21903 | 79828 |  | 22155 | 23641 | 24761 | 27878 | 98435 |  | 28872 | 30865 | 32592 | 37096 | 129425\nMicrosoft 365 Commercial products and cloud services | 18044 | 18321 | 19712 | 20892 | 76969 |  | 20449 | 21117 | 21883 | 24318 | 87767 |  | 23966 | 24524 | 25593 | 27914 | 101997\nXBOX | 3919 | 7111 | 5451 | 5022 | 21503 |  | 5621 | 6581 | 5721 | 5532 | 23455 |  | 5508 | 5958 | 5341 | 4983 | 21790\nLinkedIn | 3913 | 4195 | 4013 | 4251 | 16372 |  | 4292 | 4587 | 4311 | 4622 | 17812 |  | 4714 | 5082 | 4832 | 5189 | 19817\nWindows and Devices | 4340 | 4363 | 4098 | 4225 | 17026 |  | 4329 | 4512 | 4144 | 4329 | 17314 |  | 4551 | 4479 | 4041 | 4013 | 17084\nSearch advertising | 3018 | 3168 | 3055 | 3065 | 12306 |  | 3225 | 3558 | 3504 | 3591 | 13878 |  | 3697 | 3812 | 3808 | 3859 | 15176\nMicrosoft 365 Consumer products and cloud services | 1643 | 1679 | 1648 | 1678 | 6648 |  | 1727 | 1821 | 1821 | 2035 | 7404 |  | 2204 | 2305 | 2297 | 2369 | 9175\nDynamics products and cloud services | 1626 | 1659 | 1740 | 1806 | 6831 |  | 1849 | 1913 | 1929 | 2136 | 7827 |  | 2136 | 2204 | 2292 | 2374 | 9006\nEnterprise and partner services | 1944 | 1917 | 1861 | 1872 | 7594 |  | 1928 | 1892 | 1946 | 1994 | 7760 |  | 2022 | 2038 | 2087 | 2113 | 8260\nOther  | 8 | 10 | 14 | 13 | 45 |  | 10 | 10 | 46 | 6 | 72 |  | 3 | 6 | 3 | 97 | 109\n  Total | 56517 | 62020 | 61858 | 64727 | 245122 |  | 65585 | 69632 | 70066 | 76441 | 281724 |  | 77673 | 81273 | 82886 | 90007 | 331839\nWe have recast certain prior period amounts to conform to the way we internally manage and monitor our business, which reflects the FY25 changes to the composition of our segments announced in August 2024.\n\n### 工作表: Yearly Income Statements\nMicrosoft Corporation |  |  | Back to Main\nYearly Income Statements\n(In millions, except per share amounts)\n |  |  | FY16 | FY17 | FY18 | FY19 | FY20 | FY21 | FY22 | FY23 | FY24 | FY25 | FY26\nRevenue:\n   Product |  |  | 67336 | 63811 | 64497 | 66069 | 68041 | 71074 | 72732 | 64699 | 64773 | 63946 | 64696\n   Service and other |  |  | 23818 | 32760 | 45863 | 59774 | 74974 | 97014 | 125538 | 147216 | 180349 | 217778 | 267143\n      Total revenue |  |  | 91154 | 96571 | 110360 | 125843 | 143015 | 168088 | 198270 | 211915 | 245122 | 281724 | 331839\nCost of revenue:\n   Product |  |  | 17880 | 15175 | 15420 | 16273 | 16017 | 18219 | 19064 | 17804 | 15272 | 13501 | 12098\n   Service and other |  |  | 14900 | 19086 | 22933 | 26637 | 30061 | 34013 | 43586 | 48059 | 58842 | 74330 | 94276\n      Total cost of revenue |  |  | 32780 | 34261 | 38353 | 42910 | 46078 | 52232 | 62650 | 65863 | 74114 | 87831 | 106374\n      Gross margin |  |  | 58374 | 62310 | 72007 | 82933 | 96937 | 115856 | 135620 | 146052 | 171008 | 193893 | 225465\nResearch and development  |  |  | 11988 | 13037 | 14726 | 16876 | 19269 | 20716 | 24512 | 27195 | 29510 | 32488 | 35562\nSales and marketing |  |  | 14635 | 15461 | 17469 | 18213 | 19598 | 20117 | 21825 | 22759 | 24456 | 25654 | 26710\nGeneral and administrative  |  |  | 4563 | 4481 | 4754 | 4885 | 5111 | 5107 | 5900 | 7575 | 7609 | 7223 | 7956\nImpairment and restructuring |  |  | 1110 | 306 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0\nOperating income |  |  | 26078 | 29025 | 35058 | 42959 | 52959 | 69916 | 83383 | 88523 | 109433 | 128528 | 155237\nOther income (expense), net |  |  | -439 | 876 | 1416 | 729 | 77 | 1186 | 333 | 788 | -1646 | -4901 | 10697\nIncome before income taxes |  |  | 25639 | 29901 | 36474 | 43688 | 53036 | 71102 | 83716 | 89311 | 107787 | 123627 | 165934\nProvision for income taxes |  |  | 5100 | 4412 | 19903 | 4448 | 8755 | 9831 | 10978 | 16950 | 19651 | 21795 | 32185\nNet income |  |  | 20539 | 25489 | 16571 | 39240 | 44281 | 61271 | 72738 | 72361 | 88136 | 101832 | 133749\nEarnings per share:\n   Basic |  |  | 2.59 | 3.29 | 2.15 | 5.11 | 5.82 | 8.12 | 9.7 | 9.72 | 11.86 | 13.7 | 18\n   Diluted |  |  | 2.56 | 3.25 | 2.13 | 5.06 | 5.76 | 8.05 | 9.65 | 9.68 | 11.8 | 13.64 | 17.95\n\n### 工作表: Return of Cash to Shareholders\nMicrosoft Corporation |  | Back to Main\nReturn of Cash to Shareholders\n(In billions, except per share amounts)\n |  | FY10 | FY11 | FY12 | FY13 | FY14 | FY15 | FY16 | FY17 | FY18 | FY19 | FY20 | FY21 | FY22 | FY23 | FY24 | FY25 | FY26\nYearly\nDividend Per Share |  | 0.52 | 0.64 | 0.8 | 0.92 | 1.12 | 1.24 | 1.44 | 1.56 | 1.68 | 1.84 | 2.04 | 2.24 | 2.48 | 2.72 | 3 | 3.32 | 3.64\nTotal Dividends |  | 4.539 | 5.403 | 6.72 | 7.695 | 9.27 | 10.05 | 11.331 | 12.048 | 12.916 | 14.101 | 15.483 | 16.871 | 18.55 | 20.23 | 22.295 | 24.676 | 27.035\nShare Buyback |  | 10.836 | 11.458 | 4 | 4.607 | 6.409 | 13.209 | 14.8 | 10.283 | 8.6 | 16.799 | 19.688 | 22.97 | 28.033 | 18.4 | 11.96 | 13 | 16.719\n |  | Q2-05 | Q3-05 | Q4-05 | Q1-06 | Q2-06 | Q3-06 | Q4-06 | Q1-07 | Q2-07 | Q3-07 | Q4-07 | Q1-08 | Q2-08 | Q3-08 | Q4-08 | Q1-09 | Q2-09 | Q3-09 | Q4-09 | Q1-10 | Q2-10 | Q3-10 | Q4-10 | Q1-11 | Q2-11 | Q3-11 | Q4-11 | Q1-12 | Q2-12 | Q3-12 | Q4-12 | Q1-13 | Q2-13 | Q3-13 | Q4-13 | Q1-14 | Q2-14 | Q3-14 | Q4-14 | Q1-15 | Q2-15 | Q3-15 | Q4-15 | Q1-16 | Q2-16 | Q3-16 | Q4-16 | Q1-17 | Q2-17 | Q3-17 | Q4-17 | Q1-18 | Q2-18 | Q3-18 | Q4-18 | Q1-19 | Q2-19 | Q3-19 | Q4-19 | Q1-20 | Q2-20 | Q3-20 | Q4-20 | Q1-21 | Q2-21 | Q3-21 | Q4-21 | Q1-22 | Q2-22 | Q3-22 | Q4-22 | Q1-23 | Q2-23 | Q3-23 | Q4-23 | Q1-24 | Q2-24 | Q3-24 | Q4-24 | Q1-25 | Q2-25 | Q3-25 | Q4-25 | Q1-26 | Q2-26 | Q3-26 | Q4-26\nQuarterly\nDividend Per Share |  | 0.08 | 0.08 | 0.08 | 0.08 | 0.09 | 0.09 | 0.09 | 0.1 | 0.1 | 0.1 | 0.1 | 0.11 | 0.11 | 0.11 | 0.11 | 0.13 | 0.13 | 0.13 | 0.13 | 0.13 | 0.13 | 0.13 | 0.13 | 0.16 | 0.16 | 0.16 | 0.16 | 0.2 | 0.2 | 0.2 | 0.2 | 0.23 | 0.23 | 0.23 | 0.23 | 0.28 | 0.28 | 0.28 | 0.28 | 0.31 | 0.31 | 0.31 | 0.31 | 0.36 | 0.36 | 0.36 | 0.36 | 0.39 | 0.39 | 0.39 | 0.39 | 0.42 | 0.42 | 0.42 | 0.42 | 0.46 | 0.46 | 0.46 | 0.46 | 0.51 | 0.51 | 0.51 | 0.51 | 0.56 | 0.56 | 0.56 | 0.56 | 0.62 | 0.62 | 0.62 | 0.62 | 0.68 | 0.68 | 0.68 | 0.68 | 0.75 | 0.75 | 0.75 | 0.75 | 0.83 | 0.83 | 0.83 | 0.83 | 0.91 | 0.91 | 0.91 | 0.91\nTotal Dividends |  | 0.868 | 0.86 | 0.857 | 0.846 | 0.926 | 0.916 | 0.897 | 0.98 | 0.978 | 0.952 | 0.938 | 1.034 | 1.023 | 1.02 | 0.998 | 1.157 | 1.155 | 1.158 | 1.157 | 1.152 | 1.139 | 1.13 | 1.118 | 1.363 | 1.349 | 1.35 | 1.341 | 1.683 | 1.683 | 1.678 | 1.676 | 1.933 | 1.925 | 1.921 | 1.916 | 2.332 | 2.322 | 2.309 | 2.307 | 2.547 | 2.532 | 2.496 | 2.475 | 2.868 | 2.842 | 2.821 | 2.8 | 3.024 | 3.012 | 3.009 | 3.003 | 3.238 | 3.232 | 3.226 | 3.22 | 3.544 | 3.526 | 3.521 | 3.51 | 3.886 | 3.876 | 3.865 | 3.856 | 4.23 | 4.221 | 4.214 | 4.206 | 4.652 | 4.645 | 4.632 | 4.621 | 5.066 | 5.059 | 5.054 | 5.051 | 5.574 | 5.573 | 5.574 | 5.574 | 6.17 | 6.169 | 6.169 | 6.168 | 6.762 | 6.756 | 6.758 | 6.759\nShare Buyback |  | 0.655 | 2.42 | 4.302 | 3.029 | 7.666 | 4.879 | 4.175 | 6.965 | 6.037 | 6.744 | 7.367 | 2.348 | 4.081 | 1.02 | 4.975 | 5.966 | 2.234 | 0 | 0 | 1.445 | 3.583 | 2 | 3.808 | 4 | 5 | 0.827 | 1.631 | 1 | 1 | 1 | 1 | 1 | 1.607 | 1 | 1 | 1.5 | 2 | 1.791 | 1.118 | 2 | 2 | 5 | 4.209 | 4 | 3.6 | 3.6 | 3.6 | 3.55 | 3.533 | 1.6 | 1.6 | 1.6 | 1.8 | 3.1 | 2.1 | 2.6 | 6.1 | 3.899 | 4.2 | 4 | 4.6 | 6 | 5.088 | 5.27 | 5.75 | 5.75 | 6.2 | 6.2 | 6.233 | 7.8 | 7.8 | 4.6 | 4.6 | 4.6 | 4.6 | 3.56 | 2.8 | 2.8 | 2.8 | 2.8 | 3.5 | 3.5 | 3.2 | 3.955 | 5.964 | 3.4 | 3.4\n\n### 工作表: CapEx\nMicrosoft Corporation  | Back to Main\nCapital Expenditures Including Assets Acquired Under Capital Leases\n(In billions)\n | Q1-16 | Q2-16 | Q3-16 | Q4-16 | Fiscal Year 2016 |  | Q1-17 | Q2-17 | Q3-17 | Q4-17 | Fiscal Year 2017 |  | Q1-18 | Q2-18 | Q3-18 | Q4-18 | Fiscal Year 2018 |  | Q1-19 | Q2-19 | Q3-19 | Q4-19 | Fiscal Year 2019 |  | Q1-20 | Q2-20 | Q3-20 | Q4-20 | Fiscal Year 2020 |  | Q1-21 | Q2-21 | Q3-21 | Q4-21 | Fiscal Year 2021 |  | Q1-22 | Q2-22 | Q3-22 | Q4-22 | Fiscal Year 2022 |  | Q1-23 | Q2-23 | Q3-23 | Q4-23 | Fiscal Year 2023 |  | Q1-24 | Q2-24 | Q3-24 | Q4-24 | Fiscal Year 2024 |  | Q1-25 | Q2-25 | Q3-25 | Q4-25 | Fiscal Year 2025 |  | Q1-26 | Q2-26 | Q3-26 | Q4-26 | Fiscal Year 2026\nCapital expenditures including assets acquired under capital leases | 1.5 | 2 | 2.3 | 3.1 | 8.9 |  | 2.3 | 2.5 | 2.1 | 3.3 | 10.2 |  | 2.7 | 3.3 | 3.5 | 4.1 | 13.6 |  | 4.3 | 3.9 | 3.4 | 5.3 | 16.9 |  | 4.8 | 4.5 | 3.9 | 5.8 | 19 |  | 5.5 | 5.4 | 6 | 7.3 | 24.2 |  | 7.4 | 6.8 | 6.3 | 8.7 | 29.2 |  | 6.6 | 6.8 | 7.8 | 10.7 | 31.9 |  | 11.2 | 11.5 | 14 | 19 | 55.7 |  | 20 | 22.6 | 21.4 | 24.2 | 88.2 |  | 34.9 | 37.5 | 31.9 | 41 | 145.3"
+  },
+  {
+    "role": "assistant",
+    "content": "\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_9abdf8cf58fb4b60953fa393",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"transcript.txt\", \"query\": \"Microsoft 365 Copilot revenue\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_0fa46a7e8d584b848c7322c0",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"transcript.txt\", \"query\": \"Copilot\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_9abdf8cf58fb4b60953fa393",
+    "name": "search_material",
+    "content": "在 transcript.txt 中未找到 “Microsoft 365 Copilot revenue”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_0fa46a7e8d584b848c7322c0",
+    "name": "search_material",
+    "content": "[位置 4015]\n... fiscal year, we have reduced dock-to-live times for new GPUs in our largest regions by nearly 50%.\nAll up, we added another gigawatt of capacity this quarter and remain on track to roughly double our overall capacity in just two years.\nWe are also getting more from the infrastructure we already have by optimizing across silicon, systems, and software.\nFor example, we increased the throughput for Copilot workloads 4X since the start of the year.\nAI sovereignty is increasingly top of mind for our customers, and we are expanding our offerings to meet that need.\nJust last week, we announced a partnership with Mistral to bring its models to Microsoft Sovereign Cloud, enabling customers to run them across public, customer-controlled, and fully disconnected environments. \nWe also continue to mod...\n\n[位置 6832]\n...ry, and action space are separate from any one model family, thereby moving the frontier on the cost-to-outcome curve. \nAnd it’s not just about cost. It also has the added benefit of business continuity and resilience because every model is substitutable. \nThis is the system we are using in our products, with great results. \nFor example, millions of developers have used MAI-Code-1-Flash on GitHub Copilot, achieving higher code acceptance rates and 10% lower median token usage, while still having access to frontier capabilities from OpenAI and Anthropic. \nIn Excel, MAI-Code-1-Flash is delivering comparable quality to GPT-5.6 for the most common tasks, while operating at significantly lower cost. \nIn security, MAI-Cyber-1-Flash achieves better performance than the much larger Mythos model bu...\n\n[位置 10469]\n...’ existing governance, identity, security, and management frameworks to agents they build.\nJust two months in, Agent 365 now has nearly 40 million agents registered across tens of thousands of companies.\nNow, let me turn to the apps and agents we are building on top of this platform for individuals and organizations. \nWhen it comes to knowledge work, we now have over 30 million paid Microsoft 365 Copilot seats, with net seat adds more than doubling quarter-over-quarter. \nCopilot is evolving rapidly, from chat to Cowork to Autopilots.\nLast month, we made Cowork generally available, helping customers complete multi-step tasks grounded in their work data while meeting enterprise security and compliance requirements.\nThis quarter, we also introduced Autopilots, autonomous, long-running agents ...\n\n[位置 10545]\n...ts they build.\nJust two months in, Agent 365 now has nearly 40 million agents registered across tens of thousands of companies.\nNow, let me turn to the apps and agents we are building on top of this platform for individuals and organizations. \nWhen it comes to knowledge work, we now have over 30 million paid Microsoft 365 Copilot seats, with net seat adds more than doubling quarter-over-quarter. \nCopilot is evolving rapidly, from chat to Cowork to Autopilots.\nLast month, we made Cowork generally available, helping customers complete multi-step tasks grounded in their work data while meeting enterprise security and compliance requirements.\nThis quarter, we also introduced Autopilots, autonomous, long-running agents with full enterprise compliance, including an always-on personal agent power...\n\n[位置 10998]\n...utopilots.\nLast month, we made Cowork generally available, helping customers complete multi-step tasks grounded in their work data while meeting enterprise security and compliance requirements.\nThis quarter, we also introduced Autopilots, autonomous, long-running agents with full enterprise compliance, including an always-on personal agent powered by OpenClaw.\nAnd this quarter we will bring these Copilot experiences together, including Code, in one “super app” spanning both consumer and commercial experiences.\nThis is a major step forward, and I look forward to sharing more soon.\nMore broadly, we have steadily been improving the quality and performance of Copilot, and have been delighted by the recent customer feedback.\nOver the last three quarters, user satisfaction scores have doubled an..."
+  },
+  {
+    "role": "assistant",
+    "content": "\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_a60c6de75e7848bc844b041a",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"transcript.txt\", \"query\": \"Azure revenue\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_411a46284ff94a51886bd6bf",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"transcript.txt\", \"query\": \"Azure billings\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_a60c6de75e7848bc844b041a",
+    "name": "search_material",
+    "content": "在 transcript.txt 中未找到 “Azure revenue”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_411a46284ff94a51886bd6bf",
+    "name": "search_material",
+    "content": "在 transcript.txt 中未找到 “Azure billings”"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_b7c3cb53a26e4180b1bfae1b",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"offset\": 2800}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_b7c3cb53a26e4180b1bfae1b",
+    "name": "read_material",
+    "content": "[press_release.txt 第 2800–22800 字符，共 29949]\nrevenue recognition. On a reported basis, Microsoft 365 Commercial cloud revenue increased 14%.\nMicrosoft 365 Consumer cloud revenue increased 24% (up 22% in constant currency) \nLinkedIn revenue increased 12% (up 10% in constant currency)\nDynamics 365 revenue increased 13% (up 12% in constant currency)\nRevenue in Intelligent Cloud was $39.3 billion and increased 32% (up 31% in constant currency), with the following business highlights:\nAzure and other cloud services revenue increased 43%\nRevenue in More Personal Computing was $12.9 billion and decreased 4% (down 5% in constant currency), with the following business highlights:\nWindows OEM and Devices revenue decreased 7% \nXBOX content and services revenue decreased 10%\nSearch advertising revenue excluding traffic acquisition costs increased 10% (up 9% in constant currency)\nMicrosoft returned $10.2 billion to shareholders in the form of dividends and share repurchases in the fourth quarter of fiscal year 2026. \nFiscal Year 2026 Results\nMicrosoft Corp. today announced the following results for the fiscal year ended June 30, 2026, as compared to the corresponding period of last fiscal year:\nRevenue was $331.8 billion and increased 18% (up 16% in constant currency)\nOperating income was $155.2 billion and increased 21% (up 19% in constant currency)\nNet income was $133.7 billion and increased 31% on a GAAP basis, and increased 22% (up 20% in constant currency) on a non-GAAP basis\nDiluted earnings per share was $17.95 and increased 32% on a GAAP basis, and increased 22% (up 21% in constant currency) on a non-GAAP basis\nNon-GAAP results exclude the impact from investments in OpenAI, explained in the Non-GAAP Definition section below\nThe following table adjusts for the impact from investments in OpenAI and reconciles our financial results reported in accordance with GAAP to non-GAAP financial results. Additional information regarding our non-GAAP definition is provided below. All growth comparisons relate to the corresponding period in the last fiscal year. \n*Impact from OpenAI adjusts for the impact from investments in OpenAI \nBusiness Outlook\nMicrosoft will provide forward-looking guidance in connection with this quarterly earnings announcement on its earnings conference call and webcast. \nQuarterly Highlights, Product Releases, and Customer Stories\nEvery quarter Microsoft delivers hundreds of products, services, and enhancements. These releases are driven by years of significant research and development investments, to empower customers with greater productivity, security, and differentiated value. \nThis momentum is reflected in stories that showcase how our technology is shaping industries and driving customer success. We share innovation updates on our product blogs across Azure, Microsoft 365, and more on our Official Microsoft blog.\nWebcast Details\nSatya Nadella, chairman and chief executive officer, Amy Hood, executive vice president and chief financial officer, Alice Jolla, chief accounting officer, Brian DeFoe, deputy general counsel and corporate secretary, and Jonathan Neilson, vice president of investor relations, will host a conference call and webcast at 2:30 p.m. Pacific time (5:30 p.m. Eastern time) today to discuss details of the company’s performance for the quarter and certain forward-looking information. The session may be accessed at http://www.microsoft.com/en-us/investor. Participants can also dial into the conference call at (877) 407-0666 or +1 (201) 689-8023 for international, no password required. The webcast will be available for replay through the close of business on July 29, 2027.\nNon-GAAP Definition\nImpact from investments in OpenAI. In fiscal year 2026, net income and diluted earnings per share were impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted earnings per share of $480 million and $0.07, respectively, in the fourth quarter, and $4,963 million and $0.67, respectively, for the full fiscal year. In fiscal year 2025, net income and diluted earnings per share were impacted by net losses from investments in OpenAI, which resulted in a decrease in net income and diluted earnings per share of $1,575 million and $0.21, respectively, in the fourth quarter, and $3,620 million and $0.49, respectively, for the full fiscal year.\nMicrosoft has provided non-GAAP financial measures related to the impact from investments in OpenAI to aid investors in better understanding our performance. Microsoft believes these non-GAAP measures assist investors by providing additional insight into its operational performance and help clarify trends affecting its business. For comparability of reporting, management considers non-GAAP measures in conjunction with GAAP financial results in evaluating business performance. The non-GAAP financial measures presented in this release should not be considered as a substitute for, or superior to, the measures of financial performance prepared in accordance with GAAP.\nConstant Currency\nMicrosoft presents constant currency information to provide a framework for assessing how our underlying businesses performed excluding the effect of foreign currency rate fluctuations. To present this information, current and comparative prior period results for entities reporting in currencies other than United States dollars are converted into United States dollars using the average exchange rates from the comparative period rather than the actual exchange rates in effect during the respective periods. All growth comparisons relate to the corresponding period in the last fiscal year. Microsoft has provided this non-GAAP financial information to aid investors in better understanding our performance. The non-GAAP financial measures presented in this release should not be considered as a substitute for, or superior to, the measures of financial performance prepared in accordance with GAAP.\nFinancial Performance Constant Currency Reconciliation\nSegment Revenue Constant Currency Reconciliation\nSelected Product and Service Information Constant Currency Reconciliation\t\nAbout Microsoft\nMicrosoft (Nasdaq “MSFT” @microsoft) creates platforms and tools powered by AI to deliver innovative solutions that meet the evolving needs of our customers. The technology company is committed to making AI available broadly and doing so responsibly, with a mission to empower every person and every organization on the planet to achieve more.\nForward-Looking Statements\nStatements in this release that are “forward-looking statements” are based on current expectations and assumptions that are subject to risks and uncertainties. Actual results could differ materially because of factors such as: \nintense competition in all of our markets that could adversely affect our results of operations;\nsubstantial investments in cloud and AI strategy that depend on customer demand, technological developments, competitive dynamics, and regulatory condition;\ndevelopment, delivery, and maintenance of competitive cloud-based and AI products and services that achieve broad customer adoption and sustainable revenue growth;\nsignificant investments in products and services that may not achieve expected returns;\nacquisitions, joint ventures, and strategic alliances that could have an adverse effect on our business;\ncyberattacks and security vulnerabilities that could lead to reduced revenue, increased costs, liability claims, or harm to our reputation or competitive position;\ndisclosure and misuse of personal data that could cause liability and harm to our reputation; \nthe possibility that we may not be able to protect information in our products and services from use by others;\nabuse of our platforms that may harm our reputation or user engagement;\nproducts and services, how they are used by customers, and how third-party products and services interact with them, presenting security, privacy, and execution risks;\nissues about the development, deployment, and use of AI that may result in reputational or competitive harm, or liability; \ninability to develop and expand adequate infrastructure;\nsupply or other quality problems;\nexcessive outages, disruptions, or capacity constraints of our services if we fail to maintain an adequate operations infrastructure or secure resources necessary to support it;\npotential consequences of new, existing, and evolving legal and regulatory requirements;\nclaims against us that could result in adverse outcomes in legal disputes;\nuncertainties relating to our business with government customers;\nadditional tax liabilities;\nan inability to protect and utilize our intellectual property may harm our business and operating results;\nclaims that Microsoft has infringed the intellectual property rights of others;\ndamage to our reputation or our brands that may harm our business and results of operations;\nadverse economic or market conditions that could harm our business; \ncatastrophic events or geopolitical conditions that could disrupt our business; \nexposure to increased economic and operational uncertainties from operating a global business, including the effects of foreign currency exchange; and\nthe dependence of our business on our ability to attract and retain talented employees.\nFor more information about risks and uncertainties associated with Microsoft’s business, please refer to the “Management’s Discussion and Analysis of Financial Condition and Results of Operations” and “Risk Factors” sections of Microsoft’s SEC filings, including, but not limited to, its annual report on Form 10-K and quarterly reports on Form 10-Q, copies of which may be obtained by contacting Microsoft’s Investor Relations department at (800) 285-7772 or at Microsoft’s Investor Relations website at http://www.microsoft.com/en-us/investor.\nAll information in this release is as of June 30, 2026. The company undertakes no duty to update any forward-looking statement to conform the statement to actual results or changes in the company’s expectations.\nFor more information, press only: \nMicrosoft Media Relations, WE Communications for Microsoft, (425) 638-7777, rrt@we-worldwide.com \nFor more information, financial analysts and investors only: \nJonathan Neilson, Vice President, Investor Relations, (425) 706-4400\nNote to editors: For more information, news and perspectives from Microsoft, please visit the Microsoft News Center at http://www.microsoft.com/news. Web links, telephone numbers, and titles were correct at time of publication, but may since have changed. Shareholder and financial information, as well as today’s 2:30 p.m. Pacific time conference call with investors and analysts, is available at http://www.microsoft.com/en-us/investor.\nThree Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30,\n | 2026 | 2026 | 2026 |  | 2025 | 2025 | 2025 |  | Percentage Change Y/Y | Percentage Change Y/Y | Percentage Change Y/Y |  | Percentage Change Y/Y | Percentage Change Y/Y | Percentage Change Y/Y\n($ in millions, except per share amounts) | As\nReported\n(GAAP) | Impact from OpenAI* | As \nAdjusted \n(non-GAAP) |  | As\nReported\n(GAAP) | Impact from OpenAI* | As \nAdjusted \n(non-GAAP) |  | GAAP | Constant Currency | Net Impact from OpenAI* | Net Impact from OpenAI* | Net Impact from OpenAI* | Non-GAAP | Non-GAAP Constant Currency\nNet \nIncome | $35,766 | $(480) | $35,286 |  | $27,233 | $1,575 | $28,808 |  | 31% | 31% | $(2,055) | $(2,055) | $(2,055) | 22% | 22%\nDiluted \nEarnings\nper Share | $4.81 | $(0.07) | $4.74 |  | $3.65 | $0.21 | $3.86 |  | 32% | 32% | $(0.28) | $(0.28) | $(0.28) | 23% | 23%\nTwelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30,\n | 2026 | 2026 | 2026 |  | 2025 | 2025 | 2025 |  | Percentage Change Y/Y | Percentage Change Y/Y | Percentage Change Y/Y |  | Percentage Change Y/Y | Percentage Change Y/Y | Percentage Change Y/Y\n($ in millions, except per share amounts) | As\nReported\n(GAAP) | Impact from OpenAI* | As \nAdjusted \n(non-GAAP) |  | As\nReported\n(GAAP) | Impact from OpenAI* | As \nAdjusted \n(non-GAAP) |  | GAAP | Constant Currency | Net Impact from OpenAI* | Net Impact from OpenAI* | Net Impact from OpenAI* | Non-GAAP | Non-GAAP Constant Currency\nNet \nIncome | $133,749 | $(4,963) | $128,786 |  | $101,832 | $3,620 | $105,452 |  | 31% | 30% | $(8,583) | $(8,583) | $(8,583) | 22% | 20%\nDiluted \nEarnings\nper Share | $17.95 | $(0.67) | $17.28 |  | $13.64 | $0.49 | $14.13 |  | 32% | 30% | $(1.16) | $(1.16) | $(1.16) | 22% | 21%\nThree Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30,\n($ in millions, except per share amounts) | 2026 | 2026 |  | 2025 | 2025 |  | Percentage Change Y/Y | Percentage Change Y/Y |  | Percentage Change Y/Y | Percentage Change Y/Y\n($ in millions, except per share amounts) | As Reported\n(GAAP) | As Adjusted \n(non-GAAP) |  | As Reported \n(GAAP) | As Adjusted \n(non-GAAP) |  | GAAP | Non-\nGAAP | Constant Currency Impact | Constant Currency | Non-GAAP Constant \nCurrency\nRevenue | $90,007 | - |  | $76,441 | - |  | 18% | - | $391 | 17% | -\nOperating \nIncome | $40,603 | - |  | $34,323 | - |  | 18% | - | $269 | 18% | -\nNet Income | $35,766 | $35,286 |  | $27,233 | $28,808 |  | 31% | 22% | $40 | 31% | 22%\nDiluted \nEarnings \nper Share | $4.81 | $4.74 |  | $3.65 | $3.86 |  | 32% | 23% | $0.01 | 32% | 23%\nTwelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30,\n($ in millions, except per share amounts) | 2026 | 2026 |  | 2025 | 2025 |  | Percentage Change Y/Y | Percentage Change Y/Y |  | Percentage Change Y/Y | Percentage Change Y/Y\n($ in millions, except per share amounts) | As Reported\n(GAAP) | As Adjusted \n(non-GAAP) |  | As Reported \n(GAAP) | As Adjusted \n(non-GAAP) |  | GAAP | Non-\nGAAP | Constant Currency Impact | Constant Currency | Non-GAAP Constant \nCurrency\nRevenue | $331,839 | - |  | $281,724 | - |  | 18% | - | $4,445 | 16% | -\nOperating \nIncome | $155,237 | - |  | $128,528 | - |  | 21% | - | $2,896 | 19% | -\nNet Income | $133,749 | $128,786 |  | $101,832 | $105,452 |  | 31% | 22% | $1,772 | 30% | 20%\nDiluted \nEarnings \nper Share | $17.95 | $17.28 |  | $13.64 | $14.13 |  | 32% | 22% | $0.24 | 30% | 21%\nThree Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30,\n($ in millions) | 2026 |  | 2025 |  | Percentage Change Y/Y | Constant Currency Impact | Percentage Change Y/Y\n($ in millions) | As Reported\n(GAAP) |  | As Reported\n(GAAP) |  | GAAP | Constant Currency Impact | Constant Currency\nProductivity and Business Processes | $37,847 |  | $33,112 |  | 14% | $244 | 14%\nIntelligent Cloud | $39,306 |  | $29,878 |  | 32% | $80 | 31%\nMore Personal Computing | $12,854 |  | $13,451 |  | (4)% | $67 | (5)%\nThree Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026\n | Percentage Change Y/Y (GAAP) | Constant Currency Impact | Percentage Change Y/Y Constant Currency\nMicrosoft Cloud revenue | 27% | 0% | 27%\nCommercial remaining performance obligation | 84% | 0% | 84%\nMicrosoft 365 Commercial cloud revenue | 14% | 0% | 14%\nMicrosoft 365 Consumer cloud revenue | 24% | (2)% | 22%\nLinkedIn revenue | 12% | (2)% | 10%\nDynamics 365 revenue | 13% | (1)% | 12%\nAzure and other cloud services revenue | 43% | 0% | 43%\nWindows OEM and Devices revenue | (7)% | 0% | (7)%\nXBOX content and services revenue | (10)% | 0% | (10)%\nSearch advertising revenue excluding traffic acquisition costs | 10% | (1)% | 9%\nMICROSOFT CORPORATION | MICROSOFT CORPORATION |  |  |  |  |  | \nINCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS\n(In millions, except per share amounts) (Unaudited) | (In millions, except per share amounts) (Unaudited) | (In millions, except per share amounts) (Unaudited) | (In millions, except per share amounts) (Unaudited) | (In millions, except per share amounts) (Unaudited) | (In millions, except per share amounts) (Unaudited) | (In millions, except per share amounts) (Unaudited) | (In millions, except per share amounts) (Unaudited)\n | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, |  | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30,\n | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, |  | Twelve Months Ended June 30, | Twelve Months Ended June 30, | Twelve Months Ended June 30,\n | 2026 |  | 2025 |  | 2026 |  | 2025\nRevenue: |  |  |  |  |  |  | \nProduct | $17,234 |  | $17,136 |  | $64,696 |  | $63,946\nService and other | 72,773 |  | 59,305 |  | 267,143 |  | 217,778\nTotal revenue | 90,007 |  | 76,441 |  | 331,839 |  | 281,724\nCost of revenue: |  |  |  |  |  |  | \nProduct | 2,938 |  | 3,314 |  | 12,098 |  | 13,501\nService and other | 26,587 |  | 20,700 |  | 94,276 |  | 74,330\nTotal cost of revenue | 29,525 |  | 24,014 |  | 106,374 |  | 87,831\nGross margin | 60,482 |  | 52,427 |  | 225,465 |  | 193,893\nResearch and development | 9,997 |  | 8,829 |  | 35,562 |  | 32,488\nSales and marketing | 7,595 |  | 7,285 |  | 26,710 |  | 25,654\nGeneral and administrative | 2,287 |  | 1,990 |  | 7,956 |  | 7,223\nOperating income | 40,603 |  | 34,323 |  | 155,237 |  | 128,528\nOther income (expense), net | 3,444 |  | (1,707) |  | 10,697 |  | (4,901)\nIncome before income taxes | 44,047 |  | 32,616 |  | 165,934 |  | 123,627\nProvision for income taxes | 8,281 |  | 5,383 |  | 32,185 |  | 21,795\nNet income | $35,766 |  | $27,233 |  | $133,749 |  | $101,832\nEarnings per share: |  |  |  |  |  |  | \nBasic | $4.82 |  | $3.66 |  | $18.00 |  | $13.70\nDiluted | $4.81 |  | $3.65 |  | $17.95 |  | $13.64\nWeighted average shares outstanding: | Weighted average shares outstanding: | Weighted average shares outstanding: | Weighted average shares outstanding: |  |  |  | \nBasic | 7,427 |  | 7,432 |  | 7,429 |  | 7,433\nDiluted | 7,443 |  | 7,461 |  | 7,453 |  | 7,465\nCOMPREHENSIVE INCOME STATEMENTS | COMPREHENSIVE INCOME STATEMENTS | COMPREHENSIVE INCOME STATEMENTS | COMPREHENSIVE INCOME STATEMENTS | COMPREHENSIVE INCOME STATEMENTS | COMPREHENSIVE INCOME STATEMENTS | COMPREHENSIVE INCOME STATEMENTS | COMPREHENSIVE INCOME STATEMENTS\n(In millions) (Unaudited) | (In millions) (Unaudited) | (In millions) (Unaudited) | (In millions) (Unaudited) | (In millions) (Unaudited) | (In millions) (Unaudited) | (In millions) (U"
+  },
+  {
+    "role": "assistant",
+    "content": "\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_e0de0ea502b1407bbee7cc1a",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"financial_statements.txt\", \"query\": \"Azure revenue Q4-26\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_1b35906eaf994a4eacc3465d",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"transcript.txt\", \"query\": \"30 million paid\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_e0de0ea502b1407bbee7cc1a",
+    "name": "search_material",
+    "content": "在 financial_statements.txt 中未找到 “Azure revenue Q4-26”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_1b35906eaf994a4eacc3465d",
+    "name": "search_material",
+    "content": "[位置 10439]\n...l plane that extends companies’ existing governance, identity, security, and management frameworks to agents they build.\nJust two months in, Agent 365 now has nearly 40 million agents registered across tens of thousands of companies.\nNow, let me turn to the apps and agents we are building on top of this platform for individuals and organizations. \nWhen it comes to knowledge work, we now have over 30 million paid Microsoft 365 Copilot seats, with net seat adds more than doubling quarter-over-quarter. \nCopilot is evolving rapidly, from chat to Cowork to Autopilots.\nLast month, we made Cowork generally available, helping customers complete multi-step tasks grounded in their work data while meeting enterprise security and compliance requirements.\nThis quarter, we also introduced Autopilots, au...\n\n[位置 47154]\n...u so much.\nJONATHAN NEILSON: Thanks, Mark. Operator, next question, please.\nOPERATOR: Our next question comes from the line of Adam Wood with Morgan Stanley. Please proceed. \nADAM WOOD, Morgan Stanley: Hi, good evening. Thanks for taking the question. And also, congrats on a very strong end of the year. \nI wanted to maybe just ask about M365 Copilot. Obviously, very strong quarter there with over 30 million paid seats and a strong acceleration. Could you just talk a little bit about how you’re seeing customers move from pilots to broader deployments here? Is this still a pilot-driven motion or are we seeing a lot more broader deployments?\nAnd then when we think about the monetization of the product in terms of additional seats, migration to higher value SKUs like E7, and then consumption, ..."
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_72ffa3e7f8a24ef2b131794f",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"transcript.txt\", \"offset\": 47100}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_72ffa3e7f8a24ef2b131794f",
+    "name": "read_material",
+    "content": "[transcript.txt 第 47100–58106 字符，共 58106]\npilot. Obviously, very strong quarter there with over 30 million paid seats and a strong acceleration. Could you just talk a little bit about how you’re seeing customers move from pilots to broader deployments here? Is this still a pilot-driven motion or are we seeing a lot more broader deployments?\nAnd then when we think about the monetization of the product in terms of additional seats, migration to higher value SKUs like E7, and then consumption, what do you see is the main monetization or the main driver of monetization from here, please? Thank you.\nSATYA NADELLA: No, thank you, Adam, for that question. Let me start and then Amy can add.\nI think, yeah, it starts with, again, that product shape. As you can see, even within the quarter, the product shape has changed pretty dramatically. We now have chat, Cowork, autopilot, code all coming to essentially, what is going to become this flagship Super App that various roles can use it. \nAnd if you think about even the usage side, that’s the place where, again, lots of interesting data there, which is time to usage has drastically come down. What used to be months is days from when a license is bought to usage. The usage intensity itself has gone up significantly. I mean, we’re talking about a usage intensity that’s at the same level of what is an everyday communication tool like Outlook or Teams. \nThe second thing I’d say is the overall enterprise wiring of this, it’s not like a tool that’s isolated somewhere, but it’s wired in whether it is – you brought up E7. It’s wired into the governance pieces with Agent 365 so that you have your IT Ops, SecOps, FinOps all wired in, as well as it’s all the business processes.\nFor example, your CRM system, your ERP system, all of them are just skills and plug-ins that go into core work. You’re able to take that enterprise-wide workflow and wire it into the Super App. That increases usage so it all compounds. \nAnd then the other one is the business model. We now have this perceived business model. And so, we also now have the usage business model. It’s seat plus usage. We’re already seeing the ARPU growth that comes from things like E7, but really as we deliver more value to customer and customer outcomes at the enterprise level. \nIn fact, if I think about historically, Office compared to what Copilot is, is much more narrower. This is the first time where you really have an enterprise-wide tool, which has a both per-seat and usage-based pricing. The TAM is much more expansive. We’re going to be very, very focused on driving customer value and then expanding with it.\nAMY HOOD: Yeah, Adam, and I think I talked a little bit about it in my prepared remarks, but I do think what we’ve been seeing is over the course of this year, some of the growth in ARPU was from E5 plus the Copilot license that Satya is talking about. \nWe’ll see a little bit more from E7 really has a lot of interesting value in the Agent 365 component, in particular, where Satya is talking about, I mean, having SecOps and FinOps, think about in general, everyone is going to need both observability of token spend and the manageability of token spend for all business processes. And that is what E7 brings. \nAnd so, I think it was only in market for a part of the quarter, and I think we were quite encouraged by the value customers saw in that SKU. I think we’ll continue to focus on that through the year.\nAnd then finally, what Satya is talking about is this building TAM that grows through the year. And as I think about that expansive, expanding TAM, that’s really where we’re talking about this usage and consumption growth. And so, as more of those experiences get wired in and as IT gets more involved in that process, it’ll be quite, I think, changing in terms of what people think of the M365 capabilities.\nSATYA NADELLA: It would be fun for you, Adam. I think one of your colleagues put out an ROIC document. I took that document to Copilot, which is a PDF, and I said, “Build me a new Power BI dashboard, essentially.” But here is the thing. It built a rich semantic model that went into my Fabric with OneLake that brought all the data in from the external sources. In fact, it was current with all the SEC filings of all the MAG7. And then on top of that, the repo itself is in GitHub, but the artifact is sitting in my Copilot as a site. \nThat, to me, is a classic example of an enterprise-wide workflow. I, as a knowledge worker, could go create a dashboard. The data engineer can go to Fabric and find the artifact. The professional developer can go to the repo and find it in GitHub. And by the way, it’s all registered with Agent 365. That’s a little bit of what Amy is describing as the coming together of a new way to work, even while at the same time, bringing IT, security and manageability of it.\nADAM WOOD: That’s very helpful. Thank you.\nJONATHAN NEILSON: Thanks, Adam. Operator, next question, please.\nOPERATOR: The next question comes from the line of Brad Zelnick with Deutsche Bank. Please proceed.\nBRAD ZELNICK, Deutsche Bank: Great. Thank you so much for taking my question. \nSatya, appreciating cybersecurity is so core to everything Microsoft does, the playing field shifted recently with the latest frontier model releases, and this week you introduced Project Perception. Can you expand on what this moment means for your cyber business explicitly, and also what it means for trust in Microsoft more broadly? Thanks.\nSATYA NADELLA: Yeah, thank you for that question. I think you’re right about saying that the entire, I would say, overall physics of how both what is needed in terms of the cyber product and even the cyber operations, because at the end of the day, you have to transform yourself on both the products, but also how you operate as a company to protect yourself, have changed pretty dramatically. \nWhat we are focused on is first, again, take the same approach we’ve taken for knowledge work or coding, which is you’ve got to start with an intelligence-first, model-forward approach. And so, what we launched with Perception is essentially saying, let’s really make sure that you have the Red Team agents that know how to find – constantly are red teaming and finding the vulnerabilities. Then you have the Blue Team agent that is constantly going and making sure that you’re triaging, and the Green Team that fixes. \nYou create your own agentic system that’s continuously operating to create the cyber defense you need. It definitely feeds off of all the signals, whether it’s the defenders, the identity Entra signal, the Defender signal, the network signal, the app security signal, all that sort of helping really do the context so that you can then truly create the protection.\nThe other thing we’ve also said is especially in cyber, it becomes critical to have that multi-model approach, to the first question that was asked, not just for cost. In fact, we proved with the MDASH data in CyberGym that essentially, you can have Mythos-level performance with 50% less cost because of this MAI-Cyber-1-Flash. \nAnd the reason is because 90% of the tasks are done by the Cyber-1-Flash model, and 10% of the tasks, you still go to the frontier. This is that mixing of the right model for the right task in what is essentially a pipeline job is a super important characteristic. And so, to us, I think this is an important piece. \nOh, and the other thing I’d say is from a resilience perspective. For whatever reason, if a given model goes away, then you can’t be left high and dry. You need to be able to still continue your cyber operations. And that’s the other piece. \nIt’s cost and resilience is both an important criteria. And that’s what we are trying to build in, whether it’s in code, whether it’s in cyber, whether it is in knowledge work. And we’re very excited about Perception and what it means, quite frankly, for our security business, going forward.\nBRAD ZELNICK: Super helpful. Thank you.\nJONATHAN NEILSON: Thanks, Brad. Operator, we have time for one last question.\nOPERATOR: And the last question will come from the line of Gabriela Borges with Goldman Sachs. Please proceed.\nGABRIELA BORGES, Goldman Sachs: Hey, good afternoon. Thank you.\nAmy, I wanted to ask you about ROI. You’ve given us color on the CapEx side of the equation. You’ve given us color on the monetization side of the equation. Maybe put those two pieces together for us. \nWhen you look at and track ROI on the CapEx decisions you’re making today, how does that compare to a year ago, and what are some of the levers that you can still pull, perhaps from the internal silicon side, for example, as a driver of incremental monetization going forward? Thank you.\nAMY HOOD: Thanks, Gabriela. \nI don’t know that, quite frankly, my math has changed in terms of how I do it over the past year. I would say the way to think about it for me is more the confidence in the TAM expansion, the margin levers that we have in terms of both product improvements than the infrastructure improvements.\nWe talked about some already on the call today in terms of the levers we have to continue to get efficiencies across both the application part of the stack and then the infra part of the stack. But you’re right, we didn’t touch on all of the pieces. I think Satya actually commented on a number of them. \nWe still have opportunities, obviously, as we continue to look for the best price performance on silicon, including our investments in first party. The work, frankly, on model diversification also is a margin improvement opportunity. Being able to serve the best possible outcome with a more efficient, or both efficient in terms of token usage and efficient in terms of cost structure are also margin levers. All of these things contribute, obviously, to your point of increased confidence in ROIC, frankly, of the dollars that we’re investing and continue to invest going forward.\nAs we think about the mix of the portfolio being able to have a pretty broad pool across knowledge work, coding, security, then basically the agent layer, I’ll call that Agent 365 as kind of a cheat, but all of that also is an opportunity, and then of course what we talked about on the Azure side between model efficiency, silicon, and component efficiency, including our investments in 1P solutions there, and just the overall efficiency of running it at a hyperscale. \nSo we have quite a few levers to continue to see improvement that we’re focused on, but as Satya mentioned, this is the grind work. This is like every day, you just get a little better, get a little better. We actually are quite good at that grind and making sure that we can deliver that for customers.\nGABRIELA BORGES: That all makes sense. Thank you. \nJONATHAN NEILSON: Thanks, Gabriela. \nThat wraps up the Q&A portion of today’s earnings call. Thank you for joining us today, and we look forward to speaking with all of you soon. \nSATYA NADELLA: Thank you very much. \nAMY HOOD: Thank you.\n(Operator Direction.) \nEND"
+  },
+  {
+    "role": "assistant",
+    "content": "现在我已经全面检索了所有材料。让我确认 Azure 是否在任何地方有单独的绝对金额披露。\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_cbbe348a1cc24a98a63d6c10",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"financial_statements.txt\", \"query\": \"Azure and other cloud services revenue\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_7008b7bf5ce64306acb2d852",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"Azure and other cloud services revenue\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_cbbe348a1cc24a98a63d6c10",
+    "name": "search_material",
+    "content": "[位置 11066]\n... | 0.06 | 0.06\n |  | Microsoft 365 Consumer cloud revenue growth (y/y)* | 20% / 20% | 11% / 12% | 26% / 25% | 29% / 27% | 33% / 29% | 24% / 22% | 28% / 26%\n |  | LinkedIn revenue growth (y/y)* | 9% / 8% | 9% / 9% | 10%/ 9% | 11% / 10% | 12% / 9% | 12% / 10% | 11% / 9%\n |  | Dynamics 365 revenue growth (y/y)* | 23% / 21% | 19% / 19% | 18% / 16% | 19% / 17% | 22% / 17% | 13% / 12% | 18% / 15%\n |  | Azure and other cloud services revenue growth (y/y)* | 39% / 39% | 34% / 35% | 40% / 39% | 39% / 38% | 40% / 39% | 43% / 43% | 41% / 40%\n | More Personal Computing\n |  | Windows OEM and Devices revenue growth (y/y)* | 3% / 3% | 3% / 3% | 6% / 6% | 1% / 0% | -2% / -3% | -7% / -7% | -1% / -1%\n |  | XBOX content and services revenue growth (y/y)* | 13% / 12% | 16% / 16% | 1% / 0% | -5% / -6% | -5% / ..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_7008b7bf5ce64306acb2d852",
+    "name": "search_material",
+    "content": "[位置 3240]\n..., Microsoft 365 Commercial cloud revenue increased 14%.\nMicrosoft 365 Consumer cloud revenue increased 24% (up 22% in constant currency) \nLinkedIn revenue increased 12% (up 10% in constant currency)\nDynamics 365 revenue increased 13% (up 12% in constant currency)\nRevenue in Intelligent Cloud was $39.3 billion and increased 32% (up 31% in constant currency), with the following business highlights:\nAzure and other cloud services revenue increased 43%\nRevenue in More Personal Computing was $12.9 billion and decreased 4% (down 5% in constant currency), with the following business highlights:\nWindows OEM and Devices revenue decreased 7% \nXBOX content and services revenue decreased 10%\nSearch advertising revenue excluding traffic acquisition costs increased 10% (up 9% in constant currency)\nMicro...\n\n[位置 19556]\n...30, 2026\n | Percentage Change Y/Y (GAAP) | Constant Currency Impact | Percentage Change Y/Y Constant Currency\nMicrosoft Cloud revenue | 27% | 0% | 27%\nCommercial remaining performance obligation | 84% | 0% | 84%\nMicrosoft 365 Commercial cloud revenue | 14% | 0% | 14%\nMicrosoft 365 Consumer cloud revenue | 24% | (2)% | 22%\nLinkedIn revenue | 12% | (2)% | 10%\nDynamics 365 revenue | 13% | (1)% | 12%\nAzure and other cloud services revenue | 43% | 0% | 43%\nWindows OEM and Devices revenue | (7)% | 0% | (7)%\nXBOX content and services revenue | (10)% | 0% | (10)%\nSearch advertising revenue excluding traffic acquisition costs | 10% | (1)% | 9%\nMICROSOFT CORPORATION | MICROSOFT CORPORATION |  |  |  |  |  | \nINCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEM..."
+  },
+  {
+    "role": "assistant",
+    "content": "根据我对所有可用材料的全面检索，以下是结论：\n\n---\n\n## 1. Microsoft 365 Copilot 在 FY26 Q4 的收入\n\n**无法确定具体收入金额（美元）。**\n\n材料中实际披露的是：\n- **付费席位数**：Microsoft 365 Copilot 在 FY26 Q4 达到了 **超过 3000 万个付费席位（over 30 million paid seats）**，净新增席位环比翻倍。\n  - 出处：`press_release.txt` 位置 ~1560（Satya Nadella 引述：\"Microsoft 365 Copilot reached over 30 million paid seats\"）；`transcript.txt` 位置 ~10469（Satya Nadella：\"we now have over 30 million paid Microsoft 365 Copilot seats\"）\n- **定性货币化讨论**：在分析师 Q&A 中，Satya Nadella 和 Amy Hood 讨论了 seat + usage 双重商业模式、E7 SKU 的早期贡献、以及 ARPU 增长，但**均未给出 Copilot 的具体收入美元数字**。\n  - 出处：`transcript.txt` 位置 ~47154（Adam Wood 提问 monetization，Amy Hood 仅讨论 ARPU/E5/E7，未披露金额）\n\n材料中没有 Microsoft 365 Copilot 的单独收入行项目。\n\n---\n\n## 2. Azure 在 FY26 Q4 单季度的收入绝对金额\n\n**无法确定具体收入金额（美元）。**\n\n材料中实际披露的是：\n- **Azure 同比增长率**：Azure and other cloud services revenue 在 FY26 Q4 **同比增长 43%**（GAAP 和恒定汇率均为 43%）。\n  - 出处：`press_release.txt` 位置 ~3240（\"Azure and other cloud services revenue increased 43%\"）；`metrics.txt` 位置 ~1419（Azure and other cloud services revenue growth (y/y)*：Q4'26 = 43% / 43%）；`financial_statements.txt` 位置 ~11066（同上）\n- **Intelligent Cloud 分部总收入**：$39.3 billion（同比增长 32%），但该分部还包含其他业务（如 Server products、Enterprise services 等），Azure 不是该分部唯一的收入来源。\n  - 出处：`press_release.txt` 位置 ~3240（\"Revenue in Intelligent Cloud was $39.3 billion\"）\n\n在 `financial_statements.txt` 的收入细分表（Significant Product and Service Offerings）中，**Azure 并非独立行项目**。该表中最接近的类别是 \"Server products and cloud services\"，Q4'26 为 $37,096 million（约 $37.1 billion），但这包含了 Azure 之外的 Server products 等其他业务，不能等同于 Azure 收入。\n\n因此，Azure 的单季度绝对收入金额在所提供的材料中未被披露，仅有增长率数据可用。"
+  }
+]

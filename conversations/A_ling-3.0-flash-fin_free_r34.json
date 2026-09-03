@@ -1,0 +1,370 @@
+[
+  {
+    "role": "user",
+    "content": "你是金融投研分析师。可用工具读取微软 FY26 Q4 的官方财报材料。\n请先用 list_materials 查看有哪些文件，再按需读取。\n所有结论必须给出具体出处（文件名 + 位置），不得凭印象作答。\n\n问题：微软 FY26 Q4（截至 2026 年 6 月的三个月）：\n1. \"Microsoft Cloud revenue\" 是多少？\n2. \"Intelligent Cloud\" 分部收入是多少？\n3. 这两个是不是同一个东西？如果不是，请说明各自的口径是什么、差异有多大。\n\n请分别给出数字、单位、以及每个数字的出处（文件名和它在文件中的位置或所在表名）。\n"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_ea1e553ae6084032a78145ba",
+        "function": {
+          "name": "list_materials",
+          "arguments": "{}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_ea1e553ae6084032a78145ba",
+    "name": "list_materials",
+    "content": "10k.txt  (423,020 字符)\ncatl_2025_annual.txt  (215,347 字符)\nfinancial_statements.txt  (29,612 字符)\nmetrics.txt  (2,266 字符)\npress_release.txt  (29,949 字符)\ntranscript.txt  (58,106 字符)"
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_c2bd75d014a244beb224fb35",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"Microsoft Cloud revenue\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_8214c596ec5d4aaa825980b8",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"Intelligent Cloud\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_ddf45f1e82304185b47b5643",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"metrics.txt\", \"query\": \"Microsoft Cloud\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_c2bd75d014a244beb224fb35",
+    "name": "search_material",
+    "content": "[位置 1784]\n... tokens into business results,\" said Satya Nadella, chairman and chief executive officer of Microsoft. “This year, Azure revenue surpassed $100 billion for the first time, and Microsoft 365 Copilot reached over 30 million paid seats, reflecting the confidence customers are placing in us to power their AI transformation.”\n “We delivered a strong quarter to close out the fiscal year, highlighted by Microsoft Cloud revenue of $59.3 billion, up 27% year-over-year,” said Amy Hood, executive vice president and chief financial officer of Microsoft.\nThe following table adjusts for the impact from investments in OpenAI and reconciles our financial results reported in accordance with generally accepted accounting principles (GAAP) to non-GAAP financial results. Additional information regarding our n...\n\n[位置 2397]\n...enAI and reconciles our financial results reported in accordance with generally accepted accounting principles (GAAP) to non-GAAP financial results. Additional information regarding our non-GAAP definition is provided below. All growth comparisons relate to the corresponding period in the last fiscal year. \n*Impact from OpenAI adjusts for the impact from investments in OpenAI \nBusiness Highlights\nMicrosoft Cloud revenue was $59.3 billion and increased 27%, and commercial remaining performance obligation increased 84% to $678 billion.\nRevenue in Productivity and Business Processes was $37.8 billion and increased 14%, with the following business highlights:\nMicrosoft 365 Commercial cloud revenue increased 16% when adjusted for the prior year comparable that benefited from 2 points of in-peri...\n\n[位置 19266]\n...33,112 |  | 14% | $244 | 14%\nIntelligent Cloud | $39,306 |  | $29,878 |  | 32% | $80 | 31%\nMore Personal Computing | $12,854 |  | $13,451 |  | (4)% | $67 | (5)%\nThree Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026\n | Percentage Change Y/Y (GAAP) | Constant Currency Impact | Percentage Change Y/Y Constant Currency\nMicrosoft Cloud revenue | 27% | 0% | 27%\nCommercial remaining performance obligation | 84% | 0% | 84%\nMicrosoft 365 Commercial cloud revenue | 14% | 0% | 14%\nMicrosoft 365 Consumer cloud revenue | 24% | (2)% | 22%\nLinkedIn revenue | 12% | (2)% | 10%\nDynamics 365 revenue | 13% | (1)% | 12%\nAzure and other cloud services revenue | 43% | 0% | 43%\nWindows OEM and Devices revenue | (7)% | 0% | (7)%\nXBO..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_8214c596ec5d4aaa825980b8",
+    "name": "search_material",
+    "content": "[位置 3115]\n...hen adjusted for the prior year comparable that benefited from 2 points of in-period revenue recognition. On a reported basis, Microsoft 365 Commercial cloud revenue increased 14%.\nMicrosoft 365 Consumer cloud revenue increased 24% (up 22% in constant currency) \nLinkedIn revenue increased 12% (up 10% in constant currency)\nDynamics 365 revenue increased 13% (up 12% in constant currency)\nRevenue in Intelligent Cloud was $39.3 billion and increased 32% (up 31% in constant currency), with the following business highlights:\nAzure and other cloud services revenue increased 43%\nRevenue in More Personal Computing was $12.9 billion and decreased 4% (down 5% in constant currency), with the following business highlights:\nWindows OEM and Devices revenue decreased 7% \nXBOX content and services revenue ...\n\n[位置 18895]\n...| Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30,\n($ in millions) | 2026 |  | 2025 |  | Percentage Change Y/Y | Constant Currency Impact | Percentage Change Y/Y\n($ in millions) | As Reported\n(GAAP) |  | As Reported\n(GAAP) |  | GAAP | Constant Currency Impact | Constant Currency\nProductivity and Business Processes | $37,847 |  | $33,112 |  | 14% | $244 | 14%\nIntelligent Cloud | $39,306 |  | $29,878 |  | 32% | $80 | 31%\nMore Personal Computing | $12,854 |  | $13,451 |  | (4)% | $67 | (5)%\nThree Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026\n | Percentage Change Y/Y (GAAP) | Constant Currency Impact | Percentage Change Y/Y Constant Currency\nMicrosoft Cloud revenue | 27%..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_ddf45f1e82304185b47b5643",
+    "name": "search_material",
+    "content": "[位置 422]\n...nvestor Metrics\n | (in billions, except for percentages) |  | Q4'25 | FY25 | Q1'26 | Q2'26 | Q3'26 | Q4'26 | FY26\n | Commercial (Includes commercial portion of LinkedIn)\n |  | Commercial bookings growth (y/y)* | 37% / 30% | 0.38 | 112% / 111% | 230% / 228% | -4% / -6% | 10% / 11% | 0.8300000000000001\n |  | Commercial remaining performance obligation | 368 | 368 | 392 | 625 | 627 | 678 | 678\n |  | Microsoft Cloud revenue | 46.7 | 168.9 | 49.1 | 51.5 | 54.5 | 59.3 | 214.4\n |  | Microsoft Cloud revenue growth (y/y)* | 27% / 25% | 23% / 23% | 26% / 25% | 26% / 24% | 29% / 25% | 27% / 27% | 27% / 25%\n |  | Microsoft Cloud gross margin percentage | 0.68 | 0.6900000000000001 | 0.68 | 0.67 | 0.66 | 0.65 | 0.66\n | Productivity & Business Processes and Intelligent Cloud\n |  | Microsoft 365 Commercia...\n\n[位置 503]\n...6 | Q2'26 | Q3'26 | Q4'26 | FY26\n | Commercial (Includes commercial portion of LinkedIn)\n |  | Commercial bookings growth (y/y)* | 37% / 30% | 0.38 | 112% / 111% | 230% / 228% | -4% / -6% | 10% / 11% | 0.8300000000000001\n |  | Commercial remaining performance obligation | 368 | 368 | 392 | 625 | 627 | 678 | 678\n |  | Microsoft Cloud revenue | 46.7 | 168.9 | 49.1 | 51.5 | 54.5 | 59.3 | 214.4\n |  | Microsoft Cloud revenue growth (y/y)* | 27% / 25% | 23% / 23% | 26% / 25% | 26% / 24% | 29% / 25% | 27% / 27% | 27% / 25%\n |  | Microsoft Cloud gross margin percentage | 0.68 | 0.6900000000000001 | 0.68 | 0.67 | 0.66 | 0.65 | 0.66\n | Productivity & Business Processes and Intelligent Cloud\n |  | Microsoft 365 Commercial cloud revenue growth (y/y)* | 18% / 16% | 15% / 15% | 17% / 15% | 17% / 14% | 1...\n\n[位置 631]\n... | 37% / 30% | 0.38 | 112% / 111% | 230% / 228% | -4% / -6% | 10% / 11% | 0.8300000000000001\n |  | Commercial remaining performance obligation | 368 | 368 | 392 | 625 | 627 | 678 | 678\n |  | Microsoft Cloud revenue | 46.7 | 168.9 | 49.1 | 51.5 | 54.5 | 59.3 | 214.4\n |  | Microsoft Cloud revenue growth (y/y)* | 27% / 25% | 23% / 23% | 26% / 25% | 26% / 24% | 29% / 25% | 27% / 27% | 27% / 25%\n |  | Microsoft Cloud gross margin percentage | 0.68 | 0.6900000000000001 | 0.68 | 0.67 | 0.66 | 0.65 | 0.66\n | Productivity & Business Processes and Intelligent Cloud\n |  | Microsoft 365 Commercial cloud revenue growth (y/y)* | 18% / 16% | 15% / 15% | 17% / 15% | 17% / 14% | 19% / 15% | 14% / 14% | 17% / 14%\n |  | Microsoft 365 Commercial seat growth (y/y) | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0...."
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_dce13e35dddd48ccb7caa512",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"Microsoft Cloud definition\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_fc364db3cf814c5a88a8a025",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"what is Microsoft Cloud\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_5a9e4e7e5c5e4f278d294ccd",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"offset\": 18700, \"length\": 1500}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_dce13e35dddd48ccb7caa512",
+    "name": "search_material",
+    "content": "在 press_release.txt 中未找到 “Microsoft Cloud definition”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_fc364db3cf814c5a88a8a025",
+    "name": "search_material",
+    "content": "在 press_release.txt 中未找到 “what is Microsoft Cloud”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_5a9e4e7e5c5e4f278d294ccd",
+    "name": "read_material",
+    "content": "[press_release.txt 第 18700–20200 字符，共 29949]\nn millions) | As Reported\n(GAAP) |  | As Reported\n(GAAP) |  | GAAP | Constant Currency Impact | Constant Currency\nProductivity and Business Processes | $37,847 |  | $33,112 |  | 14% | $244 | 14%\nIntelligent Cloud | $39,306 |  | $29,878 |  | 32% | $80 | 31%\nMore Personal Computing | $12,854 |  | $13,451 |  | (4)% | $67 | (5)%\nThree Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026\n | Percentage Change Y/Y (GAAP) | Constant Currency Impact | Percentage Change Y/Y Constant Currency\nMicrosoft Cloud revenue | 27% | 0% | 27%\nCommercial remaining performance obligation | 84% | 0% | 84%\nMicrosoft 365 Commercial cloud revenue | 14% | 0% | 14%\nMicrosoft 365 Consumer cloud revenue | 24% | (2)% | 22%\nLinkedIn revenue | 12% | (2)% | 10%\nDynamics 365 revenue | 13% | (1)% | 12%\nAzure and other cloud services revenue | 43% | 0% | 43%\nWindows OEM and Devices revenue | (7)% | 0% | (7)%\nXBOX content and services revenue | (10)% | 0% | (10)%\nSearch advertising revenue excluding traffic acquisition costs | 10% | (1)% | 9%\nMICROSOFT CORPORATION | MICROSOFT CORPORATION |  |  |  |  |  | \nINCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS | INCOME STATEMENTS\n(In millions, except per share amounts) (Unaudited) | (In millions, except per share amounts) (Unaudited) | (In millions, except per share amounts) (Unaudited) | (In millions, exc"
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n\n\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_b0be2a3bb6984763b8b66f89",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"Microsoft Cloud includes\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_fa8708118af344e597c63e93",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"Microsoft Cloud revenue definition\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 2,
+        "id": "call_95674b13a8a8423ca60a999b",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"Non-GAAP\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_b0be2a3bb6984763b8b66f89",
+    "name": "search_material",
+    "content": "在 press_release.txt 中未找到 “Microsoft Cloud includes”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_fa8708118af344e597c63e93",
+    "name": "search_material",
+    "content": "在 press_release.txt 中未找到 “Microsoft Cloud revenue definition”"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_95674b13a8a8423ca60a999b",
+    "name": "search_material",
+    "content": "[位置 622]\n...od of last fiscal year:\nRevenue was $90.0 billion and increased 18% (up 17% in constant currency)\nOperating income was $40.6 billion and increased 18% \nNet income was $35.8 billion and increased 31% on a GAAP basis, and was $35.3 billion and increased 22% on a non-GAAP basis\nDiluted earnings per share was $4.81 and increased 32% on a GAAP basis, and was $4.74 and increased 23% on a non-GAAP basis\nNon-GAAP results exclude the impact from investments in OpenAI, explained in the Non-GAAP Definition section below\nSeveral discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share. These include a $3.2 billion gain from our investment in Anthropic and lower-th...\n\n[位置 703]\n...nstant currency)\nOperating income was $40.6 billion and increased 18% \nNet income was $35.8 billion and increased 31% on a GAAP basis, and was $35.3 billion and increased 22% on a non-GAAP basis\nDiluted earnings per share was $4.81 and increased 32% on a GAAP basis, and was $4.74 and increased 23% on a non-GAAP basis\nNon-GAAP results exclude the impact from investments in OpenAI, explained in the Non-GAAP Definition section below\nSeveral discrete items impacted our financial results in the quarter when compared to our forward-looking guidance provided on April 29, 2026, resulting in a benefit of $0.27 on diluted earnings per share. These include a $3.2 billion gain from our investment in Anthropic and lower-than-expected expenses related to the Voluntary Retirement Program which were parti...\n\n[位置 4389]\n...creased 18% (up 16% in constant currency)\nOperating income was $155.2 billion and increased 21% (up 19% in constant currency)\nNet income was $133.7 billion and increased 31% on a GAAP basis, and increased 22% (up 20% in constant currency) on a non-GAAP basis\nDiluted earnings per share was $17.95 and increased 32% on a GAAP basis, and increased 22% (up 21% in constant currency) on a non-GAAP basis\nNon-GAAP results exclude the impact from investments in OpenAI, explained in the Non-GAAP Definition section below\nThe following table adjusts for the impact from investments in OpenAI and reconciles our financial results reported in accordance with GAAP to non-GAAP financial results. Additional information regarding our non-GAAP definition is provided below. All growth comparisons relate to the c...\n\n[位置 4470]\n... increased 21% (up 19% in constant currency)\nNet income was $133.7 billion and increased 31% on a GAAP basis, and increased 22% (up 20% in constant currency) on a non-GAAP basis\nDiluted earnings per share was $17.95 and increased 32% on a GAAP basis, and increased 22% (up 21% in constant currency) on a non-GAAP basis\nNon-GAAP results exclude the impact from investments in OpenAI, explained in the Non-GAAP Definition section below\nThe following table adjusts for the impact from investments in OpenAI and reconciles our financial results reported in accordance with GAAP to non-GAAP financial results. Additional information regarding our non-GAAP definition is provided below. All growth comparisons relate to the corresponding period in the last fiscal year. \n*Impact from OpenAI adjusts for the...\n\n[位置 6420]\n...y to discuss details of the company’s performance for the quarter and certain forward-looking information. The session may be accessed at http://www.microsoft.com/en-us/investor. Participants can also dial into the conference call at (877) 407-0666 or +1 (201) 689-8023 for international, no password required. The webcast will be available for replay through the close of business on July 29, 2027.\nNon-GAAP Definition\nImpact from investments in OpenAI. In fiscal year 2026, net income and diluted earnings per share were impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted earnings per share of $480 million and $0.07, respectively, in the fourth quarter, and $4,963 million and $0.67, respectively, for the full fiscal year. In fiscal year 202..."
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_dcdebbe38ef94af8bc1a7740",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"length\": 1500, \"offset\": 6400}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_316c534f677d4b5db51c6753",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"metrics.txt\", \"length\": 800, \"offset\": 400}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_dcdebbe38ef94af8bc1a7740",
+    "name": "read_material",
+    "content": "[press_release.txt 第 6400–7900 字符，共 29949]\ns on July 29, 2027.\nNon-GAAP Definition\nImpact from investments in OpenAI. In fiscal year 2026, net income and diluted earnings per share were impacted by net gains from investments in OpenAI, which resulted in an increase in net income and diluted earnings per share of $480 million and $0.07, respectively, in the fourth quarter, and $4,963 million and $0.67, respectively, for the full fiscal year. In fiscal year 2025, net income and diluted earnings per share were impacted by net losses from investments in OpenAI, which resulted in a decrease in net income and diluted earnings per share of $1,575 million and $0.21, respectively, in the fourth quarter, and $3,620 million and $0.49, respectively, for the full fiscal year.\nMicrosoft has provided non-GAAP financial measures related to the impact from investments in OpenAI to aid investors in better understanding our performance. Microsoft believes these non-GAAP measures assist investors by providing additional insight into its operational performance and help clarify trends affecting its business. For comparability of reporting, management considers non-GAAP measures in conjunction with GAAP financial results in evaluating business performance. The non-GAAP financial measures presented in this release should not be considered as a substitute for, or superior to, the measures of financial performance prepared in accordance with GAAP.\nConstant Currency\nMicrosoft presents constant currency information to provide a framework for as"
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_316c534f677d4b5db51c6753",
+    "name": "read_material",
+    "content": "[metrics.txt 第 400–1200 字符，共 2266]\n627 | 678 | 678\n |  | Microsoft Cloud revenue | 46.7 | 168.9 | 49.1 | 51.5 | 54.5 | 59.3 | 214.4\n |  | Microsoft Cloud revenue growth (y/y)* | 27% / 25% | 23% / 23% | 26% / 25% | 26% / 24% | 29% / 25% | 27% / 27% | 27% / 25%\n |  | Microsoft Cloud gross margin percentage | 0.68 | 0.6900000000000001 | 0.68 | 0.67 | 0.66 | 0.65 | 0.66\n | Productivity & Business Processes and Intelligent Cloud\n |  | Microsoft 365 Commercial cloud revenue growth (y/y)* | 18% / 16% | 15% / 15% | 17% / 15% | 17% / 14% | 19% / 15% | 14% / 14% | 17% / 14%\n |  | Microsoft 365 Commercial seat growth (y/y) | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06 | 0.06\n |  | Microsoft 365 Consumer cloud revenue growth (y/y)* | 20% / 20% | 11% / 12% | 26% / 25% | 29% / 27% | 33% / 29% | 24% / 22% | 28% / 26%\n |  | LinkedIn revenue gr"
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_80f382eea92c4505a646af5b",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"10k.txt\", \"query\": \"Microsoft Cloud revenue\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_ac2d9f6103374aebb41a386f",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"10k.txt\", \"query\": \"Microsoft Cloud includes\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_80f382eea92c4505a646af5b",
+    "name": "search_material",
+    "content": "[位置 139566]\n...dvertising to a global audience; and designing and selling devices. Our most significant expenses are related to compensating employees; supporting and investing in our cloud-based services, including datacenter operations; designing, manufacturing, marketing, and selling our other products and services; and income taxes.\nHighlights from fiscal year 2026 compared with fiscal year 2025 included:\n•\tMicrosoft Cloud revenue increased 27% to $214.4 billion.\n•\tCommercial remaining performance obligation increased 84% to $678 billion.\n•\tMicrosoft 365 Commercial cloud revenue increased 17%.\n•\tMicrosoft 365 Consumer cloud revenue increased 28%. \n•\tLinkedIn revenue increased 11%.\n•\tDynamics 365 revenue increased 18%.\n•\tAzure and other cloud services revenue increased 41%.\n•\tWindows OEM and Devices r...\n\n[位置 248681]\n...26, 2025, or 2024. Revenue, classified by the major geographic areas in which our customers were located, was as follows:\n(a)\tIncludes billings to OEMs and certain multinational organizations because of the nature of these businesses and the impracticability of determining the geographic source of the revenue. \nRevenue, classified by significant product and service offerings, was as follows: \nOur Microsoft Cloud revenue, which includes Microsoft 365 Commercial cloud, Azure and other cloud services, the commercial portion of LinkedIn, and Dynamics 365, was $214.4 billion, $168.9 billion, and $137.7 billion in fiscal years 2026, 2025, and 2024, respectively. These amounts are included in Server products and cloud services, Microsoft 365 Commercial products and cloud services, LinkedIn, and D...\n\n[位置 336895]\n...  |  |  |  |  |  |  |  |  |  |  |  |  | (In millions) | \nJune 10, 2026 |  |  | August 20, 2026 |  |  |  | September 10, 2026 |  |  | $ | 0.91 |  |  | $ | 6,759 | \nCommercial remaining performance obligation |  | Commercial portion of revenue allocated to remaining performance obligations, which includes unearned revenue and amounts that will be invoiced and recognized as revenue in future periods\nMicrosoft Cloud revenue and revenue growth |  | Revenue from Microsoft 365 Commercial cloud, Azure and other cloud services, the commercial portion of LinkedIn, and Dynamics 365\nMicrosoft Cloud gross margin percentage |  | Gross margin percentage for our Microsoft Cloud business\nMicrosoft 365 Commercial cloud revenue growth |  | Revenue from Microsoft 365 Commercial subscriptions, comprising Micro..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_ac2d9f6103374aebb41a386f",
+    "name": "search_material",
+    "content": "在 10k.txt 中未找到 “Microsoft Cloud includes”"
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_b503e6d380ee4e4b9753a611",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"10k.txt\", \"query\": \"Intelligent Cloud segment\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_337d1157d96c4094989a9f4a",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"10k.txt\", \"query\": \"Server products and cloud services\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_b503e6d380ee4e4b9753a611",
+    "name": "search_material",
+    "content": "[位置 18459]\n...esource services companies; job boards; companies that provide learning and development products and services; online and offline outlets that generate revenue from advertisers and marketers; and online and offline outlets for companies with lead generation and customer intelligence and insights.\nDynamics competes with cloud-based and on-premises business solution providers.\nIntelligent Cloud\nOur Intelligent Cloud segment consists of our public, private, and hybrid server products and cloud services that power modern business and developers. This segment primarily comprises:\n•\tServer products and cloud services, including Azure and other cloud services, comprising cloud and AI consumption-based services, GitHub cloud services, Health and Life Sciences cloud services (formerly Nuance Health...\n\n[位置 146692]\n...es, the commercial portion of LinkedIn, Dynamics products and cloud services, and Enterprise and partner services. Our commercial metrics allow management and investors to assess the overall health of our commercial business and include leading indicators of future performance.\nProductivity and Business Processes and Intelligent Cloud\nMetrics related to our Productivity and Business Processes and Intelligent Cloud segments assess the health of our core businesses within these segments. The metrics primarily reflect growth across our cloud services.\nMore Personal Computing\nMetrics related to our More Personal Computing segment assess the performance of our key consumer businesses.\nSUMMARY RESULTS OF OPERATIONS\nAdjusted net income and adjusted diluted earnings per share (“EPS”) are non-GAAP ...\n\n[位置 245088]\n..., Office licensed on-premises, and other consumer services.\n•\tLinkedIn, including Talent Solutions, Marketing Solutions, Premium Subscriptions, and Sales Solutions.\n•\tDynamics products and cloud services, including Dynamics 365, comprising a set of intelligent, cloud-based applications across ERP, CRM, Power Apps, and Power Automate; and on-premises ERP and CRM applications.\nIntelligent Cloud\nOur Intelligent Cloud segment consists of our public, private, and hybrid server products and cloud services that power modern business and developers. This segment primarily comprises:\n•\tServer products and cloud services, including Azure and other cloud services, comprising cloud and AI consumption-based services, GitHub cloud services, Health and Life Sciences cloud services (formerly Nuance Health..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_337d1157d96c4094989a9f4a",
+    "name": "search_material",
+    "content": "[位置 18643]\n...keters; and online and offline outlets for companies with lead generation and customer intelligence and insights.\nDynamics competes with cloud-based and on-premises business solution providers.\nIntelligent Cloud\nOur Intelligent Cloud segment consists of our public, private, and hybrid server products and cloud services that power modern business and developers. This segment primarily comprises:\n•\tServer products and cloud services, including Azure and other cloud services, comprising cloud and AI consumption-based services, GitHub cloud services, Health and Life Sciences cloud services (formerly Nuance Healthcare cloud services), virtual desktop offerings, and other cloud services; and Server products, comprising SQL Server, Windows Server, Visual Studio, System Center, related Client Acce...\n\n[位置 146206]\n...ed in the United States of America (“GAAP”), and growth comparisons relate to the corresponding period of last fiscal year.\nIn the first quarter of fiscal year 2026, we made updates to our metrics to align with how we manage and monitor certain businesses. As part of these updates, Microsoft 365 Consumer subscribers was removed as a metric.\nCommercial\nOur commercial business primarily consists of Server products and cloud services, Microsoft 365 Commercial products and cloud services, the commercial portion of LinkedIn, Dynamics products and cloud services, and Enterprise and partner services. Our commercial metrics allow management and investors to assess the overall health of our commercial business and include leading indicators of future performance.\nProductivity and Business Processes...\n\n[位置 151513]\n... in research and development compute capacity, AI talent, and data to support product development that benefits the entire portfolio, as well as investments in commercial sales and higher Copilot advertising expenses.\nRevenue, gross margin, and operating income included a favorable foreign currency impact of 2%, 3%, and 3%, respectively.\nIntelligent Cloud\nRevenue increased $31.5 billion or 30%.\n•\tServer products and cloud services revenue increased $31.0 billion or 31% driven by Azure and other cloud services. Azure and other cloud services revenue grew 41% driven by demand for services across the platform with continued growth across all workloads. Server products revenue increased 1% primarily driven by higher purchases of licenses running in multi-cloud environments, offset in part by c...\n\n[位置 245272]\n... and cloud services, including Dynamics 365, comprising a set of intelligent, cloud-based applications across ERP, CRM, Power Apps, and Power Automate; and on-premises ERP and CRM applications.\nIntelligent Cloud\nOur Intelligent Cloud segment consists of our public, private, and hybrid server products and cloud services that power modern business and developers. This segment primarily comprises:\n•\tServer products and cloud services, including Azure and other cloud services, comprising cloud and AI consumption-based services, GitHub cloud services, Health and Life Sciences cloud services (formerly Nuance Healthcare cloud services), virtual desktop offerings, and other cloud services; and Server products, comprising SQL Server, Windows Server, Visual Studio, System Center, related Client Acce...\n\n[位置 248976]\n... of the revenue. \nRevenue, classified by significant product and service offerings, was as follows: \nOur Microsoft Cloud revenue, which includes Microsoft 365 Commercial cloud, Azure and other cloud services, the commercial portion of LinkedIn, and Dynamics 365, was $214.4 billion, $168.9 billion, and $137.7 billion in fiscal years 2026, 2025, and 2024, respectively. These amounts are included in Server products and cloud services, Microsoft 365 Commercial products and cloud services, LinkedIn, and Dynamics products and cloud services in the table above.\nAssets are not allocated to segments for internal reporting presentations. A portion of amortization and depreciation is included with various other costs in an overhead allocation to each segment. It is impracticable for us to separately ..."
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n\n\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_59f499cd38124f7986438ca9",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"10k.txt\", \"length\": 2500, \"offset\": 248900}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_59f499cd38124f7986438ca9",
+    "name": "read_material",
+    "content": "[10k.txt 第 248900–251400 字符，共 423020]\ncal years 2026, 2025, and 2024, respectively. These amounts are included in Server products and cloud services, Microsoft 365 Commercial products and cloud services, LinkedIn, and Dynamics products and cloud services in the table above.\nAssets are not allocated to segments for internal reporting presentations. A portion of amortization and depreciation is included with various other costs in an overhead allocation to each segment. It is impracticable for us to separately identify the amount of amortization and depreciation by segment that is included in the measure of segment profit or loss.\nLong-lived assets, excluding financial instruments and tax assets, classified by the location of the controlling statutory company and with countries over 10% of the total shown separately, were as follows:\nREPORT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTING FIRM\nTo the Stockholders and the Board of Directors of Microsoft Corporation \nOpinion on the Financial Statements\nWe have audited the accompanying consolidated balance sheets of Microsoft Corporation and subsidiaries (the “Company”) as of June 30, 2026 and 2025, the related consolidated statements of income, comprehensive income, cash flows, and stockholders' equity, for each of the three years in the period ended June 30, 2026, and the related notes (collectively referred to as the “financial statements”). In our opinion, the financial statements present fairly, in all material respects, the financial position of the Company as of June 30, 2026 and 2025, and the results of its operations and its cash flows for each of the three years in the period ended June 30, 2026, in conformity with accounting principles generally accepted in the United States of America.\nWe have also audited, in accordance with the standards of the Public Company Accounting Oversight Board (United States) (PCAOB), the Company's internal control over financial reporting as of June 30, 2026, based on criteria established in Internal Control — Integrated Framework (2013) issued by the Committee of Sponsoring Organizations of the Treadway Commission and our report dated July 29, 2026, expressed an unqualified opinion on the Company's internal control over financial reporting.\nBasis for Opinion\nThese financial statements are the responsibility of the Company's management. Our responsibility is to express an opinion on the Company's financial statements based on our audits. We are a public accounting firm registered with the PCAOB and are required t"
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n\n\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_210427e325dc42f69936da4c",
+        "function": {
+          "name": "read_material",
+          "arguments": "{\"name\": \"10k.txt\", \"length\": 2000, \"offset\": 244900}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_210427e325dc42f69936da4c",
+    "name": "read_material",
+    "content": "[10k.txt 第 244900–246900 字符，共 423020]\nng Dynamics 365, comprising a set of intelligent, cloud-based applications across ERP, CRM, Power Apps, and Power Automate; and on-premises ERP and CRM applications.\nIntelligent Cloud\nOur Intelligent Cloud segment consists of our public, private, and hybrid server products and cloud services that power modern business and developers. This segment primarily comprises:\n•\tServer products and cloud services, including Azure and other cloud services, comprising cloud and AI consumption-based services, GitHub cloud services, Health and Life Sciences cloud services (formerly Nuance Healthcare cloud services), virtual desktop offerings, and other cloud services; and Server products, comprising SQL Server, Windows Server, Visual Studio, System Center, related Client Access Licenses, and other on-premises offerings.\n•\tEnterprise and partner services, including Enterprise Support Services, Industry Solutions, Microsoft Partner Network, and Learning Experience.\nMore Personal Computing\nOur More Personal Computing segment consists of products and services that put customers at the center of the experience with our technology. This segment primarily comprises:\n•\tWindows and Devices, including Windows OEM licensing (Windows Pro and non-Pro licenses sold through the OEM channel) and Devices, comprising Surface and PC accessories.\n•\tXBOX (formerly Gaming), including XBOX hardware and XBOX content and services, comprising first- and third-party content (including games and in-game content), XBOX Game Pass and other subscriptions, XBOX Cloud Gaming, advertising, and other cloud services.\n•\tSearch advertising (formerly Search and news advertising), comprising Bing, Copilot, Microsoft News, Microsoft Edge, and third-party affiliates.\nRevenue and costs are generally directly attributed to our segments. However, due to the integrated structure of our business, certain revenue recognized and costs incurred by one segment may benefit other segments. Revenue from certain contracts is allocate"
+  },
+  {
+    "role": "assistant",
+    "content": "\n\n\n\n\n\n\n",
+    "tool_calls": [
+      {
+        "type": "function",
+        "index": 0,
+        "id": "call_7042a2b805894f1380918b8f",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"Productivity and Business Processes\"}"
+        }
+      },
+      {
+        "type": "function",
+        "index": 1,
+        "id": "call_9996e8aa308a464791520bc5",
+        "function": {
+          "name": "search_material",
+          "arguments": "{\"name\": \"press_release.txt\", \"query\": \"remaining performance obligation\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_7042a2b805894f1380918b8f",
+    "name": "search_material",
+    "content": "[位置 2548]\n...ditional information regarding our non-GAAP definition is provided below. All growth comparisons relate to the corresponding period in the last fiscal year. \n*Impact from OpenAI adjusts for the impact from investments in OpenAI \nBusiness Highlights\nMicrosoft Cloud revenue was $59.3 billion and increased 27%, and commercial remaining performance obligation increased 84% to $678 billion.\nRevenue in Productivity and Business Processes was $37.8 billion and increased 14%, with the following business highlights:\nMicrosoft 365 Commercial cloud revenue increased 16% when adjusted for the prior year comparable that benefited from 2 points of in-period revenue recognition. On a reported basis, Microsoft 365 Commercial cloud revenue increased 14%.\nMicrosoft 365 Consumer cloud revenue increased 24% (...\n\n[位置 18814]\n...onths Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30, | Three Months Ended June 30,\n($ in millions) | 2026 |  | 2025 |  | Percentage Change Y/Y | Constant Currency Impact | Percentage Change Y/Y\n($ in millions) | As Reported\n(GAAP) |  | As Reported\n(GAAP) |  | GAAP | Constant Currency Impact | Constant Currency\nProductivity and Business Processes | $37,847 |  | $33,112 |  | 14% | $244 | 14%\nIntelligent Cloud | $39,306 |  | $29,878 |  | 32% | $80 | 31%\nMore Personal Computing | $12,854 |  | $13,451 |  | (4)% | $67 | (5)%\nThree Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026\n | Percentage Change Y/Y (GAAP) | Constant Curren..."
+  },
+  {
+    "role": "tool",
+    "tool_call_id": "call_9996e8aa308a464791520bc5",
+    "name": "search_material",
+    "content": "[位置 2473]\n...lly accepted accounting principles (GAAP) to non-GAAP financial results. Additional information regarding our non-GAAP definition is provided below. All growth comparisons relate to the corresponding period in the last fiscal year. \n*Impact from OpenAI adjusts for the impact from investments in OpenAI \nBusiness Highlights\nMicrosoft Cloud revenue was $59.3 billion and increased 27%, and commercial remaining performance obligation increased 84% to $678 billion.\nRevenue in Productivity and Business Processes was $37.8 billion and increased 14%, with the following business highlights:\nMicrosoft 365 Commercial cloud revenue increased 16% when adjusted for the prior year comparable that benefited from 2 points of in-period revenue recognition. On a reported basis, Microsoft 365 Commercial cloud ...\n\n[位置 19318]\n...,306 |  | $29,878 |  | 32% | $80 | 31%\nMore Personal Computing | $12,854 |  | $13,451 |  | (4)% | $67 | (5)%\nThree Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026 | Three Months Ended June 30, 2026\n | Percentage Change Y/Y (GAAP) | Constant Currency Impact | Percentage Change Y/Y Constant Currency\nMicrosoft Cloud revenue | 27% | 0% | 27%\nCommercial remaining performance obligation | 84% | 0% | 84%\nMicrosoft 365 Commercial cloud revenue | 14% | 0% | 14%\nMicrosoft 365 Consumer cloud revenue | 24% | (2)% | 22%\nLinkedIn revenue | 12% | (2)% | 10%\nDynamics 365 revenue | 13% | (1)% | 12%\nAzure and other cloud services revenue | 43% | 0% | 43%\nWindows OEM and Devices revenue | (7)% | 0% | (7)%\nXBOX content and services revenue | (10)% | 0% | (10)%\n..."
+  },
+  {
+    "role": "assistant",
+    "content": "## 微软 FY26 Q4（截至 2026 年 6 月 30 日的三个月）关键数据\n\n### 1. Microsoft Cloud revenue = **$59.3 billion**（593 亿美元），同比增长 27%\n\n**出处：**\n- `press_release.txt`，位置 ~1784（Amy Hood 引述：\"Microsoft Cloud revenue of $59.3 billion, up 27% year-over-year\"）\n- `metrics.txt`，位置 ~422 的 Investor Metrics 表，Q4'26 列显示 \"Microsoft Cloud revenue | 59.3\"（单位：十亿美元）\n\n---\n\n### 2. Intelligent Cloud（智能云）分部收入 = **$39,306 million**（约 393 亿美元），同比增长 32%\n\n**出处：**\n- `press_release.txt`，位置 ~18895/19266 的分部收入表（标题 \"Three Months Ended June 30, 2026\"，行 \"Intelligent Cloud | $39,306 | $29,878 | 32%\"），单位为百万美元\n- `press_release.txt`，位置 ~3115 正文：\"Revenue in Intelligent Cloud was $39.3 billion and increased 32%\"\n\n---\n\n### 3. 两者**不是同一个东西**，口径差异很大\n\n#### 口径定义（均来自 `10k.txt`）\n\n**Microsoft Cloud revenue**（跨分部运营指标，非 GAAP 分部口径）\n> `10k.txt` 位置 ~248681：\"Our Microsoft Cloud revenue, which includes **Microsoft 365 Commercial cloud, Azure and other cloud services, the commercial portion of LinkedIn, and Dynamics 365**\"\n\n它**横跨两个分部**：\n- Productivity & Business Processes 分部中的 Microsoft 365 Commercial cloud、LinkedIn 商业部分、Dynamics 365\n- Intelligent Cloud 分部中的 Azure and other cloud services\n\n**Intelligent Cloud**（GAAP 报告分部）\n> `10k.txt` 位置 ~18459 / ~245272：\"Our Intelligent Cloud segment consists of our public, private, and hybrid **server products and cloud services** that power modern business and developers. This segment primarily comprises:\n> - Server products and cloud services（含 Azure and other cloud services、GitHub、Health and Life Sciences、虚拟桌面等）\n> - **Server products**（SQL Server、Windows Server、Visual Studio、System Center、Client Access Licenses 等**本地部署产品**）\n> - Enterprise and partner services（企业支持服务、行业解决方案、Partner Network、Learning Experience）\"\n\n#### 主要差异\n\n| 维度 | Microsoft Cloud revenue | Intelligent Cloud 分部 |\n|---|---|---|\n| 性质 | 跨分部运营指标（非 GAAP） | GAAP 报告分部 |\n| 范围 | 仅含 4 项：M365 商业云、Azure 商业服务、LinkedIn 商业部分、Dynamics 365 | 含全部 Server 产品和云服务（含本地部署的 SQL/Windows Server 等）+ 企业与伙伴服务 |\n| 所在分部 | 跨 P&BP 与 IC 两个分部 | 仅 Intelligent Cloud 一个分部 |\n| FY26 Q4 金额 | $59.3B | $39.3B |\n\n#### 数值差异\n\n$59.3B − $39.306B ≈ **$20.0B（约 200 亿美元）**\n\n差异来源：\n- **Microsoft Cloud 多出的部分**（约 200 亿美元）：主要来自 **Productivity & Business Processes 分部**中的 Microsoft 365 Commercial cloud、LinkedIn 商业部分和 Dynamics 365——这些计入 Microsoft Cloud 但**不属于** Intelligent Cloud 分部。\n- **Intelligent Cloud 多出的部分**：包含大量**本地部署的 Server 产品**（SQL Server、Windows Server、Visual Studio、System Center、Client Access Licenses）以及 Enterprise & partner services——这些属于 Intelligent Cloud 分部但**不计入** Microsoft Cloud（因为 Microsoft Cloud 只统计云/订阅类收入）。\n\n简言之：**Microsoft Cloud 是一个\"商业云订阅\"视角的跨分部指标；Intelligent Cloud 是一个\"服务器产品与云服务\"视角的 GAAP 分部，两者有交集（Azure），但口径完全不同，金额相差约 200 亿美元。**"
+  }
+]
